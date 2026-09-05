@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+    /* Colors */
+    --color-primary: #175e2e;
+    /* Deep green for top bar and logos */
+    --color-primary-light: #21783e;
+    --color-primary-dark: #104020;
+    --color-accent: #f59e0b;
+    /* Yellow/Orange for assessment CTA */
+    --color-background-soft: #f8fafc;
+    /* Very light slate for section backgrounds */
+
+    /* Fonts */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Set default sans font for the whole app */
+    --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+    /* Globally manage font families for all text */
+    body {
+        font-family: var(--font-body);
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+    }
+}
+
+@layer utilities {
+    .text-shadow-sm {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+}
