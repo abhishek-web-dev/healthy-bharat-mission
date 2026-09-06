@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Healthy Bharat Mission</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Built Tailwind CSS -->
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body class="font-body text-gray-800 bg-white antialiased overflow-x-hidden">
+
+    <!-- Header Area -->
+    <hbm-header></hbm-header>
+
+    <!-- Active Nav Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const navLinks = document.querySelectorAll('hbm-header a');
+                navLinks.forEach(link => {
+                    if (link.textContent.trim() === 'Contact') {
+                        // Remove active class from Home
+                        const homeLink = Array.from(navLinks).find(l => l.textContent.trim() === 'Home');
+                        if (homeLink) {
+                            homeLink.classList.remove('text-primary', 'border-b-[3px]', 'border-primary', 'font-semibold');
+                            homeLink.classList.add('hover:text-primary', 'transition-colors');
+                        }
+
+                        // Add active class to Contact
+                        link.classList.remove('hover:text-primary', 'transition-colors');
+                        link.classList.add('text-primary', 'border-b-[3px]', 'border-primary', 'pb-1', 'font-semibold');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+
+    <!-- MAIN CONTENT START -->
+
+    <!-- Hero Section (Full Width Banner) -->
+    <section class="relative min-h-[450px] xl:min-h-[550px] flex flex-col justify-center overflow-hidden bg-white">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/contact-banner.png" alt="Contact Banner"
+                class="w-full h-full object-cover object-[center_right]">
+            <!-- Gradient Overlay for text readability on the left -->
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent md:w-[60%] lg:w-[50%]">
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="container mx-auto max-w-[1500px] relative z-10 px-4 lg:px-8 py-12 lg:py-20">
+            <div class="w-full md:w-3/4 lg:w-3/5 xl:w-1/2 flex flex-col items-start text-left">
+                <!-- Breadcrumbs -->
+                <div class="flex items-center space-x-2 text-[11px] xl:text-xs text-gray-500 mb-6 font-medium">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <i class="fa-solid fa-chevron-right text-[8px]"></i>
+                    <span class="text-gray-800 font-semibold">Contact Us</span>
+                </div>
+
+                <h1
+                    class="font-heading font-extrabold text-4xl lg:text-5xl xl:text-6xl text-[#1e293b] leading-tight mb-4 tracking-tight">
+                    Contact <span class="text-primary">Us</span>
+                </h1>
+
+                <h3 class="font-heading font-bold text-lg lg:text-xl xl:text-2xl text-[#1e293b] mb-6">
+                    We're Here to Help
+                </h3>
+
+                <p class="text-gray-600 text-sm xl:text-base leading-relaxed max-w-lg">
+                    Have questions about our programs, need guidance, or want to partner with us? Reach out to our team
+                    &mdash; we'd love to hear from you and support you on your journey towards a healthier,
+                    diabetes-free India.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="py-12 lg:py-20 bg-background-soft relative">
+        <div class="container mx-auto max-w-[1400px] px-4 lg:px-6">
+            <div class="flex flex-col lg:flex-row gap-12 xl:gap-16">
+
+                <!-- Left Column: Contact Info & Map -->
+                <div class="w-full lg:w-1/2 flex flex-col gap-8">
+                    <!-- Heading -->
+                    <div>
+                        <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-[#1e293b] mb-2 tracking-tight">
+                            Get in <span class="text-primary">Touch</span>
+                        </h2>
+                        <p class="text-[#1e293b] font-semibold text-sm lg:text-base">
+                            Our team is always ready to assist you.
+                        </p>
+                    </div>
+
+                    <!-- 2x2 Info Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                        <!-- Card 1 -->
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col items-start">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mb-4 shadow-sm">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <h4 class="font-bold text-[#1e293b] text-base mb-1">Call Us</h4>
+                            <a href="tel:+919876543210"
+                                class="text-gray-600 text-sm hover:text-primary transition-colors mb-1">+91 98765
+                                43210</a>
+                            <p class="text-gray-400 text-xs">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col items-start">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mb-4 shadow-sm">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <h4 class="font-bold text-[#1e293b] text-base mb-1">Email Us</h4>
+                            <a href="mailto:info@healthybharatmission.org"
+                                class="text-gray-600 text-sm hover:text-primary transition-colors mb-1 truncate w-full">info@healthybharatmission.org</a>
+                            <p class="text-gray-400 text-xs">We usually respond within 24 hours.</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col items-start">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mb-4 shadow-sm">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <h4 class="font-bold text-[#1e293b] text-base mb-1">Our Address</h4>
+                            <p class="text-gray-600 text-sm mb-1 leading-snug">123, Health Street,<br>New Delhi - 110001
+                            </p>
+                            <p class="text-gray-400 text-xs">India</p>
+                        </div>
+
+                        <!-- Card 4 (Socials) -->
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col items-start">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mb-4 shadow-sm">
+                                <i class="fa-regular fa-comment"></i>
+                            </div>
+                            <h4 class="font-bold text-[#1e293b] text-base mb-3">Follow Us</h4>
+                            <div class="flex space-x-2 mb-3">
+                                <a href="#" class="text-[#1877F2] hover:opacity-80 transition-opacity"><i
+                                        class="fa-brands fa-facebook text-xl"></i></a>
+                                <a href="#" class="text-[#E1306C] hover:opacity-80 transition-opacity"><i
+                                        class="fa-brands fa-instagram text-xl"></i></a>
+                                <a href="#" class="text-[#FF0000] hover:opacity-80 transition-opacity"><i
+                                        class="fa-brands fa-youtube text-xl"></i></a>
+                                <a href="#" class="text-[#0A66C2] hover:opacity-80 transition-opacity"><i
+                                        class="fa-brands fa-linkedin text-xl"></i></a>
+                            </div>
+                            <p class="text-gray-400 text-xs">Stay connected for updates and health tips.</p>
+                        </div>
+                    </div>
+
+                    <!-- Google Map Embed -->
+                    <div
+                        class="w-full h-64 lg:h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-100 relative">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d112061.09262729953!2d77.15873752697843!3d28.646677259922756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form & FAQ -->
+                <div class="w-full lg:w-1/2 flex flex-col gap-10">
+
+                    <!-- Global Contact Form Component -->
+                    <hbm-contact-form></hbm-contact-form>
+
+                    <!-- FAQ Section -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100">
+                        <h3 class="font-heading font-extrabold text-2xl lg:text-3xl text-[#1e293b] mb-2 tracking-tight">
+                            Frequently Asked <span class="text-primary">Questions</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6">
+                            Quick answers to common queries.
+                        </p>
+
+                        <!-- Accordion Items -->
+                        <div class="space-y-3">
+
+                            <!-- Item 1 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleFaq(this)"
+                                    class="w-full px-4 py-3 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none">
+                                    <h4 class="text-sm font-semibold text-gray-800 flex items-center text-left">
+                                        <i class="fa-regular fa-user mr-3 text-gray-400"></i>
+                                        How can I join Healthy Bharat Mission?
+                                    </h4>
+                                    <i
+                                        class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300 faq-icon"></i>
+                                </button>
+                                <div class="px-4 py-3 bg-gray-50 text-sm text-gray-600 hidden faq-content">
+                                    You can join our mission by signing up on our website, participating in our
+                                    programs, or volunteering for our community initiatives.
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleFaq(this)"
+                                    class="w-full px-4 py-3 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none">
+                                    <h4 class="text-sm font-semibold text-gray-800 flex items-center text-left">
+                                        <i class="fa-regular fa-calendar-check mr-3 text-gray-400"></i>
+                                        Do you offer online consultations?
+                                    </h4>
+                                    <i
+                                        class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300 faq-icon"></i>
+                                </button>
+                                <div class="px-4 py-3 bg-gray-50 text-sm text-gray-600 hidden faq-content">
+                                    Yes, we offer both online and in-person consultations with our certified health
+                                    experts to help you reverse diabetes naturally.
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleFaq(this)"
+                                    class="w-full px-4 py-3 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none">
+                                    <h4 class="text-sm font-semibold text-gray-800 flex items-center text-left">
+                                        <i class="fa-solid fa-handshake-angle mr-3 text-gray-400"></i>
+                                        Can I partner with your organization?
+                                    </h4>
+                                    <i
+                                        class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300 faq-icon"></i>
+                                </button>
+                                <div class="px-4 py-3 bg-gray-50 text-sm text-gray-600 hidden faq-content">
+                                    Absolutely! We are always looking for passionate partners, doctors, and health
+                                    enthusiasts. Please reach out to us via the contact form.
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleFaq(this)"
+                                    class="w-full px-4 py-3 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none">
+                                    <h4 class="text-sm font-semibold text-gray-800 flex items-center text-left">
+                                        <i class="fa-regular fa-clock mr-3 text-gray-400"></i>
+                                        How long does it take to get a response?
+                                    </h4>
+                                    <i
+                                        class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300 faq-icon"></i>
+                                </button>
+                                <div class="px-4 py-3 bg-gray-50 text-sm text-gray-600 hidden faq-content">
+                                    Our support team typically responds to all inquiries within 24-48 hours on business
+                                    days.
+                                </div>
+                            </div>
+
+                            <!-- Item 5 -->
+                            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleFaq(this)"
+                                    class="w-full px-4 py-3 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none">
+                                    <h4 class="text-sm font-semibold text-gray-800 flex items-center text-left">
+                                        <i class="fa-solid fa-location-dot mr-3 text-gray-400"></i>
+                                        Where are your programs available?
+                                    </h4>
+                                    <i
+                                        class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300 faq-icon"></i>
+                                </button>
+                                <div class="px-4 py-3 bg-gray-50 text-sm text-gray-600 hidden faq-content">
+                                    Our programs are primarily available online across India, with specific offline
+                                    camps held periodically in major cities.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- FAQ Info Box -->
+                        <div class="mt-6 bg-[#f0f9f4] border border-[#d1e8db] rounded-lg p-4 flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-leaf text-primary"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-[#1e293b] font-bold text-sm mb-1">Still have a question?</h5>
+                                <p class="text-gray-500 text-xs">Feel free to reach out to us directly. Our team is
+                                    happy to help!</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Quote Section (Full Width) -->
+    <section
+        class="relative bg-white min-h-[180px] lg:min-h-[250px] flex items-center overflow-hidden border-t border-[#e2e8f0]">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/footer-top.png" alt="Growing Plant" class="w-full h-full object-cover">
+        </div>
+
+        <div
+            class="container mx-auto max-w-[1400px] px-4 lg:px-6 relative z-10 flex flex-col md:flex-row items-center justify-between py-4 gap-4 md:gap-2">
+
+            <!-- Left spacer -->
+            <div class="hidden md:block w-full md:w-1/4"></div>
+
+            <!-- Center Text -->
+            <div class="w-full md:flex-1 px-4 text-center">
+                <h2 class="font-heading font-extrabold text-xl md:text-2xl lg:text-3xl xl:text-[2.5rem] text-primary leading-tight"
+                    style="text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white, 0px 4px 8px rgba(255,255,255,0.8);">
+                    &ldquo;Together, we can create a healthier, stronger and diabetes-free India.&rdquo;
+                </h2>
+            </div>
+
+            <!-- Right Handwritten text -->
+            <div class="w-full md:w-1/4 flex justify-center md:justify-end">
+                <div class="transform -rotate-[6deg] p-2 md:p-0">
+                    <p class="font-['Caveat'] text-5xl lg:text-6xl xl:text-7xl text-primary font-bold leading-tight text-center md:text-right"
+                        style="text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white, 0px 4px 8px rgba(255,255,255,0.8);">
+                        Small<br>Steps<br>Big<br>Change <i class="fa-regular fa-heart text-primary text-4xl"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT END -->
+
+    <!-- Footer Section -->
+    <hbm-footer></hbm-footer>
+    <script src="js/components.js"></script>
+    <script>
+        function toggleFaq(button) {
+            // Find the content div and the icon
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+
+            // Toggle the 'hidden' class on the content
+            content.classList.toggle('hidden');
+
+            // Rotate the icon
+            icon.classList.toggle('-rotate-180');
+        }
+    </script>
+</body>
+
+</html>

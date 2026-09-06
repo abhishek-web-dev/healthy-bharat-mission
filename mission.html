@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mission - Healthy Bharat Mission</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Built Tailwind CSS -->
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body class="font-body text-gray-800 bg-background-soft antialiased overflow-x-hidden">
+
+    <!-- Header Area -->
+    <hbm-header></hbm-header>
+
+    <!-- Active Nav Script -->
+    <script>
+        // Wait for the custom element to render its innerHTML
+        document.addEventListener('DOMContentLoaded', () => {
+            // Since the header is a web component, it renders synchronously,
+            // but just in case, we can use a slight timeout or mutation observer.
+            // But since it sets innerHTML in connectedCallback, it should be immediate.
+            setTimeout(() => {
+                const navLinks = document.querySelectorAll('hbm-header a');
+                navLinks.forEach(link => {
+                    if (link.textContent.trim() === 'Our Mission') {
+                        // Remove active class from Home
+                        const homeLink = Array.from(navLinks).find(l => l.textContent.trim() === 'Home');
+                        if (homeLink) {
+                            homeLink.classList.remove('text-primary', 'border-b-[3px]', 'border-primary', 'font-semibold');
+                            homeLink.classList.add('hover:text-primary', 'transition-colors');
+                        }
+                        
+                        // Add active class to Our Mission
+                        link.classList.remove('hover:text-primary', 'transition-colors');
+                        link.classList.add('text-primary', 'border-b-[3px]', 'border-primary', 'pb-1', 'font-semibold');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+
+    <!-- MAIN CONTENT START -->
+
+    <!-- Hero Section (Full Width Banner) -->
+    <section class="relative min-h-[450px] xl:min-h-[550px] flex flex-col justify-center overflow-hidden bg-white">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/misson-banner.png" alt="Mission Banner"
+                class="w-full h-full object-cover object-[center_right]">
+            <!-- Gradient Overlay for text readability on the left (if the image isn't already white on the left) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent md:w-[60%]"></div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="container mx-auto max-w-[1500px] relative z-10 px-4 lg:px-8 py-12 lg:py-20">
+            <div class="w-full md:w-3/4 lg:w-3/5 xl:w-1/2 flex flex-col items-start text-left">
+                <!-- Breadcrumbs -->
+                <div class="flex items-center space-x-2 text-[11px] xl:text-xs text-gray-500 mb-6 font-medium">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <i class="fa-solid fa-chevron-right text-[8px]"></i>
+                    <span class="text-gray-800 font-semibold">Our Mission</span>
+                </div>
+
+                <h1 class="font-heading font-extrabold text-4xl lg:text-5xl xl:text-6xl text-[#1e293b] leading-tight mb-4 tracking-tight">
+                    Our <span class="text-primary">Mission</span>
+                </h1>
+                
+                <h3 class="font-heading font-bold text-lg lg:text-xl xl:text-2xl text-[#1e293b] mb-6">
+                    A Healthier India, A Brighter Tomorrow
+                </h3>
+                
+                <p class="text-gray-600 text-sm xl:text-base leading-relaxed mb-8 max-w-lg">
+                    At Healthy Bharat Mission, we are on a mission to create a diabetes-free India by empowering individuals with the right knowledge, healthy habits, and sustainable lifestyle solutions.
+                </p>
+
+                <a href="#" class="bg-primary hover:bg-primary-light text-white px-6 xl:px-8 py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg flex items-center group mb-10">
+                    Be a Part of the Change 
+                    <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- Stats Row -->
+                <div class="flex flex-wrap items-center gap-6 xl:gap-10 pt-4 w-full">
+                    <div class="flex items-center gap-3">
+                        <div class="text-primary text-2xl xl:text-3xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-[#1e293b] text-sm xl:text-base leading-none mb-1">5000+</h4>
+                            <p class="text-[10px] xl:text-xs text-gray-500 font-medium leading-none">Lives Impacted</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Vertical Divider -->
+                    <div class="hidden sm:block w-px h-8 bg-gray-300"></div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="text-primary text-2xl xl:text-3xl">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-[#1e293b] text-sm xl:text-base leading-none mb-1">100+</h4>
+                            <p class="text-[10px] xl:text-xs text-gray-500 font-medium leading-none">Health Experts</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Vertical Divider -->
+                    <div class="hidden sm:block w-px h-8 bg-gray-300"></div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="text-primary text-2xl xl:text-3xl">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-[#1e293b] text-sm xl:text-base leading-none mb-1">Stronger</h4>
+                            <p class="text-[10px] xl:text-xs text-gray-500 font-medium leading-none">Healthier India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision, Mission and Values Section -->
+    <section class="py-16 lg:py-24 bg-background-soft relative">
+        <div class="container mx-auto max-w-[1200px] px-4 lg:px-6 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-[#1e293b] mb-3 tracking-tight">
+                    Our Vision, Mission and Values
+                </h2>
+                <p class="text-gray-600 text-sm lg:text-base font-medium">
+                    Guided by a simple belief &ndash; a healthier India is a happier and stronger India.
+                </p>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Our Vision -->
+                <div class="bg-white rounded-3xl p-8 xl:p-10 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 xl:w-20 xl:h-20 mx-auto bg-primary rounded-full flex items-center justify-center text-white mb-6 shadow-md relative overflow-hidden">
+                        <div class="absolute inset-0 border-4 border-primary-light rounded-full m-1"></div>
+                        <i class="fa-solid fa-eye text-2xl xl:text-3xl relative z-10"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl xl:text-2xl text-[#1e293b] mb-4">Our Vision</h3>
+                    <p class="text-gray-600 text-sm xl:text-base leading-relaxed">
+                        A diabetes-free, healthier India.
+                    </p>
+                </div>
+
+                <!-- Our Mission -->
+                <div class="bg-white rounded-3xl p-8 xl:p-10 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 xl:w-20 xl:h-20 mx-auto bg-primary rounded-full flex items-center justify-center text-white mb-6 shadow-md relative overflow-hidden">
+                        <div class="absolute inset-0 border-4 border-primary-light rounded-full m-1"></div>
+                        <i class="fa-solid fa-bullseye text-2xl xl:text-3xl relative z-10"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl xl:text-2xl text-[#1e293b] mb-4">Our Mission</h3>
+                    <p class="text-gray-600 text-sm xl:text-base leading-relaxed">
+                        To empower individuals with knowledge and lifestyle solutions.
+                    </p>
+                </div>
+
+                <!-- Our Values -->
+                <div class="bg-white rounded-3xl p-8 xl:p-10 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 xl:w-20 xl:h-20 mx-auto bg-primary rounded-full flex items-center justify-center text-white mb-6 shadow-md relative overflow-hidden">
+                        <div class="absolute inset-0 border-4 border-primary-light rounded-full m-1"></div>
+                        <i class="fa-solid fa-people-group text-2xl xl:text-3xl relative z-10"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl xl:text-2xl text-[#1e293b] mb-4">Our Values</h3>
+                    <p class="text-gray-600 text-sm xl:text-base leading-relaxed">
+                        Care, integrity, inclusivity and evidence-based approach.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Decoration leaves (faint) -->
+        <div class="absolute left-0 top-10 opacity-[0.03] pointer-events-none w-48 aspect-square bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMzU3Ljg0MyAxMzguMjc4QzM1Ny44NDMgNTkuNzExIDIzMS4xMjUgMCAxNjAuNTM1IDBDMTI5LjE3OCAwIDExOS4wMiA0Mi4zMiAxMTkuMDIgODIuNTA3YzAgMTA3LjEwNCAxODQuNDkzIDE3Mi42MzIgMTg0LjQ5MyAyNTkuNDc4IDAgNjIuNTUyLTQ2LjExIDEwMy4yMi0xMDkuOTIgMTAzLjIyLTQyLjA5NCAwLTgzLjA0NC0yNy4xMy0xMDMuNzA1LTU4LjEzQzQ3LjIzNyAzMjcuODcyIDE2LjkyMiA0MzMuOTg4IDE2LjkyMiA1MTJoMjIuMDM2YzAtNDkuMTA3IDkuNjE4LTE1MS44NTEgODAuNzUyLTIxNy4xNjEgNDQuMDY3IDQyLjM5MiA4Ni43OTQgNjAuMjkyIDEzNi40NjcgNjAuMjkyIDEwNC43OCAwIDE5NC43OTEtODEuNjMyIDE5NC43OTEtMjA0Ljg1NSAwLTQyLjMwNy0xMy41NC04MS40NjktMzkuMTktMTE4LjIwOC0xOS4yMjkgMjIuMTczLTUzLjcwOCA1Ni4xMS01My45MzUgODYuMjF6Ii8+PC9zdmc+')] bg-no-repeat bg-contain transform -scale-x-100"></div>
+        <div class="absolute right-0 bottom-10 opacity-[0.03] pointer-events-none w-48 aspect-square bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMzU3Ljg0MyAxMzguMjc4QzM1Ny44NDMgNTkuNzExIDIzMS4xMjUgMCAxNjAuNTM1IDBDMTI5LjE3OCAwIDExOS4wMiA0Mi4zMiAxMTkuMDIgODIuNTA3YzAgMTA3LjEwNCAxODQuNDkzIDE3Mi42MzIgMTg0LjQ5MyAyNTkuNDc4IDAgNjIuNTUyLTQ2LjExIDEwMy4yMi0xMDkuOTIgMTAzLjIyLTQyLjA5NCAwLTgzLjA0NC0yNy4xMy0xMDMuNzA1LTU4LjEzQzQ3LjIzNyAzMjcuODcyIDE2LjkyMiA0MzMuOTg4IDE2LjkyMiA1MTJoMjIuMDM2YzAtNDkuMTA3IDkuNjE4LTE1MS44NTEgODAuNzUyLTIxNy4xNjEgNDQuMDY3IDQyLjM5MiA4Ni43OTQgNjAuMjkyIDEzNi40NjcgNjAuMjkyIDEwNC43OCAwIDE5NC43OTEtODEuNjMyIDE5NC43OTEtMjA0Ljg1NSAwLTQyLjMwNy0xMy41NC04MS40NjktMzkuMTktMTE4LjIwOC0xOS4yMjkgMjIuMTczLTUzLjcwOCA1Ni4xMS01My45MzUgODYuMjF6Ii8+PC9zdmc+')] bg-no-repeat bg-contain"></div>
+    </section>
+
+    <!-- Our Purpose Section -->
+    <section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto max-w-[1200px] px-4 lg:px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                
+                <!-- Left Image Area -->
+                <div class="w-full lg:w-7/12 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <!-- Unsplash placeholder for happy child outdoors -->
+                        <img src="./assets/Our-Purpose.png" 
+                             alt="Happy healthy child" 
+                             class="w-full h-auto object-cover">
+                    </div>
+
+                </div>
+
+                <!-- Right Content Area -->
+                <div class="w-full lg:w-5/12">
+                    <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-primary mb-4 tracking-tight">
+                        Our Purpose
+                    </h2>
+                    <h3 class="font-heading font-bold text-xl lg:text-2xl text-[#1e293b] mb-6">
+                        Prevent. Reverse. Live Better.
+                    </h3>
+                    <p class="text-gray-600 text-sm lg:text-base leading-relaxed mb-6">
+                        We believe that diabetes and lifestyle-related diseases can be prevented and even reversed through awareness, healthy food choices, regular physical activity, and mental well-being.
+                    </p>
+                    <p class="text-gray-600 text-sm lg:text-base leading-relaxed">
+                        Our purpose is to make reliable health guidance accessible to every Indian family, regardless of their background.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- What Drives Us Section -->
+    <section class="py-16 lg:py-24 bg-background-soft">
+        <div class="container mx-auto max-w-[1200px] px-4 lg:px-6">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-[#1e293b] mb-3 tracking-tight">
+                    What Drives Us
+                </h2>
+                <p class="text-gray-600 text-sm lg:text-base font-medium">
+                    We are inspired by the millions of stories, families, and individuals who choose health every day.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y md:divide-y-0 lg:divide-x divide-gray-200">
+                
+                <!-- Feature 1 -->
+                <div class="flex flex-col items-center text-center px-4 py-6 lg:py-0">
+                    <i class="fa-solid fa-heart-pulse text-4xl text-primary mb-4"></i>
+                    <h4 class="font-heading font-bold text-lg text-[#1e293b] mb-2">Health for All</h4>
+                    <p class="text-gray-500 text-xs xl:text-sm">
+                        Accessible and affordable health solutions for every Indian.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex flex-col items-center text-center px-4 py-6 lg:py-0">
+                    <i class="fa-solid fa-leaf text-4xl text-primary mb-4"></i>
+                    <h4 class="font-heading font-bold text-lg text-[#1e293b] mb-2">Lifestyle First</h4>
+                    <p class="text-gray-500 text-xs xl:text-sm">
+                        Focus on natural, sustainable and practical lifestyle changes.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex flex-col items-center text-center px-4 py-6 lg:py-0">
+                    <i class="fa-solid fa-people-group text-4xl text-primary mb-4"></i>
+                    <h4 class="font-heading font-bold text-lg text-[#1e293b] mb-2">Community Support</h4>
+                    <p class="text-gray-500 text-xs xl:text-sm">
+                        Building a strong community that motivates and uplifts each other.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="flex flex-col items-center text-center px-4 py-6 lg:py-0">
+                    <i class="fa-solid fa-file-contract text-4xl text-primary mb-4"></i>
+                    <h4 class="font-heading font-bold text-lg text-[#1e293b] mb-2">Evidence-Based</h4>
+                    <p class="text-gray-500 text-xs xl:text-sm">
+                        Reliable guidance backed by modern science and traditional wisdom.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Commitment Section (Full Width) -->
+    <section class="relative bg-white py-4 lg:py-8 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/Our-Commitment.png" alt="Community looking forward"
+                 class="w-full h-full object-cover object-[center_right]">
+            <!-- Gradient Overlay for text readability on the left -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent w-full md:w-[60%] lg:w-[50%]"></div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="container mx-auto max-w-[1200px] px-4 lg:px-6 relative z-10">
+            <div class="w-full md:w-3/4 lg:w-1/2 flex flex-col items-start text-left">
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-[#1e293b] mb-4 tracking-tight">
+                    Our Commitment
+                </h2>
+                <h3 class="font-heading font-bold text-xl lg:text-2xl text-primary mb-6">
+                    Together Towards a Diabetes-Free India
+                </h3>
+                <p class="text-gray-700 text-sm lg:text-base leading-relaxed mb-6 font-medium">
+                    We are committed to creating awareness, providing practical resources, and supporting every individual on their health journey.
+                </p>
+                <p class="text-gray-700 text-sm lg:text-base leading-relaxed mb-8 font-medium">
+                    Through education, community support, and expert guidance, we aim to reduce the burden of diabetes and build a healthier, stronger and happier India.
+                </p>
+                <a href="#" class="inline-flex items-center bg-primary hover:bg-primary-light text-white px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg group">
+                    Join Our Mission 
+                    <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-16 lg:py-24 bg-[#f8fafc] relative border-t border-[#e2e8f0] overflow-hidden">
+        <div class="container mx-auto max-w-[1000px] px-4 lg:px-6 relative z-10 text-center">
+            <h2 class="font-heading font-extrabold text-2xl md:text-3xl lg:text-4xl text-primary leading-snug lg:leading-tight mb-6">
+                &ldquo;A Healthier India is not a dream, <br class="hidden md:block">
+                it's a mission. And it begins with each one of us.&rdquo;
+            </h2>
+            <p class="text-gray-500 font-medium text-sm md:text-base">
+                &ndash; Healthy Bharat Mission
+            </p>
+        </div>
+        
+        <!-- Decoration leaves (faint bottom corners) -->
+        <div class="absolute left-0 bottom-0 opacity-10 pointer-events-none w-32 md:w-48 lg:w-64 aspect-square bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMTc1ZTJlIiBkPSJNMzU3Ljg0MyAxMzguMjc4QzM1Ny44NDMgNTkuNzExIDIzMS4xMjUgMCAxNjAuNTM1IDBDMTI5LjE3OCAwIDExOS4wMiA0Mi4zMiAxMTkuMDIgODIuNTA3YzAgMTA3LjEwNCAxODQuNDkzIDE3Mi42MzIgMTg0LjQ5MyAyNTkuNDc4IDAgNjIuNTUyLTQ2LjExIDEwMy4yMi0xMDkuOTIgMTAzLjIyLTQyLjA5NCAwLTgzLjA0NC0yNy4xMy0xMDMuNzA1LTU4LjEzQzQ3LjIzNyAzMjcuODcyIDE2LjkyMiA0MzMuOTg4IDE2LjkyMiA1MTJoMjIuMDM2YzAtNDkuMTA3IDkuNjE4LTE1MS44NTEgODAuNzUyLTIxNy4xNjEgNDQuMDY3IDQyLjM5MiA4Ni43OTQgNjAuMjkyIDEzNi40NjcgNjAuMjkyIDEwNC43OCAwIDE5NC43OTEtODEuNjMyIDE5NC43OTEtMjA0Ljg1NSAwLTQyLjMwNy0xMy41NC04MS40NjktMzkuMTktMTE4LjIwOC0xOS4yMjkgMjIuMTczLTUzLjcwOCA1Ni4xMS01My45MzUgODYuMjF6Ii8+PC9zdmc+')] bg-no-repeat bg-contain transform -scale-x-100 origin-bottom"></div>
+        <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none w-32 md:w-48 lg:w-64 aspect-square bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMTc1ZTJlIiBkPSJNMzU3Ljg0MyAxMzguMjc4QzM1Ny44NDMgNTkuNzExIDIzMS4xMjUgMCAxNjAuNTM1IDBDMTI5LjE3OCAwIDExOS4wMiA0Mi4zMiAxMTkuMDIgODIuNTA3YzAgMTA3LjEwNCAxODQuNDkzIDE3Mi42MzIgMTg0LjQ5MyAyNTkuNDc4IDAgNjIuNTUyLTQ2LjExIDEwMy4yMi0xMDkuOTIgMTAzLjIyLTQyLjA5NCAwLTgzLjA0NC0yNy4xMy0xMDMuNzA1LTU4LjEzQzQ3LjIzNyAzMjcuODcyIDE2LjkyMiA0MzMuOTg4IDE2LjkyMiA1MTJoMjIuMDM2YzAtNDkuMTA3IDkuNjE4LTE1MS44NTEgODAuNzUyLTIxNy4xNjEgNDQuMDY3IDQyLjM5MiA4Ni43OTQgNjAuMjkyIDEzNi40NjcgNjAuMjkyIDEwNC43OCAwIDE5NC43OTEtODEuNjMyIDE5NC43OTEtMjA0Ljg1NSAwLTQyLjMwNy0xMy41NC04MS40NjktMzkuMTktMTE4LjIwOC0xOS4yMjkgMjIuMTczLTUzLjcwOCA1Ni4xMS01My45MzUgODYuMjF6Ii8+PC9zdmc+')] bg-no-repeat bg-contain origin-bottom"></div>
+    </section>
+
+    <!-- MAIN CONTENT END -->
+
+    <!-- Footer Section -->
+    <hbm-footer></hbm-footer>
+    <script src="js/components.js"></script>
+</body>
+
+</html>
