@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - Healthy Bharat Mission</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Built Tailwind CSS -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <style>
+        .font-handwriting {
+            font-family: 'Caveat', cursive;
+        }
+    </style>
+</head>
+
+<body class="font-body text-gray-800 bg-background-soft antialiased overflow-x-hidden">
+
+    <!-- Header Area -->
+    <hbm-header></hbm-header>
+
+    <!-- MAIN CONTENT START -->
+
+    <!-- Hero Section (Full Width Banner) -->
+    <section class="relative min-h-[450px] xl:min-h-[550px] flex flex-col justify-center overflow-hidden bg-white">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/success-story-banner.png" alt="Success Story Banner"
+                class="w-full h-full object-cover object-[center_right]">
+            <!-- Gradient Overlay for text readability on the left -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent md:w-[60%]"></div>
+        </div>
+
+        <!-- Content Area -->
+        <div
+            class="container mx-auto max-w-[1500px] relative z-10 px-4 lg:px-8 py-12 lg:py-20 flex justify-between items-center">
+
+            <!-- Left Text Content -->
+            <div class="w-full md:w-3/4 lg:w-3/5 xl:w-1/2 flex flex-col items-start text-left relative z-20">
+                <!-- Breadcrumbs -->
+                <div class="flex items-center space-x-2 text-[11px] xl:text-xs text-gray-500 mb-6 font-medium">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <i class="fa-solid fa-chevron-right text-[8px]"></i>
+                    <span class="text-gray-800 font-semibold">Success Stories</span>
+                </div>
+
+                <h1
+                    class="font-heading font-extrabold text-4xl lg:text-5xl xl:text-[60px] text-[#1e293b] leading-tight mb-4 tracking-tight">
+                    Success <span class="text-primary">Stories</span>
+                </h1>
+
+                <h3 class="font-heading font-bold text-lg lg:text-xl xl:text-2xl text-[#1e293b] mb-4">
+                    Real People. Real Journeys. Real Impact.
+                </h3>
+
+                <p class="text-gray-600 text-sm xl:text-base leading-relaxed mb-8 max-w-lg">
+                    Every story here is a step towards a healthier, happier India. Discover how individuals and families
+                    are overcoming diabetes with the right guidance, lifestyle changes, and continuous support from
+                    Healthy Bharat Mission.
+                </p>
+
+                <a href="#"
+                    class="bg-primary hover:bg-primary-light text-white px-6 xl:px-8 py-3 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg flex items-center group">
+                    Share Your Story
+                    <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Right side absolute handwriting text (visible on md+) -->
+            <!-- <div
+                class="hidden md:flex absolute right-2 lg:right-8 xl:right-12 top-20 xl:top-20 flex-col items-center rotate-[-5deg] z-10">
+                <div
+                    class="font-handwriting text-white text-3xl lg:text-4xl xl:text-5xl drop-shadow-md text-center leading-tight">
+                    A Healthier Me ..... <br>
+                    A Brighter Tomorrow
+                </div>
+               
+                <div class="w-3/4 h-2 mt-4 flex rounded-full overflow-hidden shadow-sm rotate-1">
+                    <div class="flex-1 bg-[#FF9933]"></div>
+                    <div class="flex-1 bg-white"></div>
+                    <div class="flex-1 bg-[#138808]"></div>
+                </div>
+                <i class="fa-regular fa-heart text-white text-3xl mt-4 drop-shadow-sm"></i>
+            </div> -->
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="border-b border-gray-100 bg-white shadow-sm relative z-20">
+        <div class="container mx-auto max-w-[1500px] px-4 lg:px-8 py-4 lg:py-5">
+            <div class="flex flex-wrap justify-center items-center gap-4 lg:gap-6 xl:gap-8">
+
+                <div class="flex items-center gap-2">
+                    <div class="text-primary text-3xl"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <h4 class="font-extrabold text-[#1e293b] text-base leading-none mb-1"><span class="counter"
+                                data-target="5000">0</span>+</h4>
+                        <p class="text-xs text-gray-500 font-medium leading-none mt-1">Lives Impacted</p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block w-px h-8 bg-gray-200"></div>
+
+                <div class="flex items-center gap-2">
+                    <div class="text-primary text-3xl"><i class="fa-solid fa-user-doctor"></i></div>
+                    <div>
+                        <h4 class="font-extrabold text-[#1e293b] text-base leading-none mb-1"><span class="counter"
+                                data-target="100">0</span>+</h4>
+                        <p class="text-xs text-gray-500 font-medium leading-none mt-1">Health Experts</p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block w-px h-8 bg-gray-200"></div>
+
+                <div class="flex items-center gap-2">
+                    <div class="text-primary text-3xl"><i class="fa-solid fa-book-open"></i></div>
+                    <div>
+                        <h4 class="font-extrabold text-[#1e293b] text-base leading-none mb-1"><span class="counter"
+                                data-target="1000">0</span>+</h4>
+                        <p class="text-xs text-gray-500 font-medium leading-none mt-1">Educational Articles</p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block w-px h-8 bg-gray-200"></div>
+
+                <div class="flex items-center gap-2">
+                    <div class="text-primary text-3xl"><i class="fa-solid fa-leaf"></i></div>
+                    <div>
+                        <h4 class="font-extrabold text-[#1e293b] text-base leading-none mb-1"><span class="counter"
+                                data-target="50">0</span>+</h4>
+                        <p class="text-xs text-gray-500 font-medium leading-none mt-1">Natural Products</p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block w-px h-8 bg-gray-200"></div>
+
+                <div class="flex items-center gap-2">
+                    <div class="text-primary text-3xl"><i class="fa-solid fa-user-group"></i></div>
+                    <div>
+                        <h4 class="font-extrabold text-[#1e293b] text-base leading-none mb-1"><span class="counter"
+                                data-target="10">0</span>+</h4>
+                        <p class="text-xs text-gray-500 font-medium leading-none mt-1">Lifestyle Programs</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="pt-8 lg:pt-10 pb-12 lg:pb-20 bg-[#fafdfa] relative">
+        <!-- Faint leaf graphics in background -->
+        <div
+            class="absolute top-0 left-0 opacity-20 pointer-events-none w-48 xl:w-64 aspect-square bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMTQ1MzJkIiBkPSJNMzU3Ljg0MyAxMzguMjc4QzM1Ny44NDMgNTkuNzExIDIzMS4xMjUgMCAxNjAuNTM1IDBDMTI5LjE3OCAwIDExOS4wMiA0Mi4zMiAxMTkuMDIgODIuNTA3YzAgMTA3LjEwNCAxODQuNDkzIDE3Mi42MzIgMTg0LjQ5MyAyNTkuNDc4IDAgNjIuNTUyLTQ2LjExIDEwMy4yMi0xMDkuOTIgMTAzLjIyLTQyLjA5NCAwLTgzLjA0NC0yNy4xMy0xMDMuNzA1LTU4LjEzQzQ3LjIzNyAzMjcuODcyIDE2LjkyMiA0MzMuOTg4IDE2LjkyMiA1MTJoMjIuMDM2YzAtNDkuMTA3IDkuNjE4LTE1MS44NTEgODAuNzUyLTIxNy4xNjEgNDQuMDY3IDQyLjM5MiA4Ni43OTQgNjAuMjkyIDEzNi40NjcgNjAuMjkyIDEwNC43OCAwIDE5NC43OTEtODEuNjMyIDE5NC43OTEtMjA0Ljg1NSAwLTQyLjMwNy0xMy41NC04MS40NjktMzkuMTktMTE4LjIwOC0xOS4yMjkgMjIuMTczLTUzLjcwOCA1Ni4xMS01My45MzUgODYuMjF6Ii8+PC9zdmc+')] bg-no-repeat bg-contain transform -scale-x-100">
+        </div>
+        <div
+            class="absolute top-40 right-0 opacity-20 pointer-events-none w-48 xl:w-64 aspect-square bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMTQ1MzJkIiBkPSJNMzU3Ljg0MyAxMzguMjc4QzM1Ny44NDMgNTkuNzExIDIzMS4xMjUgMCAxNjAuNTM1IDBDMTI5LjE3OCAwIDExOS4wMiA0Mi4zMiAxMTkuMDIgODIuNTA3YzAgMTA3LjEwNCAxODQuNDkzIDE3Mi42MzIgMTg0LjQ5MyAyNTkuNDc4IDAgNjIuNTUyLTQ2LjExIDEwMy4yMi0xMDkuOTIgMTAzLjIyLTQyLjA5NCAwLTgzLjA0NC0yNy4xMy0xMDMuNzA1LTU4LjEzQzQ3LjIzNyAzMjcuODcyIDE2LjkyMiA0MzMuOTg4IDE2LjkyMiA1MTJoMjIuMDM2YzAtNDkuMTA3IDkuNjE4LTE1MS44NTEgODAuNzUyLTIxNy4xNjEgNDQuMDY3IDQyLjM5MiA4Ni43OTQgNjAuMjkyIDEzNi40NjcgNjAuMjkyIDEwNC43OCAwIDE5NC43OTEtODEuNjMyIDE5NC43OTEtMjA0Ljg1NSAwLTQyLjMwNy0xMy41NC04MS40NjktMzkuMTktMTE4LjIwOC0xOS4yMjkgMjIuMTczLTUzLjcwOCA1Ni4xMS01My45MzUgODYuMjF6Ii8+PC9zdmc+')] bg-no-repeat bg-contain">
+        </div>
+
+        <div class="container mx-auto max-w-[1500px] px-4 lg:px-8 relative z-10">
+
+            <!-- Header row with title and search -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 gap-6">
+                <div>
+                    <h2 class="font-heading font-extrabold text-3xl xl:text-[40px] leading-tight mb-2 tracking-tight">
+                        <span class="text-primary">Stories</span> <span class="text-[#1e293b]">That Inspire</span>
+                    </h2>
+                    <p class="text-gray-600 font-semibold text-sm xl:text-[15px]">
+                        Real experiences. Real results. Filter stories by category to find what inspires you.
+                    </p>
+                </div>
+                <div class="w-full lg:w-[450px] relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                    </div>
+                    <input type="text" placeholder="Search stories by name, location or keyword..."
+                        class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-md text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all shadow-sm">
+                </div>
+            </div>
+
+            <!-- Categories / Filters -->
+            <div class="flex flex-wrap items-center gap-3 mb-10" id="filter-container">
+                <button
+                    class="bg-[#14532d] text-white px-5 py-2 rounded-full text-xs xl:text-[13px] font-semibold shadow-sm transition-colors border border-transparent">
+                    All Stories
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors">
+                    Diabetes Reversal
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors">
+                    Weight Management
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors">
+                    PCOS Care
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors">
+                    Heart Health
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors">
+                    Senior Wellness
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors">
+                    Family Stories
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors">
+                    Community Impact
+                </button>
+            </div>
+
+            <!-- Stories Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="stories-grid">
+
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
+                            alt="Sunita Patel"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                I never imagined I could bring my sugar levels under control without constant
+                                medication. With the right diet and guidance, I feel healthier and more energetic every
+                                day.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Sunita Patel</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Vadodara, Gujarat</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Diabetes
+                                    Reversal</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80"
+                            alt="Mahesh Iyer"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                At 60, I was worried about my health. Today, I walk 5 km daily, my sugar is normal, and
+                                I feel 10 years younger.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Mahesh Iyer</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Chennai, Tamil Nadu</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Lifestyle
+                                    Change</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80"
+                            alt="Arjun Mehta"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                The structured program and expert support helped me lose 18 kg in 6 months. It's not
+                                just about weight loss, it's about a better quality of life.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Arjun Mehta</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Pune, Maharashtra</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Weight
+                                    Management</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80"
+                            alt="Kavya Reddy"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                Managing PCOS felt overwhelming until I found the right guidance. With simple lifestyle
+                                changes, my periods are regular now and I feel more confident.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Kavya Reddy</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Hyderabad, Telangana</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">PCOS
+                                    Care</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1559839914-11aae62e92c6?w=800&q=80"
+                            alt="Sharma Family"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                We adopted healthier eating habits as a family, and it has transformed all our lives.
+                                Together, we are stronger and healthier.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user-group"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Sharma Family</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Bhopal, Madhya Pradesh</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Family
+                                    Story</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80"
+                            alt="Rakesh Kumar"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                Small changes make a big difference. With regular exercise and the right diet, I'm now
+                                off medication and enjoying an active life again.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Rakesh Kumar</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Lucknow, Uttar Pradesh</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Heart
+                                    Health</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
+                            alt="Sunita Patel"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                I never imagined I could bring my sugar levels under control without constant
+                                medication. With the right diet and guidance, I feel healthier and more energetic every
+                                day.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Sunita Patel</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Vadodara, Gujarat</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Diabetes
+                                    Reversal</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80"
+                            alt="Mahesh Iyer"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                At 60, I was worried about my health. Today, I walk 5 km daily, my sugar is normal, and
+                                I feel 10 years younger.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Mahesh Iyer</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Chennai, Tamil Nadu</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Lifestyle
+                                    Change</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80"
+                            alt="Arjun Mehta"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                The structured program and expert support helped me lose 18 kg in 6 months. It's not
+                                just about weight loss, it's about a better quality of life.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Arjun Mehta</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Pune, Maharashtra</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Weight
+                                    Management</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80"
+                            alt="Kavya Reddy"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                Managing PCOS felt overwhelming until I found the right guidance. With simple lifestyle
+                                changes, my periods are regular now and I feel more confident.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Kavya Reddy</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Hyderabad, Telangana</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">PCOS
+                                    Care</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1559839914-11aae62e92c6?w=800&q=80"
+                            alt="Sharma Family"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                We adopted healthier eating habits as a family, and it has transformed all our lives.
+                                Together, we are stronger and healthier.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user-group"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Sharma Family</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Bhopal, Madhya Pradesh</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Family
+                                    Story</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80"
+                            alt="Rakesh Kumar"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                Small changes make a big difference. With regular exercise and the right diet, I'm now
+                                off medication and enjoying an active life again.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Rakesh Kumar</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Lucknow, Uttar Pradesh</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Heart
+                                    Health</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
+                            alt="Sunita Patel"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                I never imagined I could bring my sugar levels under control without constant
+                                medication. With the right diet and guidance, I feel healthier and more energetic every
+                                day.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Sunita Patel</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Vadodara, Gujarat</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Diabetes
+                                    Reversal</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80"
+                            alt="Mahesh Iyer"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                At 60, I was worried about my health. Today, I walk 5 km daily, my sugar is normal, and
+                                I feel 10 years younger.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Mahesh Iyer</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Chennai, Tamil Nadu</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Lifestyle
+                                    Change</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80"
+                            alt="Arjun Mehta"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                The structured program and expert support helped me lose 18 kg in 6 months. It's not
+                                just about weight loss, it's about a better quality of life.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Arjun Mehta</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Pune, Maharashtra</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Weight
+                                    Management</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80"
+                            alt="Kavya Reddy"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                Managing PCOS felt overwhelming until I found the right guidance. With simple lifestyle
+                                changes, my periods are regular now and I feel more confident.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Kavya Reddy</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Hyderabad, Telangana</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">PCOS
+                                    Care</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1559839914-11aae62e92c6?w=800&q=80"
+                            alt="Sharma Family"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                We adopted healthier eating habits as a family, and it has transformed all our lives.
+                                Together, we are stronger and healthier.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user-group"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Sharma Family</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Bhopal, Madhya Pradesh</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Family
+                                    Story</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div
+                    class="bg-white rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80"
+                            alt="Rakesh Kumar"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 xl:p-6 flex flex-col flex-grow relative">
+                        <div class="flex gap-3 mb-6">
+                            <i class="fa-solid fa-quote-left text-[#86efac] text-2xl xl:text-3xl mt-0.5 shrink-0"></i>
+                            <p class="text-[#334155] text-[13px] xl:text-[14px] leading-relaxed">
+                                Small changes make a big difference. With regular exercise and the right diet, I'm now
+                                off medication and enjoying an active life again.
+                            </p>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-1.5 pt-3 border-t border-gray-50">
+                            <div class="flex justify-between items-center gap-2">
+                                <div class="flex items-center gap-2 xl:gap-3">
+                                    <div
+                                        class="w-8 h-8 xl:w-10 xl:h-10 bg-[#14532d] rounded-full flex items-center justify-center text-white text-sm xl:text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h4
+                                            class="font-extrabold text-[#1e293b] text-xs xl:text-sm leading-tight mb-0.5">
+                                            Rakesh Kumar</h4>
+                                        <p
+                                            class="text-[9px] xl:text-[10px] text-gray-500 font-semibold truncate max-w-[100px] xl:max-w-[120px]">
+                                            Lucknow, Uttar Pradesh</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="bg-[#dcfce7] text-[#166534] text-[9px] xl:text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">Heart
+                                    Health</span>
+                            </div>
+                            <a href="#"
+                                class="text-[#14532d] font-bold text-[10px] xl:text-[11px] hover:text-primary transition-colors flex items-center group/link self-end">
+                                Read Story <i
+                                    class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> <!-- End Stories Grid -->
+
+            <!-- Load More Button -->
+            <div class="flex justify-center mt-12 mb-4" id="load-more-container" style="display: none;">
+                <button id="load-more-btn"
+                    class="bg-white hover:bg-gray-50 text-[#14532d] border-2 border-[#14532d] px-8 py-2.5 rounded-full text-sm font-bold shadow-sm transition-colors">
+                    Load More (<span id="remaining-count">0</span> remaining)
+                </button>
+            </div>
+
+            <!-- Featured Story Section -->
+            <div
+                class="bg-white rounded-[20px] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05),0_10px_20px_-2px_rgba(0,0,0,0.02)] border border-[#e2e8f0] p-3 lg:p-4 mt-12 mb-8 flex flex-col lg:flex-row gap-6 lg:gap-10 relative overflow-hidden">
+
+                <!-- Background decorative elements (Handwriting & Leafs) -->
+                <div class="hidden xl:block absolute right-0 top-0 bottom-0 w-[400px] pointer-events-none">
+                    <!-- Faint leaf background -->
+                    <div
+                        class="absolute -right-20 top-1/2 -translate-y-1/2 opacity-[0.15] w-[350px] h-[350px] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMTQ1MzJkIiBkPSJNMzU3Ljg0MyAxMzguMjc4QzM1Ny44NDMgNTkuNzExIDIzMS4xMjUgMCAxNjAuNTM1IDBDMTI5LjE3OCAwIDExOS4wMiA0Mi4zMiAxMTkuMDIgODIuNTA3YzAgMTA3LjEwNCAxODQuNDkzIDE3Mi42MzIgMTg0LjQ5MyAyNTkuNDc4IDAgNjIuNTUyLTQ2LjExIDEwMy4yMi0xMDkuOTIgMTAzLjIyLTQyLjA5NCAwLTgzLjA0NC0yNy4xMy0xMDMuNzA1LTU4LjEzQzQ3LjIzNyAzMjcuODcyIDE2LjkyMiA0MzMuOTg4IDE2LjkyMiA1MTJoMjIuMDM2YzAtNDkuMTA3IDkuNjE4LTE1MS44NTEgODAuNzUyLTIxNy4xNjEgNDQuMDY3IDQyLjM5MiA4Ni43OTQgNjAuMjkyIDEzNi40NjcgNjAuMjkyIDEwNC43OCAwIDE5NC43OTEtODEuNjMyIDE5NC43OTEtMjA0Ljg1NSAwLTQyLjMwNy0xMy41NC04MS40NjktMzkuMTktMTE4LjIwOC0xOS4yMjkgMjIuMTczLTUzLjcwOCA1Ni4xMS01My45MzUgODYuMjF6Ii8+PC9zdmc+')] bg-no-repeat bg-center bg-contain transform rotate-45">
+                    </div>
+                    <!-- Handwriting text -->
+                    <div
+                        class="absolute right-12 top-[30px] font-handwriting text-[#14532d] text-[28px] rotate-[-4deg] leading-[1.1] flex flex-col items-center opacity-80">
+                        <span>Small</span>
+                        <span>Steps</span>
+                        <span>Big</span>
+                        <div class="flex items-center gap-1 mt-1">
+                            <span>Change</span>
+                            <i class="fa-regular fa-heart text-xl ml-1"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Thumbnail (Left) -->
+                <div class="w-full lg:w-[45%] xl:w-[42%] rounded-[14px] overflow-hidden relative group block shrink-0 cursor-pointer aspect-[16/10] lg:aspect-auto lg:h-[320px] bg-black"
+                    onclick="this.innerHTML='<iframe class=&quot;w-full h-full absolute inset-0&quot; src=&quot;https://www.youtube.com/embed/VX-i7ETo7Sk?autoplay=1&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen></iframe>'">
+                    <img src="https://img.youtube.com/vi/VX-i7ETo7Sk/maxresdefault.jpg" alt="Pooja Sharma"
+                        class="w-full h-full object-cover aspect-[16/10] lg:aspect-auto lg:h-[320px] group-hover:scale-105 transition-transform duration-700">
+
+                    <!-- Overlay gradient for text -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+
+                    <!-- Play Button -->
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-play text-[#14532d] text-xl ml-1"></i>
+                    </div>
+
+                    <!-- Video duration and text -->
+                    <div
+                        class="absolute bottom-5 left-5 right-5 flex justify-between items-center text-white font-semibold text-[13px] tracking-wide">
+                        <span>Watch Her Story</span>
+                        <span>01:39</span>
+                    </div>
+                </div>
+
+                <!-- Text Content (Right) -->
+                <div class="flex-1 py-4 lg:py-6 flex flex-col relative z-10 xl:pr-[150px]">
+                    <div class="mb-2">
+                        <span
+                            class="inline-block bg-[#14532d] text-white text-[11px] font-bold px-3 py-1.5 rounded-[4px] tracking-widest uppercase mb-5">FEATURED
+                            STORY</span>
+                        <h3
+                            class="font-heading font-extrabold text-[24px] lg:text-[28px] text-[#1e293b] leading-tight mb-5 tracking-tight">
+                            Solutions For Extra Skin Post Weight Loss At <span class="text-[#14532d]">Emory Aesthetic
+                                Center</span>
+                        </h3>
+                        <p class="text-gray-600 font-medium text-[15px] leading-relaxed mb-6">
+                            "I went from feeling tired and hopeless to confident and in control of my health. This
+                            journey has given me a new lease on life."
+                        </p>
+                    </div>
+
+                    <div class="mt-auto flex flex-col sm:flex-row justify-between items-start sm:items-end gap-5">
+                        <div class="flex flex-col gap-1.5">
+                            <h4 class="font-bold text-[#1e293b] text-[17px] tracking-tight">— Pooja Sharma, 38</h4>
+                            <div class="flex items-center gap-1.5 text-gray-500 text-[13px] font-semibold">
+                                <i class="fa-solid fa-location-dot"></i> Jaipur, Rajasthan
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="bg-[#14532d] text-white px-7 py-3 rounded-md text-[13px] font-bold shadow-md hover:bg-[#0f3f22] transition-colors flex items-center gap-2 shrink-0">
+                            Read Her Full Story <i class="fa-solid fa-arrow-right text-[11px] mt-px"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Footer Top CTA Section -->
+    <section class="bg-[#f4f8f2] py-12 md:py-16 relative overflow-hidden border-t border-[#e2e8f0]">
+        <!-- Background Leaves -->
+        <div
+            class="hidden xl:block absolute left-[-80px] top-1/2 -translate-y-1/2 w-[350px] opacity-[0.25] pointer-events-none">
+            <img src="https://www.svgrepo.com/show/244304/leaf.svg"
+                class="w-full h-full opacity-60 rotate-45 transform scale-x-[-1]" alt="leaf">
+        </div>
+        <div
+            class="hidden xl:block absolute right-[-80px] top-1/2 -translate-y-1/2 w-[350px] opacity-[0.25] pointer-events-none">
+            <img src="https://www.svgrepo.com/show/244304/leaf.svg" class="w-full h-full opacity-60 -rotate-45"
+                alt="leaf">
+        </div>
+
+        <div class="w-full max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
+            <!-- Top Heading & Stats -->
+            <div class="text-center mb-12">
+                <h2
+                    class="font-heading font-extrabold text-[28px] md:text-[34px] text-[#1e293b] leading-tight mb-2 tracking-tight">
+                    Creating Healthier <span class="text-[#14532d]">Communities</span>
+                </h2>
+                <p class="text-gray-600 font-medium text-[15px] mb-12 max-w-2xl mx-auto">
+                    These stories are not just about individuals, but about stronger families and healthier communities.
+                </p>
+
+                <!-- Stats Row -->
+                <div
+                    class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-0 md:divide-x divide-gray-300">
+                    <!-- Stat 1 -->
+                    <div
+                        class="flex items-center gap-3 px-2 lg:px-6 xl:px-8 py-3 md:py-0 w-full md:w-auto justify-center">
+                        <i class="fa-solid fa-heart-circle-check text-4xl xl:text-5xl text-[#14532d]"></i>
+                        <div class="text-left">
+                            <h4 class="font-extrabold text-[#1e293b] text-[18px] xl:text-[22px] leading-tight mb-0.5">
+                                5000+</h4>
+                            <p class="text-gray-500 text-[11px] xl:text-[12px] font-bold">Lives Impacted</p>
+                        </div>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div
+                        class="flex items-center gap-3 px-2 lg:px-6 xl:px-8 py-3 md:py-0 w-full md:w-auto justify-center">
+                        <i class="fa-solid fa-users text-4xl xl:text-5xl text-[#14532d]"></i>
+                        <div class="text-left">
+                            <h4 class="font-extrabold text-[#1e293b] text-[18px] xl:text-[22px] leading-tight mb-0.5">
+                                200+</h4>
+                            <p class="text-gray-500 text-[11px] xl:text-[12px] font-bold">Communities Reached</p>
+                        </div>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div
+                        class="flex items-center gap-3 px-2 lg:px-6 xl:px-8 py-3 md:py-0 w-full md:w-auto justify-center">
+                        <i class="fa-solid fa-leaf text-4xl xl:text-5xl text-[#14532d]"></i>
+                        <div class="text-left">
+                            <h4 class="font-extrabold text-[#1e293b] text-[18px] xl:text-[22px] leading-tight mb-0.5">
+                                80+</h4>
+                            <p class="text-gray-500 text-[11px] xl:text-[12px] font-bold">Cities Across India</p>
+                        </div>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div
+                        class="flex items-center gap-3 px-2 lg:px-6 xl:px-8 py-3 md:py-0 w-full md:w-auto justify-center">
+                        <i class="fa-regular fa-sun text-4xl xl:text-5xl text-[#14532d]"></i>
+                        <div class="text-left">
+                            <h4 class="font-extrabold text-[#1e293b] text-[16px] xl:text-[20px] leading-tight mb-0.5">A
+                                Healthier</h4>
+                            <p class="text-gray-500 text-[11px] xl:text-[12px] font-bold">Brighter Tomorrow</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="relative rounded-[20px] overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] mt-8">
+                <!-- Background Image -->
+                <img src="assets/footer-top.png" alt="Plant in hands"
+                    class="absolute inset-0 w-full h-full object-cover">
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#14532d]/90 to-[#14532d]"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-end p-8 md:p-14">
+                    <div class="md:w-[55%] text-left">
+                        <h3
+                            class="font-heading font-extrabold text-[28px] md:text-[34px] text-white leading-tight mb-3 tracking-tight">
+                            Your Story Can Inspire Others
+                        </h3>
+                        <p class="text-gray-100 font-medium text-[15px] leading-relaxed mb-6 opacity-90">
+                            Have a success story to share? Your journey can give hope and motivation to thousands across
+                            India.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 bg-white text-[#14532d] px-7 py-3 rounded-md text-[13px] font-bold shadow-md hover:bg-gray-100 transition-colors group">
+                            Share Your Story <i
+                                class="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section> <!-- Footer Area -->
+    <hbm-footer></hbm-footer>
+
+    <script src="js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterContainer = document.getElementById('filter-container');
+            const grid = document.getElementById('stories-grid');
+            const loadMoreContainer = document.getElementById('load-more-container');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const remainingCountSpan = document.getElementById('remaining-count');
+
+            if (filterContainer && grid) {
+                const buttons = filterContainer.querySelectorAll('button');
+                const cards = Array.from(grid.children);
+
+                let currentFilter = 'All Stories';
+                let visibleCount = 8;
+                const increment = 4;
+
+                // Set categories
+                cards.forEach(card => {
+                    const categorySpan = card.querySelector('span.rounded-full');
+                    if (categorySpan) {
+                        let cat = categorySpan.innerText.trim();
+                        // Map specific categories to button text
+                        if (cat === "Family Story") cat = "Family Stories";
+                        if (cat === "Lifestyle Change") cat = "Weight Management";
+                        card.setAttribute('data-category', cat);
+                    }
+                });
+
+                const renderCards = () => {
+                    // Filter cards
+                    const filteredCards = cards.filter(card => {
+                        return currentFilter === 'All Stories' || card.getAttribute('data-category') === currentFilter;
+                    });
+
+                    // Hide all cards first
+                    cards.forEach(card => card.style.display = 'none');
+
+                    // Show up to visibleCount cards
+                    for (let i = 0; i < Math.min(visibleCount, filteredCards.length); i++) {
+                        filteredCards[i].style.display = 'flex';
+                    }
+
+                    // Update Load More button
+                    const remaining = filteredCards.length - visibleCount;
+                    if (remaining > 0) {
+                        loadMoreContainer.style.display = 'flex';
+                        remainingCountSpan.innerText = remaining;
+                    } else {
+                        loadMoreContainer.style.display = 'none';
+                    }
+                };
+
+                // Initial render
+                renderCards();
+
+                // Load More click
+                if (loadMoreBtn) {
+                    loadMoreBtn.addEventListener('click', () => {
+                        visibleCount += increment;
+                        renderCards();
+                    });
+                }
+
+                // Filter clicks
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        currentFilter = btn.innerText.trim();
+                        visibleCount = 8; // Reset visible count on filter
+
+                        // Style buttons
+                        buttons.forEach(b => {
+                            b.className = "bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2 rounded-full text-xs xl:text-[13px] font-medium shadow-sm transition-colors";
+                        });
+                        btn.className = "bg-[#14532d] text-white px-5 py-2 rounded-full text-xs xl:text-[13px] font-semibold shadow-sm transition-colors border border-transparent";
+
+                        renderCards();
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

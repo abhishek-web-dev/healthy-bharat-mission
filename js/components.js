@@ -1,7 +1,96 @@
 
 class HbmHeader extends HTMLElement {
     connectedCallback() {
-        this.innerHTML = "<header class=\"bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50\">\n        <div class=\"container mx-auto max-w-[1500px] relative\">\n\n            <!-- Top Bar Banner (Right side) -->\n            <div class=\"absolute top-0 right-4 lg:right-8 hidden md:flex z-10\">\n                <div class=\"bg-primary text-white px-6 py-1.5 rounded-b-xl flex items-center space-x-6 shadow-sm\">\n                    <div class=\"flex items-center space-x-2 text-sm font-medium\">\n                        <i class=\"fa-solid fa-phone text-xs\"></i>\n                        <span class=\"whitespace-nowrap\">+91 98765 43210</span>\n                    </div>\n                    <div class=\"w-px h-4 bg-white/30\"></div>\n                    <div class=\"flex space-x-4 text-[15px]\">\n                        <a href=\"#\" class=\"hover:text-gray-300 transition-colors\"><i\n                                class=\"fa-brands fa-facebook-f\"></i></a>\n                        <a href=\"#\" class=\"hover:text-gray-300 transition-colors\"><i\n                                class=\"fa-brands fa-instagram\"></i></a>\n                        <a href=\"#\" class=\"hover:text-gray-300 transition-colors\"><i\n                                class=\"fa-brands fa-youtube\"></i></a>\n                        <a href=\"#\" class=\"hover:text-gray-300 transition-colors\"><i\n                                class=\"fa-brands fa-discord\"></i></a>\n                    </div>\n                </div>\n            </div>\n\n            <!-- Main Navigation -->\n            <div class=\"px-2 lg:px-8 pt-4 md:pt-10 pb-4 flex justify-between items-center\">\n                <!-- Logo -->\n                <div class=\"flex items-center space-x-2 xl:space-x-3 -mt-2\">\n                    <img src=\"./assets/logo.webp\" alt=\"Logo\" class=\"h-12 xl:h-14 flex-shrink-0\">\n                    <div>\n                        <h1\n                            class=\"font-heading font-bold text-lg xl:text-2xl text-slate-800 leading-tight mb-1 whitespace-nowrap\">\n                            Healthy<br>Bharat Mission</h1>\n                        <p class=\"text-[9px] xl:text-[11px] text-gray-500 font-medium tracking-wide whitespace-nowrap\">\n                            Towards a Diabetes Free India</p>\n                    </div>\n                </div>\n\n                <!-- Desktop Menu -->\n                <div\n                    class=\"hidden lg:flex space-x-3 xl:space-x-6 items-center font-medium text-[13px] xl:text-sm text-slate-700\">\n                    <a href=\"#\"\n                        class=\"text-primary border-b-[3px] border-primary pb-1 font-semibold whitespace-nowrap\">Home</a>\n                    <a href=\"#\" class=\"hover:text-primary transition-colors whitespace-nowrap\">Our Mission</a>\n                    <a href=\"#\"\n                        class=\"hover:text-primary transition-colors flex items-center whitespace-nowrap\">Programs <i\n                            class=\"fa-solid fa-chevron-down text-[10px] ml-1.5\"></i></a>\n                    <a href=\"#\" class=\"hover:text-primary transition-colors flex items-center whitespace-nowrap\">Health\n                        Conditions <i class=\"fa-solid fa-chevron-down text-[10px] ml-1.5\"></i></a>\n                    <a href=\"#\" class=\"hover:text-primary transition-colors whitespace-nowrap\">Health Library</a>\n                    <a href=\"#\" class=\"hover:text-primary transition-colors whitespace-nowrap\">Store</a>\n                    <a href=\"#\" class=\"hover:text-primary transition-colors whitespace-nowrap\">Success Stories</a>\n                    <a href=\"#\" class=\"hover:text-primary transition-colors whitespace-nowrap\">Contact</a>\n                </div>\n\n                <!-- CTA Button -->\n                <div class=\"hidden md:block\">\n                    <a href=\"#\"\n                        class=\"bg-primary hover:bg-primary-light text-white px-4 xl:px-6 py-2 xl:py-2.5 rounded font-medium transition-colors shadow-sm text-sm whitespace-nowrap\">\n                        Book Consultation\n                    </a>\n                </div>\n\n                <!-- Mobile Menu Toggle -->\n                <div class=\"lg:hidden text-2xl text-primary mt-2 cursor-pointer\">\n                    <i class=\"fa-solid fa-bars\"></i>\n                </div>\n            </div>\n        </div>\n    </header>";
+        this.innerHTML = `<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto max-w-[1500px] relative">
+
+            <!-- Top Bar Banner (Right side) -->
+            <div class="absolute top-0 right-4 lg:right-8 hidden md:flex z-10">
+                <div class="bg-primary text-white px-6 py-1.5 rounded-b-xl flex items-center space-x-6 shadow-sm">
+                    <div class="flex items-center space-x-2 text-sm font-medium">
+                        <i class="fa-solid fa-phone text-xs"></i>
+                        <span class="whitespace-nowrap">+91 98765 43210</span>
+                    </div>
+                    <div class="w-px h-4 bg-white/30"></div>
+                    <div class="flex space-x-4 text-[15px]">
+                        <a href="#" class="hover:text-gray-300 transition-colors"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-gray-300 transition-colors"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-gray-300 transition-colors"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="hover:text-gray-300 transition-colors"><i
+                                class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+            <div class="px-2 lg:px-8 pt-4 md:pt-10 pb-4 flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 xl:space-x-3 -mt-2">
+                    <img src="./assets/logo.webp" alt="Logo" class="h-12 xl:h-14 flex-shrink-0">
+                    <div>
+                        <h1
+                            class="font-heading font-bold text-lg xl:text-2xl text-slate-800 leading-tight mb-1 whitespace-nowrap">
+                            Healthy<br>Bharat Mission</h1>
+                        <p class="text-[9px] xl:text-[11px] text-gray-500 font-medium tracking-wide whitespace-nowrap">
+                            Towards a Diabetes Free India</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div
+                    class="hidden lg:flex space-x-3 xl:space-x-6 items-center font-medium text-[13px] xl:text-sm text-slate-700">
+                    <a href="index.html"
+                        class="nav-link hover:text-primary transition-colors whitespace-nowrap">Home</a>
+                    <a href="mission.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Our Mission</a>
+                    <a href="#"
+                        class="nav-link hover:text-primary transition-colors flex items-center whitespace-nowrap">Programs <i
+                            class="fa-solid fa-chevron-down text-[10px] ml-1.5"></i></a>
+                    <a href="#" class="nav-link hover:text-primary transition-colors flex items-center whitespace-nowrap">Health
+                        Conditions <i class="fa-solid fa-chevron-down text-[10px] ml-1.5"></i></a>
+                    <a href="#" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Health Library</a>
+                    <a href="store.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Store</a>
+                    <a href="successtories.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Success Stories</a>
+                    <a href="contact.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#"
+                        class="bg-primary hover:bg-primary-light text-white px-4 xl:px-6 py-2 xl:py-2.5 rounded font-medium transition-colors shadow-sm text-sm whitespace-nowrap">
+                        Book Consultation
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden text-2xl text-primary mt-2 cursor-pointer">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>`;
+
+        // Auto-set active link based on current URL
+        setTimeout(() => {
+            const currentPath = window.location.pathname;
+            const navLinks = this.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href !== '#') {
+                    // Check if current path ends with href, or if it's the root/index and href is index.html
+                    const isActive = currentPath.endsWith(href) || 
+                                     (href === 'index.html' && (currentPath.endsWith('/') || currentPath === ''));
+                    
+                    if (isActive) {
+                        link.classList.remove('hover:text-primary', 'transition-colors');
+                        link.classList.add('text-primary', 'border-b-[3px]', 'border-primary', 'pb-1', 'font-semibold');
+                    }
+                }
+            });
+        }, 0);
     }
 }
 customElements.define('hbm-header', HbmHeader);
@@ -78,4 +167,43 @@ class HbmContactForm extends HTMLElement {
     }
 }
 customElements.define('hbm-contact-form', HbmContactForm);
+
+// Counter Animation
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 100; // Adjust for faster/slower counting
+
+    const animateCounter = (counter) => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            let count = +counter.innerText;
+            if (count === 0) count = 1;
+
+            const inc = Math.max(1, Math.ceil(target / speed));
+
+            if (count < target) {
+                counter.innerText = count + inc;
+                setTimeout(updateCount, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+});
 

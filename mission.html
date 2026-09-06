@@ -25,33 +25,6 @@
     <!-- Header Area -->
     <hbm-header></hbm-header>
 
-    <!-- Active Nav Script -->
-    <script>
-        // Wait for the custom element to render its innerHTML
-        document.addEventListener('DOMContentLoaded', () => {
-            // Since the header is a web component, it renders synchronously,
-            // but just in case, we can use a slight timeout or mutation observer.
-            // But since it sets innerHTML in connectedCallback, it should be immediate.
-            setTimeout(() => {
-                const navLinks = document.querySelectorAll('hbm-header a');
-                navLinks.forEach(link => {
-                    if (link.textContent.trim() === 'Our Mission') {
-                        // Remove active class from Home
-                        const homeLink = Array.from(navLinks).find(l => l.textContent.trim() === 'Home');
-                        if (homeLink) {
-                            homeLink.classList.remove('text-primary', 'border-b-[3px]', 'border-primary', 'font-semibold');
-                            homeLink.classList.add('hover:text-primary', 'transition-colors');
-                        }
-                        
-                        // Add active class to Our Mission
-                        link.classList.remove('hover:text-primary', 'transition-colors');
-                        link.classList.add('text-primary', 'border-b-[3px]', 'border-primary', 'pb-1', 'font-semibold');
-                    }
-                });
-            }, 100);
-        });
-    </script>
-
     <!-- MAIN CONTENT START -->
 
     <!-- Hero Section (Full Width Banner) -->
@@ -98,7 +71,7 @@
                             <i class="fa-solid fa-users"></i>
                         </div>
                         <div>
-                            <h4 class="font-extrabold text-[#1e293b] text-sm xl:text-base leading-none mb-1">5000+</h4>
+                            <h4 class="font-extrabold text-[#1e293b] text-sm xl:text-base leading-none mb-1"><span class="counter" data-target="5000">0</span>+</h4>
                             <p class="text-[10px] xl:text-xs text-gray-500 font-medium leading-none">Lives Impacted</p>
                         </div>
                     </div>
@@ -111,7 +84,7 @@
                             <i class="fa-solid fa-user-doctor"></i>
                         </div>
                         <div>
-                            <h4 class="font-extrabold text-[#1e293b] text-sm xl:text-base leading-none mb-1">100+</h4>
+                            <h4 class="font-extrabold text-[#1e293b] text-sm xl:text-base leading-none mb-1"><span class="counter" data-target="100">0</span>+</h4>
                             <p class="text-[10px] xl:text-xs text-gray-500 font-medium leading-none">Health Experts</p>
                         </div>
                     </div>

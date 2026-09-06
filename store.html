@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Store - Healthy Bharat Mission</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Built Tailwind CSS -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <style>
+        .font-handwriting {
+            font-family: 'Caveat', cursive;
+        }
+    </style>
+</head>
+
+<body class="font-body text-gray-800 bg-white antialiased">
+
+    <!-- Header Area -->
+    <hbm-header></hbm-header>
+                        <!-- Main Content -->
+    <main>
+        <!-- Store Hero Section -->
+        <section class="relative w-full overflow-hidden bg-[#f8fbf8] min-h-[500px] xl:min-h-[600px] flex items-center">
+            
+            <!-- Right side image (The provided Store-banner.png) -->
+            <div class="absolute right-0 top-0 bottom-0 w-full md:w-[60%] lg:w-[65%] z-0">
+                <!-- We use the provided image as the background, positioned to the right -->
+                <img src="assets/Store-banner.png" alt="Health Store Products" class="w-full h-full object-cover object-right md:object-right-top">
+                <!-- A soft gradient to blend the image into the background color on the left -->
+                <div class="absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-[#f8fbf8] to-transparent"></div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="container mx-auto max-w-[1500px] relative z-10 px-4 lg:px-8 py-12 lg:py-20">
+                <div class="w-full md:w-[60%] lg:w-[50%] flex flex-col items-start text-left">
+                    
+                    <!-- Top Subtitle -->
+                    <p class="text-gray-600 font-bold text-[10px] xl:text-[12px] tracking-[0.2em] uppercase mb-4 flex items-center gap-2">
+                        <span>NATURAL</span> <span class="text-gray-400">|</span> 
+                        <span>TRUSTED</span> <span class="text-gray-400">|</span> 
+                        <span>HEALTHIER TOMORROWS</span>
+                    </p>
+
+                    <!-- Main Title -->
+                    <h1 class="font-heading font-extrabold text-5xl lg:text-6xl xl:text-[75px] text-[#0f3057] leading-tight mb-2 tracking-tight">
+                        Health <span class="text-[#14532d]">Store</span>
+                    </h1>
+
+                    <!-- Sub Heading -->
+                    <h3 class="font-bold text-[#0f3057] text-lg lg:text-xl xl:text-[22px] mb-5">
+                        Support Your Journey to a Healthier You
+                    </h3>
+
+                    <!-- Description -->
+                    <p class="text-gray-600 font-medium text-sm xl:text-[16px] leading-relaxed mb-8 max-w-[500px]">
+                        Discover a range of carefully curated products to support your health, manage diabetes and build a better lifestyle. 
+                        Natural, safe and trusted — for you and your family.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <a href="#products" class="bg-[#14532d] hover:bg-[#0f3f22] text-white px-8 py-3.5 rounded-lg font-bold text-sm xl:text-base transition-all duration-300 shadow flex items-center group mb-12">
+                        Explore Products
+                        <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+
+                    <!-- Trust Badges -->
+                    <div class="flex flex-wrap items-center gap-6 lg:gap-10">
+                        <!-- Badge 1 -->
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-leaf text-2xl text-[#14532d]"></i>
+                            <div class="leading-tight">
+                                <span class="block font-bold text-[#1e293b] text-[13px] xl:text-[14px]">100%</span>
+                                <span class="block font-semibold text-gray-500 text-[11px] xl:text-[12px]">Natural & Safe</span>
+                            </div>
+                        </div>
+                        <!-- Badge 2 -->
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-shield-halved text-2xl text-[#14532d]"></i>
+                            <div class="leading-tight">
+                                <span class="block font-bold text-[#1e293b] text-[13px] xl:text-[14px]">Trusted</span>
+                                <span class="block font-semibold text-gray-500 text-[11px] xl:text-[12px]">Quality</span>
+                            </div>
+                        </div>
+                        <!-- Badge 3 -->
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-truck-fast text-2xl text-[#14532d]"></i>
+                            <div class="leading-tight">
+                                <span class="block font-bold text-[#1e293b] text-[13px] xl:text-[14px]">Fast & Reliable</span>
+                                <span class="block font-semibold text-gray-500 text-[11px] xl:text-[12px]">Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Shop by Category Section -->
+        <section class="py-16 md:py-20 bg-white relative overflow-hidden border-b border-gray-100">
+            <!-- Faint background leaf -->
+            <div class="absolute right-0 top-0 opacity-[0.1] pointer-events-none w-64 h-64 md:w-96 md:h-96 transform translate-x-1/3 -translate-y-1/4">
+                <svg viewBox="0 0 512 512" fill="#14532d" xmlns="http://www.w3.org/2000/svg"><path d="M357.843 138.278C357.843 59.711 231.125 0 160.535 0C129.178 0 119.02 42.32 119.02 82.507c0 107.104 184.493 172.632 184.493 259.478 0 62.552-46.11 103.22-109.92 103.22-42.094 0-83.044-27.13-103.705-58.13C47.237 327.872 16.922 433.988 16.922 512h22.036c0-49.107 9.618-151.851 80.752-217.161 44.067 42.392 86.794 60.292 136.467 60.292 104.78 0 194.791-81.632 194.791-204.855 0-42.307-13.54-81.469-39.19-118.208-19.229 22.173-53.708 56.11-53.935 86.21z"/></svg>
+            </div>
+
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8 relative z-10">
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <h2 class="font-heading font-extrabold text-[30px] md:text-[38px] text-[#0f3057] leading-tight mb-3 tracking-tight">
+                        Shop by <span class="text-[#14532d]">Category</span>
+                    </h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-[16px]">
+                        Find the right products for your health and wellness needs.
+                    </p>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-5">
+                    
+                    <!-- Card 1 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/diabetes_care.png" alt="Diabetes Care" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Diabetes Care</h4>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/health_foods.png" alt="Health Foods" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Health Foods</h4>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/herbal_supplements.png" alt="Herbal Supplements" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Herbal Supplements</h4>
+                    </a>
+
+                    <!-- Card 4 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/sugar_control.png" alt="Sugar Control" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Sugar Control</h4>
+                    </a>
+
+                    <!-- Card 5 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/healthy_beverages.png" alt="Healthy Beverages" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Healthy Beverages</h4>
+                    </a>
+
+                    <!-- Card 6 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/fitness_lifestyle.png" alt="Fitness & Lifestyle" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Fitness & Lifestyle</h4>
+                    </a>
+
+                    <!-- Card 7 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/personal_care.png" alt="Personal Care" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Personal Care</h4>
+                    </a>
+
+                    <!-- Card 8 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/combos_packs.png" alt="Combos & Packs" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform drop-shadow-sm">
+                        <h4 class="font-extrabold text-[#1e293b] text-[13px] xl:text-[14px] leading-tight">Combos & Packs</h4>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        
+<!-- New E-commerce Layout -->
+        <section class="bg-[#f0fdf4] py-5 border-b border-[#064e3b]/10 sticky top-[72px] lg:top-[104px] z-40 shadow-sm">
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8">
+                <!-- Top Navbar -->
+                <div class="flex flex-wrap items-center gap-3 md:gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                    <a href="#section-atta" class="category-pill flex items-center gap-2 px-5 py-2.5 bg-[#064e3b] text-white rounded-full text-sm font-bold shadow-sm whitespace-nowrap">
+                        <i class="fa-solid fa-wheat-awn"></i> Atta & Flours
+                    </a>                    <a href="#section-cookies" class="category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors">
+                        <i class="fa-solid fa-cookie"></i> Cookies & Snacks
+                    </a>                    <a href="#section-supplements" class="category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors">
+                        <i class="fa-solid fa-pills"></i> Supplements
+                    </a>                    <a href="#section-health" class="category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors">
+                        <i class="fa-solid fa-leaf"></i> Health Foods
+                    </a>                </div>
+            </div>
+        </section>
+
+    
+<section class="py-12 bg-white">
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8 lg:flex lg:gap-8">
+                
+                <!-- Left Sidebar -->
+                <aside class="w-full lg:w-[280px] shrink-0 space-y-6 mb-8 lg:mb-0 lg:sticky lg:top-[192px] self-start z-30">
+                    
+                    <!-- Categories -->
+                    <div class="bg-[#f0fdf4] rounded-xl shadow-sm border border-[#064e3b]/10 p-5">
+                        <h3 class="text-xs font-bold text-[#064e3b] uppercase tracking-wider mb-4">Store Categories</h3>
+                        <ul class="space-y-1">
+                            <li>
+                                <a href="#" class="flex items-center justify-between text-sm py-2 px-3 rounded-lg hover:bg-white text-gray-700 hover:text-[#064e3b] font-semibold transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-wheat-awn text-amber-600"></i> Atta & Flours
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-400 bg-white px-2 py-0.5 rounded-full border border-gray-100">2</span>
+                                </a>
+                            </li>                            <li>
+                                <a href="#" class="flex items-center justify-between text-sm py-2 px-3 rounded-lg hover:bg-white text-gray-700 hover:text-[#064e3b] font-semibold transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-cookie text-orange-500"></i> Cookies & Snacks
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-400 bg-white px-2 py-0.5 rounded-full border border-gray-100">13</span>
+                                </a>
+                            </li>                            <li>
+                                <a href="#" class="flex items-center justify-between text-sm py-2 px-3 rounded-lg hover:bg-white text-gray-700 hover:text-[#064e3b] font-semibold transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-pills text-emerald-500"></i> Supplements
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-400 bg-white px-2 py-0.5 rounded-full border border-gray-100">6</span>
+                                </a>
+                            </li>                            <li>
+                                <a href="#" class="flex items-center justify-between text-sm py-2 px-3 rounded-lg hover:bg-white text-gray-700 hover:text-[#064e3b] font-semibold transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-leaf text-green-500"></i> Health Foods
+                                    </div>
+                                    <span class="text-xs font-bold text-gray-400 bg-white px-2 py-0.5 rounded-full border border-gray-100">29</span>
+                                </a>
+                            </li>                        </ul>
+                    </div>
+
+                    <!-- Quick Enquiry -->
+                    <div class="bg-gradient-to-br from-[#064e3b] to-[#022c22] rounded-xl shadow-md p-6 text-white border border-[#064e3b]/20 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
+                        <h3 class="font-bold text-lg mb-1 relative z-10">Quick Enquiry</h3>
+                        <p class="text-white/70 text-xs mb-5 relative z-10">Expert callback within 2 hours</p>
+                        
+                        <form class="space-y-4 relative z-10">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-white/60 mb-1">Your Name</label>
+                                <input type="text" placeholder="Full Name" class="w-full bg-[#064e3b]/50 border border-white/20 rounded-md px-3 py-2 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/50">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-white/60 mb-1">Phone Number</label>
+                                <input type="text" placeholder="+91 XXXXX XXXXX" class="w-full bg-[#064e3b]/50 border border-white/20 rounded-md px-3 py-2 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/50">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-white/60 mb-1">Interested In</label>
+                                <select class="w-full bg-[#064e3b]/50 border border-white/20 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:border-white/50 appearance-none">
+                                    <option class="text-gray-800">Select product type...</option>
+                                    <option class="text-gray-800">Atta & Flours</option>
+                                    <option class="text-gray-800">Cookies & Snacks</option>
+                                    <option class="text-gray-800">Sweeteners</option>
+                                    <option class="text-gray-800">Diet Plans</option>
+                                </select>
+                            </div>
+                            <button type="button" class="w-full bg-[#ea580c] hover:bg-[#c2410c] text-white font-bold py-3 rounded-md text-sm transition-colors mt-2 shadow-sm">
+                                <i class="fa-regular fa-paper-plane mr-2"></i> SEND ENQUIRY
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="flex-1">
+                    
+                    <div id="section-atta" class="product-category-section scroll-mt-[200px]">
+                    <!-- Section: Atta & Flours -->
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#f0fdf4] text-[#064e3b] flex items-center justify-center shadow-sm border border-[#064e3b]/10">
+                                <i class="fa-solid fa-wheat-awn text-lg"></i>
+                            </div>
+                            <h2 class="text-2xl font-extrabold text-[#064e3b] tracking-tight">Atta & Flours</h2>
+                        </div>
+                        <span class="text-xs font-bold text-[#064e3b] bg-[#f0fdf4] px-3 py-1 rounded-full border border-[#064e3b]/10">2 Products</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Atta</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" alt="NutroActive Keto Atta 750g with Keto Sugar 250g Combo" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹999.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Atta</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" alt="Diabexy Atta 750g Diabexy Mini Breakfast Bar 200g Diabexy Sugar Drops 30 ml Diabexy EGL Chart - [DOWNLOAD]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Atta 750g Diabexy Mini Breakfast Bar 200g Diabexy Sugar Drops 30 ml Diabexy EGL Chart - [DOWNLOAD]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹1301.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                    <div id="section-cookies" class="product-category-section scroll-mt-[200px]">
+                    <!-- Section: Cookies & Snacks -->
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#f0fdf4] text-[#064e3b] flex items-center justify-center shadow-sm border border-[#064e3b]/10">
+                                <i class="fa-solid fa-cookie text-lg"></i>
+                            </div>
+                            <h2 class="text-2xl font-extrabold text-[#064e3b] tracking-tight">Cookies & Snacks</h2>
+                        </div>
+                        <span class="text-xs font-bold text-[#064e3b] bg-[#f0fdf4] px-3 py-1 rounded-full border border-[#064e3b]/10">13 Products</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Coconut_Barfi.jpg?v=1753341339" alt="Diabexy Desi Ghee Sugar Free Coconut Barfi - 200g with One Rakhi" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Desi Ghee Sugar Free Coconut Barfi - 200g with One Rakhi</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹485.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/kaju_barfi.jpg?v=1753341348" alt="Diabexy Desi Ghee Sugar Free Kaju Barfi - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Desi Ghee Sugar Free Kaju Barfi - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹485.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Keto_Coconut_barfi.jpg?v=1753341451" alt="NutroActive Desi Ghee Keto Coconut Barfi- 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Desi Ghee Keto Coconut Barfi- 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹485.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/kaju_barfi.jpg?v=1753341348" alt="🎁 Diabexy Desi Ghee Sugar Free Kaju Barfi - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">🎁 Diabexy Desi Ghee Sugar Free Kaju Barfi - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹0.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/KETO_Chocolate_Cookies_a7be9bda-1f8f-4afd-b991-0a09ef79a522.jpg?v=1767770825" alt="NutroActive Keto Chocolate Cookies - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Keto Chocolate Cookies - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹440.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/diabexy_breakfast_bar.jpg?v=1755608342" alt="Diabexy Mini Breakfast Bar - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Mini Breakfast Bar - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹467.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/cookies_combo.jpg?v=1753341321" alt="Diabexy Cookies Combo (Almond 200g, Chocolate 200g, & Coconut 200g) (Pack of 3)" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Cookies Combo (Almond 200g, Chocolate 200g, & Coconut 200g) (Pack of 3)</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹1310.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/diabexy_Coconut_Cookies.jpg?v=1753341773" alt="Diabexy Coconut Cookies - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Coconut Cookies - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹421.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/DIABEXY_Jeera_Cookies_0ee9084b-d3a3-4281-8aee-912a23146ec6.jpg?v=1753341785" alt="Diabexy Jeera Cookies Salted - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Jeera Cookies Salted - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹327.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Keto_kaju_barfi.jpg?v=1753341456" alt="NutroActive Desi Ghee Keto Kaju Barfi - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Desi Ghee Keto Kaju Barfi - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹485.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Rs..jpg?v=1785323302" alt="Keto Barfi - Combo Pack - Kaju & Coconut- 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Keto Barfi - Combo Pack - Kaju & Coconut- 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹970.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_39f5393b-bc09-4eb9-ba7e-0dfe84f90ddb.jpg?v=1767770767" alt="Diabexy Desi Ghee Barfi Combo (Coconut & Kaju) 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Desi Ghee Barfi Combo (Coconut & Kaju) 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹970.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Cookies</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/WhatsApp_Image_2026-05-12_at_17.36.24.jpg?v=1778645896" alt="Diabexy NytBricx – The Night Snack for Diabetics - 135g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy NytBricx – The Night Snack for Diabetics - 135g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹320.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                    <div id="section-supplements" class="product-category-section scroll-mt-[200px]">
+                    <!-- Section: Supplements -->
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#f0fdf4] text-[#064e3b] flex items-center justify-center shadow-sm border border-[#064e3b]/10">
+                                <i class="fa-solid fa-pills text-lg"></i>
+                            </div>
+                            <h2 class="text-2xl font-extrabold text-[#064e3b] tracking-tight">Supplements</h2>
+                        </div>
+                        <span class="text-xs font-bold text-[#064e3b] bg-[#f0fdf4] px-3 py-1 rounded-full border border-[#064e3b]/10">6 Products</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Supplements</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Nutraoctive_supplement_combo.jpg?v=1753341809" alt="NutroActive Weight Management Tablets Combo Pack" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Weight Management Tablets Combo Pack</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹2952.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Supplements</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_18.jpg?v=1753341599" alt="Diabexy Nutrition Combo (Reversol, Basics, Anteflame)" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Nutrition Combo (Reversol, Basics, Anteflame)</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹2220.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Supplements</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/1_6_849113eb-ace9-44ed-b30d-a7611c226492.jpg?v=1753341746" alt="Nutroactive Lipoquick Bullet (Fat Burner, Thyroid Supplement ,Weight Management Product) 30 Tab" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Nutroactive Lipoquick Bullet (Fat Burner, Thyroid Supplement ,Weight Management Product) 30 Tab</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹1059.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Supplements</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Untitleddesign_39_d0a09e8e-23f6-44cd-819b-29413c036c87.webp?v=1767770817" alt="Diabexy Protein Chart- [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Protein Chart- [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Supplements</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_17.jpg?v=1753341722" alt="DIY Diabetes Reversal Program at Home [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">DIY Diabetes Reversal Program at Home [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹499.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Supplements</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/1_3_93786ce5-d3fc-41dd-ab01-33afa712dc7d.jpg?v=1753341541" alt="Nutroactive Lipolyzer Hips & Thighs Weight Management Pills 30 Tablets" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Nutroactive Lipolyzer Hips & Thighs Weight Management Pills 30 Tablets</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹1094.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                    <div id="section-health" class="product-category-section scroll-mt-[200px]">
+                    <!-- Section: Health Foods -->
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#f0fdf4] text-[#064e3b] flex items-center justify-center shadow-sm border border-[#064e3b]/10">
+                                <i class="fa-solid fa-leaf text-lg"></i>
+                            </div>
+                            <h2 class="text-2xl font-extrabold text-[#064e3b] tracking-tight">Health Foods</h2>
+                        </div>
+                        <span class="text-xs font-bold text-[#064e3b] bg-[#f0fdf4] px-3 py-1 rounded-full border border-[#064e3b]/10">29 Products</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/front_image_1f194540-6400-4c09-99f7-07ca65221e42.jpg?v=1783947637" alt="🎁 Diabexy Sweetnil Drops 30ml (100% off)" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">🎁 Diabexy Sweetnil Drops 30ml (100% off)</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹0.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_213bdfb9-3985-4923-9000-e7c53d123700.jpg?v=1778498587" alt="How to Manage Stress in Diabetes | 2 Hours Live Masterclass [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">How to Manage Stress in Diabetes | 2 Hours Live Masterclass [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹299.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Untitleddesign_6.jpg?v=1778235831" alt="Diabexy Sweetnil & Alklyzaar Combo Pack" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Sweetnil & Alklyzaar Combo Pack</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹700.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/diabexy-diabexy-reversol-tablet-30-tablets-2.jpg?v=1775482030" alt="🎁 Diabexy Reversol - 30 Tabs (100% off)" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">🎁 Diabexy Reversol - 30 Tabs (100% off)</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹0.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Weight_loss_master_class.webp?v=1768030568" alt="Lose Weight & Reverse Pre-Diabetes - 2 Hours Video [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Lose Weight & Reverse Pre-Diabetes - 2 Hours Video [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹299.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/hba1cproductimage_de9e434c-eea4-487d-9344-143c0d803f40.jpg?v=1767770828" alt="How to Reduce HbA1c Below 6.5 in 90 Days without Medication, Naturally (Only for Disciplined People) [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">How to Reduce HbA1c Below 6.5 in 90 Days without Medication, Naturally (Only for Disciplined People) [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹299.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/AlmondBhujiaListing.jpg?v=1767770829" alt="Diabexy Nutrition Combo (Powerflo & Powermon)" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Nutrition Combo (Powerflo & Powermon)</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹2280.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/masterclass_box_copy.jpg?v=1753341845" alt="MASTERCLASS Video on Keep Your Fasting Sugar below 100mg/dL.... Everyday, Naturally [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">MASTERCLASS Video on Keep Your Fasting Sugar below 100mg/dL.... Everyday, Naturally [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹299.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/WaterAlkalyzer.jpg?v=1753341841" alt="Diabexy Water Alkalyzaar" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Water Alkalyzaar</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹562.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Front_1.jpg?v=1753341825" alt="Diabexy Pink Potassium Salt" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Pink Potassium Salt</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹364.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/diet_plan_for_weight_loss.jpg?v=1767770821" alt="15 Days Diet Plan for Weight Loss [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">15 Days Diet Plan for Weight Loss [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_d.jpg?v=1753341811" alt="Diabexy Iodized Himalayan Pink Salt - 1 kg" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Iodized Himalayan Pink Salt - 1 kg</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹364.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_16.jpg?v=1753341804" alt="The Fastest Way to Clean/Cure A Fatty Liver - 2 Hour Masterclass Video [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">The Fastest Way to Clean/Cure A Fatty Liver - 2 Hour Masterclass Video [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/keto_food_list_chart.png?v=1753341806" alt="NutroActive Keto Food List Chart - Hard Copy" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Keto Food List Chart - Hard Copy</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹249.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Front_2_57c7a022-a2a0-4620-a5b0-2288c3da9a91.jpg?v=1753341296" alt="Diabexy Basics Vitamins & Antioxidants - 30 Tabs" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Basics Vitamins & Antioxidants - 30 Tabs</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹364.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/WhatsAppImage2024-11-19at14.43.37_b8890d0e.jpg?v=1753341793" alt="How to Avoid Complications in Diabetes [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">How to Avoid Complications in Diabetes [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹99.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_10.jpg?v=1753341782" alt="Diabexy Sodium Chart [Hard Copy]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Sodium Chart [Hard Copy]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹249.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Low_sodium_Salt.jpg?v=1753341575" alt="NutroActive MineralSalt Low Sodium Himalayan Rock Pink Salt Extra Fine Grain 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive MineralSalt Low Sodium Himalayan Rock Pink Salt Extra Fine Grain 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹294.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_8.jpg?v=1753341744" alt="How to Reverse Pre-Diabetes | 2 Hr Video [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">How to Reverse Pre-Diabetes | 2 Hr Video [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_2.png?v=1753341745" alt="Diabexy Sodium Chart- [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Sodium Chart- [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_54_29e80403-449f-4a16-8722-881ade2dfe17.jpg?v=1753341738" alt="Diabetic To Non-Diabetic in 2025, 2 Hours Video - [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabetic To Non-Diabetic in 2025, 2 Hours Video - [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/169.jpg?v=1753341440" alt="NutroActive Dead Sea Salt - 200g" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Dead Sea Salt - 200g</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹299.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/How_to_manage_hyperkalemia.jpg?v=1753341727" alt="Hyperkalemia- How To Manage Kidney Disease In Diabetes [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Hyperkalemia- How To Manage Kidney Disease In Diabetes [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/potassiumchart.webp?v=1767770813" alt="Diabexy Potassium Chart - [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Potassium Chart - [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_5.jpg?v=1753341413" alt="Diabexy EGL Chart - Hard Copy" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy EGL Chart - Hard Copy</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹249.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/constipation.jpg?v=1753341724" alt="How To Treat Constipation In Diabetes, 1 Hour Video - [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">How To Treat Constipation In Diabetes, 1 Hour Video - [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/mockups_1080_x_1080_px_21.jpg?v=1753341725" alt="Which Oils are Best for Cooking, 1 Hr Video - [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Which Oils are Best for Cooking, 1 Hr Video - [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Untitled_design_36.webp?v=1767770809" alt="NutroActive Keto Food List - [Download]" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">NutroActive Keto Food List - [Download]</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹199.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Card -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative">
+                            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+                                <div class="absolute top-3 left-3 bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">Health</div>
+                                <div class="absolute top-3 right-3 bg-white text-emerald-600 border border-emerald-100 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded shadow-sm flex items-center gap-1.5 z-10">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div> IN STOCK
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/front.webp?v=1753341379" alt="Diabexy Powerflo - 30 Tabs" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug group-hover:text-[#064e3b] transition-colors line-clamp-2">Diabexy Powerflo - 30 Tabs</h3>
+                                <div class="flex items-end justify-between mt-auto pt-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
+                                        <div class="text-lg font-black text-[#064e3b]">₹1150.00</div>
+                                    </div>
+                                    <button class="bg-[#ea580c] hover:bg-[#c2410c] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</main>
+
+    <!-- Footer Area -->
+    <hbm-footer></hbm-footer>
+
+    <script src="js/components.js"></script>
+
+    <!-- ScrollSpy Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.product-category-section');
+            const navLinks = document.querySelectorAll('.category-pill');
+            
+            // Offset for sticky headers (104px main header + 88px pills navbar = 192px)
+            const scrollOffset = 210; 
+
+            // Highlight on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // If we have scrolled past this section (minus the offset)
+                    if (window.scrollY >= (sectionTop - scrollOffset)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                // Default to first section if at the top
+                if (!current && sections.length > 0) {
+                    current = sections[0].getAttribute('id');
+                }
+
+                navLinks.forEach(link => {
+                    // Reset all links to default styling
+                    link.className = 'category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors';
+                    
+                    // Add active styling to the current one
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.className = 'category-pill flex items-center gap-2 px-5 py-2.5 bg-[#064e3b] text-white rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors';
+                    }
+                });
+            });
+            
+            // Smooth scroll on click
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if(targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - scrollOffset + 10,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -25,28 +25,6 @@
     <!-- Header Area -->
     <hbm-header></hbm-header>
 
-    <!-- Active Nav Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const navLinks = document.querySelectorAll('hbm-header a');
-                navLinks.forEach(link => {
-                    if (link.textContent.trim() === 'Contact') {
-                        // Remove active class from Home
-                        const homeLink = Array.from(navLinks).find(l => l.textContent.trim() === 'Home');
-                        if (homeLink) {
-                            homeLink.classList.remove('text-primary', 'border-b-[3px]', 'border-primary', 'font-semibold');
-                            homeLink.classList.add('hover:text-primary', 'transition-colors');
-                        }
-
-                        // Add active class to Contact
-                        link.classList.remove('hover:text-primary', 'transition-colors');
-                        link.classList.add('text-primary', 'border-b-[3px]', 'border-primary', 'pb-1', 'font-semibold');
-                    }
-                });
-            }, 100);
-        });
-    </script>
 
     <!-- MAIN CONTENT START -->
 
