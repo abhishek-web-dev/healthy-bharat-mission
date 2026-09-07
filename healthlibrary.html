@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Store - Healthy Bharat Mission</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Built Tailwind CSS -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <style>
+        .font-handwriting {
+            font-family: 'Caveat', cursive;
+        }
+
+        .pill-bar-sticky {
+            top: 96px;
+        }
+
+        @media (min-width: 1024px) {
+            .pill-bar-sticky {
+                top: 124px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .pill-bar-sticky {
+                top: 132px;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-body text-gray-800 bg-white antialiased">
+
+    <!-- Header Area -->
+    <hbm-header></hbm-header>
+    <!-- Main Content -->
+    <main>
+
+        <!-- Health Library Hero Section -->
+        <section class="relative w-full min-h-[400px] md:min-h-[480px] lg:min-h-[550px] flex items-center bg-[#f8fff9] overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 w-full h-full">
+                <img src="assets/Health-library-banner.png" alt="Health Library Banner" class="w-full h-full object-cover object-right lg:object-center opacity-90 lg:opacity-100">
+            </div>
+            
+            <!-- Gradient Overlay for Text Readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#fcfdfa] via-[#fcfdfa]/95 to-transparent w-full md:w-[85%] lg:w-[65%] xl:w-[55%] h-full z-0"></div>
+
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8 relative z-10 py-12">
+                <div class="max-w-xl xl:max-w-2xl">
+                    <h1 class="text-[40px] md:text-[50px] lg:text-[60px] font-extrabold text-[#051c3f] leading-[1.1] mb-3 tracking-tight">
+                        Health <span class="text-[#0e6e3a]">Library</span>
+                    </h1>
+                    <h2 class="text-[17px] md:text-[20px] lg:text-[22px] font-bold text-[#051c3f] mb-4">
+                        Knowledge Today. A Healthier Tomorrow.
+                    </h2>
+                    <p class="text-gray-600 text-[14px] md:text-[15px] mb-8 max-w-lg leading-relaxed font-medium">
+                        Explore expert-reviewed articles, tips and guides to help you make informed choices for a healthier, happier life.
+                    </p>
+                    
+                    <!-- Search Bar -->
+                    <div class="flex items-center w-full max-w-lg bg-white rounded-md shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] overflow-hidden mb-6 border border-gray-100 h-[52px]">
+                        <input id="searchInput" type="text" placeholder="Search articles, topics or keywords..." class="flex-grow px-5 h-full text-[14px] outline-none text-gray-700 w-full placeholder-gray-400">
+                        <button id="searchBtn" class="bg-[#106e39] text-white px-6 h-full hover:bg-[#0b5028] transition-colors flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-magnifying-glass text-[18px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Popular Searches -->
+                    <div class="flex flex-wrap items-center gap-2.5 text-[13px]">
+                        <span class="font-bold text-[#334155] text-[11px] uppercase tracking-wider mr-1">Popular Searches:</span>
+                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Diabetes</a>
+                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Weight Loss</a>
+                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Healthy Diet</a>
+                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">PCOS</a>
+                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Heart Health</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Explore by Category Section -->
+        <section class="py-16 md:py-20 bg-white relative overflow-hidden border-b border-gray-100">
+            <!-- Faint background leaf -->
+            <div class="absolute right-0 top-0 opacity-[0.1] pointer-events-none w-64 h-64 md:w-96 md:h-96 transform translate-x-1/3 -translate-y-1/4">
+                <svg viewBox="0 0 512 512" fill="#14532d" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M357.843 138.278C357.843 59.711 231.125 0 160.535 0C129.178 0 119.02 42.32 119.02 82.507c0 107.104 184.493 172.632 184.493 259.478 0 62.552-46.11 103.22-109.92 103.22-42.094 0-83.044-27.13-103.705-58.13C47.237 327.872 16.922 433.988 16.922 512h22.036c0-49.107 9.618-151.851 80.752-217.161 44.067 42.392 86.794 60.292 136.467 60.292 104.78 0 194.791-81.632 194.791-204.855 0-42.307-13.54-81.469-39.19-118.208-19.229 22.173-53.708 56.11-53.935 86.21z"/>
+                </svg>
+            </div>
+
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8 relative z-10">
+                <!-- Section Header -->
+                <div class="text-center md:text-left mb-10 md:mb-12">
+                    <h2 class="font-heading font-extrabold text-[30px] md:text-[38px] text-[#0f3057] leading-tight mb-3 tracking-tight">
+                        Explore by <span class="text-[#14532d]">Category</span>
+                    </h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-[16px]">
+                        Find articles by the topics that matter to you.
+                    </p>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-4 lg:gap-5">
+
+                    <!-- Card 1 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/health_foods.png" alt="Nutrition & Diet" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Nutrition &<br>Diet</h4>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/diabetes_care.png" alt="Diabetes Care" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Diabetes<br>Care</h4>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/weight_management.png" alt="Weight Management" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Weight<br>Management</h4>
+                    </a>
+
+                    <!-- Card 4 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/heart_health.png" alt="Heart Health" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Heart<br>Health</h4>
+                    </a>
+
+                    <!-- Card 5 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/womens_health.png" alt="Women's Health" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Women's<br>Health</h4>
+                    </a>
+
+                    <!-- Card 6 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/digestive_health.png" alt="Digestive Health" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Digestive<br>Health</h4>
+                    </a>
+
+                    <!-- Card 7 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/immunity.png" alt="Immunity" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Immunity</h4>
+                    </a>
+
+                    <!-- Card 8 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/mental_wellness.png" alt="Mental Wellness" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Mental<br>Wellness</h4>
+                    </a>
+
+                    <!-- Card 9 -->
+                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                        <img src="assets/personal_care.png" alt="Healthy Living" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
+                        <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Healthy<br>Living</h4>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Articles Section -->
+        <section class="py-16 md:py-24 bg-[#f8faf8]">
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <h2 class="font-heading font-extrabold text-[32px] md:text-[38px] text-[#0f3057] leading-tight mb-2 tracking-tight">
+                            Featured <span class="text-[#14532d]">Articles</span>
+                        </h2>
+                        <p class="text-gray-500 font-medium text-[16px] md:text-[17px]">
+                            Handpicked by our experts, just for you.
+                        </p>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-[#106e39] font-bold text-[15px] hover:text-[#0b4d27] transition-colors group">
+                        View All Articles 
+                        <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Articles Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    
+                    <!-- Article 1 -->
+                    <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1">
+                        <!-- Image Container -->
+                        <div class="relative h-[260px] overflow-hidden">
+                            <img src="assets/article_diet.png" alt="Healthy Diet" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <!-- Badge -->
+                            <div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">
+                                Nutrition & Diet
+                            </div>
+                        </div>
+                        
+                        <!-- Content Container -->
+                        <div class="p-7 flex flex-col flex-grow">
+                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors">
+                                A Beginner's Guide to a Balanced Diet
+                            </h3>
+                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow">
+                                Learn how to create simple, sustainable eating habits for long-term health.
+                            </p>
+                            
+                            <!-- Footer Meta -->
+                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
+                                    Aug 24, 2025
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
+                                    5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1">
+                        <!-- Image Container -->
+                        <div class="relative h-[260px] overflow-hidden">
+                            <img src="assets/article_diabetes.png" alt="Diabetes Care" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <!-- Badge -->
+                            <div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">
+                                Diabetes Care
+                            </div>
+                        </div>
+                        
+                        <!-- Content Container -->
+                        <div class="p-7 flex flex-col flex-grow">
+                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors">
+                                10 Daily Habits to Manage Diabetes Naturally
+                            </h3>
+                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow">
+                                Small changes can make a big difference in your blood sugar levels.
+                            </p>
+                            
+                            <!-- Footer Meta -->
+                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
+                                    Aug 20, 2025
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
+                                    6 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1">
+                        <!-- Image Container -->
+                        <div class="relative h-[260px] overflow-hidden">
+                            <img src="assets/article_living.png" alt="Healthy Living" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" style="object-position: center 25%;">
+                            <!-- Badge -->
+                            <div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">
+                                Healthy Living
+                            </div>
+                        </div>
+                        
+                        <!-- Content Container -->
+                        <div class="p-7 flex flex-col flex-grow">
+                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors">
+                                The Power of Daily Movement
+                            </h3>
+                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow">
+                                Discover how regular exercise improves your overall well-being.
+                            </p>
+                            
+                            <!-- Footer Meta -->
+                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
+                                    Aug 18, 2025
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
+                                    4 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Articles Section -->
+        <section class="py-16 md:py-24 bg-white relative">
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <h2 class="font-heading font-extrabold text-[32px] md:text-[38px] text-[#0f3057] leading-tight mb-2 tracking-tight">
+                            Latest <span class="text-[#14532d]">Articles</span>
+                        </h2>
+                        <p class="text-gray-500 font-medium text-[16px] md:text-[17px]">
+                            Stay updated with the latest health tips, research and expert advice.
+                        </p>
+                    </div>
+                    <!-- Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-600 font-medium text-[14px] hover:border-[#14532d] hover:text-[#14532d] transition-colors focus:outline-none shadow-sm">
+                            All Categories
+                            <i class="fa-solid fa-chevron-down text-[12px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Articles Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    
+                    <!-- Article 1 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_immunity.png" alt="Immunity" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Immunity
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                5 Natural Ways to Boost Your Immunity
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 16, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_mental.png" alt="Mental Wellness" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Mental Wellness
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                How Better Sleep Improves Your Health
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 14, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_digestive.png" alt="Digestive Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Digestive Health
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                Foods for a Happier Gut
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 12, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_heart.png" alt="Heart Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Heart Health
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                Keep Your Heart Healthy with Simple Lifestyle Changes
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 10, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 6 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/article_living.png" alt="Women's Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" style="object-position: center 30%;">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Women's Health
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                PCOS: Diet, Exercise & Lifestyle Tips
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 08, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/health_foods.png" alt="Weight Management" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Weight Management
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                Healthy Smoothie Recipes for Weight Loss
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 06, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 7 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/healthy_beverages.png" alt="Healthy Living" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Healthy Living
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                Building Healthy Habits for the Whole Family
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 04, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 8 -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/article_diet.png" alt="Nutrition & Diet" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Nutrition & Diet
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                The Benefits of Traditional Herbs in Modern Lifestyle
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 02, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+
+
+                    <!-- Extra Articles (Hidden initially) -->
+                    <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_immunity.png" alt="Immunity" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Immunity
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                Top Foods for a Strong Immune System
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 16, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_mental.png" alt="Mental Wellness" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Mental Wellness
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                The Science of Restful Sleep
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 14, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_digestive.png" alt="Digestive Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Digestive Health
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                Understanding Your Microbiome
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 12, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="relative h-[200px] overflow-hidden">
+                            <img src="assets/latest_heart.png" alt="Heart Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
+                                Heart Health
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
+                                Cardio Exercises for Beginners
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 10, 2025
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 6 min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="mt-14 flex flex-col items-center justify-center">
+                    <p id="loadCountText" class="text-gray-500 text-sm font-medium mb-4">Showing 8 of 16 articles</p>
+                    <button id="loadMoreBtn" class="bg-[#14532d] text-white font-bold text-[15px] px-8 py-3.5 rounded-xl hover:bg-[#0b4d27] transition-colors flex items-center shadow-sm">
+                        Load More Articles
+                        <i class="fa-solid fa-rotate-right ml-2.5"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="relative min-h-[280px] md:min-h-[320px] flex items-center justify-center overflow-hidden border-t border-[#e2e8f0] mb-16">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="./assets/footer-top.png" alt="Growing Plant Background" class="w-full h-full object-cover">
+                <!-- Very light white overlay to ensure text readability if needed -->
+                <div class="absolute inset-0 bg-white/10"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 relative z-10 text-center flex flex-col items-center justify-center py-12">
+                <!-- Heading -->
+                <h2 class="font-heading font-extrabold text-[26px] md:text-[32px] lg:text-[36px] text-white leading-[1.2] max-w-[700px] mx-auto mb-5 tracking-tight drop-shadow-md">
+                    Knowledge is the first step<br class="hidden sm:block"> towards a healthier you.
+                </h2>
+                
+                <!-- Divider with Leaf -->
+                <div class="flex items-center justify-center w-full max-w-[200px] mx-auto mb-10">
+                    <div class="h-[2px] bg-gradient-to-r from-transparent to-[#14532d]/40 flex-grow"></div>
+                    <div class="text-[#14532d] text-2xl px-4 flex gap-1">
+                        <!-- Two leaves mimicking the design -->
+                        <i class="fa-solid fa-leaf transform -rotate-12"></i>
+                        <i class="fa-solid fa-leaf transform rotate-45 scale-75 origin-bottom-left -ml-2 -mb-2"></i>
+                    </div>
+                    <div class="h-[2px] bg-gradient-to-l from-transparent to-[#14532d]/40 flex-grow"></div>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#" class="bg-[#14532d] text-white font-bold text-[16.5px] px-8 py-4 rounded-xl hover:bg-[#0b4d27] transition-all transform hover:-translate-y-1 shadow-[0_4px_15px_rgba(20,83,45,0.4)] hover:shadow-[0_8px_25px_rgba(20,83,45,0.5)] flex items-center">
+                    Explore All Articles
+                    <i class="fa-solid fa-arrow-right ml-3 text-[14px]"></i>
+                </a>
+            </div>
+        </section>
+
+</main>
+
+    <!-- Footer Area -->
+    <hbm-footer></hbm-footer>
+
+    <script src="js/components.js"></script>
+
+    <!-- ScrollSpy Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.product-category-section');
+            const navLinks = document.querySelectorAll('.category-pill');
+            const sidebarLinks = document.querySelectorAll('.sidebar-category-link');
+
+            // Offset for sticky headers (104px main header + 88px pills navbar = 192px)
+            const scrollOffset = 210;
+
+            // Highlight on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // If we have scrolled past this section (minus the offset)
+                    if (window.scrollY >= (sectionTop - scrollOffset)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                // Default to first section if at the top
+                if (!current && sections.length > 0) {
+                    current = sections[0].getAttribute('id');
+                }
+
+                navLinks.forEach(link => {
+                    // Reset all links to default styling
+                    link.className = 'category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors';
+
+                    // Add active styling to the current one
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.className = 'category-pill flex items-center gap-2 px-5 py-2.5 bg-[#064e3b] text-white rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors';
+                    }
+                });
+
+                sidebarLinks.forEach(link => {
+                    // Reset all links to default styling
+                    link.className = 'sidebar-category-link flex items-center justify-between text-sm py-2 px-3 rounded-lg hover:bg-white text-gray-700 hover:text-[#064e3b] font-semibold transition-colors';
+
+                    // Add active styling to the current one
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.className = 'sidebar-category-link flex items-center justify-between text-sm py-2 px-3 rounded-lg bg-white text-[#064e3b] font-semibold transition-colors shadow-sm';
+                    }
+                });
+            });
+
+            // Smooth scroll on click
+            const allLinks = [...navLinks, ...sidebarLinks];
+            allLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - scrollOffset + 10,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('popular-products-track');
+            if (!track) return;
+
+            let autoScrollInterval;
+            let isTransitioning = false;
+            
+            // Store all original cards for filtering
+            const allCards = Array.from(track.querySelectorAll('.slider-card')).map(card => card.cloneNode(true));
+            
+            // Filtering logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Update active styles
+                    const inactiveClass = "filter-btn snap-start shrink-0 px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:text-primary hover:border-primary text-sm font-semibold transition-colors shadow-sm flex items-center gap-2";
+                    const activeClass = "filter-btn snap-start shrink-0 px-6 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-sm flex items-center gap-2";
+                    
+                    filterBtns.forEach(b => {
+                        b.className = inactiveClass;
+                    });
+                    
+                    e.currentTarget.className = activeClass;
+                    
+                    const filter = e.currentTarget.getAttribute('data-filter');
+                    
+                    // Pause slider while updating
+                    stopAutoScroll();
+                    
+                    // Empty track
+                    track.innerHTML = '';
+                    track.style.transition = 'none';
+                    track.style.transform = 'translateX(0)';
+                    
+                    // Add filtered cards
+                    allCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            track.appendChild(card.cloneNode(true));
+                        }
+                    });
+                    
+                    // Restart slider
+                    startAutoScroll();
+                });
+            });
+
+            const slideOne = () => {
+                if (isTransitioning) return;
+                
+                // If the cards don't fill the container, no need to slide
+                let totalWidth = 0;
+                for(let i=0; i<track.children.length; i++) {
+                    totalWidth += track.children[i].offsetWidth + 24;
+                }
+                if (totalWidth <= track.parentElement.clientWidth) return;
+
+                const firstCard = track.firstElementChild;
+                const secondCard = firstCard.nextElementSibling;
+                if (!secondCard) return;
+
+                isTransitioning = true;
+                
+                // Calculate distance to slide
+                const slideDistance = secondCard.getBoundingClientRect().left - firstCard.getBoundingClientRect().left;
+
+                // Apply transition
+                track.style.transition = 'transform 0.5s ease-in-out';
+                track.style.transform = `translateX(-${slideDistance}px)`;
+
+                // Wait for transition
+                const onTransitionEnd = () => {
+                    track.removeEventListener('transitionend', onTransitionEnd);
+                    
+                    // Move first card to the end
+                    track.appendChild(firstCard);
+                    
+                    // Reset transform instantly
+                    track.style.transition = 'none';
+                    track.style.transform = 'translateX(0)';
+                    
+                    // Force reflow
+                    void track.offsetWidth;
+                    
+                    isTransitioning = false;
+                };
+                
+                track.addEventListener('transitionend', onTransitionEnd);
+                
+                // Fallback in case transitionend fails
+                setTimeout(() => {
+                    if (isTransitioning) {
+                        track.removeEventListener('transitionend', onTransitionEnd);
+                        onTransitionEnd();
+                    }
+                }, 600);
+            };
+
+            const startAutoScroll = () => {
+                if (autoScrollInterval) clearInterval(autoScrollInterval);
+                autoScrollInterval = setInterval(slideOne, 3000);
+            };
+
+            const stopAutoScroll = () => {
+                clearInterval(autoScrollInterval);
+            };
+
+            startAutoScroll();
+
+            track.addEventListener('mouseenter', stopAutoScroll);
+            track.addEventListener('mouseleave', startAutoScroll);
+            track.addEventListener('touchstart', stopAutoScroll);
+            track.addEventListener('touchend', startAutoScroll);
+        });
+    </script>
+
+    <!-- Script for Load More Articles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const loadCountText = document.getElementById('loadCountText');
+            const grid = loadMoreBtn ? loadMoreBtn.closest('section').querySelector('.grid') : null;
+            
+            // Total number of simulated articles
+            const totalArticles = 16;
+            let currentArticles = 8;
+            
+            if(loadMoreBtn && grid) {
+                // Generate the 8 hidden articles in memory from the existing ones so we have realistic data to show
+                const initialArticles = Array.from(grid.querySelectorAll('article'));
+                // We'll just clone the first 8 to act as our "extra" content
+                const hiddenArticlesPool = initialArticles.map(article => {
+                    const clone = article.cloneNode(true);
+                    return clone;
+                });
+                
+                let nextIndexToLoad = 0;
+
+                loadMoreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Load up to 4 more articles
+                    const cardsToLoad = Math.min(4, totalArticles - currentArticles);
+                    
+                    for (let i = 0; i < cardsToLoad; i++) {
+                        if (nextIndexToLoad < hiddenArticlesPool.length) {
+                            grid.appendChild(hiddenArticlesPool[nextIndexToLoad]);
+                            nextIndexToLoad++;
+                        }
+                    }
+                    
+                    currentArticles += cardsToLoad;
+                    
+                    // Update text counter
+                    if (loadCountText) {
+                        loadCountText.textContent = `Showing ${currentArticles} of ${totalArticles} articles`;
+                    }
+                    
+                    // Hide button if all articles are loaded
+                    if (currentArticles >= totalArticles) {
+                        loadMoreBtn.style.display = 'none';
+                        // Optional: add a 'All caught up!' message
+                        loadCountText.innerHTML = `<i class="fa-solid fa-check-circle text-[#14532d] mr-1"></i> You've viewed all ${totalArticles} articles`;
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Script for Search Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const popularTags = document.querySelectorAll('.popular-search-tag');
+            let emptyStateDiv = null;
+
+            function performSearch(term) {
+                const query = term.toLowerCase().trim();
+                let matchCount = 0;
+                
+                // We re-query articles in case "Load More" added new ones to the DOM
+                const allArticles = document.querySelectorAll('article');
+                
+                allArticles.forEach(article => {
+                    // Skip hidden extra articles from the load more pool
+                    if(article.parentElement && !article.parentElement.classList.contains('grid')) {
+                        return; // It's probably unattached
+                    }
+                    
+                    const titleElement = article.querySelector('h3');
+                    const descElement = article.querySelector('p.text-gray-600');
+                    const title = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    const desc = descElement ? descElement.textContent.toLowerCase() : '';
+                    
+                    if (title.includes(query) || desc.includes(query) || query === '') {
+                        article.style.display = '';
+                        matchCount++;
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+                
+                // Handle Empty State
+                const mainGrid = document.querySelector('section.py-16 .grid, section.py-20 .grid');
+                if (mainGrid) {
+                    if (matchCount === 0 && query !== '') {
+                        if (!emptyStateDiv) {
+                            emptyStateDiv = document.createElement('div');
+                            emptyStateDiv.id = 'searchEmptyState';
+                            emptyStateDiv.className = 'col-span-full w-full flex flex-col items-center justify-center py-20 text-center';
+                            emptyStateDiv.innerHTML = `
+                                <i class="fa-solid fa-magnifying-glass text-5xl text-gray-200 mb-4"></i>
+                                <h3 class="text-2xl font-bold text-gray-700 mb-2">No articles found</h3>
+                                <p class="text-gray-500">We couldn't find anything matching "${term}". Try adjusting your keywords.</p>
+                            `;
+                            mainGrid.parentElement.appendChild(emptyStateDiv);
+                        } else {
+                            emptyStateDiv.querySelector('p').textContent = `We couldn't find anything matching "${term}". Try adjusting your keywords.`;
+                            emptyStateDiv.style.display = 'flex';
+                        }
+                    } else if (emptyStateDiv) {
+                        emptyStateDiv.style.display = 'none';
+                    }
+                }
+                
+                // Scroll down to results if they searched
+                if (query !== '' && window.scrollY < 300) {
+                    window.scrollTo({ top: 400, behavior: 'smooth' });
+                }
+            }
+
+            if (searchInput) {
+                // Real-time search as user types
+                searchInput.addEventListener('input', (e) => performSearch(e.target.value));
+                
+                // Button click
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        performSearch(searchInput.value);
+                    });
+                }
+                
+                // Enter key press
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        performSearch(searchInput.value);
+                    }
+                });
+                
+                // Popular Searches Clicks
+                popularTags.forEach(tag => {
+                    tag.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const term = tag.textContent.trim();
+                        searchInput.value = term;
+                        performSearch(term);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+
+</html>

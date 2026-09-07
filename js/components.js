@@ -1,6 +1,7 @@
 
 class HbmHeader extends HTMLElement {
     connectedCallback() {
+        this.style.display = 'contents';
         this.innerHTML = `<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div class="container mx-auto max-w-[1500px] relative">
 
@@ -50,7 +51,7 @@ class HbmHeader extends HTMLElement {
                             class="fa-solid fa-chevron-down text-[10px] ml-1.5"></i></a>
                     <a href="#" class="nav-link hover:text-primary transition-colors flex items-center whitespace-nowrap">Health
                         Conditions <i class="fa-solid fa-chevron-down text-[10px] ml-1.5"></i></a>
-                    <a href="#" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Health Library</a>
+                    <a href="healthlibrary.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Health Library</a>
                     <a href="store.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Store</a>
                     <a href="successtories.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Success Stories</a>
                     <a href="contact.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Contact</a>

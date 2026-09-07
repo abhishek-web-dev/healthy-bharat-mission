@@ -2,12 +2,12 @@
 
 @theme {
     /* Colors */
-    --color-primary: #175e2e;
-    /* Deep green for top bar and logos */
-    --color-primary-light: #21783e;
-    --color-primary-dark: #104020;
-    --color-accent: #f59e0b;
-    /* Yellow/Orange for assessment CTA */
+    --color-primary: #064e3b;      /* Deep green from logo */
+    --color-primary-light: #14532d; /* Lighter accent green */
+    --color-primary-dark: #022c22;  /* Very deep green */
+    --color-secondary: #0f3057;    /* Navy blue from logo */
+    --color-accent: #f59e0b;       /* Bright amber/yellow for CTA buttons */
+    
     --color-background-soft: #f8fafc;
     /* Very light slate for section backgrounds */
 
