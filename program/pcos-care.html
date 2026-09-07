@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Care Program - Healthy Mission Bharat</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Built Tailwind CSS -->
+    <link href="../dist/output.css" rel="stylesheet">
+    <style>
+        .animate-bounce-slow { animation: bounce 3s infinite; }
+        .animate-bounce-slow-delayed { animation: bounce 3s infinite 1.5s; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        details[open] .faq-content {
+            max-height: 500px;
+        }
+        
+        details[open] summary i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-white antialiased overflow-x-clip">
+
+    <!-- Header Area -->
+    <hbm-header base-path="../"></hbm-header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-primary-dark via-primary to-primary-light overflow-hidden py-16 lg:py-24" aria-labelledby="db-hero-heading">
+            <!-- Decorative Background Element -->
+            <div class="absolute -top-[100px] -right-[100px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_65%)] rounded-full pointer-events-none"></div>
+            
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px] relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 border border-white/30 rounded-full px-4 py-1.5 mb-6 text-sm font-bold text-white tracking-wide uppercase">
+                            <i class="fas fa-female text-white/80"></i> PCOS & PCOD Diet Programme
+                        </div>
+                        <h1 id="db-hero-heading" class="font-heading text-4xl md:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+                            Balance Your Hormones<br><span class="text-green-300">With the Power of Food.</span>
+                        </h1>
+                        <p class="text-white/90 font-medium text-base md:text-lg leading-relaxed mb-8 max-w-lg">
+                            A science-backed, holistic nutrition programme for PCOS and PCOD that targets insulin resistance, chronic inflammation, and hormonal imbalance — helping you restore regular cycles, manage weight, improve skin, and support fertility naturally.
+                        </p>
+                        <div class="flex flex-col gap-3.5 mb-10">
+                            <div class="flex items-center gap-3 text-white font-semibold text-[15px]">
+                                <i class="fas fa-check-circle text-white text-xl"></i> Cycle regularity typically within 2–4 months
+                            </div>
+                            <div class="flex items-center gap-3 text-white font-semibold text-[15px]">
+                                <i class="fas fa-check-circle text-white text-xl"></i> Reduces acne, hair fall & bloating
+                            </div>
+                            <div class="flex items-center gap-3 text-white font-semibold text-[15px]">
+                                <i class="fas fa-check-circle text-white text-xl"></i> Anti-inflammatory, low-GI Indian meal plans
+                            </div>
+                            <div class="flex items-center gap-3 text-white font-semibold text-[15px]">
+                                <i class="fas fa-check-circle text-white text-xl"></i> Fertility nutrition track available
+                            </div>
+                            <div class="flex items-center gap-3 text-white font-semibold text-[15px]">
+                                <i class="fas fa-check-circle text-white text-xl"></i> Zero supplements — 100% food-based
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a href="#" class="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#106e39] font-bold px-8 py-3.5 rounded-md transition-colors shadow-sm text-sm border border-transparent">
+                                <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
+                            </a>
+                            <a href="#overview" class="inline-flex items-center justify-center bg-transparent text-white border border-white/60 font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 hover:border-white transition-colors">
+                                <i class="fas fa-arrow-down mr-2"></i> Learn More
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative mt-8 lg:mt-0">
+                        <div class="bg-white rounded-[24px] shadow-[0_20px_60px_rgba(26,92,46,0.08)] overflow-hidden border border-gray-100 relative z-10">
+                            <div class="h-[300px] md:h-[400px] w-full bg-[#f8f9fa] relative p-4 flex items-center justify-center">
+                                <img src="../assets/pcos.png" alt="PCOS Care" class="w-full h-full object-contain">
+                            </div>
+                            <div class="p-6 md:p-8 bg-white border-t border-gray-50">
+                                <div class="grid grid-cols-3 gap-3 md:gap-6">
+                                    <div class="bg-orange-50/70 rounded-[14px] p-3 md:p-4 text-center">
+                                        <span class="block font-heading text-[22px] md:text-[28px] font-extrabold text-orange-600 mb-1 leading-none">2–4 M</span>
+                                        <span class="block text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-wider">Cycle Regularity</span>
+                                    </div>
+                                    <div class="bg-orange-50/70 rounded-[14px] p-3 md:p-4 text-center">
+                                        <span class="block font-heading text-[22px] md:text-[28px] font-extrabold text-orange-600 mb-1 leading-none">3–4 wks</span>
+                                        <span class="block text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-wider">First Changes</span>
+                                    </div>
+                                    <div class="bg-orange-50/70 rounded-[14px] p-3 md:p-4 text-center">
+                                        <span class="block font-heading text-[22px] md:text-[28px] font-extrabold text-orange-600 mb-1 leading-none">100%</span>
+                                        <span class="block text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-wider">Natural</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center gap-4 z-20 animate-bounce-slow hidden md:flex min-w-[220px]">
+                            <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-[#052b14] text-[15px] font-bold">Ananya's cycle</strong>
+                                <span class="block text-gray-500 text-xs font-medium">Restored in 3 months</span>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-8 -left-8 bg-white p-4 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center gap-4 z-20 animate-bounce-slow-delayed hidden md:flex min-w-[240px]">
+                            <div class="w-12 h-12 rounded-xl bg-[#e8f5ee] text-[#106e39] flex items-center justify-center text-xl shrink-0">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-[#052b14] text-[15px] font-bold">Zero hormone pills</strong>
+                                <span class="block text-gray-500 text-xs font-medium">Food-first approach</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Decorative Leaves -->
+            <div class="absolute top-0 right-0 w-64 h-full opacity-60 mix-blend-multiply pointer-events-none z-0">
+                <img src="../assets/leaves-side.png" alt="" class="w-full h-full object-cover object-left" onerror="this.style.display='none'">
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section id="overview" class="py-16 md:py-24 bg-white relative">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div>
+                        <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-[#f2f8f3] inline-block px-4 py-1.5 rounded-full">Understanding PCOS & PCOD</span>
+                        <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-6">
+                            You Deserve to Know What's Actually Happening
+                        </h2>
+                        <div class="text-gray-600 font-medium text-[15px] md:text-base leading-relaxed space-y-5 mb-8">
+                            <p>PCOS (Polycystic Ovary Syndrome) affects 1 in 5 women in India — yet it is chronically under-diagnosed, misunderstood, and poorly managed. Most women are handed a prescription and sent home. We believe you deserve more.</p>
+                            <p>At its core, PCOS is driven by insulin resistance and chronic low-grade inflammation — both of which are powerfully influenced by what you eat. The right nutrition doesn't just treat symptoms — it addresses the root cause.</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 border-l-4 border-orange-500 rounded-r-xl p-5 md:p-6 mb-6">
+                            <p class="text-orange-800 font-semibold italic text-base md:text-lg leading-snug m-0">
+                                "PCOS is not a life sentence. With the right food, the right lifestyle, and the right support, your body has an extraordinary capacity to rebalance itself."
+                            </p>
+                        </div>
+                        
+                        <p class="text-gray-600 font-medium text-[15px] md:text-base leading-relaxed">
+                            We also work closely alongside your existing medical treatment. Our plans are designed to complement your doctor's advice, not replace it. Many clients see enough improvement in their readings that their doctors proactively reduce their medication dosage.
+                        </p>
+                    </div>
+                    
+                    
+                    <!-- Symptoms Grid -->
+                    <div>
+                        <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-[#f2f8f3] inline-block px-4 py-1.5 rounded-full">Common PCOS Symptoms We Address</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-[#052b14] mb-8">Does This Sound Like You?</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Symptom 1 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-sync"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Irregular Periods</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Cycles longer than 35 days, missed periods, or very unpredictable cycles.</p>
+                            </div>
+                            <!-- Symptom 2 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-weight"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Weight Gain</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Unexplained weight gain, especially around the belly, despite eating normally.</p>
+                            </div>
+                            <!-- Symptom 3 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-cut"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Hair Fall</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Diffuse hair thinning or excessive shedding — often linked to androgen excess.</p>
+                            </div>
+                            <!-- Symptom 4 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-50 text-green-500 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Acne & Oily Skin</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Hormonal acne on jawline, chin, and chest — often worsening before periods.</p>
+                            </div>
+                            <!-- Symptom 5 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-purple-50 text-purple-500 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-bed"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Fatigue & Brain Fog</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Persistent tiredness, difficulty concentrating, and afternoon energy crashes.</p>
+                            </div>
+                            <!-- Symptom 6 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-baby"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Fertility Challenges</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Difficulty conceiving due to irregular or absent ovulation.</p>
+                            </div>
+                            <!-- Symptom 7 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-50 text-yellow-600 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-cookie"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Sugar Cravings</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Intense cravings for carbs and sweets, especially post-meal — a sign of insulin resistance.</p>
+                            </div>
+                            <!-- Symptom 8 -->
+                            <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-teal-50 text-teal-500 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-smile"></i>
+                                    </div>
+                                    <h4 class="font-bold text-[#052b14]">Mood Changes</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">Anxiety, low mood, or PMS-like symptoms driven by hormonal fluctuations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hormone Section -->
+        <section class="py-16 md:py-24 bg-white border-y border-gray-100">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-green-100/50 inline-block px-4 py-1.5 rounded-full">The Hormone–Food Connection</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-5">4 Key Hormones — and How Food Fixes Them</h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-base">PCOS is fundamentally a hormonal disorder. Each key hormone is directly influenced by specific foods — and your plan targets all of them.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                    <!-- Hormone 1 -->
+                    <div class="bg-[#f2f8f3]/30 border border-green-100 rounded-2xl p-8 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 bg-green-100 text-green-700 rounded-xl flex items-center justify-center text-xl mb-5">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-1">Insulin</h3>
+                        <span class="block text-xs font-bold uppercase tracking-wider text-[#106e39] mb-4">The Root Driver</span>
+                        <p class="text-sm text-gray-600 mb-6 leading-relaxed">Excess insulin stimulates the ovaries to produce more androgens. Reducing insulin resistance is the single most important dietary goal in PCOS.</p>
+                        <div class="bg-white rounded-lg p-3 text-xs text-gray-700 font-medium border border-gray-100 shadow-sm flex items-start gap-2">
+                            <span class="text-green-600 text-sm">🫘</span> Fibre, legumes, low-GI grains, cinnamon
+                        </div>
+                    </div>
+                    
+                    <!-- Hormone 2 -->
+                    <div class="bg-red-50/30 border border-red-100 rounded-2xl p-8 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl mb-5">
+                            <i class="fas fa-venus"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-1">Androgens</h3>
+                        <span class="block text-xs font-bold uppercase tracking-wider text-red-600 mb-4">The Symptom Maker</span>
+                        <p class="text-sm text-gray-600 mb-6 leading-relaxed">Elevated testosterone and DHEA cause acne, hair fall, and excess body hair. Anti-androgenic foods directly reduce this excess.</p>
+                        <div class="bg-white rounded-lg p-3 text-xs text-gray-700 font-medium border border-gray-100 shadow-sm flex items-start gap-2">
+                            <span class="text-red-500 text-sm">🌿</span> Spearmint tea, flaxseeds, soy (in moderation)
+                        </div>
+                    </div>
+                    
+                    <!-- Hormone 3 -->
+                    <div class="bg-purple-50/30 border border-purple-100 rounded-2xl p-8 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-5">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-1">Oestrogen</h3>
+                        <span class="block text-xs font-bold uppercase tracking-wider text-purple-600 mb-4">The Cycle Driver</span>
+                        <p class="text-sm text-gray-600 mb-6 leading-relaxed">Oestrogen imbalance disrupts the menstrual cycle. Supporting healthy oestrogen metabolism helps restore regular ovulation.</p>
+                        <div class="bg-white rounded-lg p-3 text-xs text-gray-700 font-medium border border-gray-100 shadow-sm flex items-start gap-2">
+                            <span class="text-purple-500 text-sm">🥦</span> Cruciferous veg, fermented foods, fibre
+                        </div>
+                    </div>
+                    
+                    <!-- Hormone 4 -->
+                    <div class="bg-blue-50/30 border border-blue-100 rounded-2xl p-8 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-5">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-1">Cortisol</h3>
+                        <span class="block text-xs font-bold uppercase tracking-wider text-blue-600 mb-4">The Stress Factor</span>
+                        <p class="text-sm text-gray-600 mb-6 leading-relaxed">Chronic stress raises cortisol, which worsens insulin resistance and androgen production. Anti-inflammatory eating reduces cortisol's impact.</p>
+                        <div class="bg-white rounded-lg p-3 text-xs text-gray-700 font-medium border border-gray-100 shadow-sm flex items-start gap-2">
+                            <span class="text-blue-500 text-sm">🐟</span> Omega-3 foods, magnesium-rich leafy greens
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- What's Included Section -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-green-100/50 inline-block px-4 py-1.5 rounded-full">What's Included</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-5">Everything in Your PCOS Nutrition Programme</h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-base">A comprehensive, compassionate programme designed to address the root causes of PCOS — not just the symptoms.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Cards -->
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Comprehensive PCOS Assessment</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">A detailed intake covering your diagnosis, symptom history, hormonal blood reports (LH/FSH ratio, testosterone, prolactin), medication, and lifestyle.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-red-50 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-fire-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Anti-Inflammatory Meal Plans</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Weekly plans built around anti-inflammatory, low-GI Indian foods that reduce insulin resistance and androgen production simultaneously.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Phytoestrogen & Hormone Foods</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Specific foods incorporated strategically — flaxseeds, spearmint, cinnamon, turmeric — chosen for their evidence-based hormone-balancing properties.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-pink-50 text-pink-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Fertility Nutrition Track</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">A dedicated fertility track for women trying to conceive — focused on ovulation support, follicle health, uterine lining nutrition, and early pregnancy preparation.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">PCOS Weight Management</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">A specialised weight approach that accounts for the metabolic challenges of PCOS — including insulin resistance, slower metabolism, and emotional eating patterns.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-smile-beam"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Skin, Hair & Acne Nutrition</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Targeted nutritional strategies to reduce hormonal acne, support hair follicle health, and improve skin texture through specific micronutrient optimisation.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Cycle Regularity Tracking</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Week-by-week cycle monitoring with dietary adjustments aligned to your cycle phase — including follicular, ovulatory, and luteal phase nutrition.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">WhatsApp Support</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Direct access to your dietitian for questions about symptoms, cravings, eating out, or when you're having a hard day emotionally or physically.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">PCOS Lifestyle Education</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Guidance on stress management, sleep quality, exercise timing, and environmental factors — all of which influence PCOS severity and recovery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Foods to Eat & Avoid -->
+        <section class="py-16 md:py-24 bg-white border-y border-gray-100">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-[#f2f8f3] inline-block px-4 py-1.5 rounded-full">PCOS-Friendly Eating</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-5">Foods That Help Your Hormones vs. Foods That Disrupt Them</h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-base">Every item in your personalised plan is chosen with hormonal balance in mind — not just calories.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                    <!-- Hormone-Supportive -->
+                    <div class="bg-[#f2f8f3] border border-green-100 rounded-3xl p-6 md:p-10">
+                        <h3 class="text-2xl font-bold text-[#052b14] mb-8 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg shadow-green-500/30">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            Hormone-Supportive Foods
+                        </h3>
+                        
+                        <div class="space-y-5">
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Flaxseeds</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Rich in lignans — natural phytoestrogens that reduce androgen levels and support cycle regularity.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Spearmint Tea</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Clinical evidence shows spearmint tea reduces testosterone levels in PCOS women with just 2 cups/day.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Leafy Greens (Methi, Palak)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">High in magnesium and folate — reduce insulin resistance and support oestrogen metabolism.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">All Legumes & Lentils</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Low-GI, high-fibre protein source — slows glucose absorption and reduces insulin spikes.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Cinnamon (Dalchini)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Improves insulin sensitivity — add to tea, milk, or sprinkle over oats daily.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Turmeric (Haldi)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Powerful anti-inflammatory — reduces the chronic inflammation underlying PCOS severity.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Pumpkin Seeds (Kaddu ke Beej)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">High in zinc — supports progesterone production and reduces excess androgens.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-green-50 flex gap-4 items-start group hover:border-green-300 transition-colors">
+                                <i class="fas fa-check-circle text-green-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Fermented Foods (Dahi, Kanji)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Gut health directly impacts oestrogen metabolism — probiotics help maintain hormonal balance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hormone-Disrupting -->
+                    <div class="bg-[#fef2f2] border border-red-100 rounded-3xl p-6 md:p-10">
+                        <h3 class="text-2xl font-bold text-[#052b14] mb-8 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center shadow-lg shadow-red-500/30">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            Hormone-Disrupting Foods
+                        </h3>
+                        
+                        <div class="space-y-5">
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Refined Sugar & Mithai</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Causes immediate insulin surge — the single biggest driver of androgen production in PCOS.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Maida & Refined Flour</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">White bread, biscuits, naan — rapid blood sugar spikes worsen insulin resistance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Dairy in Excess</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Full-fat dairy contains IGF-1 which can elevate androgen levels — switch to low-fat or A2 milk.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Caffeine in Excess</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Raises cortisol — which worsens insulin resistance and disrupts the HPO hormonal axis.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Processed & Packaged Foods</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Hidden sugars, trans fats, and sodium — all pro-inflammatory and insulin-disrupting.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Alcohol</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Disrupts liver oestrogen metabolism and raises cortisol — both worsen PCOS significantly.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Soy in Large Amounts</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Small amounts are beneficial, but excess phytoestrogens from soy can disrupt hormonal balance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-red-50 flex gap-4 items-start group hover:border-red-300 transition-colors">
+                                <i class="fas fa-times-circle text-red-500 text-xl mt-1 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#052b14] text-lg mb-1">Deep-Fried Snacks</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Trans fats and refined carbs together — a double hit for insulin resistance and inflammation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programme Journey -->
+        <section class="py-16 md:py-24 bg-gray-50 relative overflow-hidden">
+            <div class="absolute right-0 top-0 w-1/3 h-full bg-[#f2f8f3]/40 rounded-l-[100px] pointer-events-none"></div>
+            
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-green-100/50 inline-block px-4 py-1.5 rounded-full">Your Journey</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-5">What the First 4 Months Look Like</h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-base">A realistic timeline for hormonal healing through personalised nutrition at Healthy Mission Bharat.</p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-6 md:left-8 top-8 bottom-8 w-1 bg-gradient-to-b from-green-200 via-green-400 to-green-100 rounded-full"></div>
+                    
+                    <!-- Steps -->
+                    <div class="space-y-6 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#052b14] text-white flex items-center justify-center font-heading font-extrabold text-xl md:text-2xl shrink-0 shadow-[0_0_0_4px_rgba(255,255,255,1),0_4px_20px_rgba(5,43,20,0.15)] relative z-10 mr-6 md:mr-8 mt-2">
+                                1
+                            </div>
+                            <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all">
+                                <span class="text-xs font-bold tracking-wider text-[#106e39] uppercase mb-2 block">Week 1</span>
+                                <h3 class="text-xl md:text-2xl font-bold text-[#052b14] mb-3">Hormone Assessment & Plan</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm md:text-base">Review of blood reports, symptom history, and menstrual calendar. Your anti-inflammatory, low-GI meal plan arrives within 24 hours — with spearmint tea, flaxseeds, and cinnamon integrated from Day 1.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#106e39] text-white flex items-center justify-center font-heading font-extrabold text-xl md:text-2xl shrink-0 shadow-[0_0_0_4px_rgba(255,255,255,1),0_4px_20px_rgba(16,110,57,0.15)] relative z-10 mr-6 md:mr-8 mt-2">
+                                2
+                            </div>
+                            <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all">
+                                <span class="text-xs font-bold tracking-wider text-[#106e39] uppercase mb-2 block">Weeks 2–4</span>
+                                <h3 class="text-xl md:text-2xl font-bold text-[#052b14] mb-3">Early Symptom Changes</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm md:text-base">Bloating reduces, energy improves, and sugar cravings diminish. Skin may begin to clear. Internally, insulin sensitivity starts improving — the foundation for everything else.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-green-500 text-white flex items-center justify-center font-heading font-extrabold text-xl md:text-2xl shrink-0 shadow-[0_0_0_4px_rgba(255,255,255,1),0_4px_20px_rgba(34,197,94,0.15)] relative z-10 mr-6 md:mr-8 mt-2">
+                                3
+                            </div>
+                            <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all">
+                                <span class="text-xs font-bold tracking-wider text-[#106e39] uppercase mb-2 block">Month 2</span>
+                                <h3 class="text-xl md:text-2xl font-bold text-[#052b14] mb-3">First Cycle Improvements</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm md:text-base">Most clients see their first cycle changes — shorter delay, reduced pain, or lighter flow. Not everyone sees this immediately; it depends on starting hormone levels and adherence.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-green-400 text-white flex items-center justify-center font-heading font-extrabold text-xl md:text-2xl shrink-0 shadow-[0_0_0_4px_rgba(255,255,255,1),0_4px_20px_rgba(74,222,128,0.15)] relative z-10 mr-6 md:mr-8 mt-2">
+                                4
+                            </div>
+                            <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all">
+                                <span class="text-xs font-bold tracking-wider text-[#106e39] uppercase mb-2 block">Months 2–3</span>
+                                <h3 class="text-xl md:text-2xl font-bold text-[#052b14] mb-3">Androgen Reduction Phase</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm md:text-base">Hair fall typically reduces. Acne improves. LH/FSH ratio may begin normalising. Weight around the abdomen starts shifting as insulin resistance decreases.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#106e39] text-white flex items-center justify-center font-heading font-extrabold text-xl md:text-2xl shrink-0 shadow-[0_0_0_4px_rgba(255,255,255,1),0_4px_20px_rgba(16,110,57,0.15)] relative z-10 mr-6 md:mr-8 mt-2">
+                                5
+                            </div>
+                            <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all">
+                                <span class="text-xs font-bold tracking-wider text-[#106e39] uppercase mb-2 block">Month 4</span>
+                                <h3 class="text-xl md:text-2xl font-bold text-[#052b14] mb-3">Cycle Regularity & Hormone Testing</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm md:text-base">Many clients achieve regular cycles at this stage. Hormonal blood tests are recommended at 3 months to measure LH, FSH, testosterone, and insulin changes objectively.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-500 text-white flex items-center justify-center font-heading font-extrabold text-xl md:text-2xl shrink-0 shadow-[0_0_0_4px_rgba(255,255,255,1),0_4px_20px_rgba(59,130,246,0.15)] relative z-10 mr-6 md:mr-8 mt-2">
+                                6
+                            </div>
+                            <div class="bg-[#f2f8f3]/80 p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-green-200 flex-1">
+                                <span class="text-xs font-bold tracking-wider text-[#106e39] uppercase mb-2 block">Ongoing</span>
+                                <h3 class="text-xl md:text-2xl font-bold text-[#052b14] mb-3">Long-Term PCOS Management</h3>
+                                <p class="text-gray-600 leading-relaxed text-sm md:text-base">PCOS requires ongoing management. We transition you to a long-term eating pattern that maintains hormonal balance — not a strict diet, but a sustainable lifestyle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1000px]">
+                <div class="text-center mb-12">
+                    <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-[#f2f8f3] inline-block px-4 py-1.5 rounded-full">FAQs</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-5">PCOS Nutrition — Questions Answered</h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-base">Have a question specific to your symptoms, medications, or fertility goals? We'll answer honestly before you even book.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            Can diet reverse PCOS completely?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">PCOS cannot be fully reversed since it has a genetic component — but the right nutrition can dramatically reduce or eliminate symptoms. Many of our clients achieve complete cycle regularity, clear skin, healthy weight, and normal hormone readings through diet alone.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ 2 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            How long before I see results?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Most clients notice energy improvements, reduced bloating, and better sleep within 3–4 weeks. Skin and hair changes typically follow in weeks 4–8. Cycle regularity usually improves between months 2–4 depending on your starting hormone levels.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ 3 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            I'm trying to conceive — can you help?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Yes. We have a dedicated fertility nutrition track within the PCOS programme. This focuses on ovulation-supporting nutrients (folate, zinc, omega-3), follicle health, uterine lining nutrition, and creating the hormonal environment needed for conception.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ 4 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            Can I follow the plan if I'm on Metformin or OCPs?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Absolutely. Our plans are designed to work alongside Metformin, OCPs, or any other medication prescribed by your gynaecologist. We will never advise you to stop or change medication — that's your doctor's domain.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ 5 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            Is dairy bad for PCOS?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Excess full-fat dairy can worsen androgen levels in some PCOS cases. We don't eliminate dairy entirely — instead we moderate it, switch to low-fat or A2 milk, and use fermented dairy (curd, buttermilk) which has additional benefits.</p>
+                        </div>
+                    </details>
+                    
+                    <!-- FAQ 6 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            Will the plan accommodate my vegetarian diet?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Yes — in fact, a well-planned vegetarian diet is particularly well-suited to PCOS management. Legumes, seeds, vegetables, and fermented foods are all central to the programme and are naturally vegetarian.</p>
+                        </div>
+                    </details>
+                    
+                    <!-- FAQ 7 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            Do I need to share my hormone blood reports?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Not mandatory, but sharing your LH, FSH, AMH, testosterone, insulin, and thyroid reports helps us calibrate your plan far more precisely. If you don't have recent reports, we'll recommend which ones to get first.</p>
+                        </div>
+                    </details>
+                    
+                    <!-- FAQ 8 -->
+                    <details class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            What about PCOS weight loss — is it really harder?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Yes — insulin resistance makes weight loss harder for PCOS women on standard diets. Our PCOS weight management approach specifically accounts for this by focusing on glycaemic load, meal timing, and anti-androgenic foods, not just calorie reduction.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="w-full relative mt-16 mb-16 lg:mb-24 overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="../assets/Healtheir-Happeir.png" alt="Healthier Happier Background" class="w-full h-full object-cover object-[center_70%]">
+            </div>
+            
+            <!-- Gradient Overlay for text readability -->
+            <div class="absolute inset-0 z-10 bg-gradient-to-l from-white/95 via-white/60 to-transparent md:w-[70%] md:left-auto md:right-0"></div>
+
+            <div class="container mx-auto px-4 relative z-20 py-10 md:py-14 max-w-[1200px]">
+                <div class="flex flex-col lg:flex-row justify-end items-center gap-10 md:gap-16">
+                    <!-- Center Text Block -->
+                    <div class="w-full lg:w-[50%] text-center md:text-right flex flex-col items-center md:items-end relative z-20">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-[#052b14] mb-4 tracking-tight leading-snug">
+                            Your Hormone Healing Journey Starts with<br><span class="text-[#106e39]">One Free Call.</span>
+                        </h2>
+                        <p class="text-[#052b14] font-medium text-sm md:text-[15px] mb-8 max-w-md">
+                            Speak directly with our clinical dietitians. Let's discuss your symptoms, review your medical history, and map out a sustainable plan to regain control of your health.
+                        </p>
+                        <a href="#" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#052b14] font-bold px-8 py-3.5 rounded-full transition-all shadow-[0_4px_14px_rgba(5,43,20,0.08)] hover:shadow-[0_6px_20px_rgba(5,43,20,0.12)] border border-gray-100 hover:-translate-y-0.5 text-lg">
+                            <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
+                        </a>
+                        <span class="text-sm font-semibold text-gray-600 flex items-center gap-2 mt-4">
+                            <i class="fas fa-shield-check text-green-600"></i> No obligations. Just clarity.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Footer Area -->
+    <hbm-footer base-path="../"></hbm-footer>
+
+    <script src="../js/components.js"></script>
+    <!-- Basic FAQ script for details tag transition -->
+    <script>
+        const details = document.querySelectorAll('details');
+        details.forEach(detail => {
+            detail.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'SUMMARY' && e.target.closest('summary') === null) return;
+                details.forEach(d => {
+                    if (d !== detail && d.hasAttribute('open')) {
+                        d.removeAttribute('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Management Program - Healthy Bharat Mission</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Built Tailwind CSS -->
+    <link href="../dist/output.css" rel="stylesheet">
+    <style>
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+
+        .animate-bounce-slow-delayed {
+            animation: bounce 3s infinite 1.5s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(-5%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        details[open] .faq-content {
+            max-height: 500px;
+        }
+
+        details[open] summary i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="font-body text-gray-800 bg-white antialiased overflow-x-clip">
+
+    <!-- Header Area -->
+    <hbm-header base-path="../"></hbm-header>
+
+    <main>
+        <!-- Hero Section -->
+        <section
+            class="relative pt-12 pb-12 md:pt-20 md:pb-20 overflow-hidden" style="background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #14532d 100%);">
+            <!-- Decorative Background Element removed -->
+
+            <div class="container mx-auto px-4 lg:px-8 relative z-10 max-w-[1400px]">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+                    <!-- Left Content -->
+                    <div class="w-full lg:w-[55%] flex flex-col items-start text-left">
+                        <div
+                            class="inline-flex items-center gap-2 border border-white/30 rounded-full px-4 py-1.5 text-sm font-bold text-white tracking-wide uppercase mb-6 shadow-sm">
+                            <i class="fas fa-weight text-white/80"></i> Weight Management
+                        </div>
+
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+                            Lose Weight for Good —<br>
+                            <span class="text-green-300">Without
+                                Starving Once.</span>
+                        </h1>
+
+                        <p class="text-white/90 text-lg md:text-xl mb-10 max-w-2xl leading-relaxed font-medium">
+                            A science-backed, fully personalised weight loss programme built around your body, your
+                            lifestyle, and the foods you already love.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                            <a href="#"
+                                class="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#052b14] font-bold px-8 py-4 rounded-full transition-colors shadow-[0_4px_14px_rgba(5,43,20,0.08)] hover:shadow-md border border-gray-100 text-lg">
+                                <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
+                            </a>
+                        </div>
+
+                        <!-- Trust Indicators -->
+                        <div class="mt-10 flex items-center gap-6 pt-6 border-t border-white/20">
+                            <div class="flex -space-x-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-100 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-green-700">
+                                    AK</div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-100 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-blue-700">
+                                    SM</div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-purple-100 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-purple-700">
+                                    RJ</div>
+                            </div>
+                            <div class="text-sm">
+                                <div class="flex text-yellow-400 mb-1 text-[10px]">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <span class="font-bold text-white">5,000+</span> <span class="text-white/70">Success
+                                    Stories</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Image Area -->
+                    <div class="w-full lg:w-[45%] relative">
+                        <!-- Floating Elements -->
+                        <div
+                            class="absolute top-10 -left-12 bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-50 z-20 animate-[float_4s_ease-in-out_infinite]">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-lg">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Goal</p>
+                                    <p class="text-sm font-extrabold text-[#052b14]">Sustainable Fat Loss</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="absolute bottom-20 -right-8 bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-50 z-20 animate-[float_5s_ease-in-out_infinite_0.5s]">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-lg">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">No
+                                        Starvation</p>
+                                    <p class="text-sm font-extrabold text-[#052b14]">No Crash Diets</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Image -->
+                        <div
+                            class="relative z-10 w-full aspect-[4/5] rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#0f3057]/10 to-[#106e39]/15 flex items-center justify-center p-4 md:p-6 shadow-inner">
+                            <img src="../assets/weight_management_hero.png" alt="Weight Management Program"
+                                class="w-full h-full object-cover rounded-[1.5rem] shadow-xl border-4 border-white/60">
+                        </div>
+
+                        <!-- Decorative Circle -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square border-[40px] border-green-50 rounded-full -z-10 blur-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section id="overview" class="py-16 md:py-24 bg-white relative">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    <!-- Left Side: What We Do Differently -->
+                    <div class="sticky top-24">
+                        <span
+                            class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-[#f2f8f3] inline-block px-4 py-1.5 rounded-full">What
+                            We Do Differently</span>
+                        <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-6">
+                            Weight Loss That Actually Lasts
+                        </h2>
+                        <div class="text-gray-600 font-medium text-[15px] md:text-base leading-relaxed space-y-5 mb-8">
+                            <p>Most weight loss programmes fail because they treat every person the same. They give you
+                                a calorie target, a generic meal plan, and leave you to figure it out alone. That's not
+                                what we do.</p>
+                            <p>At Healthy Mission Bharat, we begin by understanding <em>you</em> — your metabolic type,
+                                your daily schedule, your food preferences, your medical history, and your relationship
+                                with food. Then we build a plan that fits seamlessly into your real life.</p>
+                        </div>
+
+                        <div class="bg-[#f2f8f3] border-l-4 border-primary rounded-r-xl p-5 md:p-6 mb-6">
+                            <p class="text-primary font-semibold italic text-base md:text-lg leading-snug m-0">
+                                "The goal is never just weight loss — it's building a relationship with food where you
+                                instinctively make the right choices, every day, for the rest of your life."
+                            </p>
+                        </div>
+
+                        <p class="text-gray-600 font-medium text-[15px] md:text-base leading-relaxed">
+                            We use a kitchen-first approach: every ingredient in your plan comes from your local market.
+                            No protein powders, no meal replacement shakes, no expensive supplements — ever.
+                        </p>
+                    </div>
+
+                    <!-- Right Side: Myth vs Fact -->
+                    <div>
+                        <span
+                            class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-[#f2f8f3] inline-block px-4 py-1.5 rounded-full">Myth
+                            vs. Fact</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-[#052b14] mb-8">Common Weight Loss Myths —
+                            Busted</h3>
+
+                        <div class="space-y-6">
+                            <!-- Pair 1 -->
+                            <div
+                                class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <div class="bg-red-50/50 p-4 md:p-5 flex items-start gap-4 border-b border-red-100">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-red-800 text-sm font-bold uppercase tracking-wide mb-1">Myth</strong>
+                                        <span class="text-gray-700 font-medium">You must avoid carbs completely to lose
+                                            weight.</span>
+                                    </div>
+                                </div>
+                                <div class="bg-[#f2f8f3]/50 p-4 md:p-5 flex items-start gap-4">
+                                    <i class="fas fa-check-circle text-primary mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-primary text-sm font-bold uppercase tracking-wide mb-1">Fact</strong>
+                                        <span class="text-gray-600 text-sm leading-relaxed">Carbs are your body's
+                                            primary energy source. The right type and timing of carbs actually speeds up
+                                            fat loss.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pair 2 -->
+                            <div
+                                class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <div class="bg-red-50/50 p-4 md:p-5 flex items-start gap-4 border-b border-red-100">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-red-800 text-sm font-bold uppercase tracking-wide mb-1">Myth</strong>
+                                        <span class="text-gray-700 font-medium">Eating less is always the answer.</span>
+                                    </div>
+                                </div>
+                                <div class="bg-[#f2f8f3]/50 p-4 md:p-5 flex items-start gap-4">
+                                    <i class="fas fa-check-circle text-primary mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-primary text-sm font-bold uppercase tracking-wide mb-1">Fact</strong>
+                                        <span class="text-gray-600 text-sm leading-relaxed">Under-eating slows your
+                                            metabolism. Strategic calorie distribution is far more effective than just
+                                            eating less.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pair 3 -->
+                            <div
+                                class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <div class="bg-red-50/50 p-4 md:p-5 flex items-start gap-4 border-b border-red-100">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-red-800 text-sm font-bold uppercase tracking-wide mb-1">Myth</strong>
+                                        <span class="text-gray-700 font-medium">You need a gym membership to lose
+                                            weight.</span>
+                                    </div>
+                                </div>
+                                <div class="bg-[#f2f8f3]/50 p-4 md:p-5 flex items-start gap-4">
+                                    <i class="fas fa-check-circle text-primary mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-primary text-sm font-bold uppercase tracking-wide mb-1">Fact</strong>
+                                        <span class="text-gray-600 text-sm leading-relaxed">Nutrition drives 70–80% of
+                                            weight loss results. Exercise accelerates progress but is not a
+                                            prerequisite.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pair 4 -->
+                            <div
+                                class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <div class="bg-red-50/50 p-4 md:p-5 flex items-start gap-4 border-b border-red-100">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-red-800 text-sm font-bold uppercase tracking-wide mb-1">Myth</strong>
+                                        <span class="text-gray-700 font-medium">Weight loss supplements accelerate
+                                            results.</span>
+                                    </div>
+                                </div>
+                                <div class="bg-[#f2f8f3]/50 p-4 md:p-5 flex items-start gap-4">
+                                    <i class="fas fa-check-circle text-primary mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-primary text-sm font-bold uppercase tracking-wide mb-1">Fact</strong>
+                                        <span class="text-gray-600 text-sm leading-relaxed">No supplement replaces
+                                            balanced nutrition. Most do nothing — some are actively harmful.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pair 5 -->
+                            <div
+                                class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <div class="bg-red-50/50 p-4 md:p-5 flex items-start gap-4 border-b border-red-100">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-red-800 text-sm font-bold uppercase tracking-wide mb-1">Myth</strong>
+                                        <span class="text-gray-700 font-medium">Indian food is too heavy to eat on a
+                                            weight loss diet.</span>
+                                    </div>
+                                </div>
+                                <div class="bg-[#f2f8f3]/50 p-4 md:p-5 flex items-start gap-4">
+                                    <i class="fas fa-check-circle text-primary mt-1 text-lg shrink-0"></i>
+                                    <div>
+                                        <strong
+                                            class="block text-primary text-sm font-bold uppercase tracking-wide mb-1">Fact</strong>
+                                        <span class="text-gray-600 text-sm leading-relaxed">Indian cuisine is naturally
+                                            rich in protein, fibre, and complex carbs. The right portions make it ideal
+                                            for weight loss.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included Section -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span
+                        class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block bg-green-100/50 inline-block px-4 py-1.5 rounded-full">What's
+                        Included</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-5">Everything in
+                        Your Weight Loss Programme</h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-base">From your very first consultation to
+                        your final weigh-in milestone — here's exactly what you get.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Card 1 -->
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div
+                            class="w-14 h-14 bg-[#f2f8f3] text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Comprehensive Health Assessment</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">A deep-dive session covering your medical
+                            history, current diet, lifestyle patterns, stress levels, sleep, and personal weight loss
+                            goals.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div
+                            class="w-14 h-14 bg-[#f2f8f3] text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Personalised Weekly Meal Plans</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Fully custom meal plans updated every week —
+                            with breakfast, lunch, dinner, and snack options that match your taste and schedule.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div
+                            class="w-14 h-14 bg-[#f2f8f3] text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Weekly Progress Reviews</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">One-on-one check-in every week to review your
+                            progress, address challenges, and fine-tune your plan based on real data.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div
+                            class="w-14 h-14 bg-[#f2f8f3] text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Recipe Cards & Shopping Lists</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Easy-to-follow recipes for every meal in your
+                            plan, plus weekly shopping lists so you always know what to buy.</p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div
+                            class="w-14 h-14 bg-[#f2f8f3] text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">WhatsApp Support</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Direct access to your dietitian via WhatsApp
+                            for quick questions, meal swaps, recipe help, or motivation when you need it.</p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1">
+                        <div
+                            class="w-14 h-14 bg-[#f2f8f3] text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#052b14] mb-3">Progress Tracking</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Track your weight, measurements, energy levels,
+                            and health markers across the programme to see your transformation unfold.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Journey Section -->
+        <section class="py-16 md:py-24 bg-gray-50 relative overflow-hidden">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1200px]">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span
+                        class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-[#106e39] uppercase mb-4 block">The
+                        Process</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-5">Your Weight
+                        Loss Timeline</h2>
+                    <p class="text-gray-500 font-medium text-[15px] md:text-base">Sustainable results take time. Here is
+                        how your body transforms over our program.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto relative">
+                    <!-- Vertical Line -->
+                    <div
+                        class="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-green-200 via-green-100 to-transparent md:-translate-x-1/2 rounded-full">
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="space-y-12 relative z-10">
+                        <!-- Step 1 -->
+                        <div
+                            class="relative flex flex-col md:flex-row items-start md:items-center justify-between group">
+                            <div class="hidden md:block w-[45%] text-right pr-12">
+                                <h3 class="text-2xl font-bold text-[#052b14] mb-2">Weeks 1-2: Metabolic Reset</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">We transition you to a structured
+                                    eating window. You'll drop initial water weight, and your cravings for sugar will
+                                    significantly decrease.</p>
+                            </div>
+                            <div
+                                class="absolute left-0 md:left-1/2 w-14 h-14 bg-white border-4 border-green-500 rounded-full -translate-x-0 md:-translate-x-1/2 flex items-center justify-center text-[#052b14] font-bold shadow-lg transition-transform group-hover:scale-110">
+                                1</div>
+                            <div class="md:hidden pl-20 w-full">
+                                <h3 class="text-xl font-bold text-[#052b14] mb-2">Weeks 1-2: Metabolic Reset</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">We transition you to a structured
+                                    eating window. You'll drop initial water weight, and your cravings for sugar will
+                                    significantly decrease.</p>
+                            </div>
+                            <div class="hidden md:block w-[45%] pl-12"></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div
+                            class="relative flex flex-col md:flex-row items-start md:items-center justify-between group">
+                            <div class="hidden md:block w-[45%] pr-12"></div>
+                            <div
+                                class="absolute left-0 md:left-1/2 w-14 h-14 bg-[#106e39] border-4 border-green-200 rounded-full -translate-x-0 md:-translate-x-1/2 flex items-center justify-center text-white font-bold shadow-lg transition-transform group-hover:scale-110">
+                                2</div>
+                            <div class="md:hidden pl-20 w-full">
+                                <h3 class="text-xl font-bold text-[#052b14] mb-2">Month 1-2: Fat Adaptation</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Your body switches from burning sugar
+                                    to burning stored fat. You will notice inches dropping, clothes fitting looser, and
+                                    energy levels remaining stable all day.</p>
+                            </div>
+                            <div class="hidden md:block w-[45%] pl-12 text-left">
+                                <h3 class="text-2xl font-bold text-[#052b14] mb-2">Month 1-2: Fat Adaptation</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Your body switches from burning sugar
+                                    to burning stored fat. You will notice inches dropping, clothes fitting looser, and
+                                    energy levels remaining stable all day.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div
+                            class="relative flex flex-col md:flex-row items-start md:items-center justify-between group">
+                            <div class="hidden md:block w-[45%] text-right pr-12">
+                                <h3 class="text-2xl font-bold text-[#052b14] mb-2">Month 3+: Sustainable Maintenance
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">You hit your goal weight. We now teach
+                                    you how to maintain it while incorporating more flexibility, eating out, and
+                                    navigating holidays without regaining the weight.</p>
+                            </div>
+                            <div
+                                class="absolute left-0 md:left-1/2 w-14 h-14 bg-white border-4 border-green-500 rounded-full -translate-x-0 md:-translate-x-1/2 flex items-center justify-center text-[#052b14] font-bold shadow-lg transition-transform group-hover:scale-110">
+                                3</div>
+                            <div class="md:hidden pl-20 w-full">
+                                <h3 class="text-xl font-bold text-[#052b14] mb-2">Month 3+: Sustainable Maintenance</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">You hit your goal weight. We now teach
+                                    you how to maintain it while incorporating more flexibility, eating out, and
+                                    navigating holidays without regaining the weight.</p>
+                            </div>
+                            <div class="hidden md:block w-[45%] pl-12"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[900px]">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#052b14] leading-tight mb-4">Frequently
+                        Asked Questions</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <details
+                        class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary
+                            class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            How fast will I lose weight?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Most clients see 1–2 kg of fat loss per week
+                                in the first month. Total results depend on your starting weight, adherence, and health
+                                conditions — but clients typically lose 6–12 kg in 3 months.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ 2 -->
+                    <details
+                        class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary
+                            class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            Do I need to exercise to lose weight?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Exercise helps but is not mandatory. Many of
+                                our clients lose significant weight through diet alone. If you do exercise, we will time
+                                your meals around your workouts for better results.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ 3 -->
+                    <details
+                        class="group bg-gray-50 rounded-2xl border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                        <summary
+                            class="flex items-center justify-between cursor-pointer p-6 font-bold text-[#052b14] text-lg">
+                            Do you provide recipes?
+                            <i class="fas fa-chevron-down text-[#106e39] transition-transform duration-300"></i>
+                        </summary>
+                        <div class="faq-content bg-white px-6 pb-6 rounded-b-2xl">
+                            <p class="text-gray-600 leading-relaxed pt-2">Yes, we provide easy-to-cook recipes for your
+                                meals and snacks. Our recipes use basic Indian ingredients available in any local
+                                grocery store.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="w-full relative mt-16 mb-16 lg:mb-24 overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="../assets/Healtheir-Happeir.png" alt="Weight Loss Journey Background" class="w-full h-full object-cover object-[center_70%]">
+            </div>
+            
+            <!-- Gradient Overlay for text readability -->
+            <div class="absolute inset-0 z-10 bg-gradient-to-l from-white/95 via-white/60 to-transparent md:w-[70%] md:left-auto md:right-0"></div>
+
+            <div class="container mx-auto px-4 relative z-20 py-10 md:py-14">
+                <div class="flex flex-col lg:flex-row justify-end items-center gap-10 md:gap-16">
+                    <!-- Center Text Block -->
+                    <div class="w-full lg:w-[45%] text-center flex flex-col items-center relative z-20">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-[#052b14] mb-4 tracking-tight leading-snug">
+                            Your Weight Loss Journey Starts with<br><span class="text-[#106e39]">One Free Call.</span>
+                        </h2>
+                        <p class="text-[#052b14] font-medium text-sm md:text-[15px] mb-8 max-w-md mx-auto">
+                            Speak directly with our clinical dietitians. Let's discuss your goals, review your lifestyle, and map out a sustainable plan to regain control of your body.
+                        </p>
+                        <a href="#" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#052b14] font-bold px-8 py-3.5 rounded-lg transition-all shadow-[0_4px_14px_rgba(5,43,20,0.08)] hover:shadow-[0_6px_20px_rgba(5,43,20,0.12)] border border-gray-100 hover:-translate-y-0.5">
+                            <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Area -->
+        <hbm-footer base-path="../"></hbm-footer>
+
+        <script src="../js/components.js"></script>
+        <!-- Basic FAQ script for details tag transition -->
+        <script>
+            const details = document.querySelectorAll('details');
+            details.forEach(detail => {
+                detail.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'SUMMARY' && e.target.closest('summary') === null) return;
+                    details.forEach(d => {
+                        if (d !== detail && d.hasAttribute('open')) {
+                            d.removeAttribute('open');
+                        }
+                    });
+                });
+            });
+        </script>
+</body>
+
+</html>

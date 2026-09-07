@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Conditions - Healthy Bharat Mission</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Built Tailwind CSS -->
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body class="font-body text-gray-800 bg-white antialiased overflow-x-clip">
+
+    <!-- Header Area -->
+    <hbm-header></hbm-header>
+
+    <main>
+        <!-- Health Conditions Hero Banner -->
+        <section class="relative w-full h-[600px] flex items-center overflow-hidden bg-white">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="./assets/Health-condition-banner.png" alt="Health Conditions Background" class="w-full h-full object-cover object-center">
+            </div>
+            
+            <!-- Gradient Overlay (To ensure text readability on the left) -->
+            <div class="absolute inset-0 z-10 bg-gradient-to-r from-white/95 via-white/80 to-transparent w-full md:w-[75%] lg:w-[65%]"></div>
+
+            <div class="container mx-auto px-6 lg:px-12 xl:px-20 relative z-20 h-full flex flex-col justify-center">
+                <div class="max-w-[700px] pt-8">
+                    <!-- Eyebrow -->
+                    <span class="inline-block text-[11px] md:text-[13px] font-extrabold tracking-[0.25em] text-[#0b4d28] uppercase mb-4 md:mb-5">
+                        Better Understanding. Brighter Health.
+                    </span>
+                    
+                    <!-- Main Title -->
+                    <h1 class="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#052b14] leading-[1.1] mb-3 tracking-tight">
+                        Health Conditions
+                    </h1>
+                    
+                    <!-- Subtitle -->
+                    <h2 class="text-xl md:text-2xl font-bold text-[#0f3057] mb-5">
+                        Expert Insights for a Healthier You
+                    </h2>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-10 max-w-[600px] font-medium">
+                        Learn about common health conditions, their causes, symptoms and natural ways to manage them with the right nutrition, lifestyle and expert guidance.
+                    </p>
+                    
+                    <!-- Search Form -->
+                    <div class="relative w-full max-w-[600px] mb-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full">
+                        <input type="text" id="conditionSearchInput" placeholder="Search for a health condition..." 
+                            class="w-full h-14 md:h-16 pl-6 md:pl-8 pr-16 md:pr-20 rounded-full border border-gray-200 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 text-gray-700 text-sm md:text-base bg-white transition-all">
+                        <button type="button" class="absolute right-1 top-1 bottom-1 w-12 md:w-16 bg-[#106e39] hover:bg-[#0b4d28] text-white rounded-full flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Popular Searches -->
+                    <div class="flex flex-wrap items-center gap-2 md:gap-3">
+                        <span class="text-sm font-bold text-[#052b14] mr-1">Popular Searches:</span>
+                        <a href="#" class="pop-search-btn px-4 py-1.5 rounded-full border border-gray-200 bg-white/80 hover:bg-[#f2f8f3] hover:border-green-200 text-gray-600 text-[13px] font-medium transition-colors">Diabetes</a>
+                        <a href="#" class="pop-search-btn px-4 py-1.5 rounded-full border border-gray-200 bg-white/80 hover:bg-[#f2f8f3] hover:border-green-200 text-gray-600 text-[13px] font-medium transition-colors">PCOS</a>
+                        <a href="#" class="pop-search-btn px-4 py-1.5 rounded-full border border-gray-200 bg-white/80 hover:bg-[#f2f8f3] hover:border-green-200 text-gray-600 text-[13px] font-medium transition-colors">Thyroid</a>
+                        <a href="#" class="pop-search-btn px-4 py-1.5 rounded-full border border-gray-200 bg-white/80 hover:bg-[#f2f8f3] hover:border-green-200 text-gray-600 text-[13px] font-medium transition-colors">Blood Pressure</a>
+                        <a href="#" class="pop-search-btn px-4 py-1.5 rounded-full border border-gray-200 bg-white/80 hover:bg-[#f2f8f3] hover:border-green-200 text-gray-600 text-[13px] font-medium transition-colors">Fatty Liver</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Common Health Conditions Grid -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="text-center mb-14">
+                    <span class="inline-block text-[12px] font-bold tracking-[0.2em] text-gray-500 uppercase mb-3">Explore by Category</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#052b14] leading-tight mb-4">Common <span class="text-[#106e39]">Health Conditions</span></h2>
+                    <p class="text-gray-600 font-medium text-[15px] md:text-[17px] max-w-2xl mx-auto">Find reliable information and expert-backed guidance on a wide range of health conditions.</p>
+                </div>
+                
+                <div id="conditionCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 gap-y-10">
+                    
+                    <!-- Card 1: Diabetes -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_diabetes.png" alt="Diabetes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#1f5ca9] z-10 border border-gray-50">
+                                <i class="fa-solid fa-droplet text-[20px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Diabetes</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Understand, manage and reverse naturally.</p>
+                            <a href="./program/diabetes-care.html" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Obesity -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_obesity.png" alt="Obesity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#106e39] z-10 border border-gray-50">
+                                <i class="fa-solid fa-weight-scale text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Obesity & Weight Management</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Achieve a healthier weight for a better life.</p>
+                            <a href="./program/weight-management.html" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: PCOS -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_pcos.png" alt="PCOS" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#ec4899] z-10 border border-gray-50">
+                                <i class="fa-solid fa-venus text-[20px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">PCOS</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Balance your hormones naturally.</p>
+                            <a href="./program/pcos-care.html" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: Heart Health -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_heart.png" alt="Heart Health" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#ef4444] z-10 border border-gray-50">
+                                <i class="fa-solid fa-heart text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Heart Health</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Keep your heart strong and healthy.</p>
+                            <a href="./program/heart-health.html" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5: Liver Health -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_liver.png" alt="Liver Health" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#f97316] z-10 border border-gray-50">
+                                <i class="fa-solid fa-leaf text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Liver Health</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Detox, repair and support your liver.</p>
+                            <a href="./program/liver-detox.html" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6: Thyroid -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_thyroid.png" alt="Thyroid" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#ef4444] z-10 border border-gray-50">
+                                <i class="fa-solid fa-disease text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Thyroid</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Manage thyroid issues with the right nutrition.</p>
+                            <a href="#" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 7: Digestive Health -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_digestion.png" alt="Digestive Health" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#f97316] z-10 border border-gray-50">
+                                <i class="fa-solid fa-apple-whole text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Digestive Health</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Improve gut health and digestion.</p>
+                            <a href="#" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 8: Immunity -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_immunity.png" alt="Immunity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#106e39] z-10 border border-gray-50">
+                                <i class="fa-solid fa-shield-virus text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Immunity</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Build a stronger, healthier you.</p>
+                            <a href="#" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 9: Senior Wellness -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_senior.png" alt="Senior Wellness" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#1f5ca9] z-10 border border-gray-50">
+                                <i class="fa-solid fa-users text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Senior Wellness</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">Healthy ageing for a better tomorrow.</p>
+                            <a href="./program/senior-wellness.html" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 10: Stress & Mental Health -->
+                    <div class="bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col hover:-translate-y-1">
+                        <div class="h-[140px] relative overflow-hidden">
+                            <img src="./assets/cond_mental.png" alt="Stress & Mental Health" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="px-5 pb-5 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-5 w-[52px] h-[52px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#d946ef] z-10 border border-gray-50">
+                                <i class="fa-solid fa-brain text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#052b14] mb-2 leading-tight">Stress & Mental Health</h3>
+                            <p class="text-gray-500 text-[13px] leading-relaxed mb-4 flex-grow font-medium">A calmer mind for a happier life.</p>
+                            <a href="#" class="inline-flex items-center text-[#106e39] font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- Trust Indicators Section -->
+        <section class="bg-[#f6fcf8] py-8 border-b border-gray-100 relative z-30 shadow-sm">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-0 lg:divide-x divide-gray-200/60">
+                    
+                    <!-- Item 1 -->
+                    <div class="flex flex-col items-center text-center px-4">
+                        <div class="w-12 h-12 flex items-center justify-center mb-3 text-[#106e39]">
+                            <i class="fa-solid fa-leaf text-3xl"></i>
+                        </div>
+                        <h4 class="text-[17px] font-bold text-[#052b14] mb-1">Evidence-Based<br>Information</h4>
+                        <p class="text-[14px] font-medium text-gray-500">Trusted & scientific insights</p>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="flex flex-col items-center text-center px-4">
+                        <div class="w-12 h-12 flex items-center justify-center mb-3 text-[#106e39]">
+                            <i class="fa-solid fa-users text-3xl"></i>
+                        </div>
+                        <h4 class="text-[17px] font-bold text-[#052b14] mb-1">Expert-Reviewed<br>Content</h4>
+                        <p class="text-[14px] font-medium text-gray-500">By certified nutritionists</p>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="flex flex-col items-center text-center px-4">
+                        <div class="w-12 h-12 flex items-center justify-center mb-3 text-[#106e39]">
+                            <i class="fa-regular fa-heart text-3xl"></i>
+                        </div>
+                        <h4 class="text-[17px] font-bold text-[#052b14] mb-1">Holistic Approach</h4>
+                        <p class="text-[14px] font-medium text-gray-500 mt-1">Nutrition, lifestyle & mindset</p>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="flex flex-col items-center text-center px-4">
+                        <div class="w-12 h-12 flex items-center justify-center mb-3 text-[#106e39]">
+                            <i class="fa-solid fa-book-open text-3xl"></i>
+                        </div>
+                        <h4 class="text-[17px] font-bold text-[#052b14] mb-1">Personalized Guidance</h4>
+                        <p class="text-[14px] font-medium text-gray-500 mt-1">Find the right program for you</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Healthy People Banner Section -->
+        <section class="relative w-full h-[280px] md:h-[320px] lg:h-[360px] bg-[#f8f5eb] overflow-hidden flex items-center mt-8 mb-12">
+            <!-- Background Image -->
+            <img src="./assets/Healthy-people.png" alt="Healthy People Happier Lives" class="absolute inset-0 w-full h-full object-cover object-[center_15%] md:object-[center_25%]">
+            
+            <!-- Subtle gradient overlay on right side to ensure text readability -->
+            <div class="absolute inset-0 bg-gradient-to-l from-white/90 via-white/50 to-transparent w-full md:w-[65%] lg:w-[55%] right-0 ml-auto hidden md:block"></div>
+            <!-- Mobile overlay -->
+            <div class="absolute inset-0 bg-white/85 md:hidden"></div>
+
+            <!-- Content Container -->
+            <div class="container mx-auto px-6 lg:px-12 xl:px-20 relative z-10 h-full flex items-center justify-end">
+                <div class="w-full md:w-[55%] lg:w-[45%]">
+                    <span class="inline-block text-[13px] md:text-[14px] font-extrabold text-[#0f3057] mb-2">Not Sure Where to Start?</span>
+                    <h2 class="text-[28px] md:text-[34px] lg:text-[40px] font-extrabold text-[#0f3057] leading-[1.1] mb-3">
+                        Get <span class="text-[#106e39]">Expert Guidance</span>
+                    </h2>
+                    <p class="text-gray-600 font-medium text-[14px] md:text-[15px] leading-relaxed mb-6 lg:mb-8 max-w-[400px]">
+                        Talk to our certified nutritionists and find the best solution for your health concerns.
+                    </p>
+                    <a href="./contact.html" class="inline-flex items-center justify-center px-7 py-3 bg-[#106e39] text-white font-bold text-[14px] rounded-[8px] hover:bg-[#0b4d28] transition-all shadow-[0_4px_14px_rgba(16,110,57,0.3)]">
+                        Consult an Expert <i class="fa-solid fa-arrow-right ml-2 text-[12px]"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Area -->
+    <hbm-footer></hbm-footer>
+
+    <!-- Load Components JS -->
+    <script src="./js/components.js"></script>
+
+    <!-- Search Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('conditionSearchInput');
+            const cards = document.querySelectorAll('#conditionCardsGrid > div');
+            const popButtons = document.querySelectorAll('.pop-search-btn');
+            const cardsGrid = document.getElementById('conditionCardsGrid');
+
+            const filterCards = (searchTerm) => {
+                const term = searchTerm.toLowerCase().trim();
+                let hasResults = false;
+
+                cards.forEach(card => {
+                    // Find title (h3) and description (p) inside the card
+                    const titleEl = card.querySelector('h3');
+                    const descEl = card.querySelector('p');
+                    
+                    if (!titleEl || !descEl) return;
+                    
+                    const title = titleEl.textContent.toLowerCase();
+                    const desc = descEl.textContent.toLowerCase();
+                    
+                    if (title.includes(term) || desc.includes(term)) {
+                        card.style.display = 'flex';
+                        hasResults = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Show "No results found" if nothing matches
+                let noResultsMsg = document.getElementById('noResultsMsg');
+                if (!hasResults && term !== '') {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.id = 'noResultsMsg';
+                        noResultsMsg.className = 'col-span-full text-center py-12 text-gray-500 text-lg font-medium';
+                        noResultsMsg.innerHTML = '<i class="fa-solid fa-magnifying-glass mb-3 text-3xl opacity-50 block"></i> No health conditions found matching "' + searchTerm + '"';
+                        cardsGrid.appendChild(noResultsMsg);
+                    } else {
+                        noResultsMsg.innerHTML = '<i class="fa-solid fa-magnifying-glass mb-3 text-3xl opacity-50 block"></i> No health conditions found matching "' + searchTerm + '"';
+                    }
+                    noResultsMsg.style.display = 'block';
+                } else if (noResultsMsg) {
+                    noResultsMsg.style.display = 'none';
+                }
+            };
+
+            // Real-time search on input typing
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    filterCards(e.target.value);
+                });
+            }
+
+            // Click on "Popular Searches" to auto-search and scroll down
+            popButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (searchInput) {
+                        searchInput.value = btn.textContent;
+                        filterCards(btn.textContent);
+                        // Scroll down so the user sees the filtered results
+                        const yOffset = -80; 
+                        const y = cardsGrid.getBoundingClientRect().top + window.scrollY + yOffset;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
