@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Healthy Bharat Mission</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Built Tailwind CSS -->
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body class="font-body text-gray-800 bg-white antialiased overflow-x-clip">
+
+    <!-- Header Area -->
+    <hbm-header></hbm-header>
+
+    <main>
+        <!-- Programs Hero Banner -->
+        <section class="relative min-h-[550px] xl:min-h-[650px] flex items-center overflow-hidden bg-white py-12 md:py-20">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0 bg-[#f8f9fa]">
+                <img src="./assets/program-banner.png" alt="Healthy Programs" class="w-full h-full object-cover object-right lg:object-[80%_center]">
+                <!-- Subtle gradient overlay on the left for text readability -->
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent from-0% via-white/95 via-[25%] to-transparent to-[60%] w-full"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto max-w-[1400px] px-4 lg:px-8 relative z-10">
+                <div class="w-full max-w-[850px] relative z-10">
+                    
+                    <!-- Subheading -->
+                    <div class="mb-4">
+                        <span class="text-[#0f3057] font-bold text-[11px] md:text-[13px] tracking-[0.15em] uppercase opacity-80">
+                            Your Health, Our Priority
+                        </span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="font-heading font-extrabold text-[46px] md:text-[56px] lg:text-[72px] leading-[1.1] mb-5 tracking-tight text-[#0f3057]">
+                        All <span class="text-[#106e39]">Programs</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <h2 class="font-heading font-bold text-xl md:text-[22px] lg:text-2xl text-[#0f3057] leading-snug mb-5 pr-4">
+                        Personalized Nutrition & Lifestyle Programs<br class="hidden lg:block"> for a Healthier Tomorrow
+                    </h2>
+
+                    <!-- Paragraph -->
+                    <p class="text-slate-600 font-medium text-[15px] md:text-base leading-relaxed mb-8 max-w-[450px]">
+                        Science-backed programs designed by expert nutritionists to help you manage, reverse and prevent lifestyle health conditions — for a better, longer, and happier life.
+                    </p>
+
+                    <!-- Features Grid -->
+                    <div class="flex flex-wrap items-center gap-y-6 gap-x-6 lg:gap-x-8 mb-10">
+                        
+                        <!-- Feature 1 -->
+                        <div class="flex items-center gap-3 shrink-0">
+                            <div class="w-[50px] h-[50px] min-w-[50px] min-h-[50px] rounded-full border border-[#bbf7d0] md:border-primary/30 flex items-center justify-center shrink-0 text-primary">
+                                <i class="fa-solid fa-leaf text-lg"></i>
+                            </div>
+                            <span class="text-[13px] lg:text-sm font-semibold text-slate-600 leading-tight whitespace-nowrap">Evidence-Based<br>Approach</span>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="flex items-center gap-3 shrink-0">
+                            <div class="w-[50px] h-[50px] min-w-[50px] min-h-[50px] rounded-full border border-[#bbf7d0] md:border-primary/30 flex items-center justify-center shrink-0 text-primary">
+                                <i class="fa-solid fa-users text-lg"></i>
+                            </div>
+                            <span class="text-[13px] lg:text-sm font-semibold text-slate-600 leading-tight whitespace-nowrap">Expert<br>Guidance</span>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="flex items-center gap-3 shrink-0">
+                            <div class="w-[50px] h-[50px] min-w-[50px] min-h-[50px] rounded-full border border-[#bbf7d0] md:border-primary/30 flex items-center justify-center shrink-0 text-primary">
+                                <i class="fa-regular fa-heart text-lg"></i>
+                            </div>
+                            <span class="text-[13px] lg:text-sm font-semibold text-slate-600 leading-tight whitespace-nowrap">Real Results</span>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="flex items-center gap-3 shrink-0">
+                            <div class="w-[50px] h-[50px] min-w-[50px] min-h-[50px] rounded-full border border-[#bbf7d0] md:border-primary/30 flex items-center justify-center shrink-0 text-primary">
+                                <i class="fa-solid fa-seedling text-lg"></i>
+                            </div>
+                            <span class="text-[13px] lg:text-sm font-semibold text-slate-600 leading-tight whitespace-nowrap">Personalized<br>For You</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Button -->
+                    <a href="#" class="inline-flex items-center justify-center bg-[#106e39] hover:bg-[#0b5028] text-white px-8 py-3.5 rounded-lg font-bold transition-colors shadow-md text-[15px]">
+                        Find the Right Program <i class="fa-solid fa-arrow-right ml-2.5 text-[13px]"></i>
+                    </a>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Our Programs Section -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <span class="text-[11px] md:text-xs font-bold tracking-[0.2em] text-slate-500 uppercase mb-3 block">Explore Your Options</span>
+                    <h2 class="text-3xl md:text-[40px] font-extrabold text-[#0f3057] mb-4">Our <span class="text-primary">Programs</span></h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto text-[15px] md:text-[16px]">Choose a program that fits your health goals and take the first step towards a better you.</p>
+                </div>
+
+                <!-- Programs Grid (3 on top, 4 on bottom) -->
+                <div class="grid grid-cols-12 gap-6 lg:gap-7">
+                    
+                    <!-- Card 1 (Top Row - 1/3 width) -->
+                    <div class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgb(0,0,0,0.06)] border border-slate-100/60 flex flex-col group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+                        <div class="h-[210px] relative overflow-hidden">
+                            <img src="./assets/diabetes_care.png" alt="Diabetes Reversal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 md:p-7 pt-9 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-6 w-[54px] h-[54px] bg-white rounded-full shadow-[0_4px_12px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#1f5ca9] z-10">
+                                <i class="fa-solid fa-droplet text-[22px]"></i>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0f3057] mb-2.5 leading-tight group-hover:text-primary transition-colors">Diabetes Reversal Program</h3>
+                            <p class="text-slate-500 text-[14px] leading-relaxed mb-6 flex-grow">Take control of your blood sugar naturally with personalized nutrition, exercise and lifestyle guidance.</p>
+                            <a href="#" class="inline-flex items-center text-primary font-bold text-[14px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-2 text-[12px]"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 (Top Row - 1/3 width) -->
+                    <div class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgb(0,0,0,0.06)] border border-slate-100/60 flex flex-col group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+                        <div class="h-[210px] relative overflow-hidden">
+                            <img src="./assets/weight_management.png" alt="Weight Management" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 md:p-7 pt-9 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-6 w-[54px] h-[54px] bg-white rounded-full shadow-[0_4px_12px_rgb(0,0,0,0.08)] flex items-center justify-center text-primary z-10">
+                                <i class="fa-solid fa-weight-scale text-[20px]"></i>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0f3057] mb-2.5 leading-tight group-hover:text-primary transition-colors">Weight Management Program</h3>
+                            <p class="text-slate-500 text-[14px] leading-relaxed mb-6 flex-grow">Achieve and maintain a healthy weight with sustainable diet and lifestyle changes.</p>
+                            <a href="#" class="inline-flex items-center text-primary font-bold text-[14px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-2 text-[12px]"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 (Top Row - 1/3 width) -->
+                    <div class="col-span-12 md:col-span-6 xl:col-span-4 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgb(0,0,0,0.06)] border border-slate-100/60 flex flex-col group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+                        <div class="h-[210px] relative overflow-hidden">
+                            <img src="./assets/womens_health.png" alt="PCOS Care" class="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 md:p-7 pt-9 relative flex flex-col flex-grow">
+                            <div class="absolute -top-7 left-6 w-[54px] h-[54px] bg-white rounded-full shadow-[0_4px_12px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#ef4444] z-10">
+                                <i class="fa-solid fa-venus text-[22px]"></i>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0f3057] mb-2.5 leading-tight group-hover:text-primary transition-colors">PCOS Care Program</h3>
+                            <p class="text-slate-500 text-[14px] leading-relaxed mb-6 flex-grow">Balance your hormones naturally with expert-backed nutrition, exercise and lifestyle support.</p>
+                            <a href="#" class="inline-flex items-center text-primary font-bold text-[14px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-2 text-[12px]"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 (Bottom Row - 1/4 width) -->
+                    <div class="col-span-12 md:col-span-6 xl:col-span-3 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgb(0,0,0,0.06)] border border-slate-100/60 flex flex-col group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+                        <div class="h-[180px] relative overflow-hidden">
+                            <img src="./assets/heart_health.png" alt="Heart Health" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="p-5 md:p-6 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-6 left-5 w-[46px] h-[46px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#ef4444] z-10">
+                                <i class="fa-solid fa-heart text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#0f3057] mb-2 leading-tight group-hover:text-primary transition-colors">Heart Health Program</h3>
+                            <p class="text-slate-500 text-[13px] leading-relaxed mb-5 flex-grow">Support a stronger, healthier heart with the right diet, exercise and lifestyle habits.</p>
+                            <a href="#" class="inline-flex items-center text-primary font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (Bottom Row - 1/4 width) -->
+                    <div class="col-span-12 md:col-span-6 xl:col-span-3 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgb(0,0,0,0.06)] border border-slate-100/60 flex flex-col group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+                        <div class="h-[180px] relative overflow-hidden">
+                            <img src="./assets/digestive_health.png" alt="Liver Detox" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="p-5 md:p-6 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-6 left-5 w-[46px] h-[46px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#f97316] z-10">
+                                <i class="fa-solid fa-leaf text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#0f3057] mb-2 leading-tight group-hover:text-primary transition-colors">Liver Detox Program</h3>
+                            <p class="text-slate-500 text-[13px] leading-relaxed mb-5 flex-grow">Cleanse, nourish and support your liver for better metabolism and overall health.</p>
+                            <a href="#" class="inline-flex items-center text-primary font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 (Bottom Row - 1/4 width) -->
+                    <div class="col-span-12 md:col-span-6 xl:col-span-3 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgb(0,0,0,0.06)] border border-slate-100/60 flex flex-col group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+                        <div class="h-[180px] relative overflow-hidden">
+                            <img src="./assets/hero_family.png" alt="Senior Wellness" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="p-5 md:p-6 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-6 left-5 w-[46px] h-[46px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-[#1f5ca9] z-10">
+                                <i class="fa-solid fa-users text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#0f3057] mb-2 leading-tight group-hover:text-primary transition-colors">Senior Wellness Program</h3>
+                            <p class="text-slate-500 text-[13px] leading-relaxed mb-5 flex-grow">Stay active, independent and healthier with tailored nutrition and lifestyle plans for seniors.</p>
+                            <a href="#" class="inline-flex items-center text-primary font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 (Bottom Row - 1/4 width) -->
+                    <div class="col-span-12 md:col-span-6 xl:col-span-3 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgb(0,0,0,0.06)] border border-slate-100/60 flex flex-col group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
+                        <div class="h-[180px] relative overflow-hidden">
+                            <img src="./assets/article_living.png" alt="All Programs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="p-5 md:p-6 pt-8 relative flex flex-col flex-grow">
+                            <div class="absolute -top-6 left-5 w-[46px] h-[46px] bg-white rounded-full shadow-[0_4px_10px_rgb(0,0,0,0.08)] flex items-center justify-center text-primary z-10">
+                                <i class="fa-solid fa-seedling text-[18px]"></i>
+                            </div>
+                            <h3 class="text-[17px] font-bold text-[#0f3057] mb-2 leading-tight group-hover:text-primary transition-colors">All Programs</h3>
+                            <p class="text-slate-500 text-[13px] leading-relaxed mb-5 flex-grow">Explore all our programs and find the right plan for your health journey.</p>
+                            <a href="#" class="inline-flex items-center text-primary font-bold text-[13px] hover:text-[#0b4d28] transition-colors mt-auto">Learn More <i class="fa-solid fa-arrow-right ml-1.5 text-[11px]"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact/Stats Section -->
+        <section class="relative bg-[#f2f8f3] py-14 overflow-hidden border-t border-b border-green-900/5 mt-8">
+            <!-- Background Leaves (Optional/Placeholder) -->
+            <div class="absolute top-0 right-0 h-full w-48 md:w-64 opacity-80 pointer-events-none z-0 mix-blend-multiply">
+                <img src="./assets/leaves-side.png" alt="" class="w-full h-full object-cover object-left" onerror="this.style.display='none'">
+            </div>
+
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px] relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+                    
+                    <!-- Left Text Content -->
+                    <div class="w-full lg:w-[35%] xl:w-[30%]">
+                        <h2 class="text-[22px] md:text-[26px] font-extrabold text-[#0d3b1f] uppercase tracking-[0.02em] leading-[1.2] mb-4">
+                            Making<br>Healthier Lives<br>Everyday
+                        </h2>
+                        <p class="text-slate-600 font-medium text-[15px] leading-relaxed pr-4">
+                            We are committed to helping people live healthier, happier and longer lives through personalized nutrition and lifestyle guidance.
+                        </p>
+                    </div>
+
+                    <!-- Right Stats Grid -->
+                    <div class="w-full lg:w-[65%] xl:w-[70%]">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0 md:divide-x divide-[#0d3b1f]/15">
+                            
+                            <!-- Stat 1 -->
+                            <div class="flex flex-col items-center justify-center text-center px-2 md:px-4">
+                                <div class="text-[34px] md:text-[40px] text-[#0d3b1f] mb-3">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <h3 class="text-3xl md:text-[34px] font-extrabold text-[#0d3b1f] mb-1">50K+</h3>
+                                <p class="text-slate-600 text-[14px] md:text-[15px] font-medium">People Transformed</p>
+                            </div>
+
+                            <!-- Stat 2 -->
+                            <div class="flex flex-col items-center justify-center text-center px-2 md:px-4">
+                                <div class="text-[34px] md:text-[40px] text-[#0d3b1f] mb-3">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <h3 class="text-3xl md:text-[34px] font-extrabold text-[#0d3b1f] mb-1">95%</h3>
+                                <p class="text-slate-600 text-[14px] md:text-[15px] font-medium">Satisfaction Rate</p>
+                            </div>
+
+                            <!-- Stat 3 -->
+                            <div class="flex flex-col items-center justify-center text-center px-2 md:px-4">
+                                <div class="text-[34px] md:text-[40px] text-[#0d3b1f] mb-3">
+                                    <i class="fa-solid fa-leaf"></i>
+                                </div>
+                                <h3 class="text-3xl md:text-[34px] font-extrabold text-[#0d3b1f] mb-1">8+</h3>
+                                <p class="text-slate-600 text-[14px] md:text-[15px] font-medium">Specialized Programs</p>
+                            </div>
+
+                            <!-- Stat 4 -->
+                            <div class="flex flex-col items-center justify-center text-center px-2 md:px-4">
+                                <div class="text-[34px] md:text-[40px] text-[#0d3b1f] mb-3">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <h3 class="text-3xl md:text-[34px] font-extrabold text-[#0d3b1f] mb-1">100%</h3>
+                                <p class="text-slate-600 text-[14px] md:text-[15px] font-medium">Science-Backed</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Watch Our Story Section -->
+        <section class="py-8 md:py-12 bg-white">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="bg-[#f2f8f3] rounded-[24px] overflow-hidden flex flex-col md:flex-row relative border border-green-900/5 shadow-sm">
+                    
+                    <!-- Background Leaves Right -->
+                    <div class="absolute top-0 right-0 h-full w-48 md:w-72 pointer-events-none z-0 mix-blend-multiply opacity-80 hidden md:block">
+                        <img src="./assets/leaves-side.png" alt="" class="w-full h-full object-cover object-left" onerror="this.style.display='none'">
+                    </div>
+
+                    <!-- Left: Video Thumbnail -->
+                    <div class="w-full md:w-1/2 relative min-h-[210px] md:min-h-[280px] lg:min-h-[340px]" id="story-video-container-program">
+                        <img src="./assets/story-video-thumb.png" alt="Good Food Brighter Days" class="absolute inset-0 w-full h-full object-cover object-center" id="story-video-thumb-program">
+                        
+                        <!-- Play Button Overlay -->
+                        <button onclick="document.getElementById('story-video-thumb-program').style.display='none'; this.style.display='none'; document.getElementById('story-video-iframe-program').src='https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1'; document.getElementById('story-video-wrapper-program').classList.remove('hidden');" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-105 transition-transform z-10 group cursor-pointer border-none outline-none">
+                            <i class="fa-solid fa-play text-2xl md:text-3xl text-primary ml-1.5 group-hover:text-[#0b5028] transition-colors"></i>
+                        </button>
+
+                        <!-- Iframe Wrapper -->
+                        <div id="story-video-wrapper-program" class="absolute inset-0 w-full h-full hidden z-20 bg-black">
+                            <iframe id="story-video-iframe-program" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="w-full md:w-1/2 p-6 md:p-10 lg:p-12 flex flex-col justify-center relative z-10">
+                        <span class="text-[#0d3b1f] text-[12px] md:text-sm font-bold tracking-[0.2em] uppercase mb-4 opacity-80">
+                            Watch Our Story
+                        </span>
+                        
+                        <h2 class="text-3xl md:text-4xl lg:text-[46px] font-extrabold text-[#0d3b1f] leading-[1.15] mb-5 tracking-tight">
+                            Small Steps Create<br class="hidden lg:block"> Big Changes
+                        </h2>
+                        
+                        <p class="text-slate-600 font-medium text-[15px] md:text-base leading-relaxed mb-8 max-w-[450px]">
+                            See how our programs are helping people across India live healthier, happier lives.
+                        </p>
+                        
+                        <a href="#" onclick="document.querySelector('#story-video-container-program button').click(); return false;" class="inline-flex items-center justify-center bg-[#106e39] hover:bg-[#0b5028] text-white px-8 py-3.5 rounded-lg font-bold transition-colors shadow-md text-[15px] self-start">
+                            Watch Video <i class="fa-solid fa-arrow-right ml-2.5 text-[13px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Our Members Say / Testimonials Section -->
+        <section class="py-16 md:py-20 bg-white relative overflow-hidden">
+            <!-- Left leaves -->
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-24 md:w-32 z-0 pointer-events-none hidden md:block">
+                <img src="./assets/leaves-side.png" alt="" class="w-full h-auto object-cover object-right transform -scale-x-100 opacity-60">
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10 text-center mb-8">
+                <span class="text-[#0d3b1f] font-bold text-[10px] md:text-[11px] tracking-[0.2em] uppercase opacity-60">Real Stories. Real Results.</span>
+                <h2 class="text-3xl md:text-[36px] font-extrabold text-[#052b14] mt-2 mb-3 tracking-tight">What Our Members Say</h2>
+                <p class="text-gray-500 text-sm md:text-[15px] max-w-2xl mx-auto">Thousands of people have already taken the first step towards a healthier life. Here's what some of them say.</p>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="max-w-[1100px] mx-auto px-12 md:px-16 relative z-10">
+                
+                <!-- Left Arrow -->
+                <button id="testi-prev-program" class="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-[0_2px_10px_rgb(0,0,0,0.08)] border border-gray-50 rounded-full flex items-center justify-center text-[#106e39] hover:bg-gray-50 z-20 transition-colors">
+                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
+
+                <style>
+                    .scrollbar-hide::-webkit-scrollbar { display: none; }
+                    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+                    
+                    .testi-card {
+                        min-width: 320px;
+                        width: 320px;
+                        border-radius: 12px;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
+                        border: 1px solid rgba(0,0,0,0.02);
+                    }
+                </style>
+
+                <div class="overflow-hidden" id="testi-viewport-program">
+                    <div id="testi-scroll-program" class="flex gap-5 transition-transform duration-500 ease-in-out" style="transform: translateX(0px);">
+                        
+                        <!-- Original Cards -->
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Priya Sharma</h4>
+                                    <p class="text-[13px] text-gray-500">Delhi</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "The Weight Management Program helped me lose 12 kg in 5 months. I feel more energetic and confident now!"
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Amit Verma" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Amit Verma</h4>
+                                    <p class="text-[13px] text-gray-500">Bangalore</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "My blood sugar levels are now normal without medication. The Diabetes Reversal Program truly works!"
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neelam Gupta" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Neelam Gupta</h4>
+                                    <p class="text-[13px] text-gray-500">Jaipur</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "The Senior Wellness Program has improved my energy and overall health. I feel more active and independent."
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Ravi Kumar" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Ravi Kumar</h4>
+                                    <p class="text-[13px] text-gray-500">Mumbai</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "Thanks to the diet and lifestyle changes, I’ve successfully reversed my pre-diabetes. Highly recommend it!"
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Arrow -->
+                <button id="testi-next-program" class="absolute right-0 md:right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-[0_2px_10px_rgb(0,0,0,0.08)] border border-gray-50 rounded-full flex items-center justify-center text-[#106e39] hover:bg-gray-50 z-20 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+
+            </div>
+
+            <!-- Script for Auto-slide & buttons -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const track = document.getElementById('testi-scroll-program');
+                    const prevBtn = document.getElementById('testi-prev-program');
+                    const nextBtn = document.getElementById('testi-next-program');
+                    const viewport = document.getElementById('testi-viewport-program');
+                    if(!track || !prevBtn || !nextBtn) return;
+                    
+                    // Clone cards for infinite scroll
+                    const originalCards = Array.from(track.children);
+                    // Append a set for seamless right scroll
+                    originalCards.forEach(card => {
+                        const clone = card.cloneNode(true);
+                        track.appendChild(clone);
+                    });
+                    
+                    let currentIndex = 0;
+                    let isTransitioning = false;
+                    let autoScrollInterval;
+                    const cardCount = originalCards.length;
+                    
+                    const getCardWidth = () => {
+                        const card = track.querySelector('.testi-card');
+                        // Width + Gap (20px)
+                        return card ? card.offsetWidth + 20 : 340; 
+                    };
+
+                    const updateTransform = (smooth = true) => {
+                        track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
+                        track.style.transform = `translateX(-${currentIndex * getCardWidth()}px)`;
+                    };
+
+                    const moveNext = () => {
+                        if (isTransitioning) return;
+                        isTransitioning = true;
+                        
+                        currentIndex++;
+                        updateTransform(true);
+                        
+                        setTimeout(() => {
+                            // If we've reached the cloned set, jump back to original seamlessly
+                            if (currentIndex >= cardCount) {
+                                currentIndex = 0;
+                                updateTransform(false);
+                            }
+                            isTransitioning = false;
+                        }, 500);
+                    };
+
+                    const movePrev = () => {
+                        if (isTransitioning) return;
+                        isTransitioning = true;
+                        
+                        // If we are at the very beginning, jump to cloned set first to allow backward animation
+                        if (currentIndex <= 0) {
+                            currentIndex = cardCount;
+                            updateTransform(false);
+                            // Force reflow
+                            void track.offsetWidth;
+                        }
+                        
+                        currentIndex--;
+                        updateTransform(true);
+                        
+                        setTimeout(() => {
+                            isTransitioning = false;
+                        }, 500);
+                    };
+
+                    const startAutoScroll = () => {
+                        autoScrollInterval = setInterval(moveNext, 3000);
+                    };
+
+                    const stopAutoScroll = () => {
+                        clearInterval(autoScrollInterval);
+                    };
+
+                    nextBtn.addEventListener('click', () => {
+                        stopAutoScroll();
+                        moveNext();
+                        startAutoScroll();
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        stopAutoScroll();
+                        movePrev();
+                        startAutoScroll();
+                    });
+
+                    viewport.addEventListener('mouseenter', stopAutoScroll);
+                    viewport.addEventListener('mouseleave', startAutoScroll);
+
+                    startAutoScroll();
+                    
+                    // Handle window resize
+                    window.addEventListener('resize', () => {
+                        updateTransform(false);
+                    });
+                });
+            </script>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="w-full relative mt-10 md:mt-16 mb-12 md:mb-20 overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="./assets/Healtheir-Happeir.png" alt="Healthier Happier Background" class="w-full h-full object-cover object-[center_70%]">
+            </div>
+            
+            <!-- Gradient Overlay for text readability (fades from white on right to transparent on left) -->
+            <div class="absolute inset-0 z-10 bg-gradient-to-l from-white/95 via-white/60 to-transparent md:w-[70%] md:left-auto md:right-0"></div>
+
+            <div class="container mx-auto px-4 relative z-20 py-10 md:py-14">
+                <div class="flex flex-col lg:flex-row justify-end items-center gap-10 md:gap-16">
+                    
+                    <!-- Center Text Block (Right of image) -->
+                    <div class="w-full lg:w-[45%] text-center flex flex-col items-center relative z-20">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-[#052b14] mb-4 tracking-tight leading-snug">
+                            A Healthier, <span class="text-[#106e39]">Happier</span> You<br>Is Just a Step Away
+                        </h2>
+                        <p class="text-[#052b14] font-medium text-sm md:text-[15px] mb-8 max-w-md mx-auto">
+                            Get personalized guidance from our expert nutritionists today and start your journey towards better health.
+                        </p>
+                        <a href="#" class="inline-flex items-center justify-center bg-[#106e39] text-white font-medium px-8 py-3.5 rounded-lg hover:bg-[#0d582e] transition-colors shadow-[0_4px_14px_rgba(16,110,57,0.4)] hover:shadow-[0_6px_20px_rgba(16,110,57,0.5)]">
+                            Consult an Expert <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Features List -->
+                    <div class="w-full lg:w-[25%] flex flex-col gap-5 relative z-20 lg:pr-8">
+                        
+                        <!-- Handwritten text -->
+                        <style>
+                            @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+                        </style>
+                        <div class="absolute -top-32 right-12 lg:right-4 lg:-top-24 transform rotate-6 opacity-90 hidden md:block z-30 pointer-events-none">
+                            <span class="font-['Caveat',cursive] text-[36px] text-[#052b14] leading-[0.9] block text-center">
+                                Small<br>Steps<br>Big<br>Change <i class="fa-regular fa-heart text-2xl inline-block ml-1 align-middle"></i>
+                            </span>
+                        </div>
+                        
+                        <!-- Item 1 -->
+                        <div class="flex items-center gap-4 bg-white/20 backdrop-blur-sm p-1.5 rounded-xl border border-white/40">
+                            <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm text-[#106e39] flex-shrink-0 border border-[#106e39]/20">
+                                <i class="fa-solid fa-apple-whole text-lg"></i>
+                            </div>
+                            <span class="font-medium text-[#052b14] text-[15px]">Better Choices</span>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="flex items-center gap-4 bg-white/20 backdrop-blur-sm p-1.5 rounded-xl border border-white/40">
+                            <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm text-[#106e39] flex-shrink-0 border border-[#106e39]/20">
+                                <i class="fa-regular fa-heart text-lg"></i>
+                            </div>
+                            <span class="font-medium text-[#052b14] text-[15px]">Healthier Habits</span>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="flex items-center gap-4 bg-white/20 backdrop-blur-sm p-1.5 rounded-xl border border-white/40">
+                            <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm text-[#106e39] flex-shrink-0 border border-[#106e39]/20">
+                                <i class="fa-solid fa-leaf text-lg"></i>
+                            </div>
+                            <span class="font-medium text-[#052b14] text-[15px]">Brighter Tomorrow</span>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <!-- Footer Area -->
+    <hbm-footer></hbm-footer>
+
+    <!-- Load Components JS -->
+    <script src="./js/components.js"></script>
+
+</body>
+
+</html>

@@ -1239,7 +1239,341 @@
             </div>
 
         </div>
-    </section> <!-- Footer Area -->
+    </section>
+
+        <!-- Watch Our Story Section -->
+        <section class="py-8 md:py-12 bg-white">
+            <div class="container mx-auto px-4 lg:px-8 max-w-[1400px]">
+                <div class="bg-[#f2f8f3] rounded-[24px] overflow-hidden flex flex-col md:flex-row relative border border-green-900/5 shadow-sm">
+                    
+                    <!-- Background Leaves Right -->
+                    <div class="absolute top-0 right-0 h-full w-48 md:w-72 pointer-events-none z-0 mix-blend-multiply opacity-80 hidden md:block">
+                        <img src="./assets/leaves-side.png" alt="" class="w-full h-full object-cover object-left" onerror="this.style.display='none'">
+                    </div>
+
+                    <!-- Left: Video Thumbnail -->
+                    <div class="w-full md:w-1/2 relative min-h-[210px] md:min-h-[280px] lg:min-h-[340px]" id="story-video-container-success">
+                        <img src="./assets/story-video-thumb.png" alt="Good Food Brighter Days" class="absolute inset-0 w-full h-full object-cover object-center" id="story-video-thumb-success">
+                        
+                        <!-- Play Button Overlay -->
+                        <button onclick="document.getElementById('story-video-thumb-success').style.display='none'; this.style.display='none'; document.getElementById('story-video-iframe-success').src='https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1'; document.getElementById('story-video-wrapper-success').classList.remove('hidden');" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-105 transition-transform z-10 group cursor-pointer border-none outline-none">
+                            <i class="fa-solid fa-play text-2xl md:text-3xl text-primary ml-1.5 group-hover:text-[#0b5028] transition-colors"></i>
+                        </button>
+
+                        <!-- Iframe Wrapper -->
+                        <div id="story-video-wrapper-success" class="absolute inset-0 w-full h-full hidden z-20 bg-black">
+                            <iframe id="story-video-iframe-success" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="w-full md:w-1/2 p-6 md:p-10 lg:p-12 flex flex-col justify-center relative z-10">
+                        <span class="text-[#0d3b1f] text-[12px] md:text-sm font-bold tracking-[0.2em] uppercase mb-4 opacity-80">
+                            Watch Our Story
+                        </span>
+                        
+                        <h2 class="text-3xl md:text-4xl lg:text-[46px] font-extrabold text-[#0d3b1f] leading-[1.15] mb-5 tracking-tight">
+                            Small Steps Create<br class="hidden lg:block"> Big Changes
+                        </h2>
+                        
+                        <p class="text-slate-600 font-medium text-[15px] md:text-base leading-relaxed mb-8 max-w-[450px]">
+                            See how our programs are helping people across India live healthier, happier lives.
+                        </p>
+                        
+                        <a href="#" onclick="document.querySelector('#story-video-container-success button').click(); return false;" class="inline-flex items-center justify-center bg-[#106e39] hover:bg-[#0b5028] text-white px-8 py-3.5 rounded-lg font-bold transition-colors shadow-md text-[15px] self-start">
+                            Watch Video <i class="fa-solid fa-arrow-right ml-2.5 text-[13px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Our Members Say / Testimonials Section -->
+        <section class="py-16 md:py-20 bg-white relative overflow-hidden">
+            <!-- Left leaves -->
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-24 md:w-32 z-0 pointer-events-none hidden md:block">
+                <img src="./assets/leaves-side.png" alt="" class="w-full h-auto object-cover object-right transform -scale-x-100 opacity-60">
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10 text-center mb-8">
+                <span class="text-[#0d3b1f] font-bold text-[10px] md:text-[11px] tracking-[0.2em] uppercase opacity-60">Real Stories. Real Results.</span>
+                <h2 class="text-3xl md:text-[36px] font-extrabold text-[#052b14] mt-2 mb-3 tracking-tight">What Our Members Say</h2>
+                <p class="text-gray-500 text-sm md:text-[15px] max-w-2xl mx-auto">Thousands of people have already taken the first step towards a healthier life. Here's what some of them say.</p>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="max-w-[1100px] mx-auto px-12 md:px-16 relative z-10">
+                
+                <!-- Left Arrow -->
+                <button id="testi-prev-success" class="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-[0_2px_10px_rgb(0,0,0,0.08)] border border-gray-50 rounded-full flex items-center justify-center text-[#106e39] hover:bg-gray-50 z-20 transition-colors">
+                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
+
+                <style>
+                    .scrollbar-hide::-webkit-scrollbar { display: none; }
+                    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+                    
+                    .testi-card {
+                        min-width: 320px;
+                        width: 320px;
+                        border-radius: 12px;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
+                        border: 1px solid rgba(0,0,0,0.02);
+                    }
+                </style>
+
+                <div class="overflow-hidden" id="testi-viewport-success">
+                    <div id="testi-scroll-success" class="flex gap-5 transition-transform duration-500 ease-in-out" style="transform: translateX(0px);">
+                        
+                        <!-- Original Cards -->
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Priya Sharma</h4>
+                                    <p class="text-[13px] text-gray-500">Delhi</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "The Weight Management Program helped me lose 12 kg in 5 months. I feel more energetic and confident now!"
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Amit Verma" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Amit Verma</h4>
+                                    <p class="text-[13px] text-gray-500">Bangalore</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "My blood sugar levels are now normal without medication. The Diabetes Reversal Program truly works!"
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neelam Gupta" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Neelam Gupta</h4>
+                                    <p class="text-[13px] text-gray-500">Jaipur</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "The Senior Wellness Program has improved my energy and overall health. I feel more active and independent."
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testi-card flex-shrink-0 bg-white p-6 md:p-7">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Ravi Kumar" class="w-12 h-12 rounded-full object-cover">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-[#052b14] text-[15px]">Ravi Kumar</h4>
+                                    <p class="text-[13px] text-gray-500">Mumbai</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-[14px] leading-relaxed text-left mb-5">
+                                "Thanks to the diet and lifestyle changes, I’ve successfully reversed my pre-diabetes. Highly recommend it!"
+                            </p>
+                            <div class="flex gap-1 text-[#ffb800] text-[13px]">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Arrow -->
+                <button id="testi-next-success" class="absolute right-0 md:right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-[0_2px_10px_rgb(0,0,0,0.08)] border border-gray-50 rounded-full flex items-center justify-center text-[#106e39] hover:bg-gray-50 z-20 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+
+            </div>
+
+            <!-- Script for Auto-slide & buttons -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const track = document.getElementById('testi-scroll-success');
+                    const prevBtn = document.getElementById('testi-prev-success');
+                    const nextBtn = document.getElementById('testi-next-success');
+                    const viewport = document.getElementById('testi-viewport-success');
+                    if(!track || !prevBtn || !nextBtn) return;
+                    
+                    // Clone cards for infinite scroll
+                    const originalCards = Array.from(track.children);
+                    // Append a set for seamless right scroll
+                    originalCards.forEach(card => {
+                        const clone = card.cloneNode(true);
+                        track.appendChild(clone);
+                    });
+                    
+                    let currentIndex = 0;
+                    let isTransitioning = false;
+                    let autoScrollInterval;
+                    const cardCount = originalCards.length;
+                    
+                    const getCardWidth = () => {
+                        const card = track.querySelector('.testi-card');
+                        // Width + Gap (20px)
+                        return card ? card.offsetWidth + 20 : 340; 
+                    };
+
+                    const updateTransform = (smooth = true) => {
+                        track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
+                        track.style.transform = `translateX(-${currentIndex * getCardWidth()}px)`;
+                    };
+
+                    const moveNext = () => {
+                        if (isTransitioning) return;
+                        isTransitioning = true;
+                        
+                        currentIndex++;
+                        updateTransform(true);
+                        
+                        setTimeout(() => {
+                            // If we've reached the cloned set, jump back to original seamlessly
+                            if (currentIndex >= cardCount) {
+                                currentIndex = 0;
+                                updateTransform(false);
+                            }
+                            isTransitioning = false;
+                        }, 500);
+                    };
+
+                    const movePrev = () => {
+                        if (isTransitioning) return;
+                        isTransitioning = true;
+                        
+                        // If we are at the very beginning, jump to cloned set first to allow backward animation
+                        if (currentIndex <= 0) {
+                            currentIndex = cardCount;
+                            updateTransform(false);
+                            // Force reflow
+                            void track.offsetWidth;
+                        }
+                        
+                        currentIndex--;
+                        updateTransform(true);
+                        
+                        setTimeout(() => {
+                            isTransitioning = false;
+                        }, 500);
+                    };
+
+                    const startAutoScroll = () => {
+                        autoScrollInterval = setInterval(moveNext, 3000);
+                    };
+
+                    const stopAutoScroll = () => {
+                        clearInterval(autoScrollInterval);
+                    };
+
+                    nextBtn.addEventListener('click', () => {
+                        stopAutoScroll();
+                        moveNext();
+                        startAutoScroll();
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        stopAutoScroll();
+                        movePrev();
+                        startAutoScroll();
+                    });
+
+                    viewport.addEventListener('mouseenter', stopAutoScroll);
+                    viewport.addEventListener('mouseleave', startAutoScroll);
+
+                    startAutoScroll();
+                    
+                    // Handle window resize
+                    window.addEventListener('resize', () => {
+                        updateTransform(false);
+                    });
+                });
+            </script>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="w-full relative mt-10 md:mt-16 mb-12 md:mb-20 overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="./assets/Healtheir-Happeir.png" alt="Healthier Happier Background" class="w-full h-full object-cover object-[center_70%]">
+            </div>
+            
+            <!-- Gradient Overlay for text readability (fades from white on right to transparent on left) -->
+            <div class="absolute inset-0 z-10 bg-gradient-to-l from-white/95 via-white/60 to-transparent md:w-[70%] md:left-auto md:right-0"></div>
+
+            <div class="container mx-auto px-4 relative z-20 py-10 md:py-14">
+                <div class="flex flex-col lg:flex-row justify-end items-center gap-10 md:gap-16">
+                    
+                    <!-- Center Text Block (Right of image) -->
+                    <div class="w-full lg:w-[45%] text-center flex flex-col items-center relative z-20">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-[#052b14] mb-4 tracking-tight leading-snug">
+                            A Healthier, <span class="text-[#106e39]">Happier</span> You<br>Is Just a Step Away
+                        </h2>
+                        <p class="text-[#052b14] font-medium text-sm md:text-[15px] mb-8 max-w-md mx-auto">
+                            Get personalized guidance from our expert nutritionists today and start your journey towards better health.
+                        </p>
+                        <a href="#" class="inline-flex items-center justify-center bg-[#106e39] text-white font-medium px-8 py-3.5 rounded-lg hover:bg-[#0d582e] transition-colors shadow-[0_4px_14px_rgba(16,110,57,0.4)] hover:shadow-[0_6px_20px_rgba(16,110,57,0.5)]">
+                            Consult an Expert <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Features List -->
+                    <div class="w-full lg:w-[25%] flex flex-col gap-5 relative z-20 lg:pr-8">
+                        
+                        <!-- Handwritten text -->
+                        <style>
+                            @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+                        </style>
+                        <div class="absolute -top-32 right-12 lg:right-4 lg:-top-24 transform rotate-6 opacity-90 hidden md:block z-30 pointer-events-none">
+                            <span class="font-['Caveat',cursive] text-[36px] text-[#052b14] leading-[0.9] block text-center">
+                                Small<br>Steps<br>Big<br>Change <i class="fa-regular fa-heart text-2xl inline-block ml-1 align-middle"></i>
+                            </span>
+                        </div>
+                        
+                        <!-- Item 1 -->
+                        <div class="flex items-center gap-4 bg-white/20 backdrop-blur-sm p-1.5 rounded-xl border border-white/40">
+                            <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm text-[#106e39] flex-shrink-0 border border-[#106e39]/20">
+                                <i class="fa-solid fa-apple-whole text-lg"></i>
+                            </div>
+                            <span class="font-medium text-[#052b14] text-[15px]">Better Choices</span>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="flex items-center gap-4 bg-white/20 backdrop-blur-sm p-1.5 rounded-xl border border-white/40">
+                            <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm text-[#106e39] flex-shrink-0 border border-[#106e39]/20">
+                                <i class="fa-regular fa-heart text-lg"></i>
+                            </div>
+                            <span class="font-medium text-[#052b14] text-[15px]">Healthier Habits</span>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="flex items-center gap-4 bg-white/20 backdrop-blur-sm p-1.5 rounded-xl border border-white/40">
+                            <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm text-[#106e39] flex-shrink-0 border border-[#106e39]/20">
+                                <i class="fa-solid fa-leaf text-lg"></i>
+                            </div>
+                            <span class="font-medium text-[#052b14] text-[15px]">Brighter Tomorrow</span>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Footer Area -->
     <hbm-footer></hbm-footer>
 
     <script src="js/components.js"></script>

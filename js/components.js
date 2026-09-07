@@ -46,7 +46,7 @@ class HbmHeader extends HTMLElement {
                     <a href="index.html"
                         class="nav-link hover:text-primary transition-colors whitespace-nowrap">Home</a>
                     <a href="mission.html" class="nav-link hover:text-primary transition-colors whitespace-nowrap">Our Mission</a>
-                    <a href="#"
+                    <a href="program.html"
                         class="nav-link hover:text-primary transition-colors flex items-center whitespace-nowrap">Programs <i
                             class="fa-solid fa-chevron-down text-[10px] ml-1.5"></i></a>
                     <a href="#" class="nav-link hover:text-primary transition-colors flex items-center whitespace-nowrap">Health
