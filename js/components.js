@@ -32,16 +32,16 @@ class HbmHeader extends HTMLElement {
             <!-- Main Navigation -->
             <div class="px-2 lg:px-8 pt-4 md:pt-10 pb-4 flex justify-between items-center">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2 xl:space-x-3 -mt-2">
-                    <img src="${imgPath}assets/logo.webp" alt="Logo" class="h-12 xl:h-14 flex-shrink-0">
+                <a href="${basePath}index.html" class="flex items-center space-x-2 xl:space-x-3 -mt-2 group">
+                    <img src="${imgPath}assets/logo.webp" alt="Logo" class="h-14 xl:h-16 flex-shrink-0 transition-transform group-hover:scale-105">
                     <div>
                         <h1
-                            class="font-heading font-bold text-lg xl:text-2xl text-slate-800 leading-tight mb-1 whitespace-nowrap">
+                            class="font-heading font-bold text-lg xl:text-2xl text-slate-800 leading-tight mb-1 whitespace-nowrap group-hover:text-primary transition-colors">
                             Healthy<br>Bharat Mission</h1>
                         <p class="text-[9px] xl:text-[11px] text-gray-500 font-medium tracking-wide whitespace-nowrap">
                             Towards a Diabetes Free India</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Desktop Menu -->
                 <div
@@ -198,17 +198,17 @@ class HbmFooter extends HTMLElement {
 
                     <!-- Col 1: Logo & Mission -->
                     <div class="w-full lg:w-3/12 pr-0 xl:pr-4">
-                        <div class="flex items-center mb-4">
-                            <img src="${imgPath}assets/logo.webp" alt="Logo" class="h-10 mr-3"
+                        <a href="${basePath}index.html" class="flex items-center mb-4 group">
+                            <img src="${imgPath}assets/logo.webp" alt="Logo" class="h-[50px] mr-3 transition-transform group-hover:scale-105"
                                 onerror="this.src='https://via.placeholder.com/40x40/10b981/ffffff?text=HBM'">
                             <div>
-                                <h4 class="text-white font-bold text-base xl:text-lg leading-tight">Healthy Bharat
+                                <h4 class="text-white font-bold text-base xl:text-lg leading-tight group-hover:text-accent transition-colors">Healthy Bharat
                                     Mission</h4>
                                 <span
                                     class="text-accent text-[9px] xl:text-[10px] uppercase tracking-wider block mt-0.5">Towards
                                     a Diabetes-Free India</span>
                             </div>
-                        </div>
+                        </a>
                         <p class="text-slate-400 text-xs xl:text-sm leading-relaxed mb-6">
                             Our Mission is to build a healthier India by helping people prevent and reverse lifestyle
                             diseases through education, nutrition and lifestyle transformation.
@@ -309,14 +309,17 @@ class HbmFooter extends HTMLElement {
                             <li><a href="${basePath}contact.html"
                                     class="text-slate-400 hover:text-accent text-xs xl:text-sm transition-colors">Contact
                                     Us</a></li>
-                            <li><a href="#"
+                            <li><a href="${basePath}legal/privacy-policy.html"
                                     class="text-slate-400 hover:text-accent text-xs xl:text-sm transition-colors">Privacy
                                     Policy</a></li>
-                            <li><a href="#"
+                            <li><a href="${basePath}legal/terms-conditions.html"
                                     class="text-slate-400 hover:text-accent text-xs xl:text-sm transition-colors">Terms
                                     & Conditions</a></li>
-                            <li><a href="#"
+                            <li><a href="${basePath}legal/refund-policy.html"
                                     class="text-slate-400 hover:text-accent text-xs xl:text-sm transition-colors">Refund
+                                    Policy</a></li>
+                            <li><a href="${basePath}legal/shipping-policy.html"
+                                    class="text-slate-400 hover:text-accent text-xs xl:text-sm transition-colors">Shipping
                                     Policy</a></li>
                         </ul>
                     </div>

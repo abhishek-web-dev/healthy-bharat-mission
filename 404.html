@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="./dist/output.css" rel="stylesheet">
+    <style>
+        .wood-texture {
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0,0,0,0.03) 10px,
+                rgba(0,0,0,0.03) 20px
+            );
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-white antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="./"></hbm-header>
+    
+    <main class="flex-grow flex flex-col relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f0fbf4]">
+        
+        <!-- Background Clouds (CSS purely) -->
+        <div class="absolute top-[15%] left-[8%] opacity-70 flex items-end scale-75 md:scale-100">
+            <div class="w-16 h-16 bg-[#eaf7f0] rounded-full translate-x-8 translate-y-2"></div>
+            <div class="w-24 h-24 bg-[#eaf7f0] rounded-full relative z-10"></div>
+            <div class="w-16 h-16 bg-[#eaf7f0] rounded-full -translate-x-6"></div>
+            <div class="absolute bottom-0 left-6 w-[140px] h-10 bg-[#eaf7f0] rounded-full z-0"></div>
+        </div>
+
+        <div class="absolute bottom-[20%] right-[10%] opacity-70 flex items-end scale-50 md:scale-75 hidden sm:flex">
+            <div class="w-16 h-16 bg-[#eaf7f0] rounded-full translate-x-8 translate-y-2"></div>
+            <div class="w-24 h-24 bg-[#eaf7f0] rounded-full relative z-10"></div>
+            <div class="w-16 h-16 bg-[#eaf7f0] rounded-full -translate-x-6"></div>
+            <div class="absolute bottom-0 left-6 w-[140px] h-10 bg-[#eaf7f0] rounded-full z-0"></div>
+        </div>
+
+        <div class="absolute bottom-[5%] left-[25%] opacity-70 flex items-end scale-75 md:scale-125 hidden md:flex">
+            <div class="w-16 h-16 bg-[#eaf7f0] rounded-full translate-x-8 translate-y-2"></div>
+            <div class="w-24 h-24 bg-[#eaf7f0] rounded-full relative z-10"></div>
+            <div class="w-16 h-16 bg-[#eaf7f0] rounded-full -translate-x-6"></div>
+            <div class="absolute bottom-0 left-6 w-[140px] h-10 bg-[#eaf7f0] rounded-full z-0"></div>
+        </div>
+
+        <!-- Decorative Elements Container (Spans full width for absolute positioning) -->
+        <div class="absolute inset-0 max-w-[1400px] mx-auto pointer-events-none">
+            
+            <!-- Left Side: Leaves and Handwritten Note -->
+            <div class="absolute bottom-0 left-[-20px] md:left-10 w-[200px] h-[300px]">
+                
+                <!-- Handwriting Note -->
+                <div class="absolute -top-[100px] md:-top-[60px] left-[50px] font-['Caveat'] text-[#106e39] text-[22px] md:text-[26px] transform -rotate-[15deg] leading-tight text-center min-w-[200px]">
+                    Looks like you've<br>taken a wrong turn!
+                    <!-- Arrow -->
+                    <svg class="w-24 h-24 absolute -bottom-20 left-1/2 -translate-x-1/2 rotate-[15deg] opacity-70" viewBox="0 0 100 100">
+                        <path d="M10,10 Q30,60 80,40" fill="none" stroke="#106e39" stroke-width="2" stroke-linecap="round" stroke-dasharray="4,4"/>
+                        <path d="M70,30 L80,40 L70,50" fill="none" stroke="#106e39" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Plant Leaves Vector art (built with icons) -->
+                <div class="absolute bottom-[-20px] left-[-30px] flex items-end">
+                    <i class="fa-solid fa-leaf text-[80px] transform -scale-x-100 -rotate-45 text-[#65a30d] origin-bottom-right translate-x-12 translate-y-4 z-10 drop-shadow-sm"></i>
+                    <i class="fa-solid fa-leaf text-[130px] text-[#22c55e] origin-bottom drop-shadow-md"></i>
+                    <i class="fa-solid fa-leaf text-[60px] transform rotate-[35deg] text-[#15803d] origin-bottom-left -translate-x-8 -translate-y-2 drop-shadow-sm"></i>
+                </div>
+            </div>
+
+            <!-- Right Side: Wooden Signpost and Handwritten Note -->
+            <div class="absolute bottom-0 right-10 w-[250px] h-[280px] hidden lg:block">
+                
+                <!-- Handwriting Note -->
+                <div class="absolute top-[80px] -right-[60px] font-['Caveat'] text-[#106e39] text-[22px] transform rotate-6 leading-tight text-center min-w-[150px]">
+                    Good things<br>are still here!
+                    <!-- Arrow -->
+                    <svg class="w-16 h-16 absolute -bottom-8 -left-10 rotate-[140deg] opacity-70" viewBox="0 0 100 100">
+                        <path d="M20,20 Q60,50 80,80" fill="none" stroke="#106e39" stroke-width="2" stroke-linecap="round" stroke-dasharray="4,4"/>
+                        <path d="M70,70 L80,80 L90,70" fill="none" stroke="#106e39" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- CSS Wooden Signpost -->
+                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center h-[260px]">
+                    <!-- Post -->
+                    <div class="w-[24px] h-full bg-[#8c5a2c] rounded-t-lg relative z-0 shadow-inner">
+                        <div class="absolute inset-0 bg-black opacity-10 rounded-t-lg"></div>
+                    </div>
+                    
+                    <!-- Signs -->
+                    <div class="absolute top-6 flex flex-col gap-5 w-[220px] items-center z-10">
+                        <!-- Sign 1 -->
+                        <div class="relative w-full h-[45px] bg-[#dfab71] flex items-center shadow-lg transform -rotate-2 wood-texture" style="clip-path: polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0 50%); border-radius: 4px;">
+                            <span class="text-[#4a2e15] font-bold text-[14px] leading-tight ml-10 w-full text-center pr-4 font-heading">Healthier<br>Choices</span>
+                        </div>
+                        <!-- Sign 2 -->
+                        <div class="relative w-full h-[45px] bg-[#d39c5e] flex items-center shadow-lg transform rotate-1 ml-4 wood-texture" style="clip-path: polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0 50%); border-radius: 4px;">
+                            <span class="text-[#4a2e15] font-bold text-[14px] leading-tight ml-10 w-full text-center pr-4 font-heading">Brighter<br>Tomorrow</span>
+                        </div>
+                        <!-- Sign 3 -->
+                        <div class="relative w-full h-[45px] bg-[#e6b580] flex items-center shadow-lg transform -rotate-1 wood-texture" style="clip-path: polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0 50%); border-radius: 4px;">
+                            <span class="text-[#4a2e15] font-bold text-[15px] leading-tight ml-10 w-full text-center pr-4 font-heading">Start Again</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Base Leaves -->
+                    <div class="absolute bottom-[-10px] left-1/2 -translate-x-1/2 flex items-end">
+                        <i class="fa-solid fa-leaf text-[40px] transform -scale-x-100 -rotate-[30deg] text-[#15803d] translate-x-4 translate-y-2 z-10"></i>
+                        <i class="fa-solid fa-leaf text-[70px] text-[#22c55e] origin-bottom z-0"></i>
+                        <i class="fa-solid fa-leaf text-[50px] transform rotate-[40deg] text-[#65a30d] -translate-x-3 z-10"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Center Content -->
+        <div class="flex-grow flex flex-col items-center justify-center relative z-20 px-4 mt-8 md:mt-0 py-16">
+            
+            <!-- Custom CSS 404 Graphic -->
+            <div class="flex items-center justify-center text-[#106e39] font-black text-[140px] md:text-[200px] leading-none select-none relative mb-2 font-heading tracking-tighter">
+                
+                <span>4</span>
+                
+                <!-- Magnifying Glass -->
+                <div class="relative w-[110px] h-[110px] md:w-[150px] md:h-[150px] mx-1 md:mx-3 md:-mt-6 flex-shrink-0">
+                    
+                    <!-- Top Accents -->
+                    <div class="absolute -top-8 md:-top-12 left-1/2 -translate-x-1/2 flex gap-3 md:gap-4">
+                        <div class="w-1.5 h-4 md:w-2 md:h-6 bg-[#106e39] rounded-full -rotate-[25deg] mt-2"></div>
+                        <div class="w-1.5 h-6 md:w-2 md:h-8 bg-[#106e39] rounded-full"></div>
+                        <div class="w-1.5 h-4 md:w-2 md:h-6 bg-[#106e39] rounded-full rotate-[25deg] mt-2"></div>
+                    </div>
+                    
+                    <!-- Ring -->
+                    <div class="w-full h-full border-[14px] md:border-[20px] border-[#106e39] rounded-full flex flex-col items-center justify-center bg-white z-10 relative">
+                        <!-- Eyes -->
+                        <div class="flex gap-4 md:gap-5 mb-1 md:mb-2 mt-4 md:mt-6">
+                            <div class="w-3 h-3 md:w-4 md:h-4 bg-[#106e39] rounded-full"></div>
+                            <div class="w-3 h-3 md:w-4 md:h-4 bg-[#106e39] rounded-full"></div>
+                        </div>
+                        <!-- Frown -->
+                        <div class="w-8 h-4 md:w-10 md:h-5 border-t-[4px] md:border-t-[6px] border-[#106e39] rounded-t-full mt-2"></div>
+                    </div>
+                    
+                    <!-- Handle -->
+                    <div class="absolute w-[40px] h-[16px] md:w-[50px] md:h-[22px] bg-[#106e39] rounded-full rotate-45 -bottom-[6px] -right-[14px] md:-bottom-[10px] md:-right-[20px] z-0 origin-top-left"></div>
+                </div>
+                
+                <span>4</span>
+            </div>
+
+            <!-- Text Content -->
+            <h1 class="text-3xl md:text-[42px] font-black text-[#1e3a5f] font-heading mb-4 text-center mt-6">Oops! Page Not Found</h1>
+            <p class="text-[#64748b] text-[15px] md:text-base text-center max-w-[500px] leading-relaxed mb-8 font-medium">
+                The page you're looking for doesn't exist or may have been moved.<br class="hidden md:block">
+                But don't worry, let's get you back on track to a healthier tomorrow!
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+                <a href="./index.html" class="bg-[#106e39] text-white px-6 py-3.5 rounded-lg font-bold text-[15px] flex items-center justify-center gap-2 hover:bg-[#0c532b] transition-colors shadow-md w-full sm:w-auto">
+                    <i class="fa-solid fa-house"></i> Go to Homepage
+                </a>
+                <a href="javascript:history.back()" class="bg-white text-[#106e39] border-2 border-[#106e39] px-6 py-3.5 rounded-lg font-bold text-[15px] flex items-center justify-center gap-2 hover:bg-[#f0fbf4] transition-colors shadow-sm w-full sm:w-auto">
+                    <i class="fa-solid fa-arrow-left"></i> Go Back
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Bottom Trust Banner -->
+    <section class="border-t border-gray-100 bg-[#f9fcf9] py-10 relative z-30">
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#e2f6e9] flex items-center justify-center text-[#106e39] text-xl md:text-2xl flex-shrink-0">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div class="text-[#1e3a5f] font-bold text-[13px] md:text-[14px] leading-tight">Natural & Safe<br>Products</div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#e2f6e9] flex items-center justify-center text-[#106e39] text-xl md:text-2xl flex-shrink-0">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="text-[#1e3a5f] font-bold text-[13px] md:text-[14px] leading-tight">Support Your<br>Health Goals</div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#e2f6e9] flex items-center justify-center text-[#106e39] text-xl md:text-2xl flex-shrink-0">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="text-[#1e3a5f] font-bold text-[13px] md:text-[14px] leading-tight">Trusted by<br>5,000+ Customers</div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#e2f6e9] flex items-center justify-center text-[#106e39] text-xl md:text-2xl flex-shrink-0">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div class="text-[#1e3a5f] font-bold text-[13px] md:text-[14px] leading-tight">Fast & Reliable<br>Delivery</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hbm-footer base-path="./"></hbm-footer>
+    <script src="./js/components.js"></script>
+</body>
+</html>
