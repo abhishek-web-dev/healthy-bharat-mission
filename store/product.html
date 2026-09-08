@@ -1,16 +1,826 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - Healthy Bharat Mission</title>
+    <title>NutroActive Keto Combo - Healthy Bharat Mission</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="../dist/output.css" rel="stylesheet">
 </head>
-<body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen">
-    <!-- Product Details Content Will Go Here -->
+
+<body class="font-body text-gray-800 bg-white antialiased">
+
+    <hbm-header base-path="../"></hbm-header>
+
+    <main class="w-full max-w-[1340px] mx-auto px-12 sm:px-20 lg:px-32 py-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex text-[13px] text-gray-500 mb-8 font-medium">
+            <ol class="flex items-center space-x-2">
+                <li><a href="#" class="hover:text-[#106e39] transition-colors">Home</a></li>
+                <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
+                <li><a href="#" class="hover:text-[#106e39] transition-colors">Store</a></li>
+                <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
+                <li><a href="#" class="hover:text-[#106e39] transition-colors">Cookies & Snacks</a></li>
+                <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
+                <li class="text-[#052b14] font-semibold">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</li>
+            </ol>
+        </nav>
+
+        <!-- Product Top Section -->
+        <div class="flex flex-col lg:flex-row gap-10 xl:gap-14">
+
+            <!-- Left: Images Gallery -->
+            <div class="w-full lg:w-[45%] flex flex-col gap-4">
+                <!-- Main Image -->
+                <div class="relative w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex items-center justify-center p-2" style="height: 450px;">
+                    <img id="mainProductImage" src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=800&q=80" alt="Main Product" class="w-full h-full object-contain">
+                    <!-- 100% Natural Tag -->
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 flex items-center gap-2 shadow-sm border border-white/50 z-10">
+                        <div class="w-6 h-6 rounded-full bg-[#106e39] flex items-center justify-center text-white shrink-0">
+                            <i class="fa-solid fa-leaf text-[10px]"></i>
+                        </div>
+                        <div>
+                            <span class="block text-[12px] font-bold text-[#052b14] leading-none">100%</span>
+                            <span class="block text-[9px] font-semibold text-gray-500 mt-0.5 uppercase tracking-wide">Natural</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide snap-x">
+                    <!-- Thumb 1 -->
+                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-black snap-start hover:opacity-80 transition-opacity bg-white">
+                        <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=200&q=80" alt="Thumb 1" class="w-full h-full object-contain">
+                    </button>
+                    <!-- Thumb 2 -->
+                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
+                        <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=200&q=80" alt="Thumb 2" class="w-full h-full object-contain">
+                    </button>
+                    <!-- Thumb 3 -->
+                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=200&q=80" alt="Thumb 3" class="w-full h-full object-contain">
+                    </button>
+                    <!-- Thumb 4 -->
+                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Thumb 4" class="w-full h-full object-contain">
+                    </button>
+                    <!-- Thumb 5 -->
+                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" alt="Thumb 5" class="w-full h-full object-contain">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Product Info -->
+            <div class="w-full flex-1 flex flex-col pt-2 lg:pl-6 xl:pl-10">
+                <span class="text-[12px] font-bold tracking-wider text-gray-500 uppercase mb-2">Cookies & Snacks</span>
+
+                <h1 class="text-3xl lg:text-4xl font-extrabold text-[#052b14] leading-tight mb-3">
+                    NutroActive Keto Atta 750g with Keto Sugar 250g Combo
+                </h1>
+
+                <p class="text-[16px] text-gray-600 font-medium mb-4">
+                    A healthier choice for your everyday meals.
+                </p>
+
+                <!-- Reviews & Trust -->
+                <div class="flex items-center gap-4 mb-6 text-[14px]">
+                    <div class="flex items-center gap-1.5">
+                        <div class="flex text-[#fbbf24] text-[13px]">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="font-bold text-[#052b14] ml-1">4.8</span>
+                        <span
+                            class="text-gray-500 underline decoration-gray-300 underline-offset-2 cursor-pointer hover:text-[#106e39]">(120
+                            reviews)</span>
+                    </div>
+                    <div class="w-px h-4 bg-gray-300"></div>
+                    <div class="flex items-center gap-1.5 text-gray-600 font-medium">
+                        <i class="fa-solid fa-shield-check text-[#106e39]"></i> Trusted by 5,000+ customers
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-3xl font-extrabold text-[#106e39]">₹999.00</span>
+                    <span class="text-[16px] font-medium text-gray-400 line-through mt-1">₹1,199.00</span>
+                    <span class="bg-[#dcfce7] text-[#166534] text-[12px] font-bold px-2.5 py-1 rounded-full mt-1 ml-1">
+                        You save ₹200 (17%)
+                    </span>
+                </div>
+
+                <!-- Highlights Bar -->
+                <div
+                    class="bg-[#f8faf9] rounded-xl p-4 flex flex-wrap lg:flex-nowrap items-center justify-start gap-8 border border-green-50 mb-8">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-truck-fast text-[#106e39] text-lg"></i>
+                        <span class="text-[13px] font-semibold text-[#052b14]">Free Delivery <span
+                                class="text-gray-500 font-medium block sm:inline">on orders above ₹499</span></span>
+                    </div>
+
+                    <div class="hidden lg:block w-px h-8 bg-gray-200"></div>
+
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-leaf text-[#106e39]"></i>
+                            <span class="text-[12px] font-bold text-[#052b14] leading-tight">100%<br>Natural</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-wheat-awn-circle-exclamation text-[#106e39]"></i>
+                            <span class="text-[12px] font-bold text-[#052b14] leading-tight">No<br>Maida</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-regular fa-heart text-[#106e39]"></i>
+                            <span class="text-[12px] font-bold text-[#052b14] leading-tight">Diabetic<br>Friendly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex flex-col sm:flex-row items-center gap-4 mb-8">
+                    <!-- Quantity -->
+                    <div class="flex flex-col gap-2 w-full sm:w-auto">
+                        <span class="text-[13px] font-semibold text-gray-700">Quantity</span>
+                        <div
+                            class="flex items-center bg-[#f8f9fa] rounded-xl border border-gray-200 h-[52px] w-[120px]">
+                            <button onclick="updateQuantity(-1)"
+                                class="w-10 h-full flex items-center justify-center text-gray-500 hover:text-[#106e39] transition-colors"><i
+                                    class="fa-solid fa-minus"></i></button>
+                            <input type="text" id="quantityInput" value="1"
+                                class="w-10 h-full bg-transparent text-center font-bold text-[#052b14] outline-none"
+                                readonly>
+                            <button onclick="updateQuantity(1)"
+                                class="w-10 h-full flex items-center justify-center text-gray-500 hover:text-[#106e39] transition-colors"><i
+                                    class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 w-full mt-6 sm:mt-7">
+                        <button onclick="addToCart()"
+                            class="flex-1 bg-[#106e39] hover:bg-[#0d592e] text-white h-[52px] rounded-xl font-bold flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(16,110,57,0.2)] transition-all">
+                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                        </button>
+                        <a href="cart.html"
+                            class="flex-1 bg-white hover:bg-gray-50 text-[#106e39] border-2 border-[#106e39] h-[52px] rounded-xl font-bold flex items-center justify-center transition-all">
+                            Buy Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trust Badges Bottom -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-gray-100">
+                    <div class="flex flex-col items-center text-center gap-2">
+                        <i class="fa-solid fa-wallet text-[#106e39] text-xl"></i>
+                        <div>
+                            <span class="block text-[12px] font-bold text-[#052b14]">Secure Payment</span>
+                            <span class="block text-[11px] text-gray-500 mt-0.5">100% safe & secure</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-2">
+                        <i class="fa-solid fa-rotate-left text-[#106e39] text-xl"></i>
+                        <div>
+                            <span class="block text-[12px] font-bold text-[#052b14]">Easy Returns</span>
+                            <span class="block text-[11px] text-gray-500 mt-0.5">7-day return policy</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-2">
+                        <i class="fa-solid fa-medal text-[#106e39] text-xl"></i>
+                        <div>
+                            <span class="block text-[12px] font-bold text-[#052b14]">Genuine Products</span>
+                            <span class="block text-[11px] text-gray-500 mt-0.5">Trusted quality</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-2">
+                        <i class="fa-regular fa-clock text-[#106e39] text-xl"></i>
+                        <div>
+                            <span class="block text-[12px] font-bold text-[#052b14]">Customer Support</span>
+                            <span class="block text-[11px] text-gray-500 mt-0.5">Mon - Sat, 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Features Banner (added as per second screenshot) -->
+        <div
+            class="mt-16 bg-[#f0f8f3] rounded-2xl py-8 px-8 sm:px-12 flex flex-wrap lg:flex-nowrap justify-between gap-8 border border-green-50 shadow-sm">
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-leaf text-[#106e39] text-[26px]"></i>
+                <span class="font-bold text-[#052b14] text-[15px] leading-tight">Made with<br>Natural Ingredients</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-heart text-[#106e39] text-[26px]"></i>
+                <span class="font-bold text-[#052b14] text-[15px] leading-tight">Supports<br>Healthy Lifestyle</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-shield-halved text-[#106e39] text-[26px]"></i>
+                <span class="font-bold text-[#052b14] text-[15px] leading-tight">Trusted by<br>Nutrition Experts</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-truck-fast text-[#106e39] text-[26px]"></i>
+                <span class="font-bold text-[#052b14] text-[15px] leading-tight">Fast & Reliable<br>Delivery</span>
+            </div>
+        </div>
+
+        <!-- Bottom Tabs & Content Section -->
+        <div class="mt-16 border-t border-gray-100 pt-8">
+
+            <!-- Tabs -->
+            <div
+                class="flex items-center gap-8 border-b border-gray-100 overflow-x-auto overflow-y-hidden scrollbar-hide pb-px">
+                <button id="btn-description" onclick="switchTab('description')" class="tab-btn pb-4 border-b-2 border-[#106e39] text-[#052b14] font-bold text-[15px] whitespace-nowrap">
+                    Description
+                </button>
+                <button id="btn-ingredients" onclick="switchTab('ingredients')"
+                    class="tab-btn pb-4 border-b-2 border-transparent hover:border-gray-200 text-gray-500 hover:text-gray-700 font-medium text-[15px] whitespace-nowrap transition-colors">
+                    Ingredients
+                </button>
+                <button id="btn-nutrition" onclick="switchTab('nutrition')"
+                    class="tab-btn pb-4 border-b-2 border-transparent hover:border-gray-200 text-gray-500 hover:text-gray-700 font-medium text-[15px] whitespace-nowrap transition-colors">
+                    Nutritional Information
+                </button>
+                <button id="btn-usage" onclick="switchTab('usage')"
+                    class="tab-btn pb-4 border-b-2 border-transparent hover:border-gray-200 text-gray-500 hover:text-gray-700 font-medium text-[15px] whitespace-nowrap transition-colors">
+                    How to Use
+                </button>
+
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-description" class="tab-pane py-10 flex flex-col lg:flex-row gap-12">
+
+                <!-- Left: Description -->
+                <div class="w-full lg:w-[60%] xl:w-[65%]">
+                    <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">Product Description</h2>
+                    <p class="text-[15px] text-gray-600 leading-relaxed mb-10 font-medium">
+                        NutroActive Keto Atta is a low-carb, high-fibre flour made from carefully selected natural
+                        ingredients. It helps you enjoy your favourite rotis, parathas and baked foods without the
+                        guilt. Paired with NutroActive Keto Sugar, a 0-calorie natural sweetener, this combo is perfect
+                        for people looking to manage diabetes, lose weight or simply live a healthier lifestyle.
+                    </p>
+
+                    <!-- Feature Icons Row -->
+                    <div class="flex flex-wrap items-center gap-6 xl:gap-8">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#f0f8f3] flex items-center justify-center text-[#106e39]">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <span class="text-[13px] font-bold text-[#052b14]">Low Carb</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#f0f8f3] flex items-center justify-center text-[#106e39]">
+                                <i class="fa-solid fa-wheat-awn"></i>
+                            </div>
+                            <span class="text-[13px] font-bold text-[#052b14]">High Fibre</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#f0f8f3] flex items-center justify-center text-[#106e39]">
+                                <i class="fa-solid fa-ban"></i>
+                            </div>
+                            <span class="text-[13px] font-bold text-[#052b14]">No Maida</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#f0f8f3] flex items-center justify-center text-[#106e39]">
+                                <i class="fa-solid fa-droplet"></i>
+                            </div>
+                            <span class="text-[13px] font-bold text-[#052b14]">Diabetic Friendly</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#f0f8f3] flex items-center justify-center text-[#106e39]">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <span class="text-[13px] font-bold text-[#052b14]">For a Healthier You</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Why Choose Box -->
+                <div class="w-full lg:w-[40%] xl:w-[35%]">
+                    <div class="bg-[#f4f9f6] rounded-2xl p-6 relative overflow-hidden border border-[#e8f3ec]">
+                        <!-- Decorative leaf in background -->
+                        <div
+                            class="absolute -bottom-8 -right-8 text-[#106e39] opacity-10 text-[120px] pointer-events-none">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+
+                        <div class="flex items-center gap-3 mb-6 relative z-10">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-[#dcfce7] flex items-center justify-center text-[#106e39] shrink-0">
+                                <i class="fa-solid fa-seedling text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-[#052b14]">Why Choose NutroActive?</h3>
+                        </div>
+
+                        <ul class="space-y-3.5 relative z-10">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#106e39] mt-1 text-[14px]"></i>
+                                <span class="text-[14px] text-[#052b14] font-medium leading-snug">Made from natural,
+                                    high-quality ingredients</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#106e39] mt-1 text-[14px]"></i>
+                                <span class="text-[14px] text-[#052b14] font-medium leading-snug">Helps manage blood
+                                    sugar levels</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#106e39] mt-1 text-[14px]"></i>
+                                <span class="text-[14px] text-[#052b14] font-medium leading-snug">Supports weight
+                                    management</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#106e39] mt-1 text-[14px]"></i>
+                                <span class="text-[14px] text-[#052b14] font-medium leading-snug">No added maida or
+                                    preservatives</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#106e39] mt-1 text-[14px]"></i>
+                                <span class="text-[14px] text-[#052b14] font-medium leading-snug">Great taste, same
+                                    traditional feel</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#106e39] mt-1 text-[14px]"></i>
+                                <span class="text-[14px] text-[#052b14] font-medium leading-snug">Trusted by nutrition
+                                    experts</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tab Ingredients -->
+            <div id="tab-ingredients" class="tab-pane hidden py-10">
+                <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">Ingredients</h2>
+                <p class="text-[15px] text-gray-600 leading-relaxed font-medium mb-6">
+                    Our NutroActive Keto Combo is crafted with the finest natural ingredients to ensure maximum health benefits without compromising on taste.
+                </p>
+                <ul class="list-disc list-inside text-[15px] text-gray-600 space-y-2">
+                    <li>Almond Flour</li>
+                    <li>Flaxseed Powder</li>
+                    <li>Coconut Flour</li>
+                    <li>Isolated Wheat Protein</li>
+                    <li>Erythritol (Natural Sweetener)</li>
+                    <li>Stevia Extract</li>
+                </ul>
+            </div>
+
+            <!-- Tab Nutritional Information -->
+            <div id="tab-nutrition" class="tab-pane hidden py-10">
+                <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">Nutritional Information</h2>
+                <p class="text-[15px] text-gray-600 leading-relaxed font-medium mb-6">Values per 100g of serving:</p>
+                <table class="w-full max-w-lg text-left border-collapse">
+                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Calories</th><td class="py-3 text-gray-600">320 kcal</td></tr>
+                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Protein</th><td class="py-3 text-gray-600">22g</td></tr>
+                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Net Carbs</th><td class="py-3 text-gray-600">4g</td></tr>
+                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Dietary Fibre</th><td class="py-3 text-gray-600">18g</td></tr>
+                    <tr><th class="py-3 font-semibold text-[#052b14]">Fat</th><td class="py-3 text-gray-600">20g</td></tr>
+                </table>
+            </div>
+
+            <!-- Tab How to Use -->
+            <div id="tab-usage" class="tab-pane hidden py-10">
+                <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">How to Use</h2>
+                <p class="text-[15px] text-gray-600 leading-relaxed font-medium">
+                    <strong>Keto Atta:</strong> Knead with warm water. Let the dough rest for 10-15 minutes before rolling into rotis. Cook on a medium flame for best results.<br><br>
+                    <strong>Keto Sugar:</strong> Use exactly like regular sugar in your tea, coffee, baking, or desserts. 1 spoon of Keto Sugar = 1 spoon of regular sugar in sweetness!
+                </p>
+            </div>
+
+
+
+        </div>
+
+        <!-- Standalone FAQ Section -->
+        <div class="mt-20 mb-10 pt-16 border-t border-gray-100 flex flex-col lg:flex-row gap-12 xl:gap-20">
+            
+            <!-- Left Side: Heading and CTA -->
+            <div class="w-full lg:w-[40%] flex flex-col items-start">
+                <span class="bg-[#ebf5ef] text-[#106e39] text-[11px] font-bold px-3 py-1.5 rounded-full mb-6 tracking-widest uppercase">FAQS</span>
+                <h2 class="text-4xl lg:text-5xl font-extrabold text-[#052b14] mb-6 leading-[1.1]">Product Questions —<br>Answered</h2>
+                <p class="text-[15px] text-gray-500 leading-relaxed font-medium mb-8">
+                    Have a specific question about this product or its ingredients? We're happy to answer before you even order.
+                </p>
+                <button class="bg-[#106e39] hover:bg-[#0d592e] text-white h-[50px] px-8 rounded-full font-bold flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(16,110,57,0.2)] transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Ask on WhatsApp
+                </button>
+            </div>
+
+            <!-- Right Side: Accordion -->
+            <div class="w-full lg:w-[60%] flex flex-col gap-4">
+                
+                <details class="group bg-white border border-gray-200 rounded-xl overflow-hidden" open>
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-bold text-[#052b14] hover:bg-gray-50 transition-colors">
+                        Is this combo suitable for diabetics?
+                        <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-500 text-[14px] leading-relaxed">
+                        Yes! Both the atta and sugar have a very low glycemic index. In many cases, the right dietary changes can significantly reduce or even eliminate the need for medication — under doctor supervision.
+                    </div>
+                </details>
+
+                <details class="group bg-white border border-gray-200 rounded-xl overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-bold text-[#052b14] hover:bg-gray-50 transition-colors">
+                        Does it taste like regular atta?
+                        <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-500 text-[14px] leading-relaxed">
+                        It has a slightly nuttier flavor but the texture and eating experience are very close to traditional wheat rotis. It is perfect for making parathas, puris, and rotis.
+                    </div>
+                </details>
+
+                <details class="group bg-white border border-gray-200 rounded-xl overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-bold text-[#052b14] hover:bg-gray-50 transition-colors">
+                        Can I bake cakes with this?
+                        <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-500 text-[14px] leading-relaxed">
+                        Absolutely. The Keto Sugar in this combo can be used in a 1:1 ratio for regular sugar in baking, and the flour is great for dense, nutritious low-carb cakes.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+
+        <!-- Tab Reviews -->
+        <div class="mt-20 mb-10 pt-16 border-t border-gray-100 w-full">
+            <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-[22px] font-bold text-[#212121]">Ratings and reviews</h2>
+                    <button class="w-8 h-8 rounded bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200">
+                        <i class="fa-solid fa-chevron-up text-[12px]"></i>
+                    </button>
+                </div>
+                
+                <!-- Rating Summary -->
+                <div class="flex items-center gap-2 mb-1">
+                    <div class="text-[28px] font-medium text-[#212121] leading-none">4.4 <i class="fa-solid fa-star text-[18px] text-[#212121] -mt-1"></i></div>
+                    <span class="bg-[#e2f6e9] text-[#106e39] text-[13px] font-medium px-2 py-0.5 rounded ml-2">Very Good</span>
+                </div>
+                <div class="text-[#878787] text-[13px] mb-6">
+                    based on 22,946 ratings by <i class="fa-regular fa-circle-check text-[#878787] ml-1 mr-0.5"></i>Verified Buyers
+                </div>
+
+                <!-- Image Grid -->
+                <div onclick="openAllImagesModal()" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 6px; aspect-ratio: 3/1; width: 100%; margin-bottom: 20px;">
+                    <!-- Big Left Image -->
+                    <div style="grid-column: span 2; grid-row: span 2;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800&h=800&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 1" />
+                    </div>
+                    <!-- Middle Top -->
+                    <div style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 2" />
+                    </div>
+                    <!-- Right Top -->
+                    <div style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1625940629601-8f2570086b06?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 3" />
+                    </div>
+                    <!-- Middle Bottom -->
+                    <div style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 4" />
+                    </div>
+                    <!-- Right Bottom -->
+                    <div style="grid-column: span 1; grid-row: span 1;" class="relative rounded-[4px] cursor-pointer overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Customer Photo 5" />
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center transition-colors">
+                            <span class="text-white font-bold text-xl">+437</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Ratings (Flipkart Style) -->
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-8">
+                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
+                        Taste <span class="font-bold flex items-center gap-0.5 ml-1">4.5 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
+                        Texture <span class="font-bold flex items-center gap-0.5 ml-1">4.4 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
+                        Health Benefits <span class="font-bold flex items-center gap-0.5 ml-1">4.8 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
+                        Packaging <span class="font-bold flex items-center gap-0.5 ml-1">4.2 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
+                        Value for Money <span class="font-bold flex items-center gap-0.5 ml-1">4.1 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Reviews Scroll List (Discrete Auto-Slide) -->
+                <style>
+                    /* Hide scrollbar for Chrome, Safari and Opera */
+                    #reviewsScrollContainer::-webkit-scrollbar {
+                        display: none;
+                    }
+                </style>
+                <div class="relative mb-6 group">
+                    <div id="reviewsScrollContainer" style="-ms-overflow-style: none; scrollbar-width: none;" class="flex overflow-x-auto gap-4 pb-2 snap-x">
+                        
+                        <!-- Review Card 1 -->
+                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
+                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Highly rec...</span>
+                                    </div>
+                                    <span class="text-[#878787] text-[12px]">1 year ago</span>
+                                </div>
+                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Super Atta And Very Nice Rotis. Helped with my diet perfectly.</p>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-[#878787] text-[12px] font-medium">Healthy Mission Customer</span>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
+                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 756</span>
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 242</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 2 -->
+                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
+                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Great prod...</span>
+                                    </div>
+                                    <span class="text-[#878787] text-[12px]">10 months ago</span>
+                                </div>
+                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Value for money. Best keto sugar I've tried so far!</p>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-[#878787] text-[12px] font-medium">Aswanth Kp</span>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
+                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 72</span>
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 16</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 3 -->
+                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">4 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
+                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Wonderful</span>
+                                    </div>
+                                    <span class="text-[#878787] text-[12px]">11 months ago</span>
+                                </div>
+                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">It's a good combo for diabetes control. Making rotis is a bit different...<span class="text-[#2874f0] cursor-pointer ml-1">more</span></p>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-[#878787] text-[12px] font-medium">Healthy Mission Customer</span>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
+                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 343</span>
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 113</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 4 -->
+                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
+                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Awesome</span>
+                                    </div>
+                                    <span class="text-[#878787] text-[12px]">1 year ago</span>
+                                </div>
+                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Lovely products. No problem making sweets now...<span class="text-[#2874f0] cursor-pointer ml-1">more</span></p>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-[#878787] text-[12px] font-medium">Anup Pandey</span>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
+                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 67</span>
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 5 (NEW) -->
+                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
+                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Excellent...</span>
+                                    </div>
+                                    <span class="text-[#878787] text-[12px]">4 months ago</span>
+                                </div>
+                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">The keto flour texture is spot on and the sugar substitute is perfect.</p>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-[#878787] text-[12px] font-medium">Priya Sharma</span>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
+                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 120</span>
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 6 (NEW) -->
+                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">4 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
+                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Very satis...</span>
+                                    </div>
+                                    <span class="text-[#878787] text-[12px]">2 months ago</span>
+                                </div>
+                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Helped me stick to my diet without feeling deprived. Good packaging.</p>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-[#878787] text-[12px] font-medium">Rahul M.</span>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
+                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 85</span>
+                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 12</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Right Arrow Button Overlay -->
+                    <button onclick="document.getElementById('reviewsScrollContainer').scrollBy({ left: 276, behavior: 'smooth' })" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.15)] border border-gray-100 w-12 h-12 rounded-full flex items-center justify-center text-gray-700 hover:text-black z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </button>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const slider = document.getElementById('reviewsScrollContainer');
+                        if(slider) {
+                            setInterval(() => {
+                                // Only slide if user isn't hovering over the reviews
+                                if(!slider.matches(':hover')) {
+                                    const maxScroll = slider.scrollWidth - slider.clientWidth;
+                                    if(slider.scrollLeft >= maxScroll - 10) {
+                                        slider.scrollTo({ left: 0, behavior: 'smooth' }); // reset to start
+                                    } else {
+                                        slider.scrollBy({ left: 276, behavior: 'smooth' }); // slide exactly 1 card + gap
+                                    }
+                                }
+                            }, 3500); // Slide every 3.5 seconds
+                        }
+                    });
+                </script>
+
+                <!-- Show All Reviews Button -->
+                <button class="w-full border border-gray-300 rounded-lg py-3 flex items-center justify-center gap-2 text-[#212121] font-bold text-[14px] hover:bg-gray-50 transition-colors shadow-sm">
+                    Show all reviews <i class="fa-solid fa-chevron-right text-xs text-[#878787]"></i>
+                </button>
+            </div>
+        </main>
+
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/components.js"></script>
+
+    <!-- Thumbnail Script -->
+    <script>
+        function changeMainImage(btn, imageUrl) {
+            // Update main image source
+            document.getElementById('mainProductImage').src = imageUrl;
+
+            // Remove active border from all thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail-btn');
+            thumbnails.forEach(t => {
+                t.classList.remove('border-black');
+                t.classList.add('border-transparent');
+                t.classList.add('hover:border-gray-300'); // restore hover state
+            });
+
+            // Add active border to clicked thumbnail
+            btn.classList.remove('border-transparent');
+            btn.classList.remove('hover:border-gray-300'); // remove hover state when active
+            btn.classList.add('border-black');
+        }
+
+        // Quantity functionality
+        function updateQuantity(change) {
+            const input = document.getElementById('quantityInput');
+            let currentVal = parseInt(input.value);
+            if (isNaN(currentVal)) currentVal = 1;
+            let newVal = currentVal + change;
+            if (newVal < 1) newVal = 1; // Prevent negative or zero quantity
+            input.value = newVal;
+        }
+
+        // Add to Cart functionality
+        function addToCart() {
+            const qty = document.getElementById('quantityInput').value;
+            alert(`Successfully added ${qty} item(s) to your cart!`);
+        }
+
+        // Tab Switching functionality
+        function switchTab(tabId) {
+            // Hide all tab panes
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.add('hidden');
+            });
+            // Show the target tab pane
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+            // Reset all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-[#106e39]', 'text-[#052b14]', 'font-bold');
+                btn.classList.add('border-transparent', 'text-gray-500', 'font-medium');
+            });
+
+            // Set active class on clicked button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-transparent', 'text-gray-500', 'font-medium');
+                activeBtn.classList.add('border-[#106e39]', 'text-[#052b14]', 'font-bold');
+            }
+        }
+        
+        // Modal toggles
+        function openAllImagesModal() {
+            document.getElementById('allImagesModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeAllImagesModal() {
+            document.getElementById('allImagesModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        
+        // Generate placeholder images for the modal grid
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('allImagesGrid');
+            if(!grid) return;
+            const imageUrls = [
+                'https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1625940629601-8f2570086b06?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80',
+                'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=400&q=80',
+            ];
+            let html = '';
+            for(let i = 0; i < 30; i++) {
+                html += `<div style="aspect-ratio: 1/1; background: #f3f4f6; overflow: hidden; cursor: pointer;">
+                            <img src="${imageUrls[i % imageUrls.length]}" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1" />
+                         </div>`;
+            }
+            grid.innerHTML = html;
+        });
+    </script>
+
+    <!-- All Images Modal -->
+    <div id="allImagesModal" style="display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; background: white; overflow: hidden; width: 100vw; height: 100vh;">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100 shadow-sm" style="background: white; z-index: 10;">
+            <h3 class="text-xl font-bold text-[#212121]">Customer Photos (442)</h3>
+            <button onclick="closeAllImagesModal()" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 text-gray-500 hover:text-black transition-colors" style="cursor: pointer;">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+        <!-- Grid Content -->
+        <div style="flex: 1; overflow-y: auto; padding: 16px;">
+            <div id="allImagesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px;">
+                <!-- Filled dynamically by JavaScript -->
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
