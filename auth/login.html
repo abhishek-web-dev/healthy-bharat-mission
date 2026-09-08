@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Healthy Bharat Mission</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Built Tailwind CSS -->
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+
+<body
+    class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex items-center justify-center p-3 sm:p-3 lg:p-4">
+
+    <!-- Centered Card Container -->
+    <div
+        class="w-full max-w-[1200px] bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.04)] border border-gray-100 flex overflow-hidden relative min-h-[700px]">
+
+        <!-- Left Banner (Hidden on mobile) -->
+        <div class="hidden lg:block lg:w-[45%] relative bg-[#f4f7f5] shrink-0 overflow-hidden">
+            <!-- Background Image -->
+            <img src="../assets/auth/Login-banner.png" alt="Healthy Bharat Mission"
+                class="w-full h-full object-cover absolute inset-0">
+
+            <!-- Gradient Overlay for text readability (using CSS to avoid Tailwind muddy shadows with transparent) -->
+            <div class="absolute inset-0"
+                style="background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 60%, rgba(255,255,255,0) 100%);">
+            </div>
+            <div class="absolute inset-0"
+                style="background: linear-gradient(to bottom, rgba(255,255,255,0) 60%, rgba(0,43,20,0.6) 100%);"></div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 w-full h-full p-8 xl:p-12 flex flex-col">
+
+                <!-- Logo -->
+                <div class="mb-10 xl:mb-10 flex items-center gap-3">
+                    <img src="../assets/logo.webp" alt="Logo" class="h-20 w-20 object-contain shrink-0">
+                    <div>
+                        <h2 class="text-[#052b14] font-extrabold text-[18px] xl:text-[20px] leading-tight">
+                            Healthy<br>Bharat Mission</h2>
+                        <p class="text-[#106e39] font-bold text-[11px] xl:text-[12px] mt-0.5 tracking-wide">Towards a
+                            Diabetes Free India</p>
+                    </div>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-[32px] xl:text-[40px] font-extrabold text-[#052b14] leading-[1.1] mb-5 tracking-tight">
+                    Better Habits<br>Brighter<span class="text-[#106e39]">Tomorrows <i
+                            class="fa-solid fa-leaf text-[22px]"></i></span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-gray-800 text-[14px] xl:text-[15px] max-w-[320px] mb-8 leading-relaxed font-semibold">
+                    Your health journey is unique. We're here<br>to support you with expert guidance,<br>personalized programs and trusted care.
+                </p>
+
+                <!-- Features List -->
+                <div class="space-y-4 max-w-[320px]">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-solid fa-leaf text-[15px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Personalized<br>Guidance</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-solid fa-user-group text-[14px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Expert<br>Support</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-regular fa-heart text-[15px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Healthy<br>Lifestyle</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-solid fa-book-open text-[15px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Trusted<br>Resources</span>
+                    </div>
+                </div>
+
+                <!-- Decorative Texts (floating right) -->
+                <!-- <div class="absolute rotate-[-6deg] text-center z-10 opacity-90 hidden xl:block"
+                    style="top: 45%; right: 5%;">
+                    <p class="font-['Outfit'] italic text-[24px] font-bold text-[#052b14] leading-[1.1]">
+                        Healthy<br>People<br>Happier<br>Lives <i
+                            class="fa-regular fa-heart text-xl ml-1 text-[#106e39]"></i></p>
+                </div> -->
+
+                <div class="flex-grow"></div>
+
+                <div class="mt-8 flex flex-col gap-8">
+                    <!-- Quote Box (Simple white text) -->
+                    <div class="relative">
+                        <p class="text-[14px] xl:text-[15px] text-white font-medium leading-relaxed max-w-[280px]">
+                            "A healthier tomorrow begins with a single step today."
+                        </p>
+                        <div class="w-8 h-[2px] bg-white/70 mt-3 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Form Area -->
+        <div class="w-full lg:w-[55%] flex flex-col p-6 sm:p-8 lg:p-10 xl:p-12 relative">
+
+            <!-- Top Right Link -->
+            <div class="text-[13px] flex justify-end w-full mb-2">
+                <span class="text-gray-500 font-medium">New here?</span>
+                <a href="register.html" class="text-[#106e39] font-bold hover:underline ml-1">Create an Account</a>
+            </div>
+
+            <div class="w-full max-w-[440px] mx-auto flex-grow flex flex-col justify-center">
+                <h1 class="text-3xl md:text-[38px] font-extrabold text-[#052b14] mb-2 tracking-tight">Welcome <span
+                        class="text-[#106e39]">Back</span></h1>
+
+                <p class="text-gray-500 text-[14px] mb-6 leading-relaxed font-medium">Login to your account and continue
+                    your journey towards a healthier, happier you.</p>
+
+                <form>
+                    <div class="flex flex-col gap-4">
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">Email Address</label>
+                            <div
+                                class="flex items-center rounded-xl border border-gray-200 bg-white focus-within:border-[#106e39] focus-within:ring-1 focus-within:ring-[#106e39] transition-colors overflow-hidden h-[50px] shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                                <div class="px-3.5 flex items-center text-gray-500">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <input type="email"
+                                    class="w-full h-full pr-4 outline-none text-[14px] text-gray-700 placeholder-gray-400 bg-transparent font-medium"
+                                    placeholder="Enter your email address">
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">Password</label>
+                            <div
+                                class="flex items-center rounded-xl border border-gray-200 bg-white focus-within:border-[#106e39] focus-within:ring-1 focus-within:ring-[#106e39] transition-colors overflow-hidden h-[50px] shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                                <div class="px-3.5 flex items-center text-gray-500">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <input type="password"
+                                    class="w-full h-full pr-2 outline-none text-[14px] text-gray-700 placeholder-gray-400 bg-transparent font-medium"
+                                    placeholder="Enter your password">
+                                <button type="button" class="px-4 text-gray-500 hover:text-gray-700">
+                                    <i class="fa-regular fa-eye-slash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="flex justify-end mt-2 mb-5">
+                        <a href="forgot-password.html"
+                            class="text-[#106e39] text-[13px] font-semibold hover:underline">Forgot Password?</a>
+                    </div>
+
+                    <!-- Button -->
+                    <button type="submit" style="padding-top: 14px; padding-bottom: 14px; font-size: 16px;"
+                        class="w-full flex items-center justify-center bg-[#052b14] hover:bg-[#1a5c2e] text-white font-bold px-4 rounded-xl shadow-[0_4px_12px_rgba(5,43,20,0.15)] transition-all">
+                        Login <i class="fa-solid fa-arrow-right ml-2 text-[13px]"></i>
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="relative mt-6 mb-5">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-200"></div>
+                        </div>
+                        <div class="relative flex justify-center text-[13px]">
+                            <span class="px-4 bg-white text-gray-500 font-medium">or continue with</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Buttons -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <button type="button"
+                            class="flex flex-col items-center justify-center gap-2 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                    fill="#4285F4" />
+                                <path
+                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                    fill="#34A853" />
+                                <path
+                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                                    fill="#FBBC05" />
+                                <path
+                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                    fill="#EA4335" />
+                            </svg>
+                            <span class="text-[12px] font-bold text-[#052b14]">Google</span>
+                        </button>
+
+                        <button type="button"
+                            class="flex flex-col items-center justify-center gap-2 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 12.073C24 5.405 18.627 0 12 0C5.373 0 0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24V15.562H7.078V12.073H10.125V9.412C10.125 6.386 11.917 4.718 14.658 4.718C15.97 4.718 17.344 4.953 17.344 4.953V7.935H15.832C14.342 7.935 13.875 8.868 13.875 9.825V12.073H17.203L16.671 15.562H13.875V24C19.612 23.094 24 18.1 24 12.073Z"
+                                    fill="#1877F2" />
+                                <path
+                                    d="M16.671 15.562L17.203 12.073H13.875V9.825C13.875 8.868 14.342 7.935 15.832 7.935H17.344V4.953C17.344 4.953 15.97 4.718 14.658 4.718C11.917 4.718 10.125 6.386 10.125 9.412V12.073H7.078V15.562H10.125V24C10.741 24.097 11.365 24.146 12 24.146C12.635 24.146 13.259 24.097 13.875 24V15.562H16.671Z"
+                                    fill="white" />
+                            </svg>
+                            <span class="text-[12px] font-bold text-[#052b14]">Facebook</span>
+                        </button>
+
+                        <button type="button"
+                            class="flex flex-col items-center justify-center gap-2 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.637 13.784C16.621 10.842 19.034 9.4 19.144 9.332C17.765 7.336 15.656 7.039 14.939 6.945C13.064 6.746 11.233 8.04 10.281 8.04C9.317 8.04 7.828 6.961 6.277 6.984C4.248 7.016 2.373 8.164 1.348 9.945C-0.738 13.562 0.812 18.914 2.84 21.844C3.832 23.277 4.973 24.871 6.512 24.805C7.996 24.742 8.57 23.836 10.375 23.836C12.16 23.836 12.68 24.805 14.238 24.836C15.82 24.871 16.824 23.469 17.812 22.016C18.957 20.355 19.426 18.73 19.453 18.641C19.422 18.625 16.656 17.574 16.637 13.784Z"
+                                    fill="black" />
+                                <path
+                                    d="M12.984 4.543C13.797 3.555 14.348 2.223 14.195 0.875C13.043 0.922 11.605 1.645 10.77 2.621C10.023 3.48 9.379 4.848 9.559 6.168C10.84 6.262 12.164 5.539 12.984 4.543Z"
+                                    fill="black" />
+                            </svg>
+                            <span class="text-[12px] font-bold text-[#052b14]">Apple</span>
+                        </button>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="bg-[#f0f8f3] rounded-xl p-3.5 flex gap-4 mt-6 items-start border border-green-50">
+                        <div class="text-[#106e39] shrink-0 mt-0.5">
+                            <i class="fa-solid fa-shield-halved text-[20px]"></i>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-[#052b14] font-bold">Your data is safe with us.</p>
+                            <p class="text-[12.5px] text-gray-500 mt-0.5 font-medium">We use industry-standard security
+                                to protect your information.</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
