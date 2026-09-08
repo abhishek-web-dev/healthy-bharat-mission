@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout (Review) - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="font-body text-gray-800 bg-[#f9fbf9] antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="../"></hbm-header>
+    
+    <main class="flex-grow pb-16">
+        <!-- Container -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative">
+            
+            <!-- Breadcrumb -->
+            <nav class="text-[12px] text-gray-500 mb-6 font-medium">
+                <a href="../index.html" class="hover:text-[#106e39] transition-colors">Home</a> 
+                <span class="mx-1">›</span> 
+                <a href="../store.html" class="hover:text-[#106e39] transition-colors">Store</a> 
+                <span class="mx-1">›</span> 
+                <a href="checkout.html" class="hover:text-[#106e39] transition-colors">Checkout</a>
+                <span class="mx-1">›</span> 
+                <span class="text-gray-800">Review & Place Order</span>
+            </nav>
+
+            <!-- Top Header Section -->
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between mb-8" style="gap: 24px;">
+                <!-- Title & Icon -->
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-[14px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-3xl shadow-sm border border-[#d1f0df]">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-black text-[#1e293b]">Checkout</h1>
+                        <p class="text-gray-500 text-[14px] font-medium">Review your order details before placing the order</p>
+                    </div>
+                </div>
+
+                <!-- Stepper -->
+                <div class="flex items-center justify-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center text-[#106e39]">
+                        <div class="w-8 h-8 rounded-full bg-[#106e39] text-white flex items-center justify-center text-[14px] font-bold shadow-sm">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span class="mt-2 text-[13px] font-bold">Shipping Address</span>
+                    </div>
+                    <!-- Line -->
+                    <div class="w-16 sm:w-24 h-[2px] bg-[#106e39] mx-2 sm:mx-4" style="margin-top: -24px;"></div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-[#106e39]">
+                        <div class="w-8 h-8 rounded-full bg-[#106e39] text-white flex items-center justify-center text-[14px] font-bold shadow-sm">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span class="mt-2 text-[13px] font-bold">Payment</span>
+                    </div>
+                    <!-- Line -->
+                    <div class="w-16 sm:w-24 h-[2px] bg-[#106e39] mx-2 sm:mx-4" style="margin-top: -24px;"></div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-[#106e39]">
+                        <div class="w-8 h-8 rounded-full bg-[#106e39] text-white flex items-center justify-center text-[14px] font-bold shadow-sm">3</div>
+                        <span class="mt-2 text-[13px] font-bold">Review & Place Order</span>
+                    </div>
+                </div>
+
+                <!-- Trust Badge (Top Right) -->
+                <div class="hidden md:flex items-center gap-3">
+                    <div class="text-[#106e39] text-3xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <div class="text-[#106e39] font-bold text-[14px]">100% Secure Checkout</div>
+                        <div class="text-gray-500 text-[12px] font-medium">Your information is safe with us</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="flex flex-col lg:flex-row" style="gap: 32px;">
+                
+                <!-- LEFT COLUMN (65%) -->
+                <div class="w-full lg:w-[65%] flex flex-col" style="gap: 24px;">
+                    
+                    <!-- Unified Summary Card -->
+                    <div class="bg-white rounded-3xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col">
+                        
+                        <!-- Section 1: Shipping Address -->
+                        <div style="padding: 32px;">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4" style="gap: 16px;">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-[12px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-xl flex-shrink-0">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-[20px] font-bold text-[#1e293b]">Shipping Address</h2>
+                                        <p class="text-gray-500 text-[13px]">Your order will be delivered to this address</p>
+                                    </div>
+                                </div>
+                                <div class="text-[14px]">
+                                    <a href="checkout-address.html" class="text-[#106e39] font-bold underline hover:text-[#0a4d27] flex items-center gap-1.5">
+                                        <i class="fa-solid fa-pencil text-[12px]"></i> Change
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pl-16">
+                                <p class="font-bold text-[#1e293b] text-[14px] mb-1">Rahul Sharma</p>
+                                <p class="text-gray-500 text-[14px] mb-1 leading-relaxed">
+                                    H.No. 123, Green Park Colony, Indirapuram,<br>
+                                    Ghaziabad - 201014, Uttar Pradesh, India
+                                </p>
+                                <p class="text-gray-500 text-[14px]">+91 98765 43210</p>
+                            </div>
+                        </div>
+
+                        <div class="px-8"><div class="border-t border-gray-100"></div></div>
+
+                        <!-- Section 2: Payment Method -->
+                        <div style="padding: 32px;">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4" style="gap: 16px;">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-[12px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-xl flex-shrink-0">
+                                        <i class="fa-regular fa-credit-card"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-[20px] font-bold text-[#1e293b]">Payment Method</h2>
+                                        <p class="text-gray-500 text-[13px]">Your order will be paid using this method</p>
+                                    </div>
+                                </div>
+                                <div class="text-[14px]">
+                                    <a href="checkout-payment.html" class="text-[#106e39] font-bold underline hover:text-[#0a4d27] flex items-center gap-1.5">
+                                        <i class="fa-solid fa-pencil text-[12px]"></i> Change
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pl-16 flex items-center gap-4">
+                                <div class="flex items-center gap-2">
+                                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/upi-icon.svg" style="height: 24px; width: auto; object-fit: contain;" alt="UPI">
+                                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-pay-icon.svg" style="height: 28px; width: auto; object-fit: contain; margin-left: 8px; margin-right: 8px;" alt="Google Pay">
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1e293b] text-[14px]">UPI (Google Pay)</p>
+                                    <p class="text-gray-500 text-[13px]">rahulsharma@okaxis</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-8"><div class="border-t border-gray-100"></div></div>
+
+                        <!-- Section 3: Items in Your Order -->
+                        <div style="padding: 32px;">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-12 h-12 rounded-[12px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-[20px] font-bold text-[#1e293b]">Items in Your Order (3)</h2>
+                                    <p class="text-gray-500 text-[13px]">Please review the items, quantity and price</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col" style="gap: 24px; padding-left: 64px;">
+                                <!-- Item 1 -->
+                                <div class="flex justify-between items-center gap-4">
+                                    <div class="flex items-center gap-4 flex-1">
+                                        <div class="w-16 h-16 rounded-xl border border-gray-200 bg-white p-1 flex items-center justify-center flex-shrink-0">
+                                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="max-w-full max-h-full object-contain mix-blend-multiply" alt="Product">
+                                        </div>
+                                        <div>
+                                            <h3 class="text-[#1e293b] font-bold text-[14px] leading-tight mb-1">NutroActive Keto Atta 750g<br>with Keto Sugar 250g Combo</h3>
+                                            <p class="text-gray-500 text-[12px]">Cookies & Snacks</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-[#1e293b] font-bold text-[14px]">Qty: 1</div>
+                                    <div class="text-[#106e39] font-black text-[16px] w-[80px] text-right">₹999.00</div>
+                                </div>
+                                
+                                <!-- Item 2 -->
+                                <div class="flex justify-between items-center gap-4">
+                                    <div class="flex items-center gap-4 flex-1">
+                                        <div class="w-16 h-16 rounded-xl border border-gray-200 bg-white p-1 flex items-center justify-center flex-shrink-0">
+                                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="max-w-full max-h-full object-contain mix-blend-multiply" alt="Product">
+                                        </div>
+                                        <div>
+                                            <h3 class="text-[#1e293b] font-bold text-[14px] leading-tight mb-1">Diabexy Nutrition Combo<br>(Reversol, Basics, Anteflame)</h3>
+                                            <p class="text-gray-500 text-[12px]">Health Foods</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-[#1e293b] font-bold text-[14px]">Qty: 1</div>
+                                    <div class="text-[#106e39] font-black text-[16px] w-[80px] text-right">₹1,301.00</div>
+                                </div>
+
+                                <!-- Item 3 -->
+                                <div class="flex justify-between items-center gap-4">
+                                    <div class="flex items-center gap-4 flex-1">
+                                        <div class="w-16 h-16 rounded-xl border border-gray-200 bg-white p-1 flex items-center justify-center flex-shrink-0">
+                                            <img src="../assets/herbal_supplements.png" class="max-w-full max-h-full object-contain mix-blend-multiply" alt="Product">
+                                        </div>
+                                        <div>
+                                            <h3 class="text-[#1e293b] font-bold text-[14px] leading-tight mb-1">Nutroactive Lipolyzer<br>30 Tablets</h3>
+                                            <p class="text-gray-500 text-[12px]">Supplements</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-[#1e293b] font-bold text-[14px]">Qty: 1</div>
+                                    <div class="text-[#106e39] font-black text-[16px] w-[80px] text-right">₹1,094.00</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Terms Checkbox -->
+                    <div class="flex items-center gap-2 px-2 mt-2">
+                        <div class="w-5 h-5 rounded text-white flex items-center justify-center text-[12px] cursor-pointer" style="background-color: #0a4d27;">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <label class="text-[14px] font-medium text-[#1e293b]">I agree to the <a href="#" class="font-bold hover:underline" style="color: #106e39;">Terms & Conditions</a> and <a href="#" class="font-bold hover:underline" style="color: #106e39;">Privacy Policy</a></label>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                        <a href="checkout-payment.html" class="w-full sm:w-1/3 text-center py-4 bg-white rounded-xl font-bold text-[16px] transition-colors hover:bg-[#f0fbf4] flex justify-center items-center gap-2" style="border: 1px solid #106e39; color: #106e39;">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Payment
+                        </a>
+                        <a href="order-confirmation.html" class="w-full sm:w-2/3 text-center py-4 text-white rounded-xl font-bold text-[16px] transition-colors shadow-md flex justify-center items-center gap-2 hover:bg-black" style="background-color: #0a4d27;">
+                            Place Order <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div> <!-- END LEFT COLUMN -->
+
+                <!-- RIGHT COLUMN (35%) -->
+                <div class="w-full lg:w-[35%] flex flex-col" style="gap: 32px;">
+                    
+                    <!-- Order Summary (Totals Only) -->
+                    <div class="bg-[#f9fcf9] rounded-3xl border border-[#e2f6e9] overflow-hidden">
+                        <!-- Order Summary Header -->
+                        <div style="padding: 32px 32px 16px 32px;">
+                            <div class="flex justify-between items-center">
+                                <h2 class="text-[20px] font-bold text-[#1e293b]">Order Summary</h2>
+                                <a href="cart.html" class="text-[14px] font-bold text-[#106e39] hover:underline flex items-center gap-1.5">
+                                    <i class="fa-solid fa-pencil text-[12px]"></i> Edit Cart
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Totals -->
+                        <div style="padding: 16px 32px 16px 32px;">
+                            <div class="flex flex-col" style="gap: 16px;">
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[14px]">
+                                    <span>Subtotal (3 items)</span>
+                                    <span class="font-bold">₹3,394.00</span>
+                                </div>
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[14px]">
+                                    <span>Discount</span>
+                                    <span class="font-bold text-[#106e39]">- ₹200.00</span>
+                                </div>
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[14px]">
+                                    <span>Shipping</span>
+                                    <span class="font-bold text-[#1e293b]">Free</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Amount Block -->
+                        <div class="bg-[#f0fbf4] mx-4 mb-4 rounded-xl mt-4" style="padding: 20px 24px;">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-[18px] font-bold text-[#1e293b]">Total Amount</span>
+                                <span class="text-[26px] font-black" style="color: #0a4d27;">₹3,194.00</span>
+                            </div>
+                            <!-- Savings Tag -->
+                            <div class="rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 text-[13px] font-bold border border-[#d1f0df]" style="background-color: #e2f6e9; color: #0a4d27;">
+                                <i class="fa-solid fa-tag"></i> You save ₹200.00 on this order!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Why Shop With Us? Card -->
+                    <div class="bg-[#f9fcf9] rounded-3xl border border-[#e2f6e9] overflow-hidden" style="padding: 32px;">
+                        <h2 class="text-[18px] font-bold text-[#1e293b] mb-6">Why Shop With Us?</h2>
+                        
+                        <div class="flex flex-col" style="gap: 20px;">
+                            <!-- Feature 1 -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[16px] flex-shrink-0">
+                                    <i class="fa-solid fa-leaf"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1e293b] text-[13px]">Genuine Products</p>
+                                    <p class="text-gray-500 text-[12px]">100% authentic & trusted</p>
+                                </div>
+                            </div>
+                            <!-- Feature 2 -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[16px] flex-shrink-0">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1e293b] text-[13px]">Fast & Reliable Delivery</p>
+                                    <p class="text-gray-500 text-[12px]">On-time delivery across India</p>
+                                </div>
+                            </div>
+                            <!-- Feature 3 -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[16px] flex-shrink-0">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1e293b] text-[13px]">Secure Payments</p>
+                                    <p class="text-gray-500 text-[12px]">Your data is completely safe</p>
+                                </div>
+                            </div>
+                            <!-- Feature 4 -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[16px] flex-shrink-0">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1e293b] text-[13px]">Better Health, Brighter Tomorrow</p>
+                                    <p class="text-gray-500 text-[12px]">Supporting your wellness journey</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- END RIGHT COLUMN -->
+            </div>
+            
+            <!-- Bottom Trust Banner -->
+            <div class="mt-16 mb-8 pt-10 border-t border-gray-200/50">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Natural & Safe<br>Products</div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Support Your<br>Health Goals</div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Trusted by<br>5,000+ Customers</div>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Fast & Reliable<br>Delivery</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/components.js"></script>
+</body>
+</html>
