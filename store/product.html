@@ -462,11 +462,9 @@
         <!-- Tab Reviews -->
         <div class="mt-20 mb-10 pt-16 border-t border-gray-100 w-full">
             <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-[22px] font-bold text-[#212121]">Ratings and reviews</h2>
-                    <button class="w-8 h-8 rounded bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200">
-                        <i class="fa-solid fa-chevron-up text-[12px]"></i>
-                    </button>
-                </div>
+                <h2 class="text-[22px] font-bold text-[#212121]">Ratings and reviews</h2>
+                <button onclick="openWriteReviewModal()" class="border border-[#106e39] text-[#106e39] px-5 py-2 rounded-lg font-bold text-[14px] hover:bg-[#106e39] hover:text-white transition-colors shadow-sm">Write a review</button>
+            </div>
                 
                 <!-- Rating Summary -->
                 <div class="flex items-center gap-2 mb-1">
@@ -478,25 +476,25 @@
                 </div>
 
                 <!-- Image Grid -->
-                <div onclick="openAllImagesModal()" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 6px; aspect-ratio: 3/1; width: 100%; margin-bottom: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 6px; aspect-ratio: 3/1; width: 100%; margin-bottom: 20px;">
                     <!-- Big Left Image -->
-                    <div style="grid-column: span 2; grid-row: span 2;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                    <div onclick="openSingleImageModal(0)" style="grid-column: span 2; grid-row: span 2;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800&h=800&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 1" />
                     </div>
                     <!-- Middle Top -->
-                    <div style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                    <div onclick="openSingleImageModal(1)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 2" />
                     </div>
                     <!-- Right Top -->
-                    <div style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                    <div onclick="openSingleImageModal(2)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1625940629601-8f2570086b06?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 3" />
                     </div>
                     <!-- Middle Bottom -->
-                    <div style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                    <div onclick="openSingleImageModal(3)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 4" />
                     </div>
-                    <!-- Right Bottom -->
-                    <div style="grid-column: span 1; grid-row: span 1;" class="relative rounded-[4px] cursor-pointer overflow-hidden group">
+                    <!-- Right Bottom (+437) -->
+                    <div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative rounded-[4px] cursor-pointer overflow-hidden group">
                         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Customer Photo 5" />
                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center transition-colors">
                             <span class="text-white font-bold text-xl">+437</span>
@@ -689,25 +687,201 @@
                     document.addEventListener('DOMContentLoaded', () => {
                         const slider = document.getElementById('reviewsScrollContainer');
                         if(slider) {
+                            // Clone all cards for a seamless infinite loop
+                            const originalCount = slider.children.length;
+                            slider.innerHTML += slider.innerHTML;
+                            
                             setInterval(() => {
                                 // Only slide if user isn't hovering over the reviews
                                 if(!slider.matches(':hover')) {
-                                    const maxScroll = slider.scrollWidth - slider.clientWidth;
-                                    if(slider.scrollLeft >= maxScroll - 10) {
-                                        slider.scrollTo({ left: 0, behavior: 'smooth' }); // reset to start
-                                    } else {
-                                        slider.scrollBy({ left: 276, behavior: 'smooth' }); // slide exactly 1 card + gap
+                                    // Calculate exact distance from original to cloned cards
+                                    const jumpDistance = slider.children[originalCount].offsetLeft - slider.children[0].offsetLeft;
+                                    
+                                    // If we've reached the cloned set, instantly snap back to the original set
+                                    // This snap is invisible to the user because the cloned cards look identical
+                                    if(slider.scrollLeft >= jumpDistance) {
+                                        slider.scrollBy({ left: -jumpDistance, behavior: 'auto' });
                                     }
+                                    
+                                    // Allow a tiny delay for the snap to process, then smoothly slide the next card
+                                    setTimeout(() => {
+                                        slider.scrollBy({ left: 276, behavior: 'smooth' });
+                                    }, 50);
                                 }
                             }, 3500); // Slide every 3.5 seconds
                         }
                     });
                 </script>
 
-                <!-- Show All Reviews Button -->
-                <button class="w-full border border-gray-300 rounded-lg py-3 flex items-center justify-center gap-2 text-[#212121] font-bold text-[14px] hover:bg-gray-50 transition-colors shadow-sm">
-                    Show all reviews <i class="fa-solid fa-chevron-right text-xs text-[#878787]"></i>
-                </button>
+
+            </div>
+            
+            <!-- You May Also Like Section -->
+            <div class="mt-10 mb-10 pt-10 border-t border-gray-100 w-full relative">
+                <style>
+                    #youMayAlsoLikeScroll::-webkit-scrollbar { display: none; }
+                </style>
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-[28px] font-bold text-[#1e293b]">You May Also Like</h2>
+                    <a href="../store.html" class="text-[#106e39] font-medium text-[14px] hover:underline flex items-center gap-1">View All Products <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="relative">
+                    <div id="youMayAlsoLikeScroll" class="flex overflow-x-auto gap-6 pb-6 flex-nowrap" style="scrollbar-width: none; -ms-overflow-style: none;">
+                        
+                        <!-- Product Card 1 -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
+                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
+                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="h-48 object-contain mix-blend-multiply" alt="NutroActive Keto Atta Combo" />
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
+                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</h3>
+                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹999.00</div>
+                                <div class="flex items-center gap-2 mt-auto">
+                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                    </button>
+                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
+                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
+                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="h-48 object-contain mix-blend-multiply" alt="Diabexy Atta Combo" />
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
+                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Atta 750g & Breakfast Bar 200g Combo</h3>
+                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹1,301.00</div>
+                                <div class="flex items-center gap-2 mt-auto">
+                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                    </button>
+                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
+                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
+                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
+                                <img src="../assets/sugar_control.png" class="h-48 object-contain mix-blend-multiply" alt="Diabexy Sugar Control" />
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
+                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Atta Sugar Control</h3>
+                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹480.00</div>
+                                <div class="flex items-center gap-2 mt-auto">
+                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                    </button>
+                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 4 -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
+                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
+                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
+                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Coconut_Barfi.jpg?v=1753341339" class="h-48 object-contain mix-blend-multiply" alt="Coconut Barfi" />
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
+                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Desi Ghee Sugar Free Coconut Barfi 200g</h3>
+                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹485.00</div>
+                                <div class="flex items-center gap-2 mt-auto">
+                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                    </button>
+                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 5 -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
+                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
+                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
+                                <img src="../assets/health_foods.png" class="h-48 object-contain mix-blend-multiply" alt="Peanut Cookies" />
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
+                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Peanut Cookies 250g</h3>
+                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹249.00</div>
+                                <div class="flex items-center gap-2 mt-auto">
+                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                    </button>
+                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 6 -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
+                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
+                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
+                                <img src="../assets/combos_packs.png" class="h-48 object-contain mix-blend-multiply" alt="Nutrition Combo" />
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
+                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Nutrition Combo Pack</h3>
+                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹2,220.00</div>
+                                <div class="flex items-center gap-2 mt-auto">
+                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                    </button>
+                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const productSlider = document.getElementById('youMayAlsoLikeScroll');
+                            if(productSlider) {
+                                // Clone items for seamless infinite scroll
+                                productSlider.innerHTML += productSlider.innerHTML;
+                                
+                                let isHovered = false;
+                                
+                                productSlider.addEventListener('mouseenter', () => isHovered = true);
+                                productSlider.addEventListener('mouseleave', () => isHovered = false);
+
+                                // Slide one card at a time every 3 seconds
+                                setInterval(() => {
+                                    if (!isHovered) {
+                                        const cardWidth = 304; // 280px width + 24px gap
+                                        
+                                        // If we are at or past the cloned set, instantly jump back to the original set
+                                        if (productSlider.scrollLeft >= productSlider.scrollWidth / 2) {
+                                            productSlider.scrollLeft = productSlider.scrollLeft - (productSlider.scrollWidth / 2);
+                                        }
+                                        
+                                        // Smooth scroll exactly one card
+                                        productSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                                    }
+                                }, 3000);
+                            }
+                        });
+                    </script>
+                </div>
             </div>
         </main>
 
@@ -795,10 +969,13 @@
                 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80',
                 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=400&q=80',
             ];
+            window.allGalleryImages = [];
             let html = '';
             for(let i = 0; i < 30; i++) {
-                html += `<div style="aspect-ratio: 1/1; background: #f3f4f6; overflow: hidden; cursor: pointer;">
-                            <img src="${imageUrls[i % imageUrls.length]}" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1" />
+                const src = imageUrls[i % imageUrls.length];
+                window.allGalleryImages.push(src);
+                html += `<div onclick="openSingleImageModal(${i}, window.allGalleryImages)" style="aspect-ratio: 1/1; background: #f3f4f6; overflow: hidden; cursor: pointer;">
+                            <img src="${src}" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1" />
                          </div>`;
             }
             grid.innerHTML = html;
@@ -819,6 +996,189 @@
             <div id="allImagesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px;">
                 <!-- Filled dynamically by JavaScript -->
             </div>
+        </div>
+    </div>
+
+    <!-- Write a Review Modal -->
+    <div id="writeReviewModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 10000; align-items: center; justify-content: center; padding: 1rem;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.6);" class="backdrop-blur-sm" onclick="closeWriteReviewModal()"></div>
+        <div style="position: relative; background-color: white; border-radius: 1rem; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+            
+            <!-- Header -->
+            <div class="px-8 pt-8 pb-4">
+                <div class="flex items-start justify-between mb-2">
+                    <h2 class="text-[28px] font-bold text-[#212121] leading-tight">Write a Review</h2>
+                    <button onclick="closeWriteReviewModal()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 text-gray-500 hover:text-black transition-colors">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <p class="text-[#878787] text-[14px]">You're reviewing: <span class="text-[#212121] font-semibold">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</span></p>
+            </div>
+
+            <!-- Form Body -->
+            <div class="px-8 pb-8 flex-1 flex flex-col gap-6">
+                
+                <!-- Rating -->
+                <div>
+                    <label class="block text-[#212121] font-bold text-[14px] mb-2">Overall Rating <span class="text-red-500">*</span></label>
+                    <div class="flex items-center gap-1 cursor-pointer" id="starRatingContainer">
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(1)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(2)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(3)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(4)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(5)"></i>
+                    </div>
+                </div>
+
+                <!-- Review Title -->
+                <div>
+                    <label class="block text-[#212121] font-bold text-[14px] mb-2">Review Title <span class="text-red-500">*</span></label>
+                    <input type="text" placeholder="Summarize your experience in a few words" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400">
+                </div>
+
+                <!-- Your Review -->
+                <div>
+                    <label class="block text-[#212121] font-bold text-[14px] mb-2">Your Review</label>
+                    <textarea rows="5" placeholder="Share your experience with this product..." class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400 resize-none"></textarea>
+                </div>
+
+                <!-- Size / Variant Purchased -->
+                <div>
+                    <label class="block text-[#212121] font-bold text-[14px] mb-2">Size / Variant Purchased <span class="font-normal text-gray-400">(optional)</span></label>
+                    <input type="text" placeholder="e.g. 10 Lb, 20 Lb" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400">
+                </div>
+
+                <!-- Add Photos -->
+                <div>
+                    <label class="block text-[#212121] font-bold text-[14px] mb-2">Add Photos <span class="font-normal text-gray-400">(up to 3)</span></label>
+                    <input type="file" id="reviewPhotoInput" accept="image/*" multiple style="display: none;" onchange="updatePhotoCount(this)">
+                    <button onclick="document.getElementById('reviewPhotoInput').click()" class="w-24 h-24 rounded-lg border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-2 text-gray-400 hover:text-[#106e39] hover:border-[#106e39] transition-all">
+                        <i class="fa-solid fa-camera text-[24px]"></i>
+                        <span id="photoCountText" class="text-[12px] font-medium text-center leading-tight">Add Photo</span>
+                    </button>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button onclick="closeWriteReviewModal(); alert('Review submitted successfully!');" style="background-color: #ea580c; color: white;" class="px-8 py-3 rounded-lg font-bold text-[15px] hover:opacity-90 transition-opacity shadow-md">
+                        Submit Review
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openWriteReviewModal() {
+            document.getElementById('writeReviewModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeWriteReviewModal() {
+            document.getElementById('writeReviewModal').style.display = 'none';
+            document.body.style.overflow = '';
+            // Reset form visually when closed
+            setRating(0);
+            const photoInput = document.getElementById('reviewPhotoInput');
+            if(photoInput) photoInput.value = '';
+            const countText = document.getElementById('photoCountText');
+            if(countText) {
+                countText.innerText = 'Add Photo';
+                countText.style.color = '';
+            }
+        }
+        
+        function updatePhotoCount(input) {
+            const countText = document.getElementById('photoCountText');
+            if(!countText) return;
+            
+            if (input.files && input.files.length > 0) {
+                let count = input.files.length;
+                if(count > 3) {
+                    alert('You can only upload up to 3 photos. First 3 will be used.');
+                    count = 3;
+                }
+                countText.innerText = count + " Selected";
+                countText.style.color = '#106e39';
+            } else {
+                countText.innerText = "Add Photo";
+                countText.style.color = '';
+            }
+        }
+        
+        function setRating(rating) {
+            const container = document.getElementById('starRatingContainer');
+            if(!container) return;
+            const stars = container.querySelectorAll('i');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('fa-regular', 'text-gray-300');
+                    star.classList.add('fa-solid');
+                    star.style.color = '#ea580c';
+                } else {
+                    star.classList.remove('fa-solid');
+                    star.classList.add('fa-regular', 'text-gray-300');
+                    star.style.color = '';
+                }
+            });
+        }
+        const gridImages = [
+            'https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800&h=800&fit=crop',
+            'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1625940629601-8f2570086b06?w=400&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop'
+        ];
+        let currentSingleImageIndex = 0;
+        let currentImageArray = gridImages;
+
+        function openSingleImageModal(index, imageArray = gridImages) {
+            currentSingleImageIndex = index;
+            currentImageArray = imageArray;
+            updateSingleImageView();
+            document.getElementById('singleImageModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateSingleImageView() {
+            document.getElementById('singleImageDisplay').src = currentImageArray[currentSingleImageIndex];
+        }
+
+        function closeSingleImageModal() {
+            document.getElementById('singleImageModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function nextSingleImage(event) {
+            if(event) event.stopPropagation();
+            currentSingleImageIndex = (currentSingleImageIndex + 1) % currentImageArray.length;
+            updateSingleImageView();
+        }
+
+        function prevSingleImage(event) {
+            if(event) event.stopPropagation();
+            currentSingleImageIndex = (currentSingleImageIndex - 1 + currentImageArray.length) % currentImageArray.length;
+            updateSingleImageView();
+        }
+    </script>
+
+    <!-- Single Image Modal -->
+    <div id="singleImageModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 11000; align-items: center; justify-content: center; padding: 2rem;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.85);" class="backdrop-blur-sm" onclick="closeSingleImageModal()"></div>
+        
+        <div style="position: relative; width: 90vw; height: 90vh; display: flex; align-items: center; justify-content: center;">
+            <button onclick="closeSingleImageModal()" style="position: absolute; top: -40px; right: -20px; cursor: pointer; color: white; background: none; border: none; font-size: 28px; padding: 4px; z-index: 20;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <button onclick="prevSingleImage(event)" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: white; background: rgba(0,0,0,0.5); border: none; font-size: 24px; padding: 12px 18px; border-radius: 50%; z-index: 20; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            
+            <img id="singleImageDisplay" src="" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5));" alt="Enlarged customer photo" />
+            
+            <button onclick="nextSingleImage(event)" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: white; background: rgba(0,0,0,0.5); border: none; font-size: 24px; padding: 12px 18px; border-radius: 50%; z-index: 20; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
     </div>
 </body>
