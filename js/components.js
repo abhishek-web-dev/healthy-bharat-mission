@@ -6,7 +6,7 @@ class HbmHeader extends HTMLElement {
         
         this.style.display = 'contents';
         this.innerHTML = `<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto max-w-[1500px] relative">
+        <div class="w-full px-4 md:px-8 relative">
 
             <!-- Top Bar Banner (Right side) -->
             <div class="absolute top-0 right-4 lg:right-8 hidden md:flex z-10">
@@ -30,7 +30,7 @@ class HbmHeader extends HTMLElement {
             </div>
 
             <!-- Main Navigation -->
-            <div class="px-2 lg:px-8 pt-4 md:pt-10 pb-4 flex justify-between items-center">
+            <div class="pt-4 md:pt-10 pb-4 flex justify-between items-center">
                 <!-- Logo -->
                 <a href="${basePath}index.html" class="flex items-center space-x-2 xl:space-x-3 -mt-2 group">
                     <img src="${imgPath}assets/logo.webp" alt="Logo" class="flex-shrink-0 transition-transform group-hover:scale-105" style="height: 60px; width: auto;">
@@ -125,7 +125,7 @@ class HbmFooter extends HTMLElement {
         this.innerHTML = `<footer>
         <!-- Top Footer (Community & Newsletter) -->
         <div class="bg-[#14532d] border-b border-[#1b6b3b] py-8 xl:py-10">
-            <div class="container mx-auto max-w-[1500px] px-4 lg:px-6">
+            <div class="w-full px-4 md:px-8">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4">
 
                     <!-- Left: Community Text -->
@@ -191,7 +191,7 @@ class HbmFooter extends HTMLElement {
                 <i class="fa-solid fa-map-location-dot text-[300px] text-white"></i>
             </div>
 
-            <div class="container mx-auto max-w-[1500px] px-4 lg:px-6 relative z-10">
+            <div class="w-full px-4 md:px-8 relative z-10">
 
                 <div
                     class="flex flex-wrap lg:flex-nowrap justify-between gap-8 xl:gap-12 mb-12 border-b border-slate-700/50 pb-12">
