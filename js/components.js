@@ -33,7 +33,7 @@ class HbmHeader extends HTMLElement {
             <div class="px-2 lg:px-8 pt-4 md:pt-10 pb-4 flex justify-between items-center">
                 <!-- Logo -->
                 <a href="${basePath}index.html" class="flex items-center space-x-2 xl:space-x-3 -mt-2 group">
-                    <img src="${imgPath}assets/logo.webp" alt="Logo" class="h-14 xl:h-16 flex-shrink-0 transition-transform group-hover:scale-105">
+                    <img src="${imgPath}assets/logo.webp" alt="Logo" class="flex-shrink-0 transition-transform group-hover:scale-105" style="height: 60px; width: auto;">
                     <div>
                         <h1
                             class="font-heading font-bold text-lg xl:text-2xl text-slate-800 leading-tight mb-1 whitespace-nowrap group-hover:text-primary transition-colors">
@@ -199,7 +199,7 @@ class HbmFooter extends HTMLElement {
                     <!-- Col 1: Logo & Mission -->
                     <div class="w-full lg:w-3/12 pr-0 xl:pr-4">
                         <a href="${basePath}index.html" class="flex items-center mb-4 group">
-                            <img src="${imgPath}assets/logo.webp" alt="Logo" class="h-[50px] mr-3 transition-transform group-hover:scale-105"
+                            <img src="${imgPath}assets/logo.webp" alt="Logo" class="mr-3 transition-transform group-hover:scale-105" style="height: 50px; width: auto;"
                                 onerror="this.src='https://via.placeholder.com/40x40/10b981/ffffff?text=HBM'">
                             <div>
                                 <h4 class="text-white font-bold text-base xl:text-lg leading-tight group-hover:text-accent transition-colors">Healthy Bharat
