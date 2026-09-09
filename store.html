@@ -2815,15 +2815,25 @@
             window.addEventListener('scroll', () => {
                 let current = '';
 
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    // If we have scrolled past this section (minus the offset)
-                    if (window.scrollY >= (sectionTop - scrollOffset)) {
+                // Find the first section whose bottom is still below the sticky header
+                for (let i = 0; i < sections.length; i++) {
+                    const section = sections[i];
+                    const rect = section.getBoundingClientRect();
+                    // If the bottom of this section is visible below the sticky header
+                    if (rect.bottom > scrollOffset + 10) {
                         current = section.getAttribute('id');
+                        break;
                     }
-                });
+                }
 
-                // Default to first section if at the top
+                // If scrolled to the absolute bottom of the page, force the last section
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+                    if (sections.length > 0) {
+                        current = sections[sections.length - 1].getAttribute('id');
+                    }
+                }
+
+                // Default to first section if nothing matches
                 if (!current && sections.length > 0) {
                     current = sections[0].getAttribute('id');
                 }
@@ -2857,8 +2867,9 @@
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
+                        const absoluteTop = targetSection.getBoundingClientRect().top + window.scrollY;
                         window.scrollTo({
-                            top: targetSection.offsetTop - scrollOffset + 10,
+                            top: absoluteTop - scrollOffset + 10,
                             behavior: 'smooth'
                         });
                     }

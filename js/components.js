@@ -6,31 +6,45 @@ class HbmHeader extends HTMLElement {
         
         this.style.display = 'contents';
         this.innerHTML = `<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div class="w-full px-4 md:px-8 relative">
-
-            <!-- Top Bar Banner (Right side) -->
-            <div class="absolute top-0 right-4 lg:right-8 hidden md:flex z-10">
-                <div class="bg-primary text-white px-6 py-1.5 rounded-b-xl flex items-center space-x-6 shadow-sm">
-                    <div class="flex items-center space-x-2 text-sm font-medium">
+        
+        <!-- Top Bar -->
+        <div class="w-full bg-primary text-white hidden md:block">
+            <div class="container mx-auto max-w-[1500px] px-4 lg:px-8 py-2 flex justify-between items-center text-sm">
+                <!-- Left Side -->
+                <div class="flex items-center space-x-5">
+                    <a href="tel:+919876543210" class="flex items-center space-x-2 font-medium hover:text-gray-200 transition-colors">
                         <i class="fa-solid fa-phone text-xs"></i>
-                        <span class="whitespace-nowrap">+91 98765 43210</span>
-                    </div>
+                        <span class="tracking-wide">+91 98765 43210</span>
+                    </a>
                     <div class="w-px h-4 bg-white/30"></div>
-                    <div class="flex space-x-4 text-[15px]">
-                        <a href="#" class="hover:text-gray-300 transition-colors"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-gray-300 transition-colors"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gray-300 transition-colors"><i
-                                class="fa-brands fa-youtube"></i></a>
-                        <a href="#" class="hover:text-gray-300 transition-colors"><i
-                                class="fa-brands fa-discord"></i></a>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-white/90 text-[13px]">Follow Us:</span>
+                        <div class="flex space-x-3">
+                            <a href="#" class="hover:text-gray-300 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="hover:text-gray-300 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="hover:text-gray-300 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" class="hover:text-gray-300 transition-colors"><i class="fa-brands fa-discord"></i></a>
+                        </div>
                     </div>
                 </div>
+                <!-- Right Side -->
+                <div class="flex items-center space-x-5 font-medium text-[13px]">
+                    <a href="${basePath}auth/login.html" class="flex items-center space-x-2 hover:text-gray-200 transition-colors">
+                        <i class="fa-solid fa-circle-user text-[17px]"></i>
+                        <span>Login / Register</span>
+                    </a>
+                    <div class="w-px h-4 bg-white/30"></div>
+                    <a href="${basePath}store/cart.html" class="relative inline-block hover:text-gray-200 transition-colors group mr-2 mt-1">
+                        <i class="fa-solid fa-cart-shopping text-[18px] group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute bg-white text-primary text-[10px] font-extrabold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm" style="top: -8px; right: -10px;">0</span>
+                    </a>
+                </div>
             </div>
+        </div>
 
+        <div class="container mx-auto max-w-[1500px] relative">
             <!-- Main Navigation -->
-            <div class="pt-4 md:pt-10 pb-4 flex justify-between items-center">
+            <div class="px-2 lg:px-8 py-4 flex justify-between items-center">
                 <!-- Logo -->
                 <a href="${basePath}index.html" class="flex items-center space-x-2 xl:space-x-3 -mt-2 group">
                     <img src="${imgPath}assets/logo.webp" alt="Logo" class="flex-shrink-0 transition-transform group-hover:scale-105" style="height: 60px; width: auto;">
@@ -125,7 +139,7 @@ class HbmFooter extends HTMLElement {
         this.innerHTML = `<footer>
         <!-- Top Footer (Community & Newsletter) -->
         <div class="bg-[#14532d] border-b border-[#1b6b3b] py-8 xl:py-10">
-            <div class="w-full px-4 md:px-8">
+            <div class="container mx-auto max-w-[1500px] px-4 lg:px-6">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4">
 
                     <!-- Left: Community Text -->
@@ -191,7 +205,7 @@ class HbmFooter extends HTMLElement {
                 <i class="fa-solid fa-map-location-dot text-[300px] text-white"></i>
             </div>
 
-            <div class="w-full px-4 md:px-8 relative z-10">
+            <div class="container mx-auto max-w-[1500px] px-4 lg:px-6 relative z-10">
 
                 <div
                     class="flex flex-wrap lg:flex-nowrap justify-between gap-8 xl:gap-12 mb-12 border-b border-slate-700/50 pb-12">
