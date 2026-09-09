@@ -28,16 +28,8 @@ class HbmHeader extends HTMLElement {
                     </div>
                 </div>
                 <!-- Right Side -->
-                <div class="flex items-center space-x-5 font-medium text-[13px]">
-                    <a href="${basePath}auth/login.html" class="flex items-center space-x-2 hover:text-gray-200 transition-colors">
-                        <i class="fa-solid fa-circle-user text-[17px]"></i>
-                        <span>Login / Register</span>
-                    </a>
-                    <div class="w-px h-4 bg-white/30"></div>
-                    <a href="${basePath}store/cart.html" class="relative inline-block hover:text-gray-200 transition-colors group mr-2 mt-1">
-                        <i class="fa-solid fa-cart-shopping text-[18px] group-hover:scale-110 transition-transform"></i>
-                        <span class="absolute bg-white text-primary text-[10px] font-extrabold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm" style="top: -8px; right: -10px;">0</span>
-                    </a>
+                <div class="flex items-center space-x-5 font-medium text-[13px]" id="hbm-auth-container">
+                    <!-- Auth content injected via JS below -->
                 </div>
             </div>
         </div>
@@ -106,7 +98,42 @@ class HbmHeader extends HTMLElement {
                 </div>
             </div>
         </div>
-    </header>`;
+        </header>`;
+        
+        // Render auth state dynamically since scripts inside innerHTML do not execute
+        const authContainer = this.querySelector('#hbm-auth-container');
+        if (authContainer) {
+            const token = localStorage.getItem('hbm_token');
+            if (token) {
+                authContainer.innerHTML = `
+                    <div class="relative group cursor-pointer flex items-center space-x-2 hover:text-gray-200 transition-colors">
+                        <i class="fa-solid fa-circle-user text-[17px]"></i>
+                        <span>My Account</span>
+                        <div class="absolute top-full right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 text-gray-700 overflow-hidden">
+                            <a href="${basePath}dashboard/index.html" class="block px-4 py-2 hover:bg-gray-50 text-[13px]">Dashboard</a>
+                            <a href="#" onclick="localStorage.removeItem('hbm_token'); window.location.href='${basePath}auth/login.html'; return false;" class="block px-4 py-2 hover:bg-gray-50 text-[13px] text-red-600 border-t border-gray-100">Logout</a>
+                        </div>
+                    </div>
+                    <div class="w-px h-4 bg-white/30"></div>
+                    <a href="${basePath}store/cart.html" class="relative inline-block hover:text-gray-200 transition-colors group mr-2 mt-1">
+                        <i class="fa-solid fa-cart-shopping text-[18px] group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute bg-white text-primary text-[10px] font-extrabold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm" style="top: -8px; right: -10px;">0</span>
+                    </a>
+                `;
+            } else {
+                authContainer.innerHTML = `
+                    <a href="${basePath}auth/login.html" class="flex items-center space-x-2 hover:text-gray-200 transition-colors">
+                        <i class="fa-solid fa-circle-user text-[17px]"></i>
+                        <span>Login / Register</span>
+                    </a>
+                    <div class="w-px h-4 bg-white/30"></div>
+                    <a href="${basePath}store/cart.html" class="relative inline-block hover:text-gray-200 transition-colors group mr-2 mt-1">
+                        <i class="fa-solid fa-cart-shopping text-[18px] group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute bg-white text-primary text-[10px] font-extrabold w-[16px] h-[16px] rounded-full flex items-center justify-center shadow-sm" style="top: -8px; right: -10px;">0</span>
+                    </a>
+                `;
+            }
+        }
 
         // Auto-set active link based on current URL
         setTimeout(() => {
@@ -558,3 +585,68 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
 });
 
+
+class HbmDashboardSidebar extends HTMLElement {
+    connectedCallback() {
+        const active = this.getAttribute('active-page') || 'overview';
+        
+        const links = [
+            { id: 'overview', name: 'Overview', icon: 'fa-chart-pie', url: 'index.html' },
+            { id: 'profile', name: 'My Profile', icon: 'fa-user', url: 'profile.html' },
+            { id: 'health-profile', name: 'Health Profile', icon: 'fa-notes-medical', url: 'health-profile.html' },
+            { id: 'programs', name: 'My Programs', icon: 'fa-dumbbell', url: 'programs.html' },
+            { id: 'documents', name: 'Documents', icon: 'fa-file-medical', url: 'documents.html' },
+            { id: 'food-charts', name: 'Food Charts', icon: 'fa-apple-whole', url: 'food-charts.html' },
+            { id: 'orders', name: 'My Orders', icon: 'fa-box', url: 'orders.html' },
+            { id: 'downloads', name: 'Downloads', icon: 'fa-download', url: 'downloads.html' },
+            { id: 'wishlist', name: 'Wishlist', icon: 'fa-heart', url: 'wishlist.html' },
+            { id: 'appointments', name: 'Appointments', icon: 'fa-calendar-check', url: 'appointments.html' },
+            { id: 'settings', name: 'Settings', icon: 'fa-gear', url: 'settings.html' },
+        ];
+
+        let linksHtml = '';
+        links.forEach(l => {
+            const isActive = l.id === active;
+            const classes = isActive 
+                ? 'bg-primary/10 text-primary font-bold border-r-4 border-primary'
+                : 'text-gray-600 hover:bg-gray-50 hover:text-primary font-medium';
+            
+            linksHtml += `
+                <a href="${l.url}" class="flex items-center space-x-3 px-5 py-3.5 transition-colors ${classes}">
+                    <i class="fa-solid ${l.icon} w-5 text-center ${isActive ? 'text-primary' : 'text-gray-400'}"></i>
+                    <span class="text-[13.5px]">${l.name}</span>
+                </a>
+            `;
+        });
+
+        this.innerHTML = `
+            <div class="w-full lg:w-[260px] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden flex-shrink-0">
+                <div class="p-5 border-b border-gray-100 flex items-center space-x-3 bg-gray-50/50">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <i class="fa-solid fa-user-circle text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-[14px] font-bold text-gray-800" id="sidebar-user-name">Loading...</div>
+                        <div class="text-[11px] text-gray-500 font-medium">Patient Member</div>
+                    </div>
+                </div>
+                <div class="py-2">
+                    ${linksHtml}
+                    <div class="h-px bg-gray-100 my-2 mx-5"></div>
+                    <a href="#" onclick="HBM_API.setToken(null); window.location.href='../auth/login.html'; return false;" class="flex items-center space-x-3 px-5 py-3.5 text-red-600 hover:bg-red-50 font-medium transition-colors">
+                        <i class="fa-solid fa-arrow-right-from-bracket w-5 text-center opacity-70"></i>
+                        <span class="text-[13.5px]">Logout</span>
+                    </a>
+                </div>
+            </div>
+        `;
+
+        document.addEventListener('hbm:auth-ready', () => {
+            if (window.HBM_USER) {
+                const nameEl = this.querySelector('#sidebar-user-name');
+                if (nameEl) nameEl.textContent = `${window.HBM_USER.first_name} ${window.HBM_USER.last_name}`;
+            }
+        });
+    }
+}
+customElements.define('hbm-dashboard-sidebar', HbmDashboardSidebar);

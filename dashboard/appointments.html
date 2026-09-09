@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex flex-col">
+
+    <hbm-header base-path="../"></hbm-header>
+
+    <div class="flex-grow py-8 px-4 lg:px-8 max-w-[1500px] mx-auto w-full">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar -->
+            <hbm-dashboard-sidebar active-page="appointments"></hbm-dashboard-sidebar>
+
+            <!-- Main Content -->
+            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
+                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
+                    <div>
+                        <h2 class="text-2xl font-heading font-bold text-gray-800">Appointments</h2>
+                        <p class="text-gray-500 mt-1">Your upcoming and past appointments.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 text-blue-800 p-4 rounded-xl text-[14px] font-medium border border-blue-100 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-info mt-0.5"></i>
+                    <div>
+                        Coming soon! This section is currently under development.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/api.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

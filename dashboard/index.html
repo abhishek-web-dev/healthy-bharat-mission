@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Healthy Bharat Mission</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Built Tailwind CSS -->
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex flex-col">
+
+    <hbm-header base-path="../"></hbm-header>
+
+    <div class="flex-grow py-8 px-4 lg:px-8 max-w-[1500px] mx-auto w-full">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar -->
+            <hbm-dashboard-sidebar active-page="overview"></hbm-dashboard-sidebar>
+
+            <!-- Main Content -->
+            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
+                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
+                    <div>
+                        <h2 class="text-2xl font-heading font-bold text-gray-800">Welcome back, <span id="welcome-name" class="text-primary">User</span>!</h2>
+                        <p class="text-gray-500 mt-1">Here is an overview of your health journey.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-[#f0f8f3] rounded-xl p-5 border border-green-50 flex items-center justify-between">
+                        <div>
+                            <div class="text-[12px] text-gray-500 font-bold uppercase tracking-wider mb-1">Active Programs</div>
+                            <div class="text-2xl font-bold text-gray-800">0</div>
+                        </div>
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-sm">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-5 border border-blue-100 flex items-center justify-between">
+                        <div>
+                            <div class="text-[12px] text-gray-500 font-bold uppercase tracking-wider mb-1">Appointments</div>
+                            <div class="text-2xl font-bold text-gray-800">0</div>
+                        </div>
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-500 shadow-sm">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-5 border border-purple-100 flex items-center justify-between">
+                        <div>
+                            <div class="text-[12px] text-gray-500 font-bold uppercase tracking-wider mb-1">Total Orders</div>
+                            <div class="text-2xl font-bold text-gray-800">0</div>
+                        </div>
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-purple-500 shadow-sm">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/api.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script>
+        document.addEventListener('hbm:auth-ready', () => {
+            if (window.HBM_USER) {
+                document.getElementById('welcome-name').textContent = window.HBM_USER.first_name;
+            }
+        });
+    </script>
+</body>
+</html>
