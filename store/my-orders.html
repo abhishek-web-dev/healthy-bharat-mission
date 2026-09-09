@@ -9,11 +9,248 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="../dist/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        body: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex flex-col">
     <hbm-header base-path="../"></hbm-header>
-    <main class="flex-grow">
-        <!-- My Orders Content Will Go Here -->
+    <main class="flex-grow pb-12">
+        <div class="container mx-auto px-4 lg:px-8 max-w-[1500px] mt-6">
+            
+            <!-- Top Row: Breadcrumb & Search -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                <!-- Breadcrumb -->
+                <div class="flex items-center text-[13px] font-medium text-gray-500">
+                    <a href="../index.html" class="hover:text-[#106e39] transition-colors">Home</a>
+                    <i class="fa-solid fa-chevron-right text-[9px] mx-2"></i>
+                    <span class="text-[#106e39]">My Orders</span>
+                </div>
+                
+                <!-- Search -->
+                <div class="relative w-full md:w-[400px]">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                    </div>
+                    <input type="text" placeholder="Search orders by order ID or product name..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-[13px] focus:outline-none focus:ring-1 focus:ring-[#106e39] focus:border-[#106e39] transition-all text-gray-600 shadow-sm">
+                </div>
+            </div>
+
+            <!-- Second Row: Title & Sort -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+                <div>
+                    <h1 class="font-heading font-extrabold text-3xl text-[#052b14] mb-1">My Orders</h1>
+                    <p class="text-sm text-gray-500 font-medium tracking-wide">Track and manage all your orders in one place.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-[13px] font-medium text-gray-600">Sort By</span>
+                    <div class="relative">
+                        <select class="appearance-none bg-white border border-gray-200 rounded-lg text-[13px] font-semibold text-gray-700 py-2 pl-4 pr-10 focus:outline-none focus:ring-1 focus:ring-[#106e39] focus:border-[#106e39] shadow-sm cursor-pointer">
+                            <option>Newest First</option>
+                            <option>Oldest First</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i class="fa-solid fa-chevron-down text-[10px] text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders List -->
+            <div class="flex flex-col gap-4">
+                
+                <!-- Order 1: Delivered -->
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="flex flex-col w-full lg:w-56 shrink-0">
+                        <h3 class="font-bold text-gray-900 text-[15px]">Order #HBM123456</h3>
+                        <p class="text-[11px] text-gray-500 mt-0.5 mb-2.5">Placed on 10 Sep 2025, 02:30 PM</p>
+                        <div class="inline-flex items-center gap-1.5 bg-[#e2f6e9] text-[#106e39] px-2.5 py-1 rounded w-fit border border-[#cbf0d8]">
+                            <i class="fa-solid fa-circle-check text-[10px]"></i>
+                            <span class="text-[10px] font-bold tracking-wide uppercase">Delivered</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 flex-1 items-center">
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Coconut_Barfi.jpg?v=1753341339" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-12 h-16 rounded-lg bg-gray-50 flex items-center justify-center font-bold text-gray-500 text-[13px] shrink-0 border border-gray-100">
+                            +1
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col w-full lg:w-48 shrink-0 text-left">
+                        <p class="text-[11px] text-gray-500 mb-0.5">4 items</p>
+                        <p class="text-[16px] text-[#052b14]"><span class="font-extrabold">Total:</span> <span class="font-bold">₹1,245.00</span></p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">Paid via Razorpay (UPI)</p>
+                    </div>
+                    
+                    <div class="w-full lg:w-32 shrink-0 flex lg:justify-end mt-2 lg:mt-0">
+                        <a href="#" class="w-full lg:w-auto px-5 py-2.5 rounded-lg border-2 border-[#106e39] text-[#106e39] hover:bg-[#106e39] hover:text-white font-bold text-[12px] transition-colors text-center block lg:inline-block">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Order 2: Shipped -->
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="flex flex-col w-full lg:w-56 shrink-0">
+                        <h3 class="font-bold text-gray-900 text-[15px]">Order #HBM123455</h3>
+                        <p class="text-[11px] text-gray-500 mt-0.5 mb-2.5">Placed on 05 Sep 2025, 11:20 AM</p>
+                        <div class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-600 px-2.5 py-1 rounded w-fit border border-blue-100">
+                            <i class="fa-solid fa-truck-fast text-[10px]"></i>
+                            <span class="text-[10px] font-bold tracking-wide uppercase">Shipped</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 flex-1 items-center">
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/kaju_barfi.jpg?v=1753341348" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Keto_Coconut_barfi.jpg?v=1753341451" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-12 h-16 rounded-lg bg-gray-50 flex items-center justify-center font-bold text-gray-500 text-[13px] shrink-0 border border-gray-100">
+                            +2
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col w-full lg:w-48 shrink-0 text-left">
+                        <p class="text-[11px] text-gray-500 mb-0.5">5 items</p>
+                        <p class="text-[16px] text-[#052b14]"><span class="font-extrabold">Total:</span> <span class="font-bold">₹2,320.00</span></p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">Paid via Razorpay (Card)</p>
+                    </div>
+                    
+                    <div class="w-full lg:w-32 shrink-0 flex lg:justify-end mt-2 lg:mt-0">
+                        <a href="#" class="w-full lg:w-auto px-5 py-2.5 rounded-lg border-2 border-[#106e39] text-[#106e39] hover:bg-[#106e39] hover:text-white font-bold text-[12px] transition-colors text-center block lg:inline-block">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Order 3: Processing -->
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="flex flex-col w-full lg:w-56 shrink-0">
+                        <h3 class="font-bold text-gray-900 text-[15px]">Order #HBM123454</h3>
+                        <p class="text-[11px] text-gray-500 mt-0.5 mb-2.5">Placed on 28 Aug 2025, 06:10 PM</p>
+                        <div class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-600 px-2.5 py-1 rounded w-fit border border-amber-100">
+                            <i class="fa-solid fa-clock-rotate-left text-[10px]"></i>
+                            <span class="text-[10px] font-bold tracking-wide uppercase">Processing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 flex-1 items-center">
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Coconut_Barfi.jpg?v=1753341339" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col w-full lg:w-48 shrink-0 text-left">
+                        <p class="text-[11px] text-gray-500 mb-0.5">2 items</p>
+                        <p class="text-[16px] text-[#052b14]"><span class="font-extrabold">Total:</span> <span class="font-bold">₹999.00</span></p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">Paid via Razorpay (UPI)</p>
+                    </div>
+                    
+                    <div class="w-full lg:w-32 shrink-0 flex lg:justify-end mt-2 lg:mt-0">
+                        <a href="#" class="w-full lg:w-auto px-5 py-2.5 rounded-lg border-2 border-[#106e39] text-[#106e39] hover:bg-[#106e39] hover:text-white font-bold text-[12px] transition-colors text-center block lg:inline-block">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Order 4: Delivered -->
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="flex flex-col w-full lg:w-56 shrink-0">
+                        <h3 class="font-bold text-gray-900 text-[15px]">Order #HBM123453</h3>
+                        <p class="text-[11px] text-gray-500 mt-0.5 mb-2.5">Placed on 12 Aug 2025, 01:45 PM</p>
+                        <div class="inline-flex items-center gap-1.5 bg-[#e2f6e9] text-[#106e39] px-2.5 py-1 rounded w-fit border border-[#cbf0d8]">
+                            <i class="fa-solid fa-circle-check text-[10px]"></i>
+                            <span class="text-[10px] font-bold tracking-wide uppercase">Delivered</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 flex-1 items-center">
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/kaju_barfi.jpg?v=1753341348" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col w-full lg:w-48 shrink-0 text-left">
+                        <p class="text-[11px] text-gray-500 mb-0.5">2 items</p>
+                        <p class="text-[16px] text-[#052b14]"><span class="font-extrabold">Total:</span> <span class="font-bold">₹760.00</span></p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">Paid via COD</p>
+                    </div>
+                    
+                    <div class="w-full lg:w-32 shrink-0 flex lg:justify-end mt-2 lg:mt-0">
+                        <a href="#" class="w-full lg:w-auto px-5 py-2.5 rounded-lg border-2 border-[#106e39] text-[#106e39] hover:bg-[#106e39] hover:text-white font-bold text-[12px] transition-colors text-center block lg:inline-block">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Order 5: Delivered -->
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="flex flex-col w-full lg:w-56 shrink-0">
+                        <h3 class="font-bold text-gray-900 text-[15px]">Order #HBM123452</h3>
+                        <p class="text-[11px] text-gray-500 mt-0.5 mb-2.5">Placed on 25 Jul 2025, 10:15 AM</p>
+                        <div class="inline-flex items-center gap-1.5 bg-[#e2f6e9] text-[#106e39] px-2.5 py-1 rounded w-fit border border-[#cbf0d8]">
+                            <i class="fa-solid fa-circle-check text-[10px]"></i>
+                            <span class="text-[10px] font-bold tracking-wide uppercase">Delivered</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 flex-1 items-center">
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Keto_Coconut_barfi.jpg?v=1753341451" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                        <div class="w-16 h-16 rounded-lg bg-[#f8fafc] border border-gray-100 flex items-center justify-center p-1 overflow-hidden shrink-0">
+                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="object-contain h-full w-full mix-blend-multiply">
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col w-full lg:w-48 shrink-0 text-left">
+                        <p class="text-[11px] text-gray-500 mb-0.5">3 items</p>
+                        <p class="text-[16px] text-[#052b14]"><span class="font-extrabold">Total:</span> <span class="font-bold">₹1,480.00</span></p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">Paid via Razorpay (Net Banking)</p>
+                    </div>
+                    
+                    <div class="w-full lg:w-32 shrink-0 flex lg:justify-end mt-2 lg:mt-0">
+                        <a href="#" class="w-full lg:w-auto px-5 py-2.5 rounded-lg border-2 border-[#106e39] text-[#106e39] hover:bg-[#106e39] hover:text-white font-bold text-[12px] transition-colors text-center block lg:inline-block">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
     <hbm-footer base-path="../"></hbm-footer>
     <script src="../js/components.js"></script>

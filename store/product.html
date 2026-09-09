@@ -741,7 +741,7 @@
                                 <div class="text-[#106e39] font-bold text-[18px] mb-4">₹999.00</div>
                                 <div class="flex items-center gap-2 mt-auto">
                                     <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                     </button>
                                     <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
                                         <i class="fa-regular fa-heart"></i>
@@ -761,7 +761,7 @@
                                 <div class="text-[#106e39] font-bold text-[18px] mb-4">₹1,301.00</div>
                                 <div class="flex items-center gap-2 mt-auto">
                                     <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                     </button>
                                     <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
                                         <i class="fa-regular fa-heart"></i>
@@ -781,7 +781,7 @@
                                 <div class="text-[#106e39] font-bold text-[18px] mb-4">₹480.00</div>
                                 <div class="flex items-center gap-2 mt-auto">
                                     <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                     </button>
                                     <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
                                         <i class="fa-regular fa-heart"></i>
@@ -801,7 +801,7 @@
                                 <div class="text-[#106e39] font-bold text-[18px] mb-4">₹485.00</div>
                                 <div class="flex items-center gap-2 mt-auto">
                                     <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                     </button>
                                     <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
                                         <i class="fa-regular fa-heart"></i>
@@ -821,7 +821,7 @@
                                 <div class="text-[#106e39] font-bold text-[18px] mb-4">₹249.00</div>
                                 <div class="flex items-center gap-2 mt-auto">
                                     <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                     </button>
                                     <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
                                         <i class="fa-regular fa-heart"></i>
@@ -841,7 +841,7 @@
                                 <div class="text-[#106e39] font-bold text-[18px] mb-4">₹2,220.00</div>
                                 <div class="flex items-center gap-2 mt-auto">
                                     <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add
+                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                     </button>
                                     <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
                                         <i class="fa-regular fa-heart"></i>
@@ -920,8 +920,12 @@
 
         // Add to Cart functionality
         function addToCart() {
-            const qty = document.getElementById('quantityInput').value;
-            alert(`Successfully added ${qty} item(s) to your cart!`);
+            const qty = parseInt(document.getElementById('quantityInput').value) || 1;
+            if (window.addToCart) {
+                window.addToCart(qty);
+            } else {
+                alert(`Successfully added ${qty} item(s) to your cart!`);
+            }
         }
 
         // Tab Switching functionality

@@ -478,3 +478,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// --- Simple Global Cart Logic ---
+window.cartState = {
+    count: parseInt(localStorage.getItem('cartCount')) || 0
+};
+
+window.updateCartBadge = function() {
+    // Support multiple headers if any
+    const headers = document.querySelectorAll('hbm-header');
+    headers.forEach(header => {
+        const badge = header.querySelector('#header-cart-badge') || header.querySelector('span.bg-white.text-primary.rounded-full');
+        if (badge) {
+            badge.innerText = window.cartState.count;
+            if (window.cartState.count > 0) {
+                badge.classList.add('scale-125');
+                setTimeout(() => badge.classList.remove('scale-125'), 200);
+            }
+        }
+    });
+    localStorage.setItem('cartCount', window.cartState.count);
+};
+
+window.addToCart = function(qty = 1) {
+    window.cartState.count += qty;
+    window.updateCartBadge();
+    
+    // Create or show toast notification
+    let toast = document.getElementById('cart-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'cart-toast';
+        toast.className = 'fixed bottom-5 right-5 bg-emerald-600 text-white px-6 py-4 rounded-xl shadow-[0_10px_40px_rgba(5,150,105,0.4)] flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-[9999] border border-emerald-500';
+        toast.innerHTML = '<i class="fa-solid fa-cart-arrow-down text-xl"></i><span class="font-bold">Item added to cart!</span>';
+        document.body.appendChild(toast);
+    }
+    
+    // Animate toast in
+    setTimeout(() => {
+        toast.classList.remove('translate-y-20', 'opacity-0');
+    }, 10);
+    
+    // Hide toast after 3s
+    if (window.cartToastTimeout) clearTimeout(window.cartToastTimeout);
+    window.cartToastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+    }, 3000);
+};
+
+// Initialize cart on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Delay slightly to let Web Components render
+    setTimeout(() => {
+        window.updateCartBadge();
+        
+        // Find all buttons that say "Add to Cart" or "Add"
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            const text = btn.innerText.trim().toLowerCase();
+            if (text === 'add to cart' || text === 'add') {
+                if (!btn.hasAttribute('data-cart-bound') && !btn.hasAttribute('onclick')) {
+                    btn.setAttribute('data-cart-bound', 'true');
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation(); // Stop from triggering card click link
+                        
+                        let qty = 1;
+                        // If on product page, get the qty input
+                        const qtyInput = document.getElementById('qty') || document.getElementById('quantityInput');
+                        // Only use qtyInput if this is the main product page button
+                        if (qtyInput && (btn.classList.contains('py-4') || btn.classList.contains('h-[52px]'))) {
+                            qty = parseInt(qtyInput.value) || 1;
+                        }
+                        
+                        window.addToCart(qty);
+                    });
+                }
+            }
+        });
+    }, 150);
+});
+
