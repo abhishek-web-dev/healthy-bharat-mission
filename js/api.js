@@ -63,6 +63,16 @@ const HBM_API = {
             // Also handle network errors that don't have a status
             throw error;
         }
+    },
+    checkout: {
+        getAddresses: () => request('/api/user/addresses'),
+        saveAddress: (data) => request('/api/user/addresses', { method: 'POST', body: JSON.stringify(data) }),
+        createOrder: (data) => request('/api/orders', { method: 'POST', body: JSON.stringify(data) }),
+        verifyPayment: (data) => request('/api/payments/verify', { method: 'POST', body: JSON.stringify(data) })
+    },
+    orders: {
+        getAll: () => request('/api/orders'),
+        getDetails: (id) => request(`/api/orders/${id}`)
     }
 };
 

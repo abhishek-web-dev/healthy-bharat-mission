@@ -141,7 +141,7 @@
                                 </div>
                                 <input type="text"
                                     class="w-full py-2.5 pr-4 outline-none text-[13px] text-gray-700 placeholder-gray-400 bg-transparent"
-                                    placeholder="Enter your first name">
+                                    placeholder="Enter your first name" oninput="this.value = this.value.replace(/[^A-Za-z\s\-]/g, '')">
                             </div>
                         </div>
                         <div>
@@ -153,7 +153,7 @@
                                 </div>
                                 <input type="text"
                                     class="w-full py-2.5 pr-4 outline-none text-[13px] text-gray-700 placeholder-gray-400 bg-transparent"
-                                    placeholder="Enter your last name">
+                                    placeholder="Enter your last name" oninput="this.value = this.value.replace(/[^A-Za-z\s\-]/g, '')">
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                             </div>
                             <input type="tel"
                                 class="w-full pl-3 pr-4 py-2.5 outline-none text-[13px] text-gray-700 placeholder-gray-400 bg-transparent"
-                                placeholder="Enter your phone number">
+                                placeholder="Enter your phone number" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
                     </div>
 

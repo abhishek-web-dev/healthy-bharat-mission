@@ -411,33 +411,33 @@ class HbmContactForm extends HTMLElement {
             <p class="text-gray-600 text-sm mb-6">
                 Fill out the form below and our team will get back to you soon.
             </p>
-            <form class="space-y-4">
+            <form id="contact-form" class="space-y-4">
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <i class="fa-regular fa-user text-gray-400"></i>
                     </div>
-                    <input type="text" placeholder="Your Name *" required
+                    <input type="text" id="contact-name" placeholder="Your Name *" required
                         class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
                 </div>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <i class="fa-regular fa-envelope text-gray-400"></i>
                     </div>
-                    <input type="email" placeholder="Your Email *" required
+                    <input type="email" id="contact-email" placeholder="Your Email *" required
                         class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
                 </div>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <i class="fa-solid fa-phone text-gray-400 text-sm"></i>
                     </div>
-                    <input type="tel" placeholder="Phone Number"
+                    <input type="tel" id="contact-phone" placeholder="Phone Number"
                         class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
                 </div>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <i class="fa-solid fa-list-ul text-gray-400 text-sm"></i>
                     </div>
-                    <select required class="w-full pl-10 pr-10 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all appearance-none text-gray-500">
+                    <select id="contact-subject" required class="w-full pl-10 pr-10 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all appearance-none text-gray-500">
                         <option value="" disabled selected>Select a Subject *</option>
                         <option value="programs">Programs & Courses</option>
                         <option value="consultation">Book Consultation</option>
@@ -452,16 +452,57 @@ class HbmContactForm extends HTMLElement {
                     <div class="absolute top-4 left-0 pl-4 flex items-start pointer-events-none">
                         <i class="fa-regular fa-comment text-gray-400"></i>
                     </div>
-                    <textarea placeholder="Your Message *" required rows="4"
+                    <textarea id="contact-message" placeholder="Your Message *" required rows="4"
                         class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"></textarea>
                 </div>
-                <button type="submit"
-                    class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3.5 rounded-lg text-sm transition-colors shadow-md flex justify-center items-center group">
+                <div id="contact-alert" class="hidden text-sm font-semibold rounded-lg px-4 py-3 mb-4"></div>
+                <button type="submit" id="contact-submit"
+                    class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3.5 rounded-lg text-sm transition-colors shadow-md flex justify-center items-center group disabled:opacity-50">
                     Send Message 
                     <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </button>
             </form>
         </div>`;
+
+        const form = this.querySelector('#contact-form');
+        const alert = this.querySelector('#contact-alert');
+        const btn = this.querySelector('#contact-submit');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                phone: document.getElementById('contact-phone').value,
+                subject: document.getElementById('contact-subject').value,
+                message: document.getElementById('contact-message').value
+            };
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            alert.classList.add('hidden');
+
+            try {
+                if (window.HBM_API) {
+                    await window.HBM_API.request('/contact', 'POST', data);
+                } else {
+                    // Fallback if component is used without api.js
+                    console.warn("HBM_API not available. Form simulation.");
+                }
+                alert.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'border-red-100');
+                alert.classList.add('bg-green-50', 'text-green-700', 'border', 'border-green-100');
+                alert.innerText = "Message sent successfully! We will get back to you soon.";
+                form.reset();
+            } catch (err) {
+                alert.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-100');
+                alert.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-100');
+                alert.innerText = err.message || "Failed to send message.";
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Send Message <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>';
+            }
+        });
     }
 }
 customElements.define('hbm-contact-form', HbmContactForm);
@@ -505,9 +546,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- Simple Global Cart Logic ---
+// --- Cart & Wishlist Logic ---
 window.cartState = {
-    count: parseInt(localStorage.getItem('cartCount')) || 0
+    count: 0,
+    items: {} // Map of product_id -> { cart_item_id, quantity }
+};
+
+window.fetchCartCount = async function() {
+    if (localStorage.getItem('hbm_token')) {
+        try {
+            const res = await HBM_API.request('/cart/count');
+            window.cartState.count = res.data.count || 0;
+            window.updateCartBadge();
+        } catch (e) {
+            console.error("Failed to fetch cart count", e);
+        }
+    }
+};
+
+window.fetchCartData = async function() {
+    if (localStorage.getItem('hbm_token')) {
+        try {
+            const res = await HBM_API.request('/cart');
+            const cart = res.data;
+            window.cartState.count = cart.total_items || 0;
+            
+            // Build the map
+            window.cartState.items = {};
+            if (cart.items) {
+                cart.items.forEach(item => {
+                    const prodId = item.product_id || item.id;
+                    window.cartState.items[prodId] = {
+                        cart_item_id: item.cart_item_id,
+                        quantity: item.quantity
+                    };
+                });
+            }
+            
+            window.updateCartBadge();
+        } catch (e) {
+            console.error("Failed to fetch full cart", e);
+        }
+    }
 };
 
 window.updateCartBadge = function() {
@@ -523,65 +603,180 @@ window.updateCartBadge = function() {
             }
         }
     });
-    localStorage.setItem('cartCount', window.cartState.count);
 };
 
-window.addToCart = function(qty = 1) {
-    window.cartState.count += qty;
-    window.updateCartBadge();
+window.logout = function() {
+    localStorage.removeItem('hbm_token');
+    localStorage.removeItem('hbm_user');
+    window.location.href = document.querySelector('hbm-header')?.getAttribute('base-path') + 'index.html' || '/';
+};
+
+window.showNotification = function(message, type = 'success') {
+    let container = document.getElementById('hbm-notification-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'hbm-notification-container';
+        container.style.position = 'fixed';
+        container.style.top = '20px';
+        container.style.left = '50%';
+        container.style.transform = 'translateX(-50%)';
+        container.style.zIndex = '99999';
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.gap = '12px';
+        container.style.width = '100%';
+        container.style.maxWidth = '400px';
+        container.style.padding = '0 16px';
+        container.style.pointerEvents = 'none';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    const bgColor = type === 'success' ? '#ebf8f0' : (type === 'error' ? '#fdf2f2' : '#ffffff');
+    const borderColor = type === 'success' ? '#a3e4be' : (type === 'error' ? '#f8b4b4' : '#e5e7eb');
+    const textColor = type === 'success' ? '#064e3b' : (type === 'error' ? '#991b1b' : '#1f2937');
+    const icon = type === 'success' ? '<i class="fa-regular fa-circle-check" style="font-size:20px;"></i>' : '<i class="fa-solid fa-circle-exclamation" style="font-size:20px;"></i>';
+
+    toast.style.backgroundColor = bgColor;
+    toast.style.borderColor = borderColor;
+    toast.style.color = textColor;
+    toast.style.borderWidth = '1px';
+    toast.style.borderStyle = 'solid';
+    toast.style.padding = '16px 20px';
+    toast.style.borderRadius = '12px';
+    toast.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.justifyContent = 'space-between';
+    toast.style.gap = '12px';
+    toast.style.transform = 'translateY(-40px)';
+    toast.style.opacity = '0';
+    toast.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+    toast.style.pointerEvents = 'auto';
     
-    // Create or show toast notification
-    let toast = document.getElementById('cart-toast');
-    if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'cart-toast';
-        toast.className = 'fixed bottom-5 right-5 bg-emerald-600 text-white px-6 py-4 rounded-xl shadow-[0_10px_40px_rgba(5,150,105,0.4)] flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-[9999] border border-emerald-500';
-        toast.innerHTML = '<i class="fa-solid fa-cart-arrow-down text-xl"></i><span class="font-bold">Item added to cart!</span>';
-        document.body.appendChild(toast);
+    toast.innerHTML = `
+        <div style="display:flex; align-items:center; gap:12px;">
+            ${icon}
+            <span style="font-weight:700; font-size:15px;">${message}</span>
+        </div>
+        <button class="close-toast" style="color:#9ca3af; background:none; border:none; cursor:pointer; padding:4px; margin-left:16px;">
+            <i class="fa-solid fa-xmark" style="font-size:18px;"></i>
+        </button>
+    `;
+
+    container.appendChild(toast);
+    const closeBtn = toast.querySelector('.close-toast');
+    
+    // Force reflow
+    void toast.offsetWidth;
+    
+    // Animate in
+    toast.style.transform = 'translateY(0)';
+    toast.style.opacity = '1';
+
+    const removeToast = () => {
+        toast.style.transform = 'translateY(-40px)';
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 400);
+    };
+
+    closeBtn.onclick = removeToast;
+    setTimeout(removeToast, 3000);
+};
+
+window.addToCart = async function(productId, qty = 1) {
+    if (!localStorage.getItem('hbm_token')) {
+        const basePath = document.querySelector('hbm-header')?.getAttribute('base-path') || '';
+        window.location.href = basePath + 'auth/login.html?redirect=' + encodeURIComponent(window.location.pathname);
+        return;
     }
     
-    // Animate toast in
-    setTimeout(() => {
-        toast.classList.remove('translate-y-20', 'opacity-0');
-    }, 10);
+    try {
+        const res = await HBM_API.request('/cart', 'POST', { product_id: productId, quantity: qty });
+        window.cartState.count = res.data.total_items;
+        window.updateCartBadge();
+        
+        // Also refresh full cart data so state is synced immediately
+        await window.fetchCartData();
+        
+        // Show global notification
+        if (typeof window.showNotification === 'function') {
+            window.showNotification('Item added to cart successfully!', 'success');
+        }
+        
+        // Re-render UI if on store page
+        if (typeof window.renderStoreGrids === 'function') {
+            window.renderStoreGrids();
+        }
+    } catch (e) {
+        alert(e.message || "Failed to add to cart");
+    }
+};
+
+window.updateStoreCart = async function(productId, newQty) {
+    if (!localStorage.getItem('hbm_token')) {
+        const basePath = document.querySelector('hbm-header')?.getAttribute('base-path') || '';
+        window.location.href = basePath + 'auth/login.html?redirect=' + encodeURIComponent(window.location.pathname);
+        return;
+    }
+
+    try {
+        const item = window.cartState.items[productId];
+        if (item && item.cart_item_id) {
+            if (newQty <= 0) {
+                await HBM_API.request(`/cart/${item.cart_item_id}`, 'DELETE');
+            } else {
+                await HBM_API.request(`/cart/${item.cart_item_id}`, 'PUT', { quantity: newQty });
+            }
+        } else if (newQty > 0) {
+            // If it wasn't in the cart, but we somehow hit +, we just add it (this is a fallback, usually addToCart is used for the first add)
+            await HBM_API.request('/cart', 'POST', { product_id: productId, quantity: newQty });
+        }
+        
+        await window.fetchCartData();
+        
+        if (typeof window.renderStoreGrids === 'function') {
+            window.renderStoreGrids();
+        }
+    } catch (e) {
+        alert(e.message || "Failed to update cart");
+    }
+};
+
+window.addToWishlist = async function(productId, btnElement) {
+    if (!localStorage.getItem('hbm_token')) {
+        const basePath = document.querySelector('hbm-header')?.getAttribute('base-path') || '';
+        window.location.href = basePath + 'auth/login.html?redirect=' + encodeURIComponent(window.location.pathname);
+        return;
+    }
     
-    // Hide toast after 3s
-    if (window.cartToastTimeout) clearTimeout(window.cartToastTimeout);
-    window.cartToastTimeout = setTimeout(() => {
-        toast.classList.add('translate-y-20', 'opacity-0');
-    }, 3000);
+    try {
+        const res = await HBM_API.request('/wishlist', 'POST', { product_id: productId });
+        const icon = btnElement ? btnElement.querySelector('i') : null;
+        
+        if (res.data.action === 'added') {
+            if (icon) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid', 'text-red-500');
+            }
+            alert("Added to wishlist!");
+        } else {
+            if (icon) {
+                icon.classList.remove('fa-solid', 'text-red-500');
+                icon.classList.add('fa-regular');
+            }
+            alert("Removed from wishlist!");
+        }
+    } catch (e) {
+        alert(e.message || "Failed to update wishlist");
+    }
 };
 
 // Initialize cart on page load
 document.addEventListener('DOMContentLoaded', () => {
     // Delay slightly to let Web Components render
     setTimeout(() => {
-        window.updateCartBadge();
-        
-        // Find all buttons that say "Add to Cart" or "Add"
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach(btn => {
-            const text = btn.innerText.trim().toLowerCase();
-            if (text === 'add to cart' || text === 'add') {
-                if (!btn.hasAttribute('data-cart-bound') && !btn.hasAttribute('onclick')) {
-                    btn.setAttribute('data-cart-bound', 'true');
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation(); // Stop from triggering card click link
-                        
-                        let qty = 1;
-                        // If on product page, get the qty input
-                        const qtyInput = document.getElementById('qty') || document.getElementById('quantityInput');
-                        // Only use qtyInput if this is the main product page button
-                        if (qtyInput && (btn.classList.contains('py-4') || btn.classList.contains('h-[52px]'))) {
-                            qty = parseInt(qtyInput.value) || 1;
-                        }
-                        
-                        window.addToCart(qty);
-                    });
-                }
-            }
-        });
+        window.fetchCartCount();
     }, 150);
 });
 

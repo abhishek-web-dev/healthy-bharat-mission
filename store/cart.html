@@ -51,97 +51,13 @@
                     <!-- Cart Items Card -->
                     <div class="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100">
                         <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
-                            <h2 class="text-xl font-bold text-[#1e293b]">3 Items in Your Cart</h2>
-                            <button class="text-gray-500 hover:text-red-500 text-sm font-semibold flex items-center gap-1.5 transition-colors">
-                                <i class="fa-regular fa-trash-can"></i> Clear Cart
-                            </button>
+                            <h2 id="cart-count-header" class="text-xl font-bold text-[#1e293b]">Loading Cart...</h2>
                         </div>
 
-                        <!-- Item 1 -->
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-6 py-6 border-b border-gray-100 last:border-0 last:pb-0">
-                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="w-24 h-24 object-contain rounded-lg bg-gray-50 mix-blend-multiply border border-gray-100" alt="Product">
-                            
-                            <div class="flex-1">
-                                <h3 class="text-[#1e293b] font-bold text-[14px] leading-snug mb-1">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</h3>
-                                <div class="text-gray-400 text-[12px] font-medium mb-3">Cookies & Snacks</div>
-                                <span class="bg-[#e2f6e9] text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider">IN STOCK</span>
-                            </div>
-                            
-                            <div class="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-4 w-full sm:w-auto mt-4 sm:mt-0">
-                                <div class="text-right">
-                                    <div class="text-[#106e39] font-bold text-lg leading-none">₹999.00</div>
-                                    <div class="text-gray-400 text-xs line-through mt-1 font-medium">₹1,199.00</div>
-                                </div>
-                                
-                                <div class="flex items-center gap-3">
-                                    <div class="flex items-center bg-[#f8fcf9] rounded-lg border border-gray-200 p-1">
-                                        <button class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">-</button>
-                                        <span class="w-8 text-center text-[13px] font-bold text-[#1e293b]">1</span>
-                                        <button class="w-7 h-7 flex items-center justify-center text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">+</button>
-                                    </div>
-                                    <button class="text-gray-400 hover:text-red-500 transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-red-50">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </button>
-                                </div>
-                            </div>
+                        <!-- Dynamic Cart Items Container -->
+                        <div id="cart-items-container">
+                            <!-- Items will be injected here by store.js -->
                         </div>
-
-                        <!-- Item 2 -->
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-6 py-6 border-b border-gray-100 last:border-0 last:pb-0">
-                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="w-24 h-24 object-contain rounded-lg bg-gray-50 mix-blend-multiply border border-gray-100" alt="Product">
-                            
-                            <div class="flex-1">
-                                <h3 class="text-[#1e293b] font-bold text-[14px] leading-snug mb-1">Diabexy Nutrition Combo (Reversol, Basics, Anteflame)</h3>
-                                <div class="text-gray-400 text-[12px] font-medium mb-3">Health Foods</div>
-                                <span class="bg-[#e2f6e9] text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider">IN STOCK</span>
-                            </div>
-                            
-                            <div class="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-4 w-full sm:w-auto mt-4 sm:mt-0">
-                                <div class="text-right">
-                                    <div class="text-[#106e39] font-bold text-lg leading-none">₹1,301.00</div>
-                                </div>
-                                
-                                <div class="flex items-center gap-3">
-                                    <div class="flex items-center bg-[#f8fcf9] rounded-lg border border-gray-200 p-1">
-                                        <button class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">-</button>
-                                        <span class="w-8 text-center text-[13px] font-bold text-[#1e293b]">1</span>
-                                        <button class="w-7 h-7 flex items-center justify-center text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">+</button>
-                                    </div>
-                                    <button class="text-gray-400 hover:text-red-500 transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-red-50">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-6 py-6 border-b border-gray-100 last:border-0 last:pb-0">
-                            <img src="../assets/herbal_supplements.png" class="w-24 h-24 object-contain rounded-lg bg-gray-50 mix-blend-multiply border border-gray-100" alt="Product">
-                            
-                            <div class="flex-1">
-                                <h3 class="text-[#1e293b] font-bold text-[14px] leading-snug mb-1">Nutroactive Lipolyzer 30 Tablets</h3>
-                                <div class="text-gray-400 text-[12px] font-medium mb-3">Supplements</div>
-                                <span class="bg-[#e2f6e9] text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider">IN STOCK</span>
-                            </div>
-                            
-                            <div class="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-4 w-full sm:w-auto mt-4 sm:mt-0">
-                                <div class="text-right">
-                                    <div class="text-[#106e39] font-bold text-lg leading-none">₹1,094.00</div>
-                                </div>
-                                
-                                <div class="flex items-center gap-3">
-                                    <div class="flex items-center bg-[#f8fcf9] rounded-lg border border-gray-200 p-1">
-                                        <button class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">-</button>
-                                        <span class="w-8 text-center text-[13px] font-bold text-[#1e293b]">2</span>
-                                        <button class="w-7 h-7 flex items-center justify-center text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">+</button>
-                                    </div>
-                                    <button class="text-gray-400 hover:text-red-500 transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-red-50">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
                     </div> <!-- End Cart Items -->
 
                     <!-- You May Also Like (Grid Layout as per screenshot) -->
@@ -248,12 +164,12 @@
                         
                         <div class="space-y-3 text-[13px] mb-6">
                             <div class="flex justify-between text-gray-500 font-medium">
-                                <span>Subtotal (3 items)</span>
-                                <span class="font-bold text-[#1e293b]">₹3,488.00</span>
+                                <span>Subtotal</span>
+                                <span id="cart-subtotal" class="font-bold text-[#1e293b]">₹0.00</span>
                             </div>
                             <div class="flex justify-between text-gray-500 font-medium">
                                 <span>Discount</span>
-                                <span class="font-bold text-[#106e39]">- ₹200.00</span>
+                                <span class="font-bold text-[#106e39]">- ₹0.00</span>
                             </div>
                             <div class="flex justify-between text-gray-500 font-medium">
                                 <span>Shipping</span>
@@ -264,7 +180,7 @@
                         <div class="border-t border-gray-100 pt-5 mb-5">
                             <div class="flex justify-between items-center mb-5">
                                 <span class="text-[15px] font-bold text-[#1e293b]">Total Amount</span>
-                                <span class="text-[22px] font-black text-[#106e39]">₹3,288.00</span>
+                                <span id="cart-total" class="text-[22px] font-black text-[#106e39]">₹0.00</span>
                             </div>
                             
                             <a href="checkout.html" class="w-full bg-[#106e39] hover:bg-[#083a1d] text-white py-3.5 rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-colors shadow-md hover:shadow-lg">
@@ -368,6 +284,10 @@
     </div>
 
     <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/api.js"></script>
+    <script src="../js/api.js"></script>
     <script src="../js/components.js"></script>
+    <script src="../js/store.js"></script>
+    <script src="../js/store.js"></script>
 </body>
 </html>
