@@ -584,6 +584,14 @@ window.fetchCartData = async function() {
             }
             
             window.updateCartBadge();
+            
+            // Re-render UI if functions exist so the initial load syncs correctly
+            if (typeof window.renderStoreGrids === 'function') {
+                window.renderStoreGrids();
+            }
+            if (typeof window.renderProductDetailCartUI === 'function') {
+                window.renderProductDetailCartUI();
+            }
         } catch (e) {
             console.error("Failed to fetch full cart", e);
         }
@@ -708,6 +716,16 @@ window.addToCart = async function(productId, qty = 1) {
         if (typeof window.renderStoreGrids === 'function') {
             window.renderStoreGrids();
         }
+        
+        // Re-render Product Details UI if on product page
+        if (typeof window.renderProductDetailCartUI === 'function') {
+            window.renderProductDetailCartUI();
+        }
+
+        // Re-render Cart page if on cart page
+        if (window.location.pathname.includes('cart.html') && typeof window.initCart === 'function') {
+            window.initCart();
+        }
     } catch (e) {
         alert(e.message || "Failed to add to cart");
     }
@@ -737,6 +755,16 @@ window.updateStoreCart = async function(productId, newQty) {
         
         if (typeof window.renderStoreGrids === 'function') {
             window.renderStoreGrids();
+        }
+        
+        // Re-render Product Details UI if on product page
+        if (typeof window.renderProductDetailCartUI === 'function') {
+            window.renderProductDetailCartUI();
+        }
+
+        // Re-render Cart page if on cart page
+        if (window.location.pathname.includes('cart.html') && typeof window.initCart === 'function') {
+            window.initCart();
         }
     } catch (e) {
         alert(e.message || "Failed to update cart");

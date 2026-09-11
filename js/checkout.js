@@ -41,27 +41,181 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Helper Functions ---
 
+    async function fetchAndRenderCartSummary() {
+        try {
+            const res = await HBM_API.request('/cart');
+            if (res.success && res.data) {
+                const cart = res.data;
+                const container = document.getElementById('checkout-order-summary-items');
+                if (container) {
+                    if (cart.items.length === 0) {
+                        container.innerHTML = '<div class="text-center py-4 text-gray-500 text-[13px]">Your cart is empty.</div>';
+                    } else {
+                        container.innerHTML = cart.items.map(item => `
+                            <div class="flex justify-between gap-4">
+                                <div class="flex gap-4">
+                                    <div class="w-16 h-16 rounded-xl border border-gray-200 bg-white p-1 flex items-center justify-center flex-shrink-0">
+                                        <img src="${item.image_url || '../assets/placeholder.jpg'}" class="max-w-full max-h-full object-contain mix-blend-multiply" alt="${item.name}">
+                                    </div>
+                                    <div>
+                                        <h3 class="text-[#1e293b] font-bold text-[13px] leading-tight mb-1 max-w-[150px]">${item.name}</h3>
+                                    </div>
+                                </div>
+                                <div class="text-right flex-shrink-0">
+                                    <div class="text-[#106e39] font-black text-[15px]">₹${(item.price * item.quantity).toFixed(2)}</div>
+                                    <div class="text-gray-500 text-[13px] font-medium mt-1">Qty: ${item.quantity}</div>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Update totals
+                const subEl = document.getElementById('checkout-subtotal');
+                const subLblEl = document.getElementById('checkout-subtotal-label');
+                const totEl = document.getElementById('checkout-total');
+                const discRow = document.getElementById('checkout-discount-row');
+                const discEl = document.getElementById('checkout-discount');
+                const savContainer = document.getElementById('checkout-savings');
+                const savText = document.getElementById('checkout-savings-text');
+
+                if (subLblEl) subLblEl.innerText = `Subtotal (${cart.total_items} items)`;
+                if (subEl) subEl.innerText = `₹${(cart.subtotal || 0).toFixed(2)}`;
+                
+                // Get discount if any from window state (if passed) or localstorage
+                const discount = window.currentDiscount || 0;
+                const total = cart.subtotal - discount;
+
+                if (totEl) totEl.innerText = `₹${total.toFixed(2)}`;
+
+                if (discount > 0) {
+                    if (discRow) discRow.classList.remove('hidden');
+                    if (discEl) discEl.innerText = `-₹${discount.toFixed(2)}`;
+                    if (savContainer) savContainer.classList.remove('hidden');
+                    if (savContainer) savContainer.classList.add('flex');
+                    if (savText) savText.innerText = `You save ₹${discount.toFixed(2)} on this order!`;
+                } else {
+                    if (discRow) discRow.classList.add('hidden');
+                    if (savContainer) savContainer.classList.add('hidden');
+                    if (savContainer) savContainer.classList.remove('flex');
+                }
+            }
+        } catch (e) {
+            console.error("Failed to load cart summary", e);
+        }
+    }
+
     function initAddressPage() {
-        const addressForm = document.querySelector('form') || document.querySelector('.w-full.lg\\:w-\\[65\\%\\]');
-        // Let's bind an event listener to the "Continue to Payment" button.
-        // We will just select the button that contains "Continue to Payment"
+        // Render Cart Summary First
+        fetchAndRenderCartSummary();
+
+        // Pincode API integration
+        const pincodeInput = document.getElementById('checkout-pincode');
+        const checkBtn = document.getElementById('checkout-btn-pincode');
+        const pincodeMsg = document.getElementById('pincode-message');
+        const cityInput = document.getElementById('checkout-city');
+        const stateInput = document.getElementById('checkout-state');
+
+        const fetchPincode = async () => {
+            const pin = pincodeInput.value.trim();
+            if (pin.length !== 6 || isNaN(pin)) {
+                pincodeMsg.innerText = 'Please enter a valid 6-digit pincode';
+                pincodeMsg.className = 'text-[12px] font-bold mt-1 text-red-500';
+                return;
+            }
+
+            try {
+                checkBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+                const response = await fetch(`https://api.postalpincode.in/pincode/${pin}`);
+                const data = await response.json();
+
+                if (data && data[0].Status === 'Success' && data[0].PostOffice && data[0].PostOffice.length > 0) {
+                    const po = data[0].PostOffice[0];
+                    cityInput.value = po.District || po.Block;
+                    stateInput.value = po.State;
+                    
+                    pincodeMsg.innerText = 'Serviceable area!';
+                    pincodeMsg.className = 'text-[12px] font-bold mt-1 text-[#106e39]';
+                } else {
+                    pincodeMsg.innerText = 'Invalid pincode or not serviceable';
+                    pincodeMsg.className = 'text-[12px] font-bold mt-1 text-red-500';
+                    cityInput.value = '';
+                    stateInput.value = '';
+                }
+            } catch (e) {
+                pincodeMsg.innerText = 'Error checking pincode';
+                pincodeMsg.className = 'text-[12px] font-bold mt-1 text-red-500';
+            } finally {
+                checkBtn.innerText = 'Check';
+            }
+        };
+
+        if (checkBtn) {
+            checkBtn.addEventListener('click', fetchPincode);
+        }
+        
+        if (pincodeInput) {
+            pincodeInput.addEventListener('input', (e) => {
+                if (e.target.value.length === 6) {
+                    fetchPincode();
+                } else {
+                    pincodeMsg.innerText = '';
+                }
+            });
+        }
+
+        // Form Validation and Submit
         const continueBtn = Array.from(document.querySelectorAll('a, button')).find(el => el.textContent.includes('Continue to Payment'));
         
         if (continueBtn) {
             continueBtn.addEventListener('click', async (e) => {
                 e.preventDefault();
-                // Simple validation for required fields
-                const inputs = document.querySelectorAll('input[type="text"], input[type="tel"]');
+                
+                // Get inputs
+                const nameEl = document.getElementById('checkout-name');
+                const phoneEl = document.getElementById('checkout-phone');
+                const address1El = document.getElementById('checkout-address1');
+                const address2El = document.getElementById('checkout-address2');
+                const cityEl = document.getElementById('checkout-city');
+                const stateEl = document.getElementById('checkout-state');
+                const landmarkEl = document.getElementById('checkout-landmark');
+
+                // Helper to validate and style
+                let isValid = true;
+                const validateField = (el, condition) => {
+                    if (!el) return;
+                    if (!condition) {
+                        el.classList.add('border-red-500', 'ring-red-500');
+                        isValid = false;
+                    } else {
+                        el.classList.remove('border-red-500', 'ring-red-500');
+                    }
+                };
+
+                validateField(nameEl, nameEl.value.trim().length > 0);
+                validateField(phoneEl, phoneEl.value.trim().length === 10 && !isNaN(phoneEl.value.trim()));
+                validateField(pincodeInput, pincodeInput.value.trim().length === 6 && !isNaN(pincodeInput.value.trim()));
+                validateField(address1El, address1El.value.trim().length > 0);
+                validateField(cityEl, cityEl.value.trim().length > 0);
+                validateField(stateEl, stateEl.value.trim().length > 0);
+
+                if (!isValid) {
+                    alert('Please fill out all required fields correctly.');
+                    return;
+                }
+
+                const nameParts = nameEl.value.trim().split(' ');
+                
                 const addressData = {
-                    first_name: inputs[0]?.value.split(' ')[0] || 'User',
-                    last_name: inputs[0]?.value.split(' ').slice(1).join(' ') || 'Name',
-                    phone: inputs[1]?.value || '9999999999',
-                    pincode: inputs[2]?.value || '110001',
-                    address_line_1: inputs[3]?.value || 'Test Address Line 1',
-                    address_line_2: inputs[4]?.value || '',
-                    city: inputs[5]?.value || 'Test City',
-                    state: inputs[6]?.value || 'Test State',
-                    landmark: inputs[7]?.value || '',
+                    first_name: nameParts[0],
+                    last_name: nameParts.slice(1).join(' ') || '.',
+                    phone: phoneEl.value.trim(),
+                    pincode: pincodeInput.value.trim(),
+                    address_line_1: address1El.value.trim(),
+                    address_line_2: address2El ? address2El.value.trim() : '',
+                    city: cityEl.value.trim(),
+                    state: stateEl.value.trim(),
+                    landmark: landmarkEl ? landmarkEl.value.trim() : '',
                     type: 'home'
                 };
 
@@ -83,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Save address error:', error);
                     alert('An error occurred. Please try again.');
                 } finally {
-                    continueBtn.innerHTML = 'Continue to Payment';
+                    continueBtn.innerHTML = 'Continue to Payment <i class="fa-solid fa-arrow-right"></i>';
                     continueBtn.style.pointerEvents = 'auto';
                 }
             });

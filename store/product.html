@@ -23,13 +23,13 @@
         <!-- Breadcrumbs -->
         <nav class="flex text-[13px] text-gray-500 mb-8 font-medium">
             <ol class="flex items-center space-x-2">
-                <li><a href="#" class="hover:text-[#106e39] transition-colors">Home</a></li>
+                <li><a href="../index.html" class="hover:text-[#106e39] transition-colors">Home</a></li>
                 <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
-                <li><a href="#" class="hover:text-[#106e39] transition-colors">Store</a></li>
+                <li><a href="../store.html" class="hover:text-[#106e39] transition-colors">Store</a></li>
                 <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
-                <li><a href="#" class="hover:text-[#106e39] transition-colors">Cookies & Snacks</a></li>
+                <li><a href="../store.html" class="hover:text-[#106e39] transition-colors" id="product-breadcrumb-category">Category</a></li>
                 <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
-                <li id="product-breadcrumb-name" class="text-[#052b14] font-semibold">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</li>
+                <li><span class="text-gray-900 font-bold" id="product-breadcrumb-name">Product</span></li>
             </ol>
         </nav>
 
@@ -148,35 +148,15 @@
                 </div>
 
                 <!-- Actions -->
-                <div class="flex flex-col sm:flex-row items-center gap-4 mb-8">
-                    <!-- Quantity -->
-                    <div class="flex flex-col gap-2 w-full sm:w-auto">
-                        <span class="text-[13px] font-semibold text-gray-700">Quantity</span>
-                        <div
-                            class="flex items-center bg-[#f8f9fa] rounded-xl border border-gray-200 h-[52px] w-[120px]">
-                            <button onclick="updateQuantity(-1)"
-                                class="w-10 h-full flex items-center justify-center text-gray-500 hover:text-[#106e39] transition-colors"><i
-                                    class="fa-solid fa-minus"></i></button>
-                            <input type="text" id="qty" value="1"
-                                class="w-10 h-full bg-transparent text-center font-bold text-[#052b14] outline-none"
-                                readonly>
-                            <button onclick="updateQuantity(1)"
-                                class="w-10 h-full flex items-center justify-center text-gray-500 hover:text-[#106e39] transition-colors"><i
-                                    class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="flex flex-col sm:flex-row gap-3 w-full mb-8">
+                    <div id="product-cart-ui" class="flex-1">
+                        <!-- Filled dynamically by JS -->
+                        <button class="w-full bg-gray-100 h-[52px] rounded-xl animate-pulse"></button>
                     </div>
-
-                    <!-- Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-3 w-full mt-6 sm:mt-7">
-                        <button id="btn-add-to-cart"
-                            class="flex-1 bg-[#106e39] hover:bg-[#0d592e] text-white h-[52px] rounded-xl font-bold flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(16,110,57,0.2)] transition-all">
-                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                        </button>
-                        <button id="btn-add-to-wishlist"
-                            class="flex-1 bg-white hover:bg-gray-50 text-[#106e39] border-2 border-[#106e39] h-[52px] rounded-xl font-bold flex items-center justify-center gap-2 transition-all">
-                            <i class="fa-regular fa-heart"></i> Add to Wishlist
-                        </button>
-                    </div>
+                    <button id="btn-add-to-wishlist"
+                        class="flex-1 bg-white hover:bg-gray-50 text-[#106e39] border-2 border-[#106e39] h-[52px] rounded-xl font-bold flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-regular fa-heart"></i> Add to Wishlist
+                    </button>
                 </div>
 
                 <!-- Trust Badges Bottom -->
@@ -727,169 +707,17 @@
                 </div>
 
                 <!-- Slider Container -->
-                <div class="relative">
-                    <div id="youMayAlsoLikeScroll" class="flex overflow-x-auto gap-6 pb-6 flex-nowrap" style="scrollbar-width: none; -ms-overflow-style: none;">
-                        
-                        <!-- Product Card 1 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
-                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
-                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="h-48 object-contain mix-blend-multiply" alt="NutroActive Keto Atta Combo" />
-                            </div>
-                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
-                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</h3>
-                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹999.00</div>
-                                <div class="flex items-center gap-2 mt-auto">
-                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                    </button>
-                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Card 2 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
-                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
-                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="h-48 object-contain mix-blend-multiply" alt="Diabexy Atta Combo" />
-                            </div>
-                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
-                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Atta 750g & Breakfast Bar 200g Combo</h3>
-                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹1,301.00</div>
-                                <div class="flex items-center gap-2 mt-auto">
-                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                    </button>
-                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Card 3 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
-                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
-                                <img src="../assets/sugar_control.png" class="h-48 object-contain mix-blend-multiply" alt="Diabexy Sugar Control" />
-                            </div>
-                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
-                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Atta Sugar Control</h3>
-                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹480.00</div>
-                                <div class="flex items-center gap-2 mt-auto">
-                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                    </button>
-                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Card 4 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
-                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
-                                <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Coconut_Barfi.jpg?v=1753341339" class="h-48 object-contain mix-blend-multiply" alt="Coconut Barfi" />
-                            </div>
-                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
-                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Desi Ghee Sugar Free Coconut Barfi 200g</h3>
-                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹485.00</div>
-                                <div class="flex items-center gap-2 mt-auto">
-                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                    </button>
-                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Card 5 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
-                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
-                                <img src="../assets/health_foods.png" class="h-48 object-contain mix-blend-multiply" alt="Peanut Cookies" />
-                            </div>
-                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
-                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Peanut Cookies 250g</h3>
-                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹249.00</div>
-                                <div class="flex items-center gap-2 mt-auto">
-                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                    </button>
-                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Card 6 -->
-                        <div class="bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0" style="min-width: 280px; width: 280px;">
-                            <div class="absolute top-3 right-3 text-[#106e39] text-[10px] font-bold px-2 py-1 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                            <div class="p-4 flex items-center justify-center bg-gray-50/50 relative">
-                                <img src="../assets/combos_packs.png" class="h-48 object-contain mix-blend-multiply" alt="Nutrition Combo" />
-                            </div>
-                            <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
-                                <h3 class="text-[#1e293b] font-semibold text-[15px] leading-tight mb-3 flex-1">Diabexy Nutrition Combo Pack</h3>
-                                <div class="text-[#106e39] font-bold text-[18px] mb-4">₹2,220.00</div>
-                                <div class="flex items-center gap-2 mt-auto">
-                                    <button class="flex-1 bg-[#106e39] hover:bg-[#0a4d27] text-white py-2.5 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-colors">
-                                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                    </button>
-                                    <button class="w-11 h-11 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors border border-transparent" style="background-color: #e2f6e9;">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
+                <div class="relative overflow-hidden -mx-4 px-4 lg:mx-0 lg:px-0 pb-6">
+                    <div id="youMayAlsoLikeScroll" class="flex gap-6 flex-nowrap" style="scrollbar-width: none; -ms-overflow-style: none;">
+                        <!-- Dynamic Product Cards will be injected here by JS -->
                     </div>
-                    
-                    <script>
-                        document.addEventListener('DOMContentLoaded', () => {
-                            const productSlider = document.getElementById('youMayAlsoLikeScroll');
-                            if(productSlider) {
-                                // Clone items for seamless infinite scroll
-                                productSlider.innerHTML += productSlider.innerHTML;
-                                
-                                let isHovered = false;
-                                
-                                productSlider.addEventListener('mouseenter', () => isHovered = true);
-                                productSlider.addEventListener('mouseleave', () => isHovered = false);
-
-                                // Slide one card at a time every 3 seconds
-                                setInterval(() => {
-                                    if (!isHovered) {
-                                        const cardWidth = 304; // 280px width + 24px gap
-                                        
-                                        // If we are at or past the cloned set, instantly jump back to the original set
-                                        if (productSlider.scrollLeft >= productSlider.scrollWidth / 2) {
-                                            productSlider.scrollLeft = productSlider.scrollLeft - (productSlider.scrollWidth / 2);
-                                        }
-                                        
-                                        // Smooth scroll exactly one card
-                                        productSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                                    }
-                                }, 3000);
-                            }
-                        });
-                    </script>
                 </div>
             </div>
         </main>
 
     <hbm-footer base-path="../"></hbm-footer>
     <script src="../js/api.js"></script>
-    <script src="../js/api.js"></script>
     <script src="../js/components.js"></script>
-    <script src="../js/store.js"></script>
     <script src="../js/store.js"></script>
 
     <!-- Thumbnail Script -->
@@ -912,27 +740,7 @@
             btn.classList.add('border-black');
         }
 
-        // Quantity functionality
-        function updateQuantity(change) {
-            const input = document.getElementById('quantityInput');
-            let currentVal = parseInt(input.value);
-            if (isNaN(currentVal)) currentVal = 1;
-            let newVal = currentVal + change;
-            if (newVal < 1) newVal = 1; // Prevent negative or zero quantity
-            input.value = newVal;
-        }
 
-        // Add to Cart functionality
-        function addToCart() {
-            const qty = parseInt(document.getElementById('quantityInput').value) || 1;
-            if (window.addToCart) {
-                window.addToCart(qty);
-            } else {
-                alert(`Successfully added ${qty} item(s) to your cart!`);
-            }
-        }
-
-        // Tab Switching functionality
         function switchTab(tabId) {
             // Hide all tab panes
             document.querySelectorAll('.tab-pane').forEach(pane => {

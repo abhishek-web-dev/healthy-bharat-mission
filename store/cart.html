@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="../dist/output.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
 <body class="font-body text-gray-800 bg-[#f8fcf9] antialiased min-h-screen flex flex-col">
     <hbm-header base-path="../"></hbm-header>
@@ -70,85 +75,9 @@
                             <a href="../store.html" class="text-[#106e39] font-bold text-[12px] hover:underline flex items-center gap-1 transition-colors">View All Products <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                            <!-- Product 1 -->
-                            <div class="bg-white rounded-[14px] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-                                <div class="absolute top-2 right-2 text-[#106e39] text-[9px] font-bold px-2 py-0.5 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                                <div class="p-3 flex items-center justify-center bg-[#f8fcf9] relative h-[140px]">
-                                    <img src="../assets/fitness_lifestyle.png" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform" alt="Chart" />
-                                </div>
-                                <div class="p-3.5 flex flex-col flex-1 border-t border-gray-100">
-                                    <h3 class="text-[#1e293b] font-bold text-[12px] leading-snug mb-2 flex-1">Diabexy Protein Chart [Download]</h3>
-                                    <div class="text-[#106e39] font-black text-[14px] mb-3">₹199.00</div>
-                                    <div class="flex items-center gap-1.5 mt-auto">
-                                        <button class="flex-1 bg-[#106e39] hover:bg-[#083a1d] text-white py-2 rounded-lg font-bold text-[11px] flex items-center justify-center gap-1.5 transition-colors shadow-sm">
-                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                        </button>
-                                        <button class="w-8 h-8 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors shrink-0" style="background-color: #e2f6e9;">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product 2 -->
-                            <div class="bg-white rounded-[14px] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-                                <div class="absolute top-2 right-2 text-[#106e39] text-[9px] font-bold px-2 py-0.5 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                                <div class="p-3 flex items-center justify-center bg-[#f8fcf9] relative h-[140px]">
-                                    <img src="../assets/diabetes_care.png" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform" alt="Program" />
-                                </div>
-                                <div class="p-3.5 flex flex-col flex-1 border-t border-gray-100">
-                                    <h3 class="text-[#1e293b] font-bold text-[12px] leading-snug mb-2 flex-1">DIY Diabetes Reversal Program at Home</h3>
-                                    <div class="text-[#106e39] font-black text-[14px] mb-3">₹499.00</div>
-                                    <div class="flex items-center gap-1.5 mt-auto">
-                                        <button class="flex-1 bg-[#106e39] hover:bg-[#083a1d] text-white py-2 rounded-lg font-bold text-[11px] flex items-center justify-center gap-1.5 transition-colors shadow-sm">
-                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                        </button>
-                                        <button class="w-8 h-8 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors shrink-0" style="background-color: #e2f6e9;">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product 3 -->
-                            <div class="bg-white rounded-[14px] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-                                <div class="absolute top-2 right-2 text-[#106e39] text-[9px] font-bold px-2 py-0.5 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                                <div class="p-3 flex items-center justify-center bg-[#f8fcf9] relative h-[140px]">
-                                    <img src="../assets/health_foods.png" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform" alt="Tabs" />
-                                </div>
-                                <div class="p-3.5 flex flex-col flex-1 border-t border-gray-100">
-                                    <h3 class="text-[#1e293b] font-bold text-[12px] leading-snug mb-2 flex-1">Nutroactive Weight Management Tablets</h3>
-                                    <div class="text-[#106e39] font-black text-[14px] mb-3">₹2,952.00</div>
-                                    <div class="flex items-center gap-1.5 mt-auto">
-                                        <button class="flex-1 bg-[#106e39] hover:bg-[#083a1d] text-white py-2 rounded-lg font-bold text-[11px] flex items-center justify-center gap-1.5 transition-colors shadow-sm">
-                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                        </button>
-                                        <button class="w-8 h-8 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors shrink-0" style="background-color: #e2f6e9;">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product 4 -->
-                            <div class="bg-white rounded-[14px] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col relative group transition-shadow hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-                                <div class="absolute top-2 right-2 text-[#106e39] text-[9px] font-bold px-2 py-0.5 rounded tracking-wider z-10" style="background-color: #e2f6e9;">IN STOCK</div>
-                                <div class="p-3 flex items-center justify-center bg-[#f8fcf9] relative h-[140px]">
-                                    <img src="../assets/combos_packs.png" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform" alt="Combo" />
-                                </div>
-                                <div class="p-3.5 flex flex-col flex-1 border-t border-gray-100">
-                                    <h3 class="text-[#1e293b] font-bold text-[12px] leading-snug mb-2 flex-1">Herbal Immunity Booster Combo</h3>
-                                    <div class="text-[#106e39] font-black text-[14px] mb-3">₹1,450.00</div>
-                                    <div class="flex items-center gap-1.5 mt-auto">
-                                        <button class="flex-1 bg-[#106e39] hover:bg-[#083a1d] text-white py-2 rounded-lg font-bold text-[11px] flex items-center justify-center gap-1.5 transition-colors shadow-sm">
-                                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                                        </button>
-                                        <button class="w-8 h-8 flex items-center justify-center rounded-lg text-[#106e39] hover:bg-[#cbf0d8] transition-colors shrink-0" style="background-color: #e2f6e9;">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                        <div class="relative overflow-hidden w-full pb-4 hide-scrollbar">
+                            <div id="cart-recommended-products" class="flex gap-4 w-max transition-transform duration-500 ease-in-out">
+                                <!-- Dynamic products will be injected here -->
                             </div>
                         </div>
                     </div> <!-- End You May Also Like -->
@@ -169,11 +98,15 @@
                             </div>
                             <div class="flex justify-between text-gray-500 font-medium">
                                 <span>Discount</span>
-                                <span class="font-bold text-[#106e39]">- ₹0.00</span>
+                                <span id="cart-discount" class="font-bold text-[#106e39]">- ₹0.00</span>
                             </div>
                             <div class="flex justify-between text-gray-500 font-medium">
                                 <span>Shipping</span>
-                                <span class="font-bold text-[#106e39]">Free</span>
+                                <span id="cart-shipping" class="font-bold text-[#106e39]">Free</span>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <span>Taxes (GST 5%)</span>
+                                <span id="cart-tax" class="font-bold text-[#1e293b]">₹0.00</span>
                             </div>
                         </div>
                         
@@ -189,8 +122,8 @@
                         </div>
                         
                         <!-- Savings Banner -->
-                        <div class="bg-[#e2f6e9] text-[#106e39] text-[12px] font-bold rounded-lg p-3 flex items-center gap-2">
-                            <i class="fa-solid fa-tag"></i> You saved ₹200.00 on this order!
+                        <div id="cart-savings-banner" class="bg-[#e2f6e9] text-[#106e39] text-[12px] font-bold rounded-lg p-3 hidden items-center gap-2">
+                            <i class="fa-solid fa-tag"></i> You saved ₹<span id="cart-savings-amount">0.00</span> on this order!
                         </div>
                     </div>
 
@@ -198,8 +131,20 @@
                     <div class="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100">
                         <h3 class="font-bold text-[#1e293b] text-[14px] mb-3">Apply Coupon Code</h3>
                         <div class="flex gap-2">
-                            <input type="text" placeholder="Enter coupon code" class="flex-1 bg-[#f8fcf9] border border-gray-200 rounded-lg px-4 py-2 text-[13px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] placeholder-gray-400">
-                            <button class="bg-[#106e39] hover:bg-[#083a1d] text-white px-5 py-2 rounded-lg font-bold text-[13px] transition-colors shadow-sm">Apply</button>
+                            <input type="text" id="coupon-input" placeholder="Enter coupon code" class="flex-1 bg-[#f8fcf9] border border-gray-200 rounded-lg px-4 py-2 text-[13px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] placeholder-gray-400">
+                            <button onclick="window.applyCoupon()" class="bg-[#106e39] hover:bg-[#083a1d] text-white px-5 py-2 rounded-lg font-bold text-[13px] transition-colors shadow-sm">Apply</button>
+                        </div>
+                        <div id="coupon-message" class="text-[12px] font-bold mt-2 hidden"></div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <h4 class="text-[11px] font-bold text-gray-400 mb-3 uppercase tracking-wider">Available Offers</h4>
+                            <div class="flex items-start gap-2 mb-2.5">
+                                <i class="fa-solid fa-tag text-[#106e39] mt-0.5 text-[10px]"></i>
+                                <div class="text-[12px] text-[#1e293b]">Save <span class="font-bold text-[#106e39]">₹100</span> on your first order! Use code: <span class="font-bold border border-dashed border-gray-300 px-1.5 py-0.5 rounded bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors ml-1" onclick="document.getElementById('coupon-input').value='HBM1'; window.applyCoupon();">HBM1</span></div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa-solid fa-tag text-[#106e39] mt-0.5 text-[10px]"></i>
+                                <div class="text-[12px] text-[#1e293b]">Save <span class="font-bold text-[#106e39]">₹50</span> on your second order! Use code: <span class="font-bold border border-dashed border-gray-300 px-1.5 py-0.5 rounded bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors ml-1" onclick="document.getElementById('coupon-input').value='HBM2'; window.applyCoupon();">HBM2</span></div>
+                            </div>
                         </div>
                     </div>
 
