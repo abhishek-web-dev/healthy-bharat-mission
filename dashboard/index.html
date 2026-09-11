@@ -23,41 +23,147 @@
             <hbm-dashboard-sidebar active-page="overview"></hbm-dashboard-sidebar>
 
             <!-- Main Content -->
-            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
-                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
+            <div id="dashboard-main" class="flex-1 min-w-0 flex flex-col gap-6 transition-opacity duration-300 opacity-0">
+                
+                <!-- Welcome Section -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-2">
                     <div>
-                        <h2 class="text-2xl font-heading font-bold text-gray-800">Welcome back, <span id="welcome-name" class="text-primary">User</span>!</h2>
-                        <p class="text-gray-500 mt-1">Here is an overview of your health journey.</p>
+                        <h2 class="text-3xl font-heading font-bold text-gray-800">Welcome back, <span id="welcome-name" class="text-[#106e39]">User</span>!</h2>
+                        <p class="text-gray-500 mt-1 text-[15px]">Here is an overview of your health journey.</p>
+                    </div>
+                    <div class="bg-[#f2fbf5] rounded-xl p-4 flex items-center gap-4 max-w-sm border border-[#e2f6e9]">
+                        <div class="w-10 h-10 rounded-full bg-[#106e39]/10 flex items-center justify-center text-[#106e39] shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <p class="text-[13px] font-bold text-[#106e39]">"Small steps today, a healthier tomorrow."</p>
+                            <p class="text-[11px] text-[#106e39]/80 mt-0.5">– Healthy Bharat Mission</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-[#f0f8f3] rounded-xl p-5 border border-green-50 flex items-center justify-between">
-                        <div>
-                            <div class="text-[12px] text-gray-500 font-bold uppercase tracking-wider mb-1">Active Programs</div>
-                            <div class="text-2xl font-bold text-gray-800">0</div>
+                <!-- Summary Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-[#f0f8f3] rounded-2xl p-5 border border-green-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#106e39] shadow-sm">
+                                <i class="fa-solid fa-dumbbell text-lg"></i>
+                            </div>
                         </div>
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-sm">
-                            <i class="fa-solid fa-dumbbell"></i>
+                        <div class="relative z-10">
+                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Active Programs</div>
+                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-active-programs">0</div>
                         </div>
-                    </div>
-                    <div class="bg-blue-50 rounded-xl p-5 border border-blue-100 flex items-center justify-between">
-                        <div>
-                            <div class="text-[12px] text-gray-500 font-bold uppercase tracking-wider mb-1">Appointments</div>
-                            <div class="text-2xl font-bold text-gray-800">0</div>
-                        </div>
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-500 shadow-sm">
-                            <i class="fa-solid fa-calendar-check"></i>
+                        <div class="mt-4 pt-4 border-t border-green-100/50 relative z-10">
+                            <a href="programs.html" class="text-[#106e39] text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Programs <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
-                    <div class="bg-purple-50 rounded-xl p-5 border border-purple-100 flex items-center justify-between">
-                        <div>
-                            <div class="text-[12px] text-gray-500 font-bold uppercase tracking-wider mb-1">Total Orders</div>
-                            <div class="text-2xl font-bold text-gray-800">0</div>
+                    
+                    <div class="bg-blue-50/50 rounded-2xl p-5 border border-blue-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-500 shadow-sm">
+                                <i class="fa-solid fa-calendar-check text-lg"></i>
+                            </div>
                         </div>
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-purple-500 shadow-sm">
-                            <i class="fa-solid fa-box"></i>
+                        <div class="relative z-10">
+                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Appointments</div>
+                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-appointments">0</div>
                         </div>
+                        <div class="mt-4 pt-4 border-t border-blue-100/50 relative z-10">
+                            <a href="appointments.html" class="text-blue-600 text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Appointments <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50/50 rounded-2xl p-5 border border-purple-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-purple-500 shadow-sm">
+                                <i class="fa-solid fa-bag-shopping text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Total Orders</div>
+                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-total-orders">0</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-purple-100/50 relative z-10">
+                            <a href="orders.html" class="text-purple-600 text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Orders <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-50/50 rounded-2xl p-5 border border-orange-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-orange-400 shadow-sm">
+                                <i class="fa-solid fa-heart text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Saved Items</div>
+                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-saved-items">0</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-orange-100/50 relative z-10">
+                            <a href="wishlist.html" class="text-orange-500 text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Wishlist <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mid Section -->
+                <div class="flex flex-col xl:flex-row gap-6">
+                    <!-- Continue Health Journey -->
+                    <div class="flex-[3] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 flex flex-col">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-wave-square text-[#106e39]"></i> Continue Your Health Journey
+                            </h3>
+                            <a href="programs.html" class="text-[13px] font-bold text-gray-500 hover:text-[#106e39] transition-colors border-b border-transparent hover:border-[#106e39]">View All Programs</a>
+                        </div>
+                        
+                        <div id="active-program-container" class="border border-gray-100 rounded-xl p-4 flex flex-col sm:flex-row gap-5 items-center bg-gray-50/30">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Appointment -->
+                    <div class="flex-[2] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 flex flex-col">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-regular fa-calendar-check text-[#106e39]"></i> Upcoming Appointment
+                            </h3>
+                            <a href="appointments.html" class="text-[13px] font-bold text-gray-500 hover:text-[#106e39] transition-colors border-b border-transparent hover:border-[#106e39]">View All</a>
+                        </div>
+                        
+                        <div id="upcoming-appt-container" class="border border-gray-100 rounded-xl p-5 flex items-center gap-5 bg-gray-50/30">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="mt-2">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Quick Links</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <a href="documents.html" class="bg-white rounded-xl border border-gray-100 p-4 flex items-center gap-4 hover:border-[#106e39] hover:shadow-md transition-all group">
+                            <div class="w-10 h-10 rounded-full bg-[#f2fbf5] text-[#106e39] flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fa-regular fa-file-lines"></i>
+                            </div>
+                            <span class="font-bold text-[14px] text-gray-800">Upload Documents</span>
+                        </a>
+                        <a href="../store.html" class="bg-white rounded-xl border border-gray-100 p-4 flex items-center gap-4 hover:border-[#106e39] hover:shadow-md transition-all group">
+                            <div class="w-10 h-10 rounded-full bg-[#f2fbf5] text-[#106e39] flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <span class="font-bold text-[14px] text-gray-800">Browse Store</span>
+                        </a>
+                        <a href="health-profile.html" class="bg-white rounded-xl border border-gray-100 p-4 flex items-center gap-4 hover:border-[#106e39] hover:shadow-md transition-all group">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-book-medical"></i>
+                            </div>
+                            <span class="font-bold text-[14px] text-gray-800">Health Library</span>
+                        </a>
+                        <a href="settings.html" class="bg-white rounded-xl border border-gray-100 p-4 flex items-center gap-4 hover:border-[#106e39] hover:shadow-md transition-all group">
+                            <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <span class="font-bold text-[14px] text-gray-800">Help & Support</span>
+                        </a>
                     </div>
                 </div>
 
@@ -70,10 +176,116 @@
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
     <script>
-        document.addEventListener('hbm:auth-ready', () => {
-            if (window.HBM_USER) {
-                document.getElementById('welcome-name').textContent = window.HBM_USER.first_name;
+        document.addEventListener('hbm:auth-ready', async () => {
+            const user = window.HBM_USER;
+            if (!user) return;
+            
+            document.getElementById('welcome-name').textContent = user.first_name;
+
+            try {
+                // Fetch full profile data for dashboard overview
+                const res = await HBM_API.user.getProfile();
+                const profileData = res.data;
+                
+                // Populate Summary Cards
+                document.getElementById('summary-active-programs').textContent = profileData.active_programs || 0;
+                document.getElementById('summary-appointments').textContent = profileData.appointments || 0;
+                document.getElementById('summary-total-orders').textContent = profileData.total_orders || 0;
+                document.getElementById('summary-saved-items').textContent = profileData.saved_items || 0;
+                
+                // Populate Active Program
+                const progContainer = document.getElementById('active-program-container');
+                if (profileData.active_program) {
+                    const p = profileData.active_program;
+                const startDateStr = new Date(p.enrolled_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+                
+                progContainer.innerHTML = `
+                    <div class="w-32 h-20 bg-gray-200 rounded-lg overflow-hidden shrink-0">
+                        <img src="../assets/program-placeholder.jpg" alt="Program" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=300&auto=format&fit=crop'">
+                    </div>
+                    <div class="flex-1 w-full">
+                        <h4 class="font-bold text-gray-800 text-[15px]">${p.name}</h4>
+                        <p class="text-[12px] text-gray-500 mt-1 mb-3">Started on ${startDateStr}</p>
+                        <div class="flex items-center gap-3">
+                            <div class="flex-1 bg-gray-200 rounded-full h-2 overflow-hidden">
+                                <div class="bg-[#106e39] h-full rounded-full" style="width: ${p.progress}%"></div>
+                            </div>
+                            <span class="text-[11px] font-bold text-gray-500 min-w-[80px]">${p.progress}% Completed</span>
+                        </div>
+                    </div>
+                    <div class="shrink-0">
+                        <a href="programs.html" class="inline-block bg-[#106e39] text-white text-[13px] font-bold px-5 py-2.5 rounded-lg shadow-sm hover:bg-[#0b4d28] transition-colors">Continue</a>
+                    </div>
+                `;
+            } else {
+                progContainer.innerHTML = `
+                    <div class="flex-1 flex flex-col items-center text-center p-4">
+                        <div class="w-12 h-12 rounded-full bg-[#106e39]/10 text-[#106e39] flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">You are not enrolled in any programs yet. Discover our health plans to start your journey.</p>
+                        <a href="../program.html" class="inline-block bg-[#106e39] text-white text-[13px] font-bold px-5 py-2.5 rounded-lg shadow-sm hover:bg-[#0b4d28] transition-colors">Explore Programs</a>
+                    </div>
+                `;
             }
+
+                // Populate Upcoming Appointment
+                const apptContainer = document.getElementById('upcoming-appt-container');
+                if (profileData.upcoming_appointment) {
+                    const a = profileData.upcoming_appointment;
+                    const apptDate = new Date(a.date);
+                    const day = apptDate.toLocaleDateString('en-GB', { day: '2-digit' });
+                    const monthYear = apptDate.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }).replace(' ', '<br>');
+                    
+                    // Format Time (assuming format is HH:MM:SS)
+                    const formatTime = (timeStr) => {
+                        const [h, m] = timeStr.split(':');
+                        const d = new Date(); d.setHours(h); d.setMinutes(m);
+                        return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+                    };
+                    
+                    // Constructing an end time 30 mins later for display logic
+                    const [h, m] = a.time.split(':');
+                    const d = new Date(); d.setHours(h); d.setMinutes(parseInt(m) + 30);
+                    const endTime = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+                    const timeStr = `${formatTime(a.time)} - ${endTime}`;
+
+                    let badgeClass = "bg-green-100 text-[#106e39]";
+                    if (a.status === 'pending') badgeClass = "bg-orange-100 text-orange-600";
+                    
+                    apptContainer.innerHTML = `
+                        <div class="w-[70px] h-[75px] bg-[#f2fbf5] border border-green-50 rounded-xl flex flex-col items-center justify-center shrink-0">
+                            <span class="text-2xl font-bold text-gray-800 leading-none mb-1">${day}</span>
+                            <span class="text-[11px] font-bold text-gray-500 text-center leading-tight">${monthYear}</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-[12px] text-gray-500 mb-0.5">Consultation with</p>
+                            <h4 class="font-bold text-gray-800 text-[14px] mb-2">${a.doctor_name}</h4>
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                                <p class="text-[12px] font-medium text-gray-500 flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> ${timeStr}</p>
+                                <span class="px-2.5 py-1 ${badgeClass} text-[10px] font-bold uppercase tracking-wider rounded capitalize">${a.status}</span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    apptContainer.innerHTML = `
+                        <div class="flex-1 flex flex-col items-center text-center p-3">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center mb-3">
+                                <i class="fa-solid fa-calendar-plus text-xl"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">You have no upcoming appointments.</p>
+                            <a href="appointments.html" class="text-blue-600 text-[13px] font-bold hover:underline">Book an Appointment</a>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error("Failed to load profile overview data", error);
+            }
+            
+            // Fade in the dashboard smoothly
+            setTimeout(() => {
+                document.getElementById('dashboard-main').classList.remove('opacity-0');
+            }, 50);
         });
     </script>
 </body>
