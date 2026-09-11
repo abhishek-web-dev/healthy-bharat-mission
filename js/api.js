@@ -1,5 +1,8 @@
 const HBM_API = {
-    baseUrl: 'http://localhost:8000/api',
+    // Automatically use localhost for local development, otherwise point to your production backend
+    baseUrl: (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? 'http://localhost:8000/api'
+        : 'https://healthy-bharat-mission-backend-production.up.railway.app/api', // <-- Update this to your actual Railway URL later!
 
     getToken: function() {
         return localStorage.getItem('hbm_token');
