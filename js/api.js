@@ -64,6 +64,13 @@ const HBM_API = {
             throw error;
         }
     },
+    auth: {
+        changePassword: (data) => HBM_API.request('/auth/change-password', 'POST', data),
+    },
+    user: {
+        getProfile: () => HBM_API.request('/user/profile'),
+        updateProfile: (data) => HBM_API.request('/user/profile', 'PUT', data),
+    },
     checkout: {
         getAddresses: () => HBM_API.request('/user/addresses'),
         saveAddress: (data) => HBM_API.request('/user/addresses', 'POST', data),

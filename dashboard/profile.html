@@ -20,43 +20,371 @@
             <hbm-dashboard-sidebar active-page="profile"></hbm-dashboard-sidebar>
 
             <!-- Main Content -->
-            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
-                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
-                    <div>
-                        <h2 class="text-2xl font-heading font-bold text-gray-800">My Profile</h2>
-                        <p class="text-gray-500 mt-1">Manage your personal information.</p>
+            <div id="dashboard-main" class="flex-1 min-w-0 flex flex-col gap-6 transition-opacity duration-300">
+                <!-- Header Banner -->
+                <div class="bg-gradient-to-r from-[#f2fbf5] to-green-100 rounded-2xl p-6 lg:p-8 relative overflow-hidden flex items-center shadow-sm">
+                    <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
+
+                        <div>
+                            <h2 id="prof-greeting" class="text-3xl font-heading font-bold text-green-950 mb-1">Hello!</h2>
+                            <p class="text-[#106e39] text-[14px]">Manage your personal information and keep your profile up to date.</p>
+                        </div>
                     </div>
                 </div>
 
-                <form class="max-w-2xl">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
-                        <div>
-                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">First Name</label>
-                            <div class="flex items-center rounded-xl border border-gray-200 bg-gray-50 h-[50px] px-4">
-                                <input type="text" id="prof-fname" disabled class="w-full bg-transparent outline-none text-[14px] text-gray-700 font-medium">
-                            </div>
+                <!-- Tabs and Content Container -->
+                <div class="flex flex-col xl:flex-row gap-6">
+                    <!-- Left Side: Tabs & Details -->
+                    <div class="flex-1 min-w-0 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col">
+                        <!-- Tabs Header -->
+                        <div class="flex border-b border-gray-100 overflow-x-auto px-2 pt-2 scrollbar-hide">
+                            <button data-tab="personal-info" class="tab-btn px-6 py-4 border-b-2 border-[#106e39] text-[#106e39] font-bold text-[14px] flex items-center gap-2 whitespace-nowrap">
+                                <i class="fa-regular fa-user"></i> Personal Information
+                            </button>
+                            <button data-tab="contact-details" class="tab-btn px-6 py-4 border-b-2 border-transparent text-gray-500 hover:text-gray-800 font-medium text-[14px] flex items-center gap-2 whitespace-nowrap transition-colors">
+                                <i class="fa-solid fa-phone"></i> Contact Details
+                            </button>
+                            <button data-tab="address" class="tab-btn px-6 py-4 border-b-2 border-transparent text-gray-500 hover:text-gray-800 font-medium text-[14px] flex items-center gap-2 whitespace-nowrap transition-colors">
+                                <i class="fa-solid fa-location-dot"></i> Address
+                            </button>
+                            <button data-tab="account-settings" class="tab-btn px-6 py-4 border-b-2 border-transparent text-gray-500 hover:text-gray-800 font-medium text-[14px] flex items-center gap-2 whitespace-nowrap transition-colors">
+                                <i class="fa-solid fa-gear"></i> Account Settings
+                            </button>
                         </div>
-                        <div>
-                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">Last Name</label>
-                            <div class="flex items-center rounded-xl border border-gray-200 bg-gray-50 h-[50px] px-4">
-                                <input type="text" id="prof-lname" disabled class="w-full bg-transparent outline-none text-[14px] text-gray-700 font-medium">
+                        
+                        <!-- Tab Content -->
+                        <div class="p-6 lg:p-8">
+                            <div id="tab-personal-info" class="tab-content block">
+                                <div class="flex justify-between items-start md:items-center mb-8 flex-col md:flex-row gap-4">
+                                    <div>
+                                        <h3 class="text-[16px] font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-user text-[#106e39]"></i> Personal Information</h3>
+                                        <p class="text-[12px] text-gray-500 mt-1">Update your basic details</p>
+                                    </div>
+                                    <button id="btn-edit-profile" class="px-5 py-2 border border-[#106e39] text-[#106e39] rounded-lg text-[13px] font-bold hover:bg-[#f2fbf5] transition-colors flex items-center gap-2 whitespace-nowrap">
+                                        <i class="fa-solid fa-pen"></i> Edit
+                                    </button>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-12">
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Full Name</p>
+                                        <p id="val-fullname" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Patient ID</p>
+                                        <p id="val-patient-id" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Date of Birth</p>
+                                        <p id="val-dob" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Member Since</p>
+                                        <p id="val-member-since" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Gender</p>
+                                        <p id="val-gender" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Age</p>
+                                        <p id="val-age" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Blood Group</p>
+                                        <p id="val-blood-group" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[12px] text-gray-500 mb-1">Nationality</p>
+                                        <p id="val-nationality" class="font-bold text-[14px] text-gray-900">--</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">Email Address</label>
-                            <div class="flex items-center rounded-xl border border-gray-200 bg-gray-50 h-[50px] px-4">
-                                <input type="email" id="prof-email" disabled class="w-full bg-transparent outline-none text-[14px] text-gray-700 font-medium">
+
+                            <div id="tab-contact-details" class="tab-content hidden">
+                                <div class="mb-8">
+                                    <h3 class="text-[16px] font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-phone text-[#106e39]"></i> Contact Details</h3>
+                                    <p class="text-[12px] text-gray-500 mt-1">Manage your email and phone number</p>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <i class="fa-solid fa-envelope text-gray-400"></i>
+                                            <p class="text-[13px] font-bold text-gray-700">Email Address</p>
+                                        </div>
+                                        <p id="val-email" class="text-[15px] text-gray-900 font-medium mb-1">--</p>
+                                        <p class="text-[11px] text-gray-500">Primary identifier (cannot be changed)</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <i class="fa-solid fa-phone text-gray-400"></i>
+                                            <p class="text-[13px] font-bold text-gray-700">Phone Number</p>
+                                        </div>
+                                        <p id="val-phone" class="text-[15px] text-gray-900 font-medium mb-3">--</p>
+                                        <button onclick="document.getElementById('btn-edit-profile').click()" class="text-[#106e39] text-[12px] font-bold hover:underline">Change Phone Number</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">Phone Number</label>
-                            <div class="flex items-center rounded-xl border border-gray-200 bg-gray-50 h-[50px] px-4">
-                                <input type="tel" id="prof-phone" disabled class="w-full bg-transparent outline-none text-[14px] text-gray-700 font-medium">
+
+                            <div id="tab-address" class="tab-content hidden">
+                                <div class="flex justify-between items-start md:items-center mb-8 flex-col md:flex-row gap-4">
+                                    <div>
+                                        <h3 class="text-[16px] font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-location-dot text-[#106e39]"></i> Addresses</h3>
+                                        <p class="text-[12px] text-gray-500 mt-1">Manage your delivery addresses</p>
+                                    </div>
+                                    <button id="btn-add-address" class="px-5 py-2 border border-[#106e39] text-[#106e39] rounded-lg text-[13px] font-bold hover:bg-[#f2fbf5] transition-colors flex items-center gap-2 whitespace-nowrap">
+                                        <i class="fa-solid fa-plus"></i> Add Address
+                                    </button>
+                                </div>
+                                
+                                <div id="address-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- Addresses loaded here dynamically -->
+                                    <div class="col-span-full py-8 text-center text-gray-500">
+                                        <div class="w-8 h-8 border-4 border-[#106e39] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                                        Loading addresses...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab-account-settings" class="tab-content hidden">
+                                <div class="mb-8">
+                                    <h3 class="text-[16px] font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-shield-halved text-[#106e39]"></i> Security Settings</h3>
+                                    <p class="text-[12px] text-gray-500 mt-1">Change your password and manage account security</p>
+                                </div>
+                                <form id="change-password-form" class="max-w-md bg-gray-50 p-6 md:p-8 rounded-2xl border border-gray-100">
+                                    <div id="change-pwd-error" class="hidden mb-6 bg-red-50 text-red-600 p-3 rounded-lg text-[13px] border border-red-100 flex items-start gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation mt-0.5"></i>
+                                        <span class="flex-1"></span>
+                                    </div>
+                                    <div id="change-pwd-success" class="hidden mb-6 bg-[#f2fbf5] text-green-700 p-3 rounded-lg text-[13px] border border-green-100 flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-check mt-0.5"></i>
+                                        <span class="flex-1">Password updated successfully.</span>
+                                    </div>
+                                    
+                                    <div class="mb-5">
+                                        <label class="block text-[13px] font-semibold text-gray-700 mb-2">Current Password</label>
+                                        <input type="password" id="pwd-current" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                                    </div>
+                                    <div class="mb-5">
+                                        <label class="block text-[13px] font-semibold text-gray-700 mb-2">New Password</label>
+                                        <input type="password" id="pwd-new" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                                        <p class="text-[11px] text-gray-500 mt-2">Must be at least 8 chars with 1 uppercase, 1 lowercase, 1 number, and 1 special character.</p>
+                                    </div>
+                                    <div class="mb-8">
+                                        <label class="block text-[13px] font-semibold text-gray-700 mb-2">Confirm New Password</label>
+                                        <input type="password" id="pwd-confirm" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                                    </div>
+                                    <button type="submit" id="btn-change-pwd" class="w-full h-11 bg-[#106e39] text-white rounded-xl font-bold text-[14px] hover:bg-[#0b4d28] transition-colors">
+                                        Update Password
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </form>
 
+                    <!-- Right Side: Sidebar Cards -->
+                    <div class="w-full shrink-0 flex flex-col gap-6" style="max-width: 320px;">
+                        <!-- Promo Banner -->
+                        <div class="bg-[#f2fbf5] rounded-2xl p-6 relative overflow-hidden border border-[#d8efe2]">
+                            <div class="relative z-10">
+                                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#106e39] text-xl shadow-sm mb-4">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+                                <h3 class="text-[18px] font-bold text-[#052b14] leading-tight mb-2">Your Health<br>Matters</h3>
+                                <p class="text-[12px] text-[#2b5a41]">Stay informed, stay healthy,<br>stay with us.</p>
+                            </div>
+                        </div>
+
+                        <!-- Profile Summary -->
+                        <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6">
+                            <h3 class="text-[15px] font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                <i class="fa-solid fa-clipboard-list text-[#106e39]"></i> Profile Summary
+                            </h3>
+                            
+                            <div class="flex flex-col gap-5">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3 text-gray-600">
+                                        <i class="fa-solid fa-user text-[14px] w-4 text-center"></i>
+                                        <span class="text-[13px] font-medium">Health Profile</span>
+                                    </div>
+                                    <div id="summary-health-profile">--</div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3 text-gray-600">
+                                        <i class="fa-solid fa-stethoscope text-[14px] w-4 text-center"></i>
+                                        <span class="text-[13px] font-medium">Active Programs</span>
+                                    </div>
+                                    <div class="bg-[#f2fbf5] text-[#106e39] text-[11px] font-bold px-2 py-0.5 rounded">
+                                        <span id="summary-active-programs">0</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3 text-gray-600">
+                                        <i class="fa-solid fa-box text-[14px] w-4 text-center"></i>
+                                        <span class="text-[13px] font-medium">Total Orders</span>
+                                    </div>
+                                    <div class="bg-[#f2fbf5] text-[#106e39] text-[11px] font-bold px-2 py-0.5 rounded">
+                                        <span id="summary-total-orders">0</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3 text-gray-600">
+                                        <i class="fa-solid fa-calendar-check text-[14px] w-4 text-center"></i>
+                                        <span class="text-[13px] font-medium">Appointments</span>
+                                    </div>
+                                    <div class="bg-[#f2fbf5] text-[#106e39] text-[11px] font-bold px-2 py-0.5 rounded">
+                                        <span id="summary-appointments">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="fixed inset-0 bg-black/50 z-[100] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden transform scale-95 transition-transform duration-300">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                <h3 class="text-lg font-bold text-gray-800">Edit Personal Information</h3>
+                <button id="close-edit-modal" class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="edit-profile-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">First Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="edit-fname" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px] text-gray-700">
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Last Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="edit-lname" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px] text-gray-700">
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="edit-phone" class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px] text-gray-700">
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Date of Birth</label>
+                            <input type="date" id="edit-dob" class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px] text-gray-700">
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Gender</label>
+                            <select id="edit-gender" class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px] text-gray-700 bg-white">
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer_not_to_say">Prefer not to say</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Blood Group</label>
+                            <select id="edit-blood-group" class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px] text-gray-700 bg-white">
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-3 mt-8">
+                        <button type="button" id="btn-cancel-edit" class="px-5 py-2.5 rounded-lg border border-gray-200 text-gray-600 font-medium text-[14px] hover:bg-gray-50 transition-colors">Cancel</button>
+                        <button type="submit" id="btn-save-profile" class="px-5 py-2.5 rounded-lg bg-[#106e39] text-white font-bold text-[14px] hover:bg-[#0c532b] transition-colors flex items-center gap-2">
+                            <span>Save Changes</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Address Modal -->
+    <div id="address-modal" class="fixed inset-0 bg-black/50 z-[100] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-300">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                <h3 class="text-lg font-bold text-gray-800" id="address-modal-title">Add New Address</h3>
+                <button id="close-address-modal" class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="address-form">
+                    <input type="hidden" id="addr-id">
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[13px] font-semibold text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="addr-fname" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                            </div>
+                            <div>
+                                <label class="block text-[13px] font-semibold text-gray-700 mb-2">Last Name</label>
+                                <input type="text" id="addr-lname" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[13px] font-semibold text-gray-700 mb-2">Phone</label>
+                                <input type="text" id="addr-phone" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                            </div>
+                            <div>
+                                <label class="block text-[13px] font-semibold text-gray-700 mb-2">Address Type</label>
+                                <select id="addr-type" class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px] bg-white">
+                                    <option value="home">Home</option>
+                                    <option value="work">Work</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Address Line 1</label>
+                            <input type="text" id="addr-line1" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Address Line 2 (Optional)</label>
+                            <input type="text" id="addr-line2" class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-semibold text-gray-700 mb-2">Landmark (Optional)</label>
+                            <input type="text" id="addr-landmark" class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[13px] font-semibold text-gray-700 mb-2">City</label>
+                                <input type="text" id="addr-city" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                            </div>
+                            <div>
+                                <label class="block text-[13px] font-semibold text-gray-700 mb-2">State</label>
+                                <input type="text" id="addr-state" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[13px] font-semibold text-gray-700 mb-2">ZIP / Pincode</label>
+                                <input type="text" id="addr-pincode" required class="w-full h-11 px-4 rounded-xl border border-gray-200 focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] outline-none text-[14px]">
+                            </div>
+                            <div class="flex items-center pt-8">
+                                <input type="checkbox" id="addr-default" class="rounded text-[#106e39] focus:ring-[#106e39] mr-2">
+                                <label for="addr-default" class="text-[13px] text-gray-700 font-medium cursor-pointer">Set as default</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-3 mt-8">
+                        <button type="button" id="btn-cancel-address" class="px-5 py-2.5 rounded-lg border border-gray-200 text-gray-600 font-medium text-[14px] hover:bg-gray-50 transition-colors">Cancel</button>
+                        <button type="submit" id="btn-save-address" class="px-5 py-2.5 rounded-lg bg-[#106e39] text-white font-bold text-[14px] hover:bg-[#0b4d28] transition-colors flex items-center gap-2">
+                            <span>Save Address</span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -65,15 +393,6 @@
     <script src="../js/api.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
-    <script>
-        document.addEventListener('hbm:auth-ready', () => {
-            if (window.HBM_USER) {
-                document.getElementById('prof-fname').value = window.HBM_USER.first_name || '';
-                document.getElementById('prof-lname').value = window.HBM_USER.last_name || '';
-                document.getElementById('prof-email').value = window.HBM_USER.email || '';
-                document.getElementById('prof-phone').value = window.HBM_USER.phone || '';
-            }
-        });
-    </script>
+    <script src="../js/profile.js"></script>
 </body>
 </html>
