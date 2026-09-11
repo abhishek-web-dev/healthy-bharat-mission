@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
 
-            if (path.includes('login.html')) {
+            if (path.includes('login')) {
                 const email = form.querySelector('input[type="email"]').value;
                 const password = form.querySelector('input[placeholder="Enter your password"]')?.value;
                 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
-            else if (path.includes('register.html')) {
+            else if (path.includes('register')) {
                 const fName = form.querySelector('input[placeholder="Enter your first name"]').value;
                 const lName = form.querySelector('input[placeholder="Enter your last name"]').value;
                 const email = form.querySelector('input[type="email"]').value;
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            else if (path.includes('forgot-password.html')) {
+            else if (path.includes('forgot-password')) {
                 const email = form.querySelector('input[type="email"]').value;
                 if (!isValidEmailDomain(email)) {
                     showError(form, 'Please use a valid email domain (e.g. @gmail.com, @yahoo.com)');
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            else if (path.includes('reset-password.html')) {
+            else if (path.includes('reset-password')) {
                 // We'd extract token from URL, e.g., ?token=xyz
                 const urlParams = new URLSearchParams(window.location.search);
                 const token = urlParams.get('token') || '';
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            else if (path.includes('verify-otp.html')) {
+            else if (path.includes('verify-otp')) {
                 // Collect OTP from all inputs
                 const inputs = form.querySelectorAll('input[type="text"]');
                 let otp = '';
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // OTP Input logic (auto focus next, clear values on load)
-    if (path.includes('verify-otp.html')) {
+    if (path.includes('verify-otp')) {
         const otpInputs = document.querySelectorAll('.otp-input');
         
         // Timer Logic
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Dynamic Password Requirements Validation
-    if (path.includes('reset-password.html')) {
+    if (path.includes('reset-password')) {
         const passInput = document.querySelector('input[placeholder="Enter your new password"]');
         if (passInput) {
             passInput.addEventListener('input', function() {
