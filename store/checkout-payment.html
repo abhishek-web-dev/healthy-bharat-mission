@@ -133,17 +133,18 @@
                         <div class="flex flex-col" style="gap: 16px;">
                             
                             <!-- Option 1: UPI (Selected) -->
-                            <div class="rounded-2xl border-2 border-[#106e39] bg-[#f0fbf4] cursor-pointer" style="padding: 16px 24px;">
+                            <label class="payment-method-card rounded-2xl border-2 border-[#106e39] bg-[#f0fbf4] cursor-pointer block transition-colors" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-upi" value="upi" class="hidden peer" checked>
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-4">
-                                        <!-- Custom Radio Checked -->
-                                        <div class="w-5 h-5 rounded-full border-2 border-[#106e39] flex items-center justify-center">
-                                            <div class="w-2.5 h-2.5 rounded-full bg-[#106e39]"></div>
+                                        <!-- Custom Radio -->
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
                                         </div>
                                         <!-- Icon -->
-                                        <i class="fa-solid fa-qrcode text-xl text-[#106e39]"></i>
+                                        <i class="fa-solid fa-qrcode text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
                                         <div>
-                                            <p class="text-[14px] font-bold text-[#106e39]">UPI (Recommended)</p>
+                                            <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">UPI (Recommended)</p>
                                             <p class="text-[12px] text-gray-500">Pay using any UPI app (Google Pay, PhonePe, Paytm, etc.)</p>
                                         </div>
                                     </div>
@@ -153,18 +154,21 @@
                                         <i class="fa-brands fa-paypal"></i>
                                     </div>
                                 </div>
-                            </div>
+                            </label>
 
                             <!-- Option 2: Credit / Debit Card -->
-                            <div class="rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer" style="padding: 16px 24px;">
+                            <label class="payment-method-card rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer block" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-card" value="card" class="hidden peer">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-4">
-                                        <!-- Custom Radio Unchecked -->
-                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+                                        <!-- Custom Radio -->
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
+                                        </div>
                                         <!-- Icon -->
-                                        <i class="fa-regular fa-credit-card text-xl text-gray-700"></i>
+                                        <i class="fa-regular fa-credit-card text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
                                         <div>
-                                            <p class="text-[14px] font-bold text-[#1e293b]">Credit / Debit Card</p>
+                                            <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">Credit / Debit Card</p>
                                             <p class="text-[12px] text-gray-500">Visa, Mastercard, RuPay and more</p>
                                         </div>
                                     </div>
@@ -173,35 +177,41 @@
                                         <i class="fa-brands fa-cc-mastercard text-red-500"></i>
                                     </div>
                                 </div>
-                            </div>
+                            </label>
 
                             <!-- Option 3: Net Banking -->
-                            <div class="rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer" style="padding: 16px 24px;">
+                            <label class="payment-method-card rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer block" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-netbanking" value="net_banking" class="hidden peer">
                                 <div class="flex items-center gap-4">
-                                    <!-- Custom Radio Unchecked -->
-                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+                                    <!-- Custom Radio -->
+                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
+                                    </div>
                                     <!-- Icon -->
-                                    <i class="fa-solid fa-building-columns text-xl text-gray-700"></i>
+                                    <i class="fa-solid fa-building-columns text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
                                     <div>
-                                        <p class="text-[14px] font-bold text-[#1e293b]">Net Banking</p>
+                                        <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">Net Banking</p>
                                         <p class="text-[12px] text-gray-500">All major banks supported</p>
                                     </div>
                                 </div>
-                            </div>
+                            </label>
 
                             <!-- Option 4: COD -->
-                            <div class="rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer" style="padding: 16px 24px;">
+                            <label class="payment-method-card rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer block" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-cod" value="cod" class="hidden peer">
                                 <div class="flex items-center gap-4">
-                                    <!-- Custom Radio Unchecked -->
-                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+                                    <!-- Custom Radio -->
+                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
+                                    </div>
                                     <!-- Icon -->
-                                    <i class="fa-solid fa-truck text-xl text-gray-700"></i>
+                                    <i class="fa-solid fa-truck text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
                                     <div>
-                                        <p class="text-[14px] font-bold text-[#1e293b]">Cash on Delivery</p>
+                                        <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">Cash on Delivery</p>
                                         <p class="text-[12px] text-gray-500">Pay when you receive your order</p>
                                     </div>
                                 </div>
-                            </div>
+                            </label>
 
                         </div>
                     </div>
@@ -225,7 +235,7 @@
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h2 class="text-[20px] font-bold text-[#1e293b]">Order Summary</h2>
-                                    <p class="text-gray-500 text-[13px]">3 Items</p>
+                                    <p class="text-gray-500 text-[13px]" id="checkout-subtotal-label">Loading items...</p>
                                 </div>
                                 <a href="cart.html" class="text-[14px] font-bold text-[#106e39] hover:underline flex items-center gap-1.5">
                                     <i class="fa-solid fa-pencil text-[12px]"></i> Edit Cart
@@ -235,53 +245,10 @@
                         
                         <!-- Items -->
                         <div style="padding: 0 32px 24px 32px;">
-                            <div class="flex flex-col" style="gap: 24px;">
-                                <!-- Item 1 -->
-                                <div class="flex justify-between gap-4">
-                                    <div class="flex gap-4">
-                                        <div class="w-16 h-16 rounded-xl border border-gray-200 bg-white p-1 flex items-center justify-center flex-shrink-0">
-                                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="max-w-full max-h-full object-contain mix-blend-multiply" alt="Product">
-                                        </div>
-                                        <div>
-                                            <h3 class="text-[#1e293b] font-bold text-[13px] leading-tight mb-1 max-w-[150px]">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</h3>
-                                        </div>
-                                    </div>
-                                    <div class="text-right flex-shrink-0">
-                                        <div class="text-[#106e39] font-black text-[15px]">₹999.00</div>
-                                        <div class="text-gray-500 text-[13px] font-medium mt-1">Qty: 1</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Item 2 -->
-                                <div class="flex justify-between gap-4">
-                                    <div class="flex gap-4">
-                                        <div class="w-16 h-16 rounded-xl border border-gray-200 bg-white p-1 flex items-center justify-center flex-shrink-0">
-                                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="max-w-full max-h-full object-contain mix-blend-multiply" alt="Product">
-                                        </div>
-                                        <div>
-                                            <h3 class="text-[#1e293b] font-bold text-[13px] leading-tight mb-1 max-w-[150px]">Diabexy Nutrition Combo (Reversol, Basics, Anteflame)</h3>
-                                        </div>
-                                    </div>
-                                    <div class="text-right flex-shrink-0">
-                                        <div class="text-[#106e39] font-black text-[15px]">₹1,301.00</div>
-                                        <div class="text-gray-500 text-[13px] font-medium mt-1">Qty: 1</div>
-                                    </div>
-                                </div>
-
-                                <!-- Item 3 -->
-                                <div class="flex justify-between gap-4">
-                                    <div class="flex gap-4">
-                                        <div class="w-16 h-16 rounded-xl border border-gray-200 bg-white p-1 flex items-center justify-center flex-shrink-0">
-                                            <img src="../assets/herbal_supplements.png" class="max-w-full max-h-full object-contain mix-blend-multiply" alt="Product">
-                                        </div>
-                                        <div>
-                                            <h3 class="text-[#1e293b] font-bold text-[13px] leading-tight mb-1 max-w-[150px]">Nutroactive Lipolyzer<br>30 Tablets</h3>
-                                        </div>
-                                    </div>
-                                    <div class="text-right flex-shrink-0">
-                                        <div class="text-[#106e39] font-black text-[15px]">₹1,094.00</div>
-                                        <div class="text-gray-500 text-[13px] font-medium mt-1">Qty: 1</div>
-                                    </div>
+                            <div id="checkout-order-summary-items" class="flex flex-col" style="gap: 24px;">
+                                <!-- Dynamic items will be injected here -->
+                                <div class="text-center py-4 text-gray-400">
+                                    <i class="fa-solid fa-circle-notch fa-spin"></i> Loading...
                                 </div>
                             </div>
                         </div>
@@ -293,16 +260,20 @@
                         <div style="padding: 24px 32px 16px 32px;">
                             <div class="flex flex-col" style="gap: 12px;">
                                 <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
-                                    <span>Subtotal (3 items)</span>
-                                    <span class="font-bold">₹3,394.00</span>
+                                    <span>Subtotal</span>
+                                    <span class="font-bold" id="checkout-subtotal">₹0.00</span>
                                 </div>
-                                <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                <div id="checkout-discount-row" class="hidden flex justify-between text-[#1e293b] font-medium text-[13px]">
                                     <span>Discount</span>
-                                    <span class="font-bold text-[#106e39]">- ₹200.00</span>
+                                    <span class="font-bold text-[#106e39]" id="checkout-discount">- ₹0.00</span>
                                 </div>
                                 <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
                                     <span>Shipping</span>
-                                    <span class="font-bold text-[#106e39]">Free</span>
+                                    <span class="font-bold" id="checkout-shipping">₹0.00</span>
+                                </div>
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Tax (GST 5%)</span>
+                                    <span class="font-bold" id="checkout-tax">₹0.00</span>
                                 </div>
                             </div>
                         </div>
@@ -311,11 +282,11 @@
                         <div class="bg-[#f0fbf4] mx-4 mb-4 rounded-xl" style="padding: 20px 24px;">
                             <div class="flex justify-between items-center mb-4">
                                 <span class="text-[18px] font-bold text-[#1e293b]">Total Amount</span>
-                                <span class="text-[22px] font-black" style="color: #0a4d27;">₹3,194.00</span>
+                                <span class="text-[22px] font-black" style="color: #0a4d27;" id="checkout-total">₹0.00</span>
                             </div>
                             <!-- Savings Tag -->
-                            <div class="rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 text-[13px] font-bold border border-[#d1f0df]" style="background-color: #e2f6e9; color: #0a4d27;">
-                                <i class="fa-solid fa-tag"></i> You save ₹200.00 on this order!
+                            <div id="checkout-savings" class="hidden rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 text-[13px] font-bold border border-[#d1f0df]" style="background-color: #e2f6e9; color: #0a4d27;">
+                                <i class="fa-solid fa-tag"></i> <span id="checkout-savings-text">You save ₹0.00 on this order!</span>
                             </div>
                         </div>
 

@@ -65,14 +65,16 @@ const HBM_API = {
         }
     },
     checkout: {
-        getAddresses: () => request('/api/user/addresses'),
-        saveAddress: (data) => request('/api/user/addresses', { method: 'POST', body: JSON.stringify(data) }),
-        createOrder: (data) => request('/api/orders', { method: 'POST', body: JSON.stringify(data) }),
-        verifyPayment: (data) => request('/api/payments/verify', { method: 'POST', body: JSON.stringify(data) })
+        getAddresses: () => HBM_API.request('/user/addresses'),
+        saveAddress: (data) => HBM_API.request('/user/addresses', 'POST', data),
+        updateAddress: (id, data) => HBM_API.request(`/user/addresses/${id}`, 'PUT', data),
+        deleteAddress: (id) => HBM_API.request(`/user/addresses/${id}`, 'DELETE'),
+        createOrder: (data) => HBM_API.request('/orders', 'POST', data),
+        verifyPayment: (data) => HBM_API.request('/payments/verify', 'POST', data)
     },
     orders: {
-        getAll: () => request('/api/orders'),
-        getDetails: (id) => request(`/api/orders/${id}`)
+        getAll: () => HBM_API.request('/orders'),
+        getDetails: (id) => HBM_API.request(`/orders/${id}`)
     }
 };
 

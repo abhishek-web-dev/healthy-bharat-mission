@@ -473,7 +473,7 @@ async function initCart() {
     }
 
     await renderCart();
-    
+
     // Fetch recommended products dynamically
     try {
         const res = await HBM_API.request('/products');
@@ -484,7 +484,7 @@ async function initCart() {
             if (recContainer) {
                 // createProductCard(p, true) returns a slider-compatible card
                 recContainer.innerHTML = products.map(p => createProductCard(p, true)).join('');
-                
+
                 // Initialize infinite slider
                 if (window.cartSliderInterval) clearInterval(window.cartSliderInterval);
                 window.cartSliderInterval = setInterval(() => {
@@ -492,11 +492,11 @@ async function initCart() {
                     const firstCard = recContainer.firstElementChild;
                     // card width + gap (16px)
                     const cardWidth = firstCard.offsetWidth + 16;
-                    
+
                     // Enable transition and slide left
                     recContainer.style.transition = 'transform 0.5s ease-in-out';
                     recContainer.style.transform = `translateX(-${cardWidth}px)`;
-                    
+
                     setTimeout(() => {
                         // Instantly reset transform and move first child to end
                         recContainer.style.transition = 'none';
@@ -548,9 +548,9 @@ async function renderCart() {
                             <div class="text-gray-400 text-sm mb-3">${item.category_name || 'Product'}</div>
                             
                             ${(item.category_name || '').toLowerCase().includes('health') || (item.name || '').toLowerCase().includes('keto')
-                                ? `<div class="inline-flex items-center gap-1.5 bg-[#e2f6e9] text-[#106e39] px-3 py-1.5 rounded-xl text-xs font-bold w-max"><i class="fa-solid fa-leaf"></i> Healthy Choice</div>`
-                                : (item.brand ? `<div class="inline-flex items-center gap-1.5 bg-[#f1f5f9] text-[#64748b] px-3 py-1.5 rounded-xl text-xs font-bold w-max"><i class="fa-solid fa-tag"></i> ${item.brand}</div>` : '')
-                            }
+                    ? `<div class="inline-flex items-center gap-1.5 bg-[#e2f6e9] text-[#106e39] px-3 py-1.5 rounded-xl text-xs font-bold w-max"><i class="fa-solid fa-leaf"></i> Healthy Choice</div>`
+                    : (item.brand ? `<div class="inline-flex items-center gap-1.5 bg-[#f1f5f9] text-[#64748b] px-3 py-1.5 rounded-xl text-xs font-bold w-max"><i class="fa-solid fa-tag"></i> ${item.brand}</div>` : '')
+                }
                         </div>
                         
                         <div class="flex items-center justify-between mt-5">
@@ -615,10 +615,10 @@ async function removeCartItem(cartItemId) {
 window.currentDiscount = 0;
 window.currentCartSubtotal = 0;
 
-window.applyCoupon = function() {
+window.applyCoupon = function () {
     const code = document.getElementById('coupon-input').value.trim().toUpperCase();
     const msgEl = document.getElementById('coupon-message');
-    
+
     if (code === '') {
         msgEl.innerText = 'Please enter a coupon code.';
         msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
@@ -628,31 +628,34 @@ window.applyCoupon = function() {
 
     if (code === 'HBM1') {
         window.currentDiscount = 100;
+        localStorage.setItem('hbm_discount', 100);
         msgEl.innerText = 'Coupon applied successfully!';
         msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
         msgEl.style.display = 'block';
     } else if (code === 'HBM2') {
         window.currentDiscount = 50;
+        localStorage.setItem('hbm_discount', 50);
         msgEl.innerText = 'Coupon applied successfully!';
         msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
         msgEl.style.display = 'block';
     } else {
         window.currentDiscount = 0;
+        localStorage.removeItem('hbm_discount');
         msgEl.innerText = 'Invalid coupon code.';
         msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
         msgEl.style.display = 'block';
     }
-    
+
     updateCartTotals(window.currentCartSubtotal);
 };
 
 function updateCartTotals(subtotal) {
     window.currentCartSubtotal = subtotal;
-    const discount = window.currentDiscount || 0;
-    
+    const discount = window.currentDiscount || parseFloat(localStorage.getItem('hbm_discount')) || 0;
+
     const subtotalEl = document.getElementById('cart-subtotal');
     if (subtotalEl) subtotalEl.innerText = `₹${subtotal.toFixed(2)}`;
-    
+
     const discountEl = document.getElementById('cart-discount');
     if (discountEl) discountEl.innerText = `- ₹${discount.toFixed(2)}`;
 
@@ -685,11 +688,11 @@ function updateCartTotals(subtotal) {
     const total = Math.max(0, taxableAmount + shipping + tax);
     const totalEl = document.getElementById('cart-total');
     if (totalEl) totalEl.innerText = `₹${total.toFixed(2)}`;
-    
+
     // Savings Banner
     const savingsBanner = document.getElementById('cart-savings-banner');
     const savingsAmount = document.getElementById('cart-savings-amount');
-    
+
     if (discount > 0) {
         if (savingsBanner) {
             savingsBanner.classList.remove('hidden');

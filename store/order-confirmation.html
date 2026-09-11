@@ -59,20 +59,102 @@
             </div>
 
             <!-- Order Details Banner -->
-            <div class="bg-[#f0fbf4] rounded-[14px] border border-[#d1f0df] p-5 max-w-[800px] mx-auto mb-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left shadow-sm relative z-10">
+            <div class="bg-[#f0fbf4] rounded-[14px] border border-[#d1f0df] p-5 max-w-[800px] mx-auto mb-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left shadow-sm relative z-10">
                 <div class="flex-1 md:border-r border-[#d1f0df] md:pr-6">
                     <p class="text-[#106e39] text-[11px] font-bold uppercase tracking-wider mb-1">Order Number</p>
-                    <p class="text-[#1e293b] font-bold text-[15px]">#HBM2509081732</p>
+                    <p class="text-[#1e293b] font-bold text-[15px]" id="confirm-order-number">Loading...</p>
                 </div>
                 <div class="flex-1 md:border-r border-[#d1f0df] md:pr-6 md:pl-2">
                     <p class="text-[#106e39] text-[11px] font-bold uppercase tracking-wider mb-1">Order Date</p>
-                    <p class="text-[#1e293b] font-bold text-[15px]">08 Sep 2026, 05:42 PM</p>
+                    <p class="text-[#1e293b] font-bold text-[15px]" id="confirm-order-date">Loading...</p>
                 </div>
                 <div class="flex-1 md:pl-2">
                     <p class="text-[#106e39] text-[11px] font-bold uppercase tracking-wider mb-1">Payment Status</p>
                     <p class="text-[#106e39] font-bold text-[15px] inline-flex items-center gap-1.5">
                         <i class="fa-solid fa-circle-check"></i> Paid Successfully
                     </p>
+                </div>
+            </div>
+
+            <!-- What's Next & Order Tracker -->
+            <div class="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100 max-w-[800px] mx-auto mb-12" style="padding: 32px;">
+                <h2 class="text-[18px] font-bold text-[#1e293b] mb-10 text-center">What's Next?</h2>
+                
+                <style>
+                    .tracker-line { display: none; position: absolute; top: 24px; left: 12%; right: 12%; height: 2px; background-color: #f3f4f6; z-index: 0; }
+                    .tracker-arrow-desktop { display: none; position: absolute; top: 21px; left: -14px; background-color: white; padding: 0 4px; font-size: 10px; color: #e5e7eb; }
+                    .tracker-arrow-mobile { display: block; margin-top: 16px; color: #e5e7eb; }
+                    .tracker-step-icon { width: 48px; height: 48px; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 12px; position: relative; z-index: 10; margin-left: auto; margin-right: auto; }
+                    .tracker-step-active { background-color: #e2f6e9; color: #106e39; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+                    .tracker-step-inactive { background-color: #f9fbf9; color: #d1d5db; }
+                    @media (min-width: 640px) {
+                        .tracker-line { display: block; }
+                        .tracker-arrow-desktop { display: block; }
+                        .tracker-arrow-mobile { display: none; }
+                    }
+                </style>
+
+                <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between relative mb-10 px-2">
+                    <!-- Connecting Line -->
+                    <div class="tracker-line"></div>
+
+                    <!-- Step 1 (Active) -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative group">
+                        <div class="tracker-step-icon tracker-step-active">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Order Confirmed</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">We've received your order.</p>
+                        <!-- Mobile connecting arrow -->
+                        <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
+                        <div class="tracker-step-icon tracker-step-inactive">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Processing</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">We're preparing your items.</p>
+                        <!-- Arrow overlapping line for desktop -->
+                        <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
+                        <!-- Mobile connecting arrow -->
+                        <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
+                        <div class="tracker-step-icon tracker-step-inactive">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Shipped</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">You'll receive a tracking link.</p>
+                        <!-- Arrow overlapping line for desktop -->
+                        <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
+                        <!-- Mobile connecting arrow -->
+                        <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 relative">
+                        <div class="tracker-step-icon tracker-step-inactive">
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Delivered</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">Get ready for a healthier you!</p>
+                        <!-- Arrow overlapping line for desktop -->
+                        <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4 border-t border-gray-100">
+                    <a href="../store.html" class="w-full sm:w-auto px-8 py-3.5 bg-[#106e39] hover:bg-[#0a4d27] text-white rounded-lg font-bold text-[13px] flex items-center justify-center gap-2 transition-colors shadow-sm text-center" style="min-width: 220px;">
+                        <i class="fa-solid fa-lock"></i> Continue Shopping
+                    </a>
+                    <a href="my-orders.html" class="w-full sm:w-auto px-8 py-3.5 bg-white border border-[#106e39] text-[#106e39] hover:bg-[#f0fbf4] rounded-lg font-bold text-[13px] flex items-center justify-center gap-2 transition-colors text-center" style="min-width: 220px;">
+                        <i class="fa-regular fa-file-lines"></i> View My Orders
+                    </a>
                 </div>
             </div>
 
@@ -83,135 +165,9 @@
                 <div class="w-full lg:w-[65%] flex flex-col" style="gap: 32px;">
                     
                     <!-- Items Ordered -->
-                    <div class="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;">
-                        <h2 class="text-[18px] font-bold text-[#1e293b] mb-6">Items Ordered (3)</h2>
-
-                        <!-- Item 1 -->
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-6 py-5 border-b border-gray-100 last:border-0 last:pb-0 first:pt-0">
-                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/ketoatta_sugarcopy.jpg?v=1753341833" class="w-16 h-16 object-contain rounded-lg bg-[#f9fbf9] mix-blend-multiply border border-gray-100 p-1" alt="Product">
-                            
-                            <div class="flex-1">
-                                <h3 class="text-[#1e293b] font-bold text-[14px] leading-snug mb-1">NutroActive Keto Atta 750g with Keto Sugar 250g Combo</h3>
-                                <div class="text-gray-400 text-[12px] font-medium">Cookies & Snacks</div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between sm:justify-end gap-12 w-full sm:w-auto mt-4 sm:mt-0">
-                                <div class="text-[#1e293b] font-bold text-[13px]">Qty: 1</div>
-                                <div class="text-[#106e39] font-black text-[15px] w-20 text-right">₹999.00</div>
-                            </div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-6 py-5 border-b border-gray-100 last:border-0 last:pb-0">
-                            <img src="https://cdn.shopify.com/s/files/1/0688/6562/2325/files/Diabexy_combo_with_minibreakfastbar.jpg?v=1785315372" class="w-16 h-16 object-contain rounded-lg bg-[#f9fbf9] mix-blend-multiply border border-gray-100 p-1" alt="Product">
-                            
-                            <div class="flex-1">
-                                <h3 class="text-[#1e293b] font-bold text-[14px] leading-snug mb-1">Diabexy Nutrition Combo (Reversol, Basics, Anteflame)</h3>
-                                <div class="text-gray-400 text-[12px] font-medium">Health Foods</div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between sm:justify-end gap-12 w-full sm:w-auto mt-4 sm:mt-0">
-                                <div class="text-[#1e293b] font-bold text-[13px]">Qty: 1</div>
-                                <div class="text-[#106e39] font-black text-[15px] w-20 text-right">₹1,301.00</div>
-                            </div>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-6 py-5 border-b border-gray-100 last:border-0 last:pb-0">
-                            <img src="../assets/herbal_supplements.png" class="w-16 h-16 object-contain rounded-lg bg-[#f9fbf9] mix-blend-multiply border border-gray-100 p-1" alt="Product">
-                            
-                            <div class="flex-1">
-                                <h3 class="text-[#1e293b] font-bold text-[14px] leading-snug mb-1">Nutroactive Lipolyzer 30 Tablets</h3>
-                                <div class="text-gray-400 text-[12px] font-medium">Supplements</div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between sm:justify-end gap-12 w-full sm:w-auto mt-4 sm:mt-0">
-                                <div class="text-[#1e293b] font-bold text-[13px]">Qty: 2</div>
-                                <div class="text-[#106e39] font-black text-[15px] w-20 text-right">₹1,094.00</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- What's Next & Order Tracker -->
-                    <div class="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;">
-                        <h2 class="text-[18px] font-bold text-[#1e293b] mb-10">What's Next?</h2>
-                        
-                        <style>
-                            .tracker-line { display: none; position: absolute; top: 24px; left: 12%; right: 12%; height: 2px; background-color: #f3f4f6; z-index: 0; }
-                            .tracker-arrow-desktop { display: none; position: absolute; top: 21px; left: -14px; background-color: white; padding: 0 4px; font-size: 10px; color: #e5e7eb; }
-                            .tracker-arrow-mobile { display: block; margin-top: 16px; color: #e5e7eb; }
-                            .tracker-step-icon { width: 48px; height: 48px; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 12px; position: relative; z-index: 10; margin-left: auto; margin-right: auto; }
-                            .tracker-step-active { background-color: #e2f6e9; color: #106e39; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-                            .tracker-step-inactive { background-color: #f9fbf9; color: #d1d5db; }
-                            @media (min-width: 640px) {
-                                .tracker-line { display: block; }
-                                .tracker-arrow-desktop { display: block; }
-                                .tracker-arrow-mobile { display: none; }
-                            }
-                        </style>
-
-                        <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between relative mb-12 px-2">
-                            <!-- Connecting Line -->
-                            <div class="tracker-line"></div>
-
-                            <!-- Step 1 (Active) -->
-                            <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative group">
-                                <div class="tracker-step-icon tracker-step-active">
-                                    <i class="fa-regular fa-envelope"></i>
-                                </div>
-                                <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Order Confirmed</h4>
-                                <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">We've received your order.</p>
-                                <!-- Mobile connecting arrow -->
-                                <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
-                            </div>
-
-                            <!-- Step 2 -->
-                            <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
-                                <div class="tracker-step-icon tracker-step-inactive">
-                                    <i class="fa-solid fa-box-open"></i>
-                                </div>
-                                <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Processing</h4>
-                                <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">We're preparing your items.</p>
-                                <!-- Arrow overlapping line for desktop -->
-                                <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
-                                <!-- Mobile connecting arrow -->
-                                <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
-                                <div class="tracker-step-icon tracker-step-inactive">
-                                    <i class="fa-solid fa-truck-fast"></i>
-                                </div>
-                                <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Shipped</h4>
-                                <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">You'll receive a tracking link.</p>
-                                <!-- Arrow overlapping line for desktop -->
-                                <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
-                                <!-- Mobile connecting arrow -->
-                                <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
-                            </div>
-
-                            <!-- Step 4 -->
-                            <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 relative">
-                                <div class="tracker-step-icon tracker-step-inactive">
-                                    <i class="fa-solid fa-house-chimney"></i>
-                                </div>
-                                <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Delivered</h4>
-                                <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">Get ready for a healthier you!</p>
-                                <!-- Arrow overlapping line for desktop -->
-                                <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                            <a href="../store.html" class="w-full sm:w-auto px-8 py-3.5 bg-[#106e39] hover:bg-[#0a4d27] text-white rounded-lg font-bold text-[13px] flex items-center justify-center gap-2 transition-colors shadow-sm text-center" style="min-width: 220px;">
-                                <i class="fa-solid fa-lock"></i> Continue Shopping
-                            </a>
-                            <a href="my-orders.html" class="w-full sm:w-auto px-8 py-3.5 bg-white border border-[#106e39] text-[#106e39] hover:bg-[#f0fbf4] rounded-lg font-bold text-[13px] flex items-center justify-center gap-2 transition-colors text-center" style="min-width: 220px;">
-                                <i class="fa-regular fa-file-lines"></i> View My Orders
-                            </a>
-                        </div>
+                    <div class="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;" id="confirm-items-container">
+                        <h2 class="text-[18px] font-bold text-[#1e293b] mb-6">Items Ordered</h2>
+                        <!-- Items will be injected here via JS -->
                     </div>
 
                 </div> <!-- END LEFT COLUMN -->
@@ -226,14 +182,12 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-[#1e293b] text-[14px] mb-3">Delivery Information</h3>
-                            <p class="font-bold text-[#1e293b] text-[12px] mb-1">Rahul Sharma</p>
-                            <p class="text-gray-500 text-[12px] leading-relaxed mb-3">
-                                H.No. 123, Green Park Colony<br>
-                                Indirapuram, Ghaziabad - 201014<br>
-                                Uttar Pradesh, India
+                            <p class="font-bold text-[#1e293b] text-[12px] mb-1" id="confirm-delivery-name">Loading...</p>
+                            <p class="text-gray-500 text-[12px] leading-relaxed mb-3" id="confirm-delivery-address">
+                                Loading address...
                             </p>
-                            <p class="text-gray-500 text-[12px] font-medium flex items-center gap-2">
-                                <i class="fa-solid fa-phone text-[10px] text-gray-400"></i> +91 98765 43210
+                            <p class="text-gray-500 text-[12px] font-medium flex items-center gap-2" id="confirm-delivery-phone">
+                                <i class="fa-solid fa-phone text-[10px] text-gray-400"></i> Loading...
                             </p>
                         </div>
                     </div>
@@ -261,29 +215,24 @@
                         
                         <div class="space-y-3 text-[12px] mb-6">
                             <div class="flex justify-between text-gray-500 font-medium">
-                                <span>Subtotal (3 items)</span>
-                                <span class="font-bold text-[#1e293b]">₹3,488.00</span>
+                                <span id="confirm-subtotal-label">Subtotal</span>
+                                <span class="font-bold text-[#1e293b]" id="confirm-subtotal">₹0.00</span>
                             </div>
-                            <div class="flex justify-between text-gray-500 font-medium">
+                            <div class="flex justify-between text-gray-500 font-medium hidden" id="confirm-discount-row">
                                 <span>Discount</span>
-                                <span class="font-bold text-[#106e39]">- ₹200.00</span>
+                                <span class="font-bold text-[#106e39]" id="confirm-discount">- ₹0.00</span>
                             </div>
                             <div class="flex justify-between text-gray-500 font-medium">
                                 <span>Shipping</span>
-                                <span class="font-bold text-[#1e293b]">Free</span>
+                                <span class="font-bold text-[#1e293b]" id="confirm-shipping">Free</span>
                             </div>
                         </div>
                         
                         <div class="border-t border-gray-100 pt-5 mb-5">
                             <div class="flex justify-between items-center">
                                 <span class="text-[14px] font-bold text-[#1e293b]">Total Amount</span>
-                                <span class="text-[20px] font-black text-[#106e39]">₹3,288.00</span>
+                                <span class="text-[20px] font-black text-[#106e39]" id="confirm-total">₹0.00</span>
                             </div>
-                        </div>
-                        
-                        <!-- Savings Banner -->
-                        <div class="bg-[#e2f6e9] text-[#106e39] text-[11px] font-bold rounded-lg p-2.5 flex items-center gap-2">
-                            <i class="fa-solid fa-tag"></i> You saved ₹200.00 on this order!
                         </div>
                     </div>
 

@@ -96,13 +96,22 @@
                                     <p class="text-gray-500 text-[13px]">Enter your delivery address</p>
                                 </div>
                             </div>
-                            <div class="text-[14px] text-gray-600 font-medium">
-                                Already have an account? <a href="#" class="text-[#106e39] font-bold underline hover:text-[#0a4d27]">Login</a>
-                            </div>
+                        </div>
+
+                        <!-- Add New Address Button (Moved to top) -->
+                        <div id="add-address-header" class="hidden mb-6">
+                            <button id="btn-add-new-address" class="w-full sm:w-auto px-6 py-3 border-2 border-[#106e39] text-[#106e39] rounded-xl font-bold text-sm hover:bg-[#106e39] hover:text-white transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-plus"></i> Add New Address
+                            </button>
+                        </div>
+
+                        <!-- Saved Addresses Container -->
+                        <div id="saved-addresses-container" class="hidden mb-6 flex flex-col" style="gap: 16px;">
+                            <!-- Saved address cards will be injected here -->
                         </div>
 
                         <!-- Form -->
-                        <div class="flex flex-col" style="gap: 20px;">
+                        <div id="new-address-form-container" class="flex flex-col hidden" style="gap: 20px;">
                             <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 20px;">
                                 <!-- Full Name -->
                                 <div>
@@ -167,16 +176,15 @@
                                 </div>
                                 <label class="text-[14px] font-medium text-[#1e293b] cursor-pointer">Save this address for future orders</label>
                             </div>
-
-                            <!-- Submit Button -->
-                            <div class="mt-6">
-                                <a href="checkout-payment.html" class="w-full block text-center px-10 py-4 text-white rounded-lg font-bold text-[16px] transition-colors shadow-md flex justify-center items-center gap-2" style="background-color: #0a4d27;">
-                                    Continue to Payment <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
                         </div>
 
+                        <div class="mt-6">
+                            <a href="#" class="w-full block text-center px-10 py-4 text-white rounded-lg font-bold text-[16px] transition-colors shadow-md flex justify-center items-center gap-2" style="background-color: #0a4d27;">
+                                Pay Now <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
+
                 </div> <!-- END LEFT COLUMN -->
 
                 <!-- RIGHT COLUMN (35%) -->
@@ -221,6 +229,10 @@
                                 <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
                                     <span>Shipping</span>
                                     <span id="checkout-shipping" class="font-bold text-[#106e39]">Free</span>
+                                </div>
+                                <div id="checkout-tax-row" class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Taxes (GST 5%)</span>
+                                    <span id="checkout-tax" class="font-bold">₹0.00</span>
                                 </div>
                                 <div id="checkout-discount-row" class="flex justify-between text-[#1e293b] font-medium text-[13px] hidden">
                                     <span>Discount</span>
@@ -283,7 +295,26 @@
     </main>
     <hbm-footer base-path="../"></hbm-footer>
     <script src="../js/components.js"></script>
-<script src="../js/api.js"></script>
+    <script src="../js/api.js"></script>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-address-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-xl transform scale-95 opacity-0 transition-all duration-200" id="delete-modal-content">
+            <div class="w-12 h-12 rounded-full bg-red-100 text-red-500 flex items-center justify-center text-xl mb-4 mx-auto">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-lg font-bold text-[#1e293b] text-center mb-2">Delete Address</h3>
+            <p class="text-sm text-gray-500 text-center mb-6">Are you sure you want to delete this address? This action cannot be undone.</p>
+            <div class="flex gap-3">
+                <button id="btn-cancel-delete" class="flex-1 py-3 px-4 rounded-xl font-bold text-[#1e293b] bg-gray-100 hover:bg-gray-200 transition-colors">Cancel</button>
+                <button id="btn-confirm-delete" class="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-red-500 hover:bg-red-600 transition-colors">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="../js/checkout.js"></script>
 </body>
 </html>
