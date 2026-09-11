@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Built Tailwind CSS -->
     <link href="../dist/output.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
 </head>
 <body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex flex-col">
 
@@ -44,63 +50,67 @@
 
                 <!-- Summary Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                    <div class="bg-[#f0f8f3] rounded-2xl p-5 border border-green-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
-                        <div class="flex items-center justify-between mb-4 relative z-10">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#106e39] shadow-sm">
-                                <i class="fa-solid fa-dumbbell text-lg"></i>
+                    <!-- Active Programs Card -->
+                    <div class="rounded-2xl p-5 flex flex-col relative overflow-hidden group hover:shadow-md transition-all duration-300" style="background-color: #f2fbf5; border: 1px solid #e2f6e9;">
+                        <div class="flex items-start justify-between relative z-10">
+                            <div>
+                                <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Active Programs</div>
+                                <div class="text-3xl font-heading font-bold text-gray-800" id="summary-active-programs">0</div>
+                            </div>
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(16,110,57,0.08)] shrink-0">
+                                <i class="fa-solid fa-dumbbell text-lg" style="color: #106e39;"></i>
                             </div>
                         </div>
-                        <div class="relative z-10">
-                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Active Programs</div>
-                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-active-programs">0</div>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-green-100/50 relative z-10">
-                            <a href="programs.html" class="text-[#106e39] text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Programs <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        <div class="mt-4 pt-4 relative z-10" style="border-top: 1px solid #d1f0dd;">
+                            <a href="programs.html" class="text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all" style="color: #106e39;">View Programs <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
                     
-                    <div class="bg-blue-50/50 rounded-2xl p-5 border border-blue-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
-                        <div class="flex items-center justify-between mb-4 relative z-10">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-500 shadow-sm">
-                                <i class="fa-solid fa-calendar-check text-lg"></i>
+                    <!-- Appointments Card -->
+                    <div class="rounded-2xl p-5 flex flex-col relative overflow-hidden group hover:shadow-md transition-all duration-300" style="background-color: #f0f7ff; border: 1px solid #e0f0fe;">
+                        <div class="flex items-start justify-between relative z-10">
+                            <div>
+                                <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Appointments</div>
+                                <div class="text-3xl font-heading font-bold text-gray-800" id="summary-appointments">0</div>
+                            </div>
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(37,99,235,0.08)] shrink-0">
+                                <i class="fa-solid fa-calendar-check text-lg" style="color: #2563eb;"></i>
                             </div>
                         </div>
-                        <div class="relative z-10">
-                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Appointments</div>
-                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-appointments">0</div>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-blue-100/50 relative z-10">
-                            <a href="appointments.html" class="text-blue-600 text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Appointments <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        <div class="mt-4 pt-4 relative z-10" style="border-top: 1px solid #bfdbfe;">
+                            <a href="appointments.html" class="text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all" style="color: #2563eb;">View Appointments <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <div class="bg-purple-50/50 rounded-2xl p-5 border border-purple-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
-                        <div class="flex items-center justify-between mb-4 relative z-10">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-purple-500 shadow-sm">
-                                <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <!-- Total Orders Card -->
+                    <div class="rounded-2xl p-5 flex flex-col relative overflow-hidden group hover:shadow-md transition-all duration-300" style="background-color: #f5f3ff; border: 1px solid #ede9fe;">
+                        <div class="flex items-start justify-between relative z-10">
+                            <div>
+                                <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Total Orders</div>
+                                <div class="text-3xl font-heading font-bold text-gray-800" id="summary-total-orders">0</div>
+                            </div>
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(124,58,237,0.08)] shrink-0">
+                                <i class="fa-solid fa-bag-shopping text-lg" style="color: #7c3aed;"></i>
                             </div>
                         </div>
-                        <div class="relative z-10">
-                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Total Orders</div>
-                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-total-orders">0</div>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-purple-100/50 relative z-10">
-                            <a href="orders.html" class="text-purple-600 text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Orders <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        <div class="mt-4 pt-4 relative z-10" style="border-top: 1px solid #ddd6fe;">
+                            <a href="orders.html" class="text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all" style="color: #7c3aed;">View Orders <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <div class="bg-orange-50/50 rounded-2xl p-5 border border-orange-50 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
-                        <div class="flex items-center justify-between mb-4 relative z-10">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-orange-400 shadow-sm">
-                                <i class="fa-solid fa-heart text-lg"></i>
+                    <!-- Saved Items Card -->
+                    <div class="rounded-2xl p-5 flex flex-col relative overflow-hidden group hover:shadow-md transition-all duration-300" style="background-color: #fff7ed; border: 1px solid #ffedd5;">
+                        <div class="flex items-start justify-between relative z-10">
+                            <div>
+                                <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Saved Items</div>
+                                <div class="text-3xl font-heading font-bold text-gray-800" id="summary-saved-items">0</div>
+                            </div>
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(234,88,12,0.08)] shrink-0">
+                                <i class="fa-solid fa-heart text-lg" style="color: #ea580c;"></i>
                             </div>
                         </div>
-                        <div class="relative z-10">
-                            <div class="text-[11px] text-gray-500 font-bold uppercase tracking-wider mb-1">Saved Items</div>
-                            <div class="text-3xl font-heading font-bold text-gray-800" id="summary-saved-items">0</div>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-orange-100/50 relative z-10">
-                            <a href="wishlist.html" class="text-orange-500 text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all">View Wishlist <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        <div class="mt-4 pt-4 relative z-10" style="border-top: 1px solid #fed7aa;">
+                            <a href="wishlist.html" class="text-[13px] font-bold flex items-center gap-1 hover:gap-2 transition-all" style="color: #ea580c;">View Wishlist <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>

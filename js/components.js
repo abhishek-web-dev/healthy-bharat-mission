@@ -848,11 +848,8 @@ class HbmDashboardSidebar extends HTMLElement {
                 .hbm-sidebar-scroll::-webkit-scrollbar { display: none; }
                 .hbm-sidebar-scroll { -ms-overflow-style: none; scrollbar-width: none; }
             </style>
-            <div class="w-full lg:w-[260px] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-shrink-0 hbm-sidebar-scroll" style="position: sticky; top: 120px; max-height: calc(100vh - 140px); overflow-y: auto; overflow-x: hidden;">
+            <div class="w-full lg:w-[260px] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-shrink-0 hbm-sidebar-scroll" style="position: sticky; top: 120px; align-self: flex-start; max-height: calc(100vh - 140px); overflow-y: auto; overflow-x: hidden;">
                 <div class="p-5 border-b border-gray-100 flex items-center space-x-3 bg-gray-50/50">
-                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                        <i class="fa-solid fa-user-circle text-xl"></i>
-                    </div>
                     <div>
                         <div class="text-[14px] font-bold text-gray-800" id="sidebar-user-name">Loading...</div>
                         <div class="text-[11px] text-gray-500 font-medium">Patient Member</div>
