@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#064e3b',
+                        'primary-light': '#14532d',
+                        'primary-dark': '#022c22',
+                        secondary: '#0f3057',
+                        accent: '#f59e0b'
+                    },
+                    fontFamily: {
+                        body: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-gray-800 bg-[#f9fbf9] antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="../"></hbm-header>
+    
+    <main class="flex-grow pb-16">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative" id="order-details-container">
+            <!-- Loading State initially visible -->
+            <div id="loading-state" class="text-center py-20">
+                <i class="fa-solid fa-circle-notch fa-spin text-4xl text-[#106e39]"></i>
+                <p class="mt-4 text-gray-500 font-medium">Loading order details...</p>
+            </div>
+            
+            <!-- Error State -->
+            <div id="error-state" class="hidden text-center py-20 bg-white rounded-xl border border-gray-100 shadow-sm mt-8">
+                <i class="fa-solid fa-circle-exclamation text-4xl text-red-500 mb-4"></i>
+                <h3 class="font-bold text-gray-900 text-xl mb-2">Order Not Found</h3>
+                <p class="text-gray-500 mb-6">We couldn't find the details for this order.</p>
+                <a href="my-orders.html" class="inline-block px-6 py-2 bg-[#106e39] text-white font-bold rounded-lg hover:bg-[#0a4d27] transition-colors">Back to My Orders</a>
+            </div>
+
+            <!-- Content Area (hidden initially) -->
+            <div id="content-state" class="hidden">
+                <!-- Breadcrumb -->
+                <nav class="text-[12px] text-gray-500 mb-8 font-medium">
+                    <a href="../index.html" class="hover:text-[#106e39] transition-colors">Home</a> 
+                    <span class="mx-1">›</span> 
+                    <a href="my-orders.html" class="hover:text-[#106e39] transition-colors">My Orders</a> 
+                    <span class="mx-1">›</span> 
+                    <span class="text-gray-800 font-bold">Order Details</span>
+                </nav>
+
+                <!-- Header Row -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                    <div>
+                        <h1 class="font-heading font-extrabold text-[#052b14] text-3xl mb-1 tracking-tight">Order Details</h1>
+                        <p class="text-gray-500 text-sm font-medium">Here are the details of your order.</p>
+                    </div>
+                    <div>
+                        <a href="my-orders.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 text-[#106e39] font-bold rounded-lg hover:bg-gray-50 transition-colors text-sm shadow-sm">
+                            <i class="fa-solid fa-arrow-left"></i> Back to My Orders
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Left Column (Products & Address) -->
+                    <div class="lg:col-span-2 space-y-6">
+                        
+                        <!-- Product Details Card -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                            <h3 class="text-[#052b14] font-bold text-lg mb-6 flex items-center gap-2">
+                                <i class="fa-solid fa-box-open text-[#106e39]"></i> Product Details
+                            </h3>
+                            <div id="product-list" class="space-y-6">
+                                <!-- Products injected here -->
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address Card -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                            <h3 class="text-[#052b14] font-bold text-lg mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-[#106e39]"></i> Shipping Address
+                            </h3>
+                            <div id="shipping-address" class="text-gray-600 text-[13px] leading-relaxed">
+                                <!-- Address injected here -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column (Summary & Payment) -->
+                    <div class="space-y-6">
+                        
+                        <!-- Order Summary Card -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                            <h3 class="text-[#052b14] font-bold text-lg mb-6 flex items-center gap-2">
+                                <i class="fa-solid fa-receipt text-[#106e39]"></i> Order Summary
+                            </h3>
+                            <div class="space-y-4 text-[13px]">
+                                <div class="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span class="text-gray-500">Order ID</span>
+                                    <span class="font-bold text-gray-900" id="detail-order-id">#--</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span class="text-gray-500">Order Date</span>
+                                    <span class="text-gray-700" id="detail-order-date">--</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span class="text-gray-500">Order Status</span>
+                                    <span id="detail-order-status">--</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span class="text-gray-500">Total Amount</span>
+                                    <span class="font-bold text-gray-900" id="detail-total-amount">₹0.00</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-500">Payment Method</span>
+                                    <span class="text-gray-700 capitalize" id="detail-payment-method">--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Details Card -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                            <h3 class="text-[#052b14] font-bold text-lg mb-6 flex items-center gap-2">
+                                <i class="fa-solid fa-credit-card text-[#106e39]"></i> Payment Details
+                            </h3>
+                            <div class="space-y-4 text-[13px]">
+                                <div class="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span class="text-gray-500">Payment Method</span>
+                                    <span class="text-gray-700 capitalize" id="detail-payment-method-bottom">--</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span class="text-gray-500">Payment Status</span>
+                                    <span id="detail-payment-status">--</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-4 border-b border-gray-50">
+                                    <span class="text-gray-500">Transaction ID</span>
+                                    <span class="text-gray-700" id="detail-transaction-id">--</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-500">Amount Paid</span>
+                                    <span class="font-bold text-gray-900" id="detail-amount-paid">₹0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/api.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/orders.js"></script>
+</body>
+</html>
