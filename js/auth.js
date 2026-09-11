@@ -169,10 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         phone,
                         password
                     });
-                    showSuccess(form, 'Registration successful! Please verify your OTP.');
-                    setTimeout(() => {
-                        window.location.href = 'verify-otp.html?email=' + encodeURIComponent(email);
-                    }, 1500);
+                    if (res.data && res.data.auto_activated) {
+                        showSuccess(form, 'Registration successful! You can now log in.');
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 1500);
+                    } else {
+                        showSuccess(form, 'Registration successful! Please verify your OTP.');
+                        setTimeout(() => {
+                            window.location.href = 'verify-otp.html?email=' + encodeURIComponent(email);
+                        }, 1500);
+                    }
                 } catch (error) {
                     showError(form, error.message);
                 } finally {
