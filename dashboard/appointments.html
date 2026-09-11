@@ -20,18 +20,254 @@
             <hbm-dashboard-sidebar active-page="appointments"></hbm-dashboard-sidebar>
 
             <!-- Main Content -->
-            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
-                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
-                    <div>
-                        <h2 class="text-2xl font-heading font-bold text-gray-800">Appointments</h2>
-                        <p class="text-gray-500 mt-1">Your upcoming and past appointments.</p>
+            <div id="dashboard-main" class="flex-1 transition-opacity duration-300">
+                
+                <!-- Top Header Row -->
+                <div class="flex flex-col lg:flex-row justify-between items-start gap-6 mb-8">
+                    <!-- Title -->
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 w-12 h-12 rounded-xl bg-[#106e39] text-white flex items-center justify-center shrink-0 shadow-sm">
+                            <i class="fa-solid fa-calendar-check text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-heading font-extrabold text-[#052b14]">My Appointments</h2>
+                            <p class="text-gray-500 font-medium text-[15px] mt-1">View, manage and book your consultations with our healthcare experts.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quote Box -->
+                    <div class="bg-[#f2faf5] rounded-xl p-4 flex items-start gap-4 shrink-0" style="max-width: 384px;">
+                        <div class="text-[#106e39] text-2xl mt-1">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-[#106e39] text-[14px] leading-snug">"Regular check-ups today, a healthier tomorrow."</p>
+                            <p class="text-[12px] text-[#106e39] opacity-80 mt-1">— Healthy Bharat Mission</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 text-blue-800 p-4 rounded-xl text-[14px] font-medium border border-blue-100 flex items-start gap-3">
-                    <i class="fa-solid fa-circle-info mt-0.5"></i>
-                    <div>
-                        Coming soon! This section is currently under development.
+                <!-- Main Grid Layout -->
+                <div class="flex flex-col xl:flex-row gap-6">
+                    
+                    <!-- Left Column -->
+                    <div class="w-full flex flex-col gap-6" style="width: 100%; max-width: 70%;">
+                        
+                        <!-- Tabs -->
+                        <div class="flex items-center rounded-xl border border-gray-200 bg-white p-1 overflow-x-auto hide-scrollbar" id="appointments-tabs">
+                            <button class="tab-btn active flex-1 font-bold text-[#106e39] border-b-2 border-[#106e39] py-3 text-[14px] text-center bg-gray-50/50 rounded-t-lg" style="min-width: 180px;" data-tab="upcoming">Upcoming Appointments</button>
+                            <button class="tab-btn flex-1 font-semibold text-gray-500 hover:text-gray-800 py-3 text-[14px] text-center border-b-2 border-transparent transition-colors" style="min-width: 180px;" data-tab="past">Past Appointments</button>
+                            <button class="tab-btn flex-1 font-semibold text-gray-500 hover:text-gray-800 py-3 text-[14px] text-center border-b-2 border-transparent transition-colors" style="min-width: 180px;" data-tab="book">Book New Appointment</button>
+                        </div>
+
+                        <!-- Tab Content: Upcoming Appointments -->
+                        <div class="tab-content flex flex-col gap-5" id="tab-upcoming">
+                            
+                            <!-- Appointment Card 1 -->
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
+                                <!-- Date Block -->
+                                <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
+                                    <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">18</span>
+                                    <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">Sep 2025</span>
+                                    <span class="text-[12px] text-gray-500 font-medium mt-0.5">Thursday</span>
+                                </div>
+                                
+                                <!-- Details Block -->
+                                <div class="flex-1 min-w-0 w-full">
+                                    <div class="flex items-start gap-4 mb-4">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
+                                            <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=random" alt="Dr. Priya Sharma" class="w-full h-full object-cover">
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold text-gray-900 text-[16px]">Dr. Priya Sharma</h3>
+                                            <p class="text-[13px] text-gray-500 font-medium">Diabetologist & Nutrition Expert</p>
+                                            <p class="text-[12px] text-blue-600 font-bold mt-1 flex items-center gap-1.5"><i class="fa-solid fa-video"></i> Video Consultation</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
+                                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> 11:00 AM - 11:30 AM</div>
+                                        <div class="flex items-center gap-2"><i class="fa-solid fa-file-medical text-gray-400"></i> Follow-up Consultation</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Actions Block -->
+                                <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
+                                    <span class="bg-[#f2faf5] text-[#106e39] font-bold text-[11px] px-3 py-1 rounded-md mb-3">Upcoming</span>
+                                    <div class="flex flex-col gap-2 w-full">
+                                        <button class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
+                                            <i class="fa-solid fa-video"></i> Join Consultation
+                                        </button>
+                                        <button class="w-full py-2 px-4 border border-green-200 text-[#106e39] text-[13px] font-bold rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap">
+                                            Reschedule
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Appointment Card 2 -->
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
+                                <!-- Date Block -->
+                                <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
+                                    <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">25</span>
+                                    <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">Sep 2025</span>
+                                    <span class="text-[12px] text-gray-500 font-medium mt-0.5">Thursday</span>
+                                </div>
+                                
+                                <!-- Details Block -->
+                                <div class="flex-1 min-w-0 w-full">
+                                    <div class="flex items-start gap-4 mb-4">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
+                                            <img src="https://ui-avatars.com/api/?name=Rahul+Verma&background=random" alt="Dr. Rahul Verma" class="w-full h-full object-cover">
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold text-gray-900 text-[16px]">Dr. Rahul Verma</h3>
+                                            <p class="text-[13px] text-gray-500 font-medium">Dietitian & Wellness Coach</p>
+                                            <p class="text-[12px] text-gray-600 font-bold mt-1 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-gray-400"></i> In-clinic Visit</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
+                                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> 03:00 PM - 03:30 PM</div>
+                                        <div class="flex items-center gap-2"><i class="fa-solid fa-clipboard-list text-gray-400"></i> Diet Plan Discussion</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Actions Block -->
+                                <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
+                                    <span class="bg-[#f2faf5] text-[#106e39] font-bold text-[11px] px-3 py-1 rounded-md mb-3">Upcoming</span>
+                                    <div class="flex flex-col gap-2 w-full">
+                                        <button class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors shadow-sm whitespace-nowrap">
+                                            View Details
+                                        </button>
+                                        <button class="w-full py-2 px-4 border border-gray-200 text-gray-600 hover:text-red-600 hover:border-red-200 hover:bg-red-50 text-[13px] font-bold rounded-lg transition-colors whitespace-nowrap">
+                                            Cancel Appointment
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Tab Content: Past Appointments -->
+                        <div class="tab-content flex-col gap-5 hidden" id="tab-past">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
+                                    <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Past Appointments</h3>
+                                <p class="text-gray-500 text-[14px]">You do not have any past appointments recorded in the system.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab Content: Book New -->
+                        <div class="tab-content flex-col gap-5 hidden" id="tab-book">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                                <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-[#106e39] mb-4">
+                                    <i class="fa-solid fa-calendar-plus text-2xl"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-800 text-[18px] mb-2">Book a New Consultation</h3>
+                                <p class="text-gray-500 text-[14px] mb-6 max-w-md">Select a doctor or specialist to book your next consultation.</p>
+                                <button class="px-8 py-2.5 bg-[#106e39] text-white font-bold rounded-lg shadow-sm hover:bg-[#0a4d27] transition-colors">
+                                    View Doctors
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Need a New Appointment Call to Action -->
+                        <div class="bg-gray-50/50 border-2 border-dashed border-gray-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center mt-2 hover:bg-gray-50 hover:border-green-300 transition-colors cursor-pointer group">
+                            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400 group-hover:text-[#106e39] mb-4 transition-colors">
+                                <i class="fa-solid fa-calendar-plus text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">Need a New Appointment?</h3>
+                            <p class="text-gray-500 text-[14px] mb-6 max-w-md">Book a consultation with our qualified doctors, dietitians or wellness experts.</p>
+                            <button class="px-8 py-2.5 bg-[#106e39] text-white font-bold rounded-lg shadow-sm hover:bg-[#0a4d27] transition-colors">
+                                Book Appointment
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Sidebar -->
+                    <div class="w-full flex flex-col gap-6" style="width: 100%; max-width: 30%; min-width: 300px;">
+                        
+                        <!-- Quick Actions -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-8 h-8 rounded-lg bg-[#f2faf5] text-[#106e39] flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-calendar-check text-[15px]"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-800 text-[16px]">Quick Actions</h3>
+                            </div>
+                            
+                            <div class="space-y-1">
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center shrink-0 group-hover:bg-[#f2faf5] group-hover:text-[#106e39] transition-colors">
+                                            <i class="fa-solid fa-plus text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Book New Appointment</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center shrink-0 group-hover:bg-[#f2faf5] group-hover:text-[#106e39] transition-colors">
+                                            <i class="fa-solid fa-calendar text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">View All Appointments</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center shrink-0 group-hover:bg-[#f2faf5] group-hover:text-[#106e39] transition-colors">
+                                            <i class="fa-solid fa-clock-rotate-left text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Consultation History</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center shrink-0 group-hover:bg-[#f2faf5] group-hover:text-[#106e39] transition-colors">
+                                            <i class="fa-solid fa-bell text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Set Reminders</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Need Help -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-headset text-[15px]"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-800 text-[16px]">Need Help?</h3>
+                            </div>
+                            <p class="text-[13px] text-gray-500 mb-6">For appointment related queries, feel free to contact our support team.</p>
+                            
+                            <button class="w-full py-2.5 border border-green-200 text-[#106e39] font-bold text-[13px] rounded-lg hover:bg-[#106e39] hover:text-white transition-colors flex items-center justify-center gap-2 mb-4">
+                                <i class="fa-solid fa-phone"></i> Contact Support
+                            </button>
+                            
+                            <div class="text-center">
+                                <p class="font-bold text-gray-900 text-[14px]">+91 98765 43210</p>
+                                <p class="text-[11px] text-gray-500 font-medium">Mon - Sat, 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Tip Box -->
+                        <div class="bg-[#f2faf5] rounded-xl p-5 border border-green-100 flex items-start gap-4">
+                            <div class="text-[#106e39] text-xl shrink-0 mt-0.5">
+                                <i class="fa-regular fa-lightbulb"></i>
+                            </div>
+                            <p class="text-[13px] text-[#052b14] leading-relaxed">
+                                <span class="font-bold">Tip:</span> Keep your medical reports handy during the consultation for better guidance.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
 
@@ -43,5 +279,37 @@
     <script src="../js/api.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab styles
+                    tabs.forEach(t => {
+                        t.classList.remove('active', 'text-[#106e39]', 'border-[#106e39]', 'bg-gray-50/50', 'rounded-t-lg');
+                        t.classList.add('text-gray-500', 'border-transparent');
+                    });
+                    
+                    tab.classList.remove('text-gray-500', 'border-transparent');
+                    tab.classList.add('active', 'text-[#106e39]', 'border-[#106e39]', 'bg-gray-50/50', 'rounded-t-lg');
+                    
+                    // Show correct content
+                    const target = tab.getAttribute('data-tab');
+                    contents.forEach(content => {
+                        if (content.id === `tab-${target}`) {
+                            content.classList.remove('hidden');
+                            content.classList.add('flex');
+                        } else {
+                            content.classList.add('hidden');
+                            content.classList.remove('flex');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

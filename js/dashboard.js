@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Check auth status
         const res = await HBM_API.request('/auth/me');
         window.HBM_USER = res.data;
-        
+
         if (mainContent) {
             mainContent.style.opacity = '1';
             mainContent.style.pointerEvents = 'auto';
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.dispatchEvent(new Event('hbm:auth-ready'));
     } catch (error) {
         console.error('Auth error:', error);
-        
+
         if (error.status === 401) {
             // Token invalid or expired
             HBM_API.setToken(null);

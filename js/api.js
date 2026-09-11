@@ -65,7 +65,15 @@ const HBM_API = {
         }
     },
     auth: {
+        login: (data) => HBM_API.request('/auth/login', 'POST', data),
+        register: (data) => HBM_API.request('/auth/register', 'POST', data),
+        verifyOtp: (data) => HBM_API.request('/auth/verify-otp', 'POST', data),
+        forgotPassword: (data) => HBM_API.request('/auth/forgot-password', 'POST', data),
+        resetPassword: (data) => HBM_API.request('/auth/reset-password', 'POST', data),
         changePassword: (data) => HBM_API.request('/auth/change-password', 'POST', data),
+        deleteAccount: (data) => HBM_API.request('/auth/delete-account', 'POST', data),
+        logout: () => HBM_API.request('/auth/logout', 'POST'),
+        getMe: () => HBM_API.request('/auth/me')
     },
     user: {
         getProfile: () => HBM_API.request('/user/profile'),

@@ -5,7 +5,7 @@ class HbmHeader extends HTMLElement {
         const imgPath = this.getAttribute('base-path') || './';
         
         this.style.display = 'contents';
-        this.innerHTML = `<header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        this.innerHTML = `<header class="bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50">
         
         <!-- Top Bar -->
         <div class="w-full bg-primary text-white hidden md:block">
@@ -811,6 +811,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 class HbmDashboardSidebar extends HTMLElement {
     connectedCallback() {
+        this.style.display = 'contents';
         const active = this.getAttribute('active-page') || 'overview';
         
         const links = [
@@ -843,7 +844,11 @@ class HbmDashboardSidebar extends HTMLElement {
         });
 
         this.innerHTML = `
-            <div class="w-full lg:w-[260px] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-shrink-0" style="position: sticky; top: 120px; max-height: calc(100vh - 140px); overflow-y: auto; overflow-x: hidden;">
+            <style>
+                .hbm-sidebar-scroll::-webkit-scrollbar { display: none; }
+                .hbm-sidebar-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+            </style>
+            <div class="w-full lg:w-[260px] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-shrink-0 hbm-sidebar-scroll" style="position: sticky; top: 120px; max-height: calc(100vh - 140px); overflow-y: auto; overflow-x: hidden;">
                 <div class="p-5 border-b border-gray-100 flex items-center space-x-3 bg-gray-50/50">
                     <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                         <i class="fa-solid fa-user-circle text-xl"></i>

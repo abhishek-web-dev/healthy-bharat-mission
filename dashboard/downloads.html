@@ -20,18 +20,382 @@
             <hbm-dashboard-sidebar active-page="downloads"></hbm-dashboard-sidebar>
 
             <!-- Main Content -->
-            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
-                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
-                    <div>
-                        <h2 class="text-2xl font-heading font-bold text-gray-800">Downloads</h2>
-                        <p class="text-gray-500 mt-1">Your digital downloads and e-books.</p>
+            <div id="dashboard-main" class="flex-1 transition-opacity duration-300">
+                
+                <!-- Top Header Row -->
+                <div class="flex flex-col lg:flex-row justify-between items-start gap-6 mb-8">
+                    <!-- Title -->
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1">
+                            <i class="fa-solid fa-download text-3xl text-[#106e39]"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-heading font-extrabold text-[#052b14]">Downloads</h2>
+                            <p class="text-gray-500 font-medium text-[15px] mt-1">Access and download useful resources, guides, reports and educational materials.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quote Box -->
+                    <div class="bg-[#f2faf5] rounded-xl p-4 flex items-start gap-4 shrink-0" style="max-width: 384px;">
+                        <div class="text-[#106e39] text-2xl mt-1">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-[#106e39] text-[14px] leading-snug">"Knowledge today, a healthier tomorrow."</p>
+                            <p class="text-[12px] text-[#106e39] opacity-80 mt-1">— Healthy Bharat Mission</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 text-blue-800 p-4 rounded-xl text-[14px] font-medium border border-blue-100 flex items-start gap-3">
-                    <i class="fa-solid fa-circle-info mt-0.5"></i>
-                    <div>
-                        Coming soon! This section is currently under development.
+                <!-- Main Grid Layout -->
+                <div class="flex flex-col xl:flex-row gap-6">
+                    
+                    <!-- Left Column: Tabs & Table -->
+                    <div class="w-full flex flex-col gap-6" style="width: 100%; max-width: 70%;">
+                        <!-- Tabs -->
+                        <div class="flex items-center gap-6 border-b border-gray-200 overflow-x-auto hide-scrollbar pb-px" id="download-tabs">
+                            <button class="tab-btn active font-bold text-[#106e39] border-b-2 border-[#106e39] pb-3 whitespace-nowrap text-[15px]" data-tab="All">All Downloads</button>
+                            <button class="tab-btn font-semibold text-gray-500 hover:text-gray-800 pb-3 whitespace-nowrap text-[15px] border-b-2 border-transparent" data-tab="Educational Guide">Educational Guides</button>
+                            <button class="tab-btn font-semibold text-gray-500 hover:text-gray-800 pb-3 whitespace-nowrap text-[15px] border-b-2 border-transparent" data-tab="Meal Plan">Meal Plans</button>
+                            <button class="tab-btn font-semibold text-gray-500 hover:text-gray-800 pb-3 whitespace-nowrap text-[15px] border-b-2 border-transparent" data-tab="Reports">Reports</button>
+                            <button class="tab-btn font-semibold text-gray-500 hover:text-gray-800 pb-3 whitespace-nowrap text-[15px] border-b-2 border-transparent" data-tab="Forms">Forms</button>
+                            <button class="tab-btn font-semibold text-gray-500 hover:text-gray-800 pb-3 whitespace-nowrap text-[15px] border-b-2 border-transparent" data-tab="Others">Others</button>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                            <!-- Table Header -->
+                            <div class="bg-gray-50/80 px-6 py-4 flex items-center text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                                <div class="flex-1">File Name</div>
+                                <div style="width: 140px;">Category</div>
+                                <div style="width: 100px;">File Size</div>
+                                <div style="width: 140px;" class="text-center">Action</div>
+                            </div>
+                            
+                            <!-- Table Body -->
+                            <div class="divide-y divide-gray-50" id="downloads-list">
+                                
+                                <!-- Row 1 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Educational Guide">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Diabetes Care Guide.pdf</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">A complete guide to manage diabetes</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-blue-50 text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Educational Guide</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">2.4 MB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Row 2 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Meal Plan">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-green-50 text-[#106e39] flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Healthy Eating Meal Plan.pdf</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">7-day meal plan for better health</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-green-50 text-[#106e39] text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Meal Plan</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">1.8 MB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Row 3 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Educational Guide">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Exercise for a Healthier You.pdf</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">Simple exercises for daily routine</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-blue-50 text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Educational Guide</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">3.1 MB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Row 4 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Reports">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-excel text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Health Tracking Sheet.xlsx</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">Track your health progress</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-purple-50 text-purple-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Reports</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">950 KB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Row 5 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Forms">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Consultation Report Template.pdf</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">Use this template for your reports</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-red-50 text-red-500 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Forms</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">1.2 MB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Row 6 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Others">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-image text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Food Chart (Visual).jpg</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">Quick reference food chart</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-yellow-50 text-yellow-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Others</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">800 KB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Row 7 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Forms">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Medication Reminder Sheet.pdf</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">Stay on track with your medicines</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-red-50 text-red-500 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Forms</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">1.1 MB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Row 8 -->
+                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Educational Guide">
+                                    <div class="flex-1 flex items-start gap-4">
+                                        <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 text-[14px]">Lifestyle Tips Booklet.pdf</h4>
+                                            <p class="text-[12px] text-gray-500 mt-0.5">Small changes, big results</p>
+                                        </div>
+                                    </div>
+                                    <div style="width: 140px;">
+                                        <span class="bg-blue-50 text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Educational Guide</span>
+                                    </div>
+                                    <div style="width: 100px;">
+                                        <span class="text-[13px] font-medium text-gray-600">2.0 MB</span>
+                                    </div>
+                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Sidebar -->
+                    <div class="w-full flex flex-col gap-6" style="width: 100%; max-width: 30%; min-width: 300px;">
+                        
+                        <!-- Quick Access -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-[#f2faf5] text-[#106e39] flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-file-invoice text-[15px]"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-800 text-[16px]">Quick Access</h3>
+                            </div>
+                            <p class="text-[13px] text-gray-500 mb-5 ml-11">Frequently downloaded resources.</p>
+                            
+                            <div class="space-y-1">
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-file-pdf text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Diabetes Care Guide</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-green-50 text-[#106e39] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-file-pdf text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Healthy Eating Meal Plan</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-file-pdf text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Exercise Guide</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-purple-50 text-purple-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-file-excel text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Health Tracking Sheet</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 group transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-file-pdf text-[12px]"></i>
+                                        </div>
+                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Consultation Report Template</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Your Downloads Progress -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-cloud-arrow-down text-[15px]"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800 text-[16px]">Your Downloads</h3>
+                                    <p class="text-[12px] text-gray-500">8 files downloaded</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-5 mb-2">
+                                <div class="w-full bg-gray-100 rounded-full h-2">
+                                    <div class="bg-[#106e39] h-2 rounded-full" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            <p class="text-[12px] font-medium text-gray-600 mb-5">15 MB of 100 MB used</p>
+                            
+                            <button class="w-full py-2.5 border border-[#106e39] text-[#106e39] font-bold text-[13px] rounded-lg hover:bg-[#106e39] hover:text-white transition-colors">
+                                Manage Storage
+                            </button>
+                        </div>
+                        
+                        <!-- Need Help -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-headset text-[15px]"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-800 text-[16px]">Need Help?</h3>
+                            </div>
+                            <p class="text-[13px] text-gray-500 mb-5 ml-11">Can't find what you're looking for?</p>
+                            
+                            <button class="w-full py-2.5 border border-green-200 text-[#106e39] font-bold text-[13px] rounded-lg hover:bg-[#106e39] hover:text-white transition-colors flex items-center justify-center gap-2">
+                                Contact Support
+                            </button>
+                        </div>
+
                     </div>
                 </div>
 
@@ -43,5 +407,34 @@
     <script src="../js/api.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const rows = document.querySelectorAll('.download-row');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab styles
+                    tabs.forEach(t => {
+                        t.classList.remove('active', 'text-[#106e39]', 'border-[#106e39]');
+                        t.classList.add('text-gray-500', 'border-transparent');
+                    });
+                    tab.classList.remove('text-gray-500', 'border-transparent');
+                    tab.classList.add('active', 'text-[#106e39]', 'border-[#106e39]');
+                    
+                    // Filter rows
+                    const category = tab.getAttribute('data-tab');
+                    rows.forEach(row => {
+                        if (category === 'All' || row.getAttribute('data-category') === category) {
+                            row.style.display = 'flex';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

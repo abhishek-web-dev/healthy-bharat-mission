@@ -21,18 +21,75 @@
 
             <!-- Main Content -->
             <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
-                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
-                    <div>
-                        <h2 class="text-2xl font-heading font-bold text-gray-800">Food Charts</h2>
-                        <p class="text-gray-500 mt-1">Your personalized diet and food charts.</p>
+                <!-- Header & Quote -->
+                <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center border-b border-gray-100 pb-5 mb-6 gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-[#106e39] rounded-full flex items-center justify-center text-white shrink-0">
+                            <i class="fa-solid fa-apple-whole text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-heading font-bold text-gray-800">Food Charts</h2>
+                            <p class="text-gray-500 mt-1">Get personalized meal plans and healthy recipes to support your health goals.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quote Banner -->
+                    <div class="bg-green-50 rounded-lg p-4 flex gap-4 items-start max-w-md w-full border border-green-100">
+                        <div class="text-[#106e39] text-xl mt-1 shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <p class="text-[#106e39] font-medium italic">"Good food fuels a healthier you."</p>
+                            <p class="text-[#106e39] text-sm mt-1">- Healthy Bharat Mission</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 text-blue-800 p-4 rounded-xl text-[14px] font-medium border border-blue-100 flex items-start gap-3">
-                    <i class="fa-solid fa-circle-info mt-0.5"></i>
-                    <div>
-                        Coming soon! This section is currently under development.
+                <!-- Tabs -->
+                <div class="flex gap-8 border-b border-gray-100 mb-6 overflow-x-auto">
+                    <button id="tab-btn-meal-plan" class="tab-btn pb-3 px-2 border-b-2 border-[#106e39] text-[#106e39] font-bold text-sm whitespace-nowrap" onclick="switchTab('meal-plan')">My Meal Plan</button>
+                    <button id="tab-btn-recipe-library" class="tab-btn pb-3 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm whitespace-nowrap transition-colors" onclick="switchTab('recipe-library')">Recipe Library</button>
+                    <button id="tab-btn-nutrition-guide" class="tab-btn pb-3 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm whitespace-nowrap transition-colors" onclick="switchTab('nutrition-guide')">Nutrition Guide</button>
+                    <button id="tab-btn-diet-tips" class="tab-btn pb-3 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm whitespace-nowrap transition-colors" onclick="switchTab('diet-tips')">Diet Tips</button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div id="tab-content-meal-plan" class="tab-content hidden">
+                    <!-- Dynamic Content Will Be Injected Here -->
+                </div>
+
+                <div id="tab-content-recipe-library" class="tab-content hidden">
+                    <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-12 text-center">
+                        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-book-open text-2xl text-[#106e39]"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Recipe Library Coming Soon!</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">We are building an extensive library of healthy, diabetes-friendly recipes just for you. Stay tuned!</p>
                     </div>
+                </div>
+
+                <div id="tab-content-nutrition-guide" class="tab-content hidden">
+                    <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-12 text-center">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-chart-pie text-2xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Nutrition Guide Coming Soon!</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">Detailed guides on understanding macros, micros, and how they affect your health.</p>
+                    </div>
+                </div>
+
+                <div id="tab-content-diet-tips" class="tab-content hidden">
+                    <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-12 text-center">
+                        <div class="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-regular fa-lightbulb text-2xl text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Diet Tips Coming Soon!</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">Actionable, daily tips to help you stick to your goals and improve your lifestyle.</p>
+                    </div>
+                </div>
+                
+                <div id="food-charts-loading" class="py-12 flex justify-center">
+                    <div class="w-8 h-8 border-4 border-[#106e39] border-t-transparent rounded-full animate-spin"></div>
                 </div>
 
             </div>
@@ -40,8 +97,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../js/api.js"></script>
-    <script src="../js/components.js"></script>
-    <script src="../js/dashboard.js"></script>
+    <script src="../js/api.js?v=2"></script>
+    <script src="../js/components.js?v=2"></script>
+    <script src="../js/dashboard.js?v=2"></script>
+    <script src="../js/food-charts-v3.js"></script>
 </body>
 </html>
