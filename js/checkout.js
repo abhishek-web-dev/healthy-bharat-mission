@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (subEl) subEl.innerText = `₹${(cart.subtotal || 0).toFixed(2)}`;
                 
                 // Get discount if any from window state (if passed) or localstorage
-                const discount = window.currentDiscount || parseFloat(localStorage.getItem('hbm_discount')) || 0;
+                const discount = window.currentDiscount || parseFloat(sessionStorage.getItem('hbm_discount')) || 0;
 
                 // Calculate Shipping
                 let shipping = 0;
@@ -430,7 +430,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         const orderPayload = {
                             address_id: addressId,
-                            payment_method: 'card' // the backend expects upi, card, net_banking, or cod
+                            payment_method: 'card', // the backend expects upi, card, net_banking, or cod
+                            discount: parseFloat(sessionStorage.getItem('hbm_discount') || 0)
                         };
 
                         const response = await HBM_API.checkout.createOrder(orderPayload);
@@ -732,8 +733,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 },
                                 prefill: {
                                     name: checkoutState.address_snapshot.first_name + ' ' + checkoutState.address_snapshot.last_name,
-                                    email: checkoutState.address_snapshot.email || "",
-                                    contact: checkoutState.address_snapshot.phone
+                                    email: checkoutState.address_snapshot.email || "web.abhl.dev@gmail.com",
+                                    contact: checkoutState.address_snapshot.phone || "9999999999",
+                                    method: 'card'
                                 },
                                 theme: {
                                     color: "#106e39"
@@ -823,7 +825,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         const html = `
                         <div class="flex flex-col sm:flex-row sm:items-center gap-6 py-5 ${borderClass} mt-2">
-                            <img src="${item.thumbnail_url || '../assets/placeholder.jpg'}" class="w-16 h-16 object-contain rounded-lg bg-[#f9fbf9] mix-blend-multiply border border-gray-100 p-1" alt="${item.product_name_snapshot || 'Product'}">
+                            <div class="w-16 h-16 rounded-lg bg-[#f9fbf9] border border-gray-100 p-1 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                <img src="${item.image_url || item.thumbnail_url || ''}" class="w-full h-full object-contain mix-blend-multiply" alt="${item.product_name_snapshot || 'Product'}" onerror="this.outerHTML='<i class=\\'fa-regular fa-image text-gray-300 text-xl\\'></i>'">
+                            </div>
                             
                             <div class="flex-1">
                                 <h3 class="text-[#1e293b] font-bold text-[14px] leading-snug mb-1">${item.product_name_snapshot || 'Product'}</h3>
@@ -845,14 +849,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     items.forEach(i => subtotal += ((i.price_snapshot || i.price || 0) * i.quantity));
                     if (subtotal === 0 && order.subtotal) subtotal = parseFloat(order.subtotal); // fallback
 
-                    const shipping = subtotal > 500 ? 0 : 50;
-                    const total = subtotal + shipping;
+                    const discount = order.discount || parseFloat(sessionStorage.getItem('hbm_discount') || 0);
+                    const taxableAmount = Math.max(0, subtotal - discount);
+                    const shipping = taxableAmount < 499 && taxableAmount > 0 ? 59 : 0;
+                    const tax = taxableAmount * 0.05;
+                    const total = taxableAmount + shipping + tax;
 
                     const subtotalLabel = document.getElementById('confirm-subtotal-label');
                     if (subtotalLabel) subtotalLabel.textContent = `Subtotal (${items.length} items)`;
 
                     const subtotalEl = document.getElementById('confirm-subtotal');
                     if (subtotalEl) subtotalEl.textContent = `₹${subtotal.toFixed(2)}`;
+
+                    const discountRow = document.getElementById('confirm-discount-row');
+                    const discountEl = document.getElementById('confirm-discount');
+                    if (discount > 0) {
+                        if (discountRow) discountRow.classList.remove('hidden');
+                        if (discountEl) discountEl.textContent = `- ₹${discount.toFixed(2)}`;
+                    }
+
+                    // Add Tax Row if not exists
+                    let taxRow = document.getElementById('confirm-tax-row');
+                    if (!taxRow && subtotalLabel) {
+                        const newRow = document.createElement('div');
+                        newRow.id = 'confirm-tax-row';
+                        newRow.className = 'flex justify-between text-gray-500 font-medium';
+                        newRow.innerHTML = `<span>Tax (5% GST)</span><span class="font-bold text-[#1e293b]" id="confirm-tax">₹${tax.toFixed(2)}</span>`;
+                        subtotalLabel.parentElement.parentElement.insertBefore(newRow, subtotalLabel.parentElement.nextSibling);
+                    } else if (taxRow) {
+                        const taxEl = document.getElementById('confirm-tax');
+                        if (taxEl) taxEl.textContent = `₹${tax.toFixed(2)}`;
+                    }
 
                     const shippingEl = document.getElementById('confirm-shipping');
                     if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Free' : `₹${shipping.toFixed(2)}`;
@@ -865,6 +892,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Clear cart globally after successful order
         localStorage.removeItem('hbm_cart');
+        sessionStorage.removeItem('hbm_discount');
         
         // Optional: you can clear checkout state if you no longer need it.
         // localStorage.removeItem('hbm_checkout_state');

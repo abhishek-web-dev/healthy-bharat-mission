@@ -619,30 +619,33 @@ window.applyCoupon = function () {
     const code = document.getElementById('coupon-input').value.trim().toUpperCase();
     const msgEl = document.getElementById('coupon-message');
 
+    // If code is empty, we allow removing the coupon
     if (code === '') {
-        msgEl.innerText = 'Please enter a coupon code.';
-        msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
-        msgEl.style.display = 'block';
-        return;
+        // Continue to the else block to remove
     }
 
     if (code === 'HBM1') {
         window.currentDiscount = 100;
-        localStorage.setItem('hbm_discount', 100);
+        sessionStorage.setItem('hbm_discount', 100);
         msgEl.innerText = 'Coupon applied successfully!';
         msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
         msgEl.style.display = 'block';
     } else if (code === 'HBM2') {
         window.currentDiscount = 50;
-        localStorage.setItem('hbm_discount', 50);
+        sessionStorage.setItem('hbm_discount', 50);
         msgEl.innerText = 'Coupon applied successfully!';
         msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
         msgEl.style.display = 'block';
     } else {
         window.currentDiscount = 0;
-        localStorage.removeItem('hbm_discount');
-        msgEl.innerText = 'Invalid coupon code.';
-        msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
+        sessionStorage.removeItem('hbm_discount');
+        if (code === '') {
+            msgEl.innerText = 'Coupon removed.';
+            msgEl.className = 'text-[12px] font-bold mt-2 text-gray-500 block';
+        } else {
+            msgEl.innerText = 'Invalid coupon code.';
+            msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
+        }
         msgEl.style.display = 'block';
     }
 
@@ -651,7 +654,7 @@ window.applyCoupon = function () {
 
 function updateCartTotals(subtotal) {
     window.currentCartSubtotal = subtotal;
-    const discount = window.currentDiscount || parseFloat(localStorage.getItem('hbm_discount')) || 0;
+    const discount = window.currentDiscount || parseFloat(sessionStorage.getItem('hbm_discount')) || 0;
 
     const subtotalEl = document.getElementById('cart-subtotal');
     if (subtotalEl) subtotalEl.innerText = `₹${subtotal.toFixed(2)}`;

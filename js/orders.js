@@ -1,17 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Check authentication
-    if (!HBM_API.auth.getToken()) {
+    if (!HBM_API.getToken()) {
         localStorage.setItem('redirectUrl', window.location.pathname);
         window.location.href = '../auth/login.html';
         return;
     }
 
+    let allOrders = [];
+
     if (window.location.pathname.includes('my-orders.html')) {
         loadMyOrders();
+        setupSortListener();
+    }
+
+    function setupSortListener() {
+        const sortSelect = document.getElementById('sort-orders');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', (e) => {
+                if (allOrders.length === 0) return;
+                
+                const sortBy = e.target.value;
+                if (sortBy === 'newest') {
+                    allOrders.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                } else if (sortBy === 'oldest') {
+                    allOrders.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+                }
+                
+                const container = document.getElementById('orders-container');
+                renderOrders(allOrders, container);
+            });
+        }
     }
 
     async function loadMyOrders() {
-        const container = document.querySelector('.flex.flex-col.gap-4'); // Container for orders
+        const container = document.getElementById('orders-container'); // Container for orders
         if (!container) return;
 
         try {
@@ -20,7 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const response = await HBM_API.orders.getAll();
             if (response.success && response.data.orders.length > 0) {
-                renderOrders(response.data.orders, container);
+                allOrders = response.data.orders;
+                // Default sort (Newest First)
+                allOrders.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                renderOrders(allOrders, container);
             } else {
                 container.innerHTML = `
                     <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-12 text-center">
