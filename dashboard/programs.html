@@ -20,21 +20,52 @@
             <hbm-dashboard-sidebar active-page="programs"></hbm-dashboard-sidebar>
 
             <!-- Main Content -->
-            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
-                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
-                    <div>
-                        <h2 class="text-2xl font-heading font-bold text-gray-800">My Programs</h2>
-                        <p class="text-gray-500 mt-1">Programs you are enrolled in.</p>
+            <div id="dashboard-main" class="flex-1 transition-opacity duration-300 opacity-0">
+                <!-- Header Banner -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-green-50 text-[#106e39] flex items-center justify-center">
+                            <i class="fa-solid fa-dumbbell text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-heading font-bold text-gray-800">My Programs</h2>
+                            <p class="text-gray-500 text-sm mt-0.5">Track your enrolled programs and continue your journey towards a healthier you.</p>
+                        </div>
+                    </div>
+                    <div class="bg-green-50/50 border border-green-100 rounded-xl px-5 py-3 flex items-center gap-4">
+                        <i class="fa-solid fa-leaf text-[#106e39] text-xl"></i>
+                        <div>
+                            <p class="text-[13px] font-bold text-[#106e39]">"Consistency today, a healthier tomorrow."</p>
+                            <p class="text-[11px] text-[#106e39] mt-0.5">— Healthy Bharat Mission</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 text-blue-800 p-4 rounded-xl text-[14px] font-medium border border-blue-100 flex items-start gap-3">
-                    <i class="fa-solid fa-circle-info mt-0.5"></i>
-                    <div>
-                        Coming soon! This section is currently under development.
-                    </div>
+                <!-- Tabs -->
+                <div class="mb-6 flex border-b border-gray-200" id="program-tabs">
+                    <button data-tab="active" class="px-6 py-3 font-bold text-[#106e39] border-b-2 border-[#106e39] outline-none">Active Programs</button>
+                    <button data-tab="completed" class="px-6 py-3 font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent outline-none">Completed Programs</button>
+                    <button data-tab="available" class="px-6 py-3 font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent outline-none" onclick="window.location.href='../program.html'">Available Programs</button>
                 </div>
 
+                <!-- Programs Container -->
+                <div id="programs-container" class="space-y-4">
+                    <!-- Cards will be injected here -->
+                </div>
+
+                <!-- Explore More -->
+                <div class="mt-6 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600">
+                            <i class="fa-solid fa-plus text-xl font-light"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Explore More Programs</h3>
+                            <p class="text-gray-500 text-sm mt-0.5">Discover new programs to support your health goals.</p>
+                        </div>
+                    </div>
+                    <a href="../program.html" class="px-5 py-2.5 border border-[#106e39] text-[#106e39] rounded-lg font-bold hover:bg-green-50 transition-colors whitespace-nowrap">Browse All Programs</a>
+                </div>
             </div>
         </div>
     </div>
@@ -43,5 +74,135 @@
     <script src="../js/api.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            let userPrograms = { active: [], completed: [] };
+            
+            try {
+                const res = await HBM_API.request('/user/programs');
+                if (res.success) {
+                    userPrograms = res.data;
+                }
+            } catch (err) {
+                console.error("Failed to fetch programs:", err);
+            }
+
+            const container = document.getElementById('programs-container');
+            const tabs = document.querySelectorAll('#program-tabs button[data-tab]');
+
+            function renderPrograms(type) {
+                const programs = userPrograms[type] || [];
+                
+                if (programs.length === 0) {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl border border-gray-100 p-8 text-center text-gray-500">
+                            No ${type} programs found.
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+                programs.forEach(prog => {
+                    const dateObj = new Date(prog.enrolled_at);
+                    const dateStr = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                    
+                    const durationStr = prog.duration_days ? `${prog.duration_days} Days` : '--';
+                    const modulesStr = prog.total_modules ? `${prog.total_modules} Modules` : '--';
+                    
+                    let featuresHtml = '';
+                    if (prog.features && prog.features.length > 0) {
+                        prog.features.forEach(f => {
+                            let icon = 'fa-check';
+                            if (f.toLowerCase().includes('diet')) icon = 'fa-utensils';
+                            if (f.toLowerCase().includes('workout')) icon = 'fa-dumbbell';
+                            if (f.toLowerCase().includes('expert')) icon = 'fa-user-doctor';
+                            featuresHtml += `<span class="flex items-center gap-1.5"><i class="fa-solid ${icon} opacity-50"></i> ${f}</span>`;
+                        });
+                    }
+
+                    let badgeColor = 'bg-[#ebf8f0] text-[#106e39]';
+                    let badgeText = 'In Progress';
+                    if (type === 'completed') {
+                        badgeColor = 'bg-blue-50 text-blue-700';
+                        badgeText = 'Completed';
+                    } else if (prog.progress >= 80) {
+                        badgeColor = 'bg-blue-50 text-blue-700';
+                        badgeText = 'Almost There!';
+                    }
+
+                    const imageUrl = prog.image_url ? `../${prog.image_url}` : 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=300&auto=format&fit=crop';
+
+                    html += `
+                        <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-5 flex flex-col md:flex-row items-center gap-6 relative">
+                            <div class="w-full md:w-[220px] h-[130px] rounded-xl overflow-hidden shrink-0 bg-gray-100">
+                                <img src="${imageUrl}" alt="${prog.name}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1 w-full">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-[17px]">${prog.name}</h3>
+                                        <p class="text-[13px] text-gray-500 mt-1">Started on ${dateStr}</p>
+                                    </div>
+                                    <div class="${badgeColor} px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">
+                                        ${badgeText}
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 mb-3">
+                                    <div class="flex justify-between items-center text-xs mb-1.5">
+                                        <span class="text-gray-500 font-medium">Progress</span>
+                                        <span class="text-gray-700 font-bold">${prog.progress}% Completed</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                                        <div class="h-full bg-[#106e39] rounded-full" style="width: ${prog.progress}%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap items-center justify-between gap-4 mt-4">
+                                    <div class="flex flex-wrap items-center gap-4 text-[13px] text-gray-600 font-medium">
+                                        <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar opacity-50"></i> ${durationStr}</span>
+                                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-layer-group opacity-50"></i> ${modulesStr}</span>
+                                        ${featuresHtml}
+                                    </div>
+                                    <a href="../program/${prog.slug}.html" class="px-5 py-2.5 bg-[#106e39] text-white text-sm rounded-lg font-bold hover:bg-green-800 transition-colors whitespace-nowrap">
+                                        Continue Program <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+
+            // Tab switching logic
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const type = tab.dataset.tab;
+                    if (type === 'available') return; // Redirects via onclick
+
+                    // Update active state
+                    tabs.forEach(t => {
+                        if (t === tab) {
+                            t.className = "px-6 py-3 font-bold text-[#106e39] border-b-2 border-[#106e39] outline-none";
+                        } else {
+                            t.className = "px-6 py-3 font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent outline-none";
+                        }
+                    });
+
+                    renderPrograms(type);
+                });
+            });
+
+            // Initial render
+            renderPrograms('active');
+            
+            setTimeout(() => {
+                document.getElementById('dashboard-main').classList.remove('opacity-0');
+            }, 100);
+        });
+    </script>
 </body>
 </html>

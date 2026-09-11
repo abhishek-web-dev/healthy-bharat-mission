@@ -20,22 +20,328 @@
             <hbm-dashboard-sidebar active-page="health-profile"></hbm-dashboard-sidebar>
 
             <!-- Main Content -->
-            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
-                <div class="flex justify-between items-end border-b border-gray-100 pb-5 mb-6">
-                    <div>
-                        <h2 class="text-2xl font-heading font-bold text-gray-800">Health Profile</h2>
-                        <p class="text-gray-500 mt-1">Information about your health conditions and measurements.</p>
+            <div id="dashboard-main" class="flex-1 transition-opacity duration-300 opacity-0">
+                <!-- Header Banner -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center">
+                            <i class="fa-solid fa-heart-pulse text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-heading font-bold text-gray-800">Health Profile</h2>
+                            <p class="text-gray-500 text-sm mt-0.5">Keep your health information updated for a better and personalized experience.</p>
+                        </div>
+                    </div>
+                    <div class="bg-green-50/50 border border-green-100 rounded-xl px-5 py-3 flex items-center gap-4">
+                        <i class="fa-solid fa-leaf text-green-500 text-xl"></i>
+                        <div>
+                            <p class="text-[13px] font-bold text-green-800">"Your health today builds a brighter tomorrow."</p>
+                            <p class="text-[11px] text-green-600 mt-0.5">— Healthy Bharat Mission</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 text-blue-800 p-4 rounded-xl text-[14px] font-medium border border-blue-100 flex items-start gap-3">
-                    <i class="fa-solid fa-circle-info mt-0.5"></i>
-                    <div>
-                        Coming soon! Your comprehensive health profile will allow you to track your HbA1c, weight, and blood pressure securely.
+                <!-- Top 4 Summary Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <!-- Current Weight -->
+                    <div class="bg-[#f2fbf5] rounded-2xl p-5 border border-green-50 flex flex-col justify-between h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Current Weight</span>
+                            <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                <i class="fa-solid fa-weight-scale"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800" id="card-weight">-- kg</h3>
+                            <p class="text-[10px] text-gray-400 mt-1" id="card-weight-date">Last updated: --</p>
+                        </div>
+                    </div>
+
+                    <!-- Height -->
+                    <div class="bg-[#f0f6ff] rounded-2xl p-5 border border-blue-50 flex flex-col justify-between h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Height</span>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
+                                <i class="fa-solid fa-ruler-vertical"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800" id="card-height">-- cm</h3>
+                            <p class="text-[10px] text-gray-400 mt-1" id="card-height-date">Last updated: --</p>
+                        </div>
+                    </div>
+
+                    <!-- Blood Group -->
+                    <div class="bg-[#fdf2f4] rounded-2xl p-5 border border-red-50 flex flex-col justify-between h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Blood Group</span>
+                            <div class="w-8 h-8 rounded-full bg-red-100 text-red-50 flex items-center justify-center">
+                                <i class="fa-solid fa-droplet text-red-500"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800" id="card-blood">--</h3>
+                            <p class="text-[10px] text-gray-400 mt-1" id="card-blood-date">Last updated: --</p>
+                        </div>
+                    </div>
+
+                    <!-- Known Conditions -->
+                    <div class="bg-[#fff9f0] rounded-2xl p-5 border border-orange-50 flex flex-col justify-between h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Known Conditions</span>
+                            <div class="w-8 h-8 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center">
+                                <i class="fa-solid fa-heart-crack"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800" id="card-conditions">None</h3>
+                            <p class="text-[10px] text-orange-500 mt-1 cursor-pointer hover:underline font-medium">Update if any &rarr;</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Main Details Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Left Column -->
+                    <div class="flex flex-col gap-6">
+                        <!-- Personal Health Information -->
+                        <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6">
+                            <div class="flex justify-between items-center mb-5 pb-4 border-b border-gray-100">
+                                <h3 class="font-bold text-gray-800">Personal Health Information</h3>
+                                <button onclick="openModal('modal-personal-info')" class="text-gray-500 hover:text-[#106e39] text-sm font-bold flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-1.5"><i class="fa-solid fa-pen"></i> Edit</button>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Full Name</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium break-all" id="info-name">--</span>
+                                </div>
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Age</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="info-age">-- Years</span>
+                                </div>
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Gender</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="info-gender">--</span>
+                                </div>
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Height</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="info-height">-- cm</span>
+                                </div>
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Weight</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="info-weight">-- kg</span>
+                                </div>
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Blood Group</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="info-blood">--</span>
+                                </div>
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Phone Number</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="info-phone">--</span>
+                                </div>
+                                <div class="flex items-start text-sm" style="grid-column: 1 / -1;">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 110px;">Email Address</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium break-words" id="info-email">--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Allergies -->
+                        <div class="bg-[#f8fcf9] rounded-2xl border border-green-50 p-6 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-[#106e39]"></div>
+                            <div class="flex justify-between items-center mb-5">
+                                <h3 class="font-bold text-gray-800">Allergies</h3>
+                                <button onclick="openModal('modal-allergy')" class="text-gray-500 hover:text-[#106e39] text-sm font-bold flex items-center gap-2 border border-gray-200 bg-white rounded-lg px-3 py-1.5"><i class="fa-solid fa-pen"></i> Edit</button>
+                            </div>
+                            
+                            <div id="allergies-container">
+                                <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-pills text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-sm text-gray-800">No allergies added yet.</h4>
+                                        <p class="text-[11px] text-gray-500 mt-0.5">Add any food, medicine or environmental allergies.</p>
+                                    </div>
+                                    <button onclick="openModal('modal-allergy')" class="bg-white border border-[#106e39] text-[#106e39] font-bold text-xs px-4 py-2 rounded-lg hover:bg-green-50 transition-colors shrink-0 whitespace-nowrap"><i class="fa-solid fa-plus mr-1"></i> Add Allergy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="flex flex-col gap-6">
+                        <!-- Health Conditions -->
+                        <div class="bg-[#fafafa] rounded-2xl border border-gray-100 p-6 flex-1 flex flex-col">
+                            <div class="flex justify-between items-center mb-5 pb-4 border-b border-gray-200">
+                                <h3 class="font-bold text-gray-800">Health Conditions</h3>
+                                <button onclick="openModal('modal-condition')" class="text-gray-500 hover:text-[#106e39] text-sm font-bold flex items-center gap-2 border border-gray-200 bg-white rounded-lg px-3 py-1.5"><i class="fa-solid fa-pen"></i> Edit</button>
+                            </div>
+                            
+                            <div id="conditions-container" class="flex-1 flex flex-col justify-center items-center text-center py-8">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-stethoscope text-gray-400 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800 mb-1">No health conditions added yet.</h4>
+                                <p class="text-[13px] text-gray-500 mb-6 max-w-[300px]">Add your existing health conditions (e.g. Diabetes, BP, etc.) for better recommendations.</p>
+                                <button onclick="openModal('modal-condition')" class="bg-white border border-[#106e39] text-[#106e39] font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-green-50 transition-colors"><i class="fa-solid fa-plus mr-1"></i> Add Condition</button>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Contact -->
+                        <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6">
+                            <div class="flex justify-between items-center mb-5 pb-4 border-b border-gray-100">
+                                <h3 class="font-bold text-gray-800">Emergency Contact</h3>
+                                <button onclick="openModal('modal-emergency')" class="text-gray-500 hover:text-[#106e39] text-sm font-bold flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-1.5"><i class="fa-solid fa-pen"></i> Edit</button>
+                            </div>
+                            
+                            <div id="emergency-container" class="space-y-4">
+                                <div class="flex items-start text-sm">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 140px;">Contact Name</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="em-name">--</span>
+                                </div>
+                                <div class="flex items-start text-sm border-t border-gray-50 pt-3">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 140px;">Relationship</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="em-rel">--</span>
+                                </div>
+                                <div class="flex items-start text-sm border-t border-gray-50 pt-3">
+                                    <span class="text-gray-500 font-medium shrink-0" style="width: 140px;">Phone Number</span>
+                                    <span class="text-gray-500" style="margin-right: 8px;">:</span>
+                                    <span class="text-gray-800 font-medium" id="em-phone">--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Edit Personal Info Modal -->
+    <div id="modal-personal-info" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-lg p-6 shadow-xl">
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="text-xl font-bold text-gray-800">Edit Personal Info</h3>
+                <button onclick="closeModal('modal-personal-info')" class="text-gray-400 hover:text-gray-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="form-personal-info" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" name="first_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" name="last_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                        <input type="date" name="dob" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                        <select name="gender" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Height (cm)</label>
+                        <input type="number" step="0.1" name="height_cm" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Weight (kg)</label>
+                        <input type="number" step="0.1" name="weight_kg" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Blood Group</label>
+                    <select name="blood_group" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                        <option value="">Select</option>
+                        <option value="A+">A+</option><option value="A-">A-</option>
+                        <option value="B+">B+</option><option value="B-">B-</option>
+                        <option value="O+">O+</option><option value="O-">O-</option>
+                        <option value="AB+">AB+</option><option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-[#106e39] hover:bg-green-700 text-white font-bold py-2.5 rounded-lg mt-4 transition-colors">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Allergy Modal -->
+    <div id="modal-allergy" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-xl">
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="text-xl font-bold text-gray-800">Add Allergy</h3>
+                <button onclick="closeModal('modal-allergy')" class="text-gray-400 hover:text-gray-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="form-allergy" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Allergy Name</label>
+                    <input type="text" name="allergy_name" required placeholder="e.g. Peanuts, Penicillin" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                </div>
+                <button type="submit" class="w-full bg-[#106e39] hover:bg-green-700 text-white font-bold py-2 rounded-lg transition-colors">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Condition Modal -->
+    <div id="modal-condition" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-xl">
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="text-xl font-bold text-gray-800">Add Health Condition</h3>
+                <button onclick="closeModal('modal-condition')" class="text-gray-400 hover:text-gray-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="form-condition" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Condition Name</label>
+                    <input type="text" name="condition_name" required placeholder="e.g. Type 2 Diabetes" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                </div>
+                <button type="submit" class="w-full bg-[#106e39] hover:bg-green-700 text-white font-bold py-2 rounded-lg transition-colors">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Emergency Contact Modal -->
+    <div id="modal-emergency" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-xl">
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="text-xl font-bold text-gray-800">Add Emergency Contact</h3>
+                <button onclick="closeModal('modal-emergency')" class="text-gray-400 hover:text-gray-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="form-emergency" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Contact Name</label>
+                    <input type="text" name="contact_name" required placeholder="e.g. Jane Doe" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Relationship</label>
+                    <input type="text" name="relationship" placeholder="e.g. Spouse" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="text" name="phone_number" required placeholder="e.g. 9876543210" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-[#106e39] focus:outline-none">
+                </div>
+                <button type="submit" class="w-full bg-[#106e39] hover:bg-green-700 text-white font-bold py-2 rounded-lg transition-colors">Add</button>
+            </form>
         </div>
     </div>
 
@@ -43,5 +349,190 @@
     <script src="../js/api.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script>
+        document.addEventListener('hbm:auth-ready', async () => {
+            const user = window.HBM_USER;
+            if (!user) return;
+
+            try {
+                const res = await HBM_API.user.getProfile();
+                const data = res.data;
+                
+                // Helper to format Date
+                const getUpdatedDate = () => {
+                    return new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+                };
+
+                // Populate Summary Cards
+                document.getElementById('card-weight').textContent = data.weight_kg ? `${data.weight_kg} kg` : '--';
+                document.getElementById('card-weight-date').textContent = `Last updated: ${getUpdatedDate()}`;
+                
+                document.getElementById('card-height').textContent = data.height_cm ? `${data.height_cm} cm` : '--';
+                document.getElementById('card-height-date').textContent = `Last updated: ${getUpdatedDate()}`;
+                
+                document.getElementById('card-blood').textContent = data.blood_group || '--';
+                document.getElementById('card-blood-date').textContent = `Last updated: ${getUpdatedDate()}`;
+                
+                const conditionsCount = data.health_conditions && data.health_conditions.length > 0 ? data.health_conditions.length : 'None';
+                document.getElementById('card-conditions').textContent = conditionsCount;
+
+                // Populate Personal Information
+                document.getElementById('info-name').textContent = `${data.first_name} ${data.last_name || ''}`;
+                
+                if (data.dob) {
+                    const dob = new Date(data.dob);
+                    const diff_ms = Date.now() - dob.getTime();
+                    const age_dt = new Date(diff_ms); 
+                    const age = Math.abs(age_dt.getUTCFullYear() - 1970);
+                    document.getElementById('info-age').textContent = `${age} Years`;
+                }
+                
+                document.getElementById('info-gender').textContent = data.gender ? data.gender.charAt(0).toUpperCase() + data.gender.slice(1) : '--';
+                document.getElementById('info-height').textContent = data.height_cm ? `${data.height_cm} cm` : '--';
+                document.getElementById('info-weight').textContent = data.weight_kg ? `${data.weight_kg} kg` : '--';
+                document.getElementById('info-blood').textContent = data.blood_group || '--';
+                document.getElementById('info-phone').textContent = data.phone || '--';
+                document.getElementById('info-email').textContent = data.email || '--';
+
+                // Populate Edit Modal Inputs
+                const personalForm = document.getElementById('form-personal-info');
+                if (personalForm) {
+                    if(data.first_name) personalForm.elements['first_name'].value = data.first_name;
+                    if(data.last_name) personalForm.elements['last_name'].value = data.last_name;
+                    if(data.dob) personalForm.elements['dob'].value = data.dob;
+                    if(data.gender) personalForm.elements['gender'].value = data.gender;
+                    if(data.height_cm) personalForm.elements['height_cm'].value = data.height_cm;
+                    if(data.weight_kg) personalForm.elements['weight_kg'].value = data.weight_kg;
+                    if(data.blood_group) personalForm.elements['blood_group'].value = data.blood_group;
+                }
+
+                // Populate Conditions
+                if (data.health_conditions && data.health_conditions.length > 0) {
+                    let html = '<div class="space-y-3">';
+                    data.health_conditions.forEach(c => {
+                        html += `
+                            <div class="bg-white border border-gray-100 p-3 rounded-lg shadow-sm flex items-center gap-3">
+                                <i class="fa-solid fa-notes-medical text-orange-500"></i>
+                                <span class="font-bold text-gray-800 text-sm">${c.condition_name}</span>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                    document.getElementById('conditions-container').innerHTML = html;
+                    document.getElementById('conditions-container').classList.remove('items-center', 'text-center', 'py-8', 'justify-center');
+                }
+
+                // Populate Allergies
+                if (data.allergies && data.allergies.length > 0) {
+                    let html = '<div class="flex flex-wrap gap-2">';
+                    data.allergies.forEach(a => {
+                        html += `
+                            <span class="bg-red-50 text-red-600 border border-red-100 px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation"></i> ${a.allergy_name}
+                            </span>
+                        `;
+                    });
+                    html += '</div>';
+                    document.getElementById('allergies-container').innerHTML = html;
+                }
+
+                // Populate Emergency Contacts
+                if (data.emergency_contacts && data.emergency_contacts.length > 0) {
+                    const em = data.emergency_contacts[0];
+                    document.getElementById('em-name').textContent = em.contact_name;
+                    document.getElementById('em-rel').textContent = em.relationship || '--';
+                    document.getElementById('em-phone').textContent = em.phone_number;
+                }
+
+            } catch (error) {
+                console.error("Failed to load health profile", error);
+            }
+            
+            setTimeout(() => {
+                document.getElementById('dashboard-main').classList.remove('opacity-0');
+            }, 50);
+        });
+
+        // Modal Handlers
+        window.openModal = function(id) {
+            document.getElementById(id).classList.remove('hidden');
+        };
+        window.closeModal = function(id) {
+            document.getElementById(id).classList.add('hidden');
+        };
+
+        // Form Submissions
+        document.getElementById('form-personal-info')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            try {
+                const res = await HBM_API.request('/user/profile', 'PUT', data);
+                if (res.success) {
+                    showNotification('Profile updated successfully!', 'success');
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    showNotification(res.message || 'Failed to update profile', 'error');
+                }
+            } catch (err) {
+                console.error(err);
+                showNotification('An error occurred.', 'error');
+            }
+        });
+
+        document.getElementById('form-allergy')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            try {
+                const res = await HBM_API.request('/user/allergies', 'POST', data);
+                if (res.success) {
+                    showNotification('Allergy added successfully!', 'success');
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    showNotification(res.message || 'Failed to add allergy', 'error');
+                }
+            } catch (err) {
+                console.error(err);
+                showNotification('An error occurred.', 'error');
+            }
+        });
+
+        document.getElementById('form-condition')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            try {
+                const res = await HBM_API.request('/user/health-conditions', 'POST', data);
+                if (res.success) {
+                    showNotification('Condition added successfully!', 'success');
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    showNotification(res.message || 'Failed to add condition', 'error');
+                }
+            } catch (err) {
+                console.error(err);
+                showNotification('An error occurred.', 'error');
+            }
+        });
+
+        document.getElementById('form-emergency')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            try {
+                const res = await HBM_API.request('/user/emergency-contacts', 'POST', data);
+                if (res.success) {
+                    showNotification('Emergency contact added successfully!', 'success');
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    showNotification(res.message || 'Failed to add emergency contact', 'error');
+                }
+            } catch (err) {
+                console.error(err);
+                showNotification('An error occurred.', 'error');
+            }
+        });
+    </script>
 </body>
 </html>

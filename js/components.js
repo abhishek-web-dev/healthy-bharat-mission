@@ -843,7 +843,7 @@ class HbmDashboardSidebar extends HTMLElement {
         });
 
         this.innerHTML = `
-            <div class="w-full lg:w-[260px] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden flex-shrink-0">
+            <div class="w-full lg:w-[260px] bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 flex-shrink-0" style="position: sticky; top: 120px; max-height: calc(100vh - 140px); overflow-y: auto; overflow-x: hidden;">
                 <div class="p-5 border-b border-gray-100 flex items-center space-x-3 bg-gray-50/50">
                     <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                         <i class="fa-solid fa-user-circle text-xl"></i>
