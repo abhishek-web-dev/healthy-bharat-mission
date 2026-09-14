@@ -2,7 +2,7 @@ const HBM_API = {
     // Automatically use localhost for local development, otherwise point to your production backend
     baseUrl: (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
         ? 'http://localhost:8000/api'
-        : 'https://healthy-bharat-mission-backend-production.up.railway.app/api',
+        : '/api',
 
     getToken: function() {
         return localStorage.getItem('hbm_token');
@@ -71,6 +71,7 @@ const HBM_API = {
         login: (data) => HBM_API.request('/auth/login', 'POST', data),
         register: (data) => HBM_API.request('/auth/register', 'POST', data),
         verifyOtp: (data) => HBM_API.request('/auth/verify-otp', 'POST', data),
+        resendOtp: (data) => HBM_API.request('/auth/resend-otp', 'POST', data),
         forgotPassword: (data) => HBM_API.request('/auth/forgot-password', 'POST', data),
         resetPassword: (data) => HBM_API.request('/auth/reset-password', 'POST', data),
         changePassword: (data) => HBM_API.request('/auth/change-password', 'POST', data),

@@ -129,6 +129,45 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             productList.innerHTML = '<p class="text-sm text-gray-500">No items found for this order.</p>';
         }
+
+        // Handle Download Invoice Button
+        const downloadBtn = document.getElementById('download-invoice-btn');
+        if (downloadBtn) {
+            downloadBtn.style.display = 'inline-flex';
+            downloadBtn.onclick = async () => {
+                const originalText = downloadBtn.innerHTML;
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Downloading...';
+                downloadBtn.disabled = true;
+                
+                try {
+                    const token = localStorage.getItem('hbm_token') || localStorage.getItem('token');
+                    const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api';
+                    const response = await fetch(`${baseUrl}/orders/${order.id}/invoice/download`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (!response.ok) throw new Error('Download failed');
+
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `Invoice-${orderNumberDisplay}.pdf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
+                } catch (error) {
+                    console.error('Download error:', error);
+                    alert('Failed to download invoice. It might not be available yet.');
+                } finally {
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.disabled = false;
+                }
+            };
+        }
     }
 
     function showError() {

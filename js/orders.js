@@ -126,9 +126,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <!-- Actions -->
                     <div class="flex items-center justify-between md:justify-end gap-5 shrink-0 mt-3 md:mt-0 pt-4 md:pt-0 border-t md:border-0 border-gray-100" style="min-width: 240px;">
                         ${statusBadge}
-                        <button onclick="window.location.href='order-details.html?id=${order.id}'" class="px-5 py-2.5 text-[13px] font-bold text-[#106e39] border border-green-200 bg-white rounded-xl hover:bg-[#106e39] hover:text-white transition-all whitespace-nowrap shadow-sm hover:shadow-md">
-                            View Details
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button onclick="downloadInvoiceList(${order.id}, '${orderNumberDisplay}', this)" class="px-4 py-2.5 text-[13px] font-bold text-gray-700 border border-gray-200 bg-white rounded-xl hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center" title="Download Invoice">
+                                <i class="fa-solid fa-download"></i>
+                            </button>
+                            <button onclick="window.location.href='order-details.html?id=${order.id}'" class="px-5 py-2.5 text-[13px] font-bold text-[#106e39] border border-green-200 bg-white rounded-xl hover:bg-[#106e39] hover:text-white transition-all whitespace-nowrap shadow-sm hover:shadow-md">
+                                View Details
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -152,3 +157,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
     }
 });
+
+// Global function to handle invoice download from the list
+window.downloadInvoiceList = async function(orderId, orderNumber, btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+    btn.disabled = true;
+    
+    try {
+        const token = localStorage.getItem('hbm_token') || localStorage.getItem('token');
+        const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api';
+        const response = await fetch(`${baseUrl}/orders/${orderId}/invoice/download`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) throw new Error('Download failed');
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Invoice-${orderNumber}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+    } catch (error) {
+        console.error('Download error:', error);
+        alert('Failed to download invoice. It might not be available yet.');
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+};

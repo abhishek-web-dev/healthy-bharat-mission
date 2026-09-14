@@ -294,7 +294,32 @@ document.addEventListener('DOMContentLoaded', () => {
             timerSeconds--;
         };
         updateTimer();
-        const timerInterval = setInterval(updateTimer, 1000);
+        let timerInterval = setInterval(updateTimer, 1000);
+
+        if (resendBtn) {
+            resendBtn.addEventListener('click', async () => {
+                if (resendBtn.disabled) return;
+                
+                resendBtn.disabled = true;
+                resendBtn.className = 'text-gray-400 font-medium ml-1 cursor-not-allowed';
+                
+                timerSeconds = 120;
+                if (timerText) timerText.style.display = 'inline';
+                
+                clearInterval(timerInterval);
+                updateTimer();
+                timerInterval = setInterval(updateTimer, 1000);
+                
+                try {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const email = urlParams.get('email');
+                    await HBM_API.auth.resendOtp({ identifier: email, purpose: 'registration' });
+                    // Optional: show a success toast here
+                } catch (error) {
+                    console.error('Failed to resend OTP', error);
+                }
+            });
+        }
 
         // Edit Button Logic
         const editBtn = document.getElementById('edit-email-btn');
@@ -327,6 +352,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.addEventListener('keydown', function(e) {
                     if (e.key === 'Backspace' && !this.value) {
                         if (index > 0) otpInputs[index - 1].focus();
+                    }
+                });
+                input.addEventListener('paste', function(e) {
+                    e.preventDefault();
+                    const pastedData = (e.clipboardData || window.clipboardData).getData('text');
+                    const numericData = pastedData.replace(/[^0-9]/g, '');
+                    
+                    for (let i = 0; i < numericData.length && i + index < otpInputs.length; i++) {
+                        otpInputs[i + index].value = numericData[i];
+                        if (i + index < otpInputs.length - 1) {
+                            otpInputs[i + index + 1].focus();
+                        } else {
+                            otpInputs[i + index].focus();
+                        }
                     }
                 });
             });
