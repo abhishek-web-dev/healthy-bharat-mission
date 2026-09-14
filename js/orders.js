@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <button onclick="downloadInvoiceList(${order.id}, '${orderNumberDisplay}', this)" class="px-4 py-2.5 text-[13px] font-bold text-gray-700 border border-gray-200 bg-white rounded-xl hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center" title="Download Invoice">
                                 <i class="fa-solid fa-download"></i>
                             </button>
-                            <button onclick="window.location.href='order-details.html?id=${order.id}'" class="px-5 py-2.5 text-[13px] font-bold text-[#106e39] border border-green-200 bg-white rounded-xl hover:bg-[#106e39] hover:text-white transition-all whitespace-nowrap shadow-sm hover:shadow-md">
+                            <button onclick="window.location.href='order-details?id=${order.id}'" class="px-5 py-2.5 text-[13px] font-bold text-[#106e39] border border-green-200 bg-white rounded-xl hover:bg-[#106e39] hover:text-white transition-all whitespace-nowrap shadow-sm hover:shadow-md">
                                 View Details
                             </button>
                         </div>
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
                 <h3 class="text-xl font-bold text-gray-800 mb-2">No Orders Yet</h3>
                 <p class="text-gray-500 text-[13px] max-w-sm mb-6 leading-relaxed">You haven't placed any orders yet. Discover our healthy products and kickstart your journey!</p>
-                <a href="../store.html" class="px-6 py-3 bg-[#106e39] text-white rounded-xl text-sm font-semibold hover:bg-green-800 transition-colors shadow-sm">
+                <a href="../store" class="px-6 py-3 bg-[#106e39] text-white rounded-xl text-sm font-semibold hover:bg-green-800 transition-colors shadow-sm">
                     Shop Now
                 </a>
             </div>

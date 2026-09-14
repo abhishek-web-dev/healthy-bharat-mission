@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+</head>
+<body class="font-body text-gray-800 bg-[#f9fbf9] antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="../"></hbm-header>
+    
+    <main class="flex-grow pb-16">
+        <!-- Container -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative">
+            
+            <!-- Breadcrumb -->
+            <nav class="text-[12px] text-gray-500 mb-6 font-medium">
+                <a href="../index" class="hover:text-[#106e39] transition-colors">Home</a> 
+                <span class="mx-1">›</span> 
+                <a href="../store" class="hover:text-[#106e39] transition-colors">Store</a> 
+                <span class="mx-1">›</span> 
+                <span class="text-gray-800">Checkout</span>
+            </nav>
+
+            <!-- Top Header Section (Icon, Title, Stepper, Trust Badge) -->
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between mb-8" style="gap: 24px;">
+                <!-- Title & Icon -->
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-[14px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-3xl shadow-sm border border-[#d1f0df]">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-black text-[#1e293b]">Checkout</h1>
+                        <p class="text-gray-500 text-[14px] font-medium">Enter your delivery details to continue</p>
+                    </div>
+                </div>
+
+                <!-- Stepper -->
+                <div class="flex items-center justify-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center text-[#106e39]">
+                        <div class="w-8 h-8 rounded-full bg-[#106e39] text-white flex items-center justify-center text-[14px] font-bold shadow-sm">1</div>
+                        <span class="mt-2 text-[13px] font-bold">Shipping Address</span>
+                    </div>
+                    <!-- Line -->
+                    <div class="w-16 sm:w-24 h-[2px] bg-gray-200 mx-2 sm:mx-4" style="margin-top: -24px;"></div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-gray-400">
+                        <div class="w-8 h-8 rounded-full bg-[#f9fbf9] border-2 border-gray-200 flex items-center justify-center text-[14px] font-bold">2</div>
+                        <span class="mt-2 text-[13px] font-medium text-gray-500">Payment</span>
+                    </div>
+                    <!-- Line -->
+                    <div class="w-16 sm:w-24 h-[2px] bg-gray-200 mx-2 sm:mx-4" style="margin-top: -24px;"></div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-gray-400">
+                        <div class="w-8 h-8 rounded-full bg-[#f9fbf9] border-2 border-gray-200 flex items-center justify-center text-[14px] font-bold">3</div>
+                        <span class="mt-2 text-[13px] font-medium text-gray-500">Review & Place Order</span>
+                    </div>
+                </div>
+
+                <!-- Trust Badge (Top Right) -->
+                <div class="hidden md:flex items-center gap-3">
+                    <div class="text-[#106e39] text-3xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <div class="text-[#106e39] font-bold text-[14px]">100% Secure Checkout</div>
+                        <div class="text-gray-500 text-[12px] font-medium">Your information is safe with us</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="flex flex-col lg:flex-row" style="gap: 32px;">
+                
+                <!-- LEFT COLUMN (65%) -->
+                <div class="w-full lg:w-[65%]">
+                    
+                    <!-- Shipping Address Card -->
+                    <div class="bg-white rounded-3xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;">
+                        
+                        <!-- Card Header -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8" style="gap: 16px;">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-[12px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-[20px] font-bold text-[#1e293b] flex items-center gap-2">
+                                        <span class="text-[#1e293b] font-black">1</span> Shipping Address
+                                    </h2>
+                                    <p class="text-gray-500 text-[13px]">Enter your delivery address</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add New Address Button (Moved to top) -->
+                        <div id="add-address-header" class="hidden mb-6">
+                            <button id="btn-add-new-address" class="w-full sm:w-auto px-6 py-3 border-2 border-[#106e39] text-[#106e39] rounded-xl font-bold text-sm hover:bg-[#106e39] hover:text-white transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-plus"></i> Add New Address
+                            </button>
+                        </div>
+
+                        <!-- Saved Addresses Container -->
+                        <div id="saved-addresses-container" class="hidden mb-6 flex flex-col" style="gap: 16px;">
+                            <!-- Saved address cards will be injected here -->
+                        </div>
+
+                        <!-- Form -->
+                        <div id="new-address-form-container" class="flex flex-col hidden" style="gap: 20px;">
+                            <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 20px;">
+                                <!-- Full Name -->
+                                <div>
+                                    <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">Full Name *</label>
+                                    <input type="text" id="checkout-name" placeholder="Enter your full name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                                </div>
+                                <!-- Phone Number -->
+                                <div>
+                                    <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">Phone Number *</label>
+                                    <div class="flex gap-2">
+                                        <select class="w-[80px] px-3 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] text-[14px] bg-white">
+                                            <option>+91</option>
+                                        </select>
+                                        <input type="tel" id="checkout-phone" placeholder="Enter your phone number" maxlength="10" class="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 20px;">
+                                <!-- Pincode -->
+                                <div>
+                                    <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">Pincode *</label>
+                                    <div class="flex gap-3">
+                                        <input type="text" id="checkout-pincode" placeholder="Enter pincode" maxlength="6" class="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                                        <button type="button" id="checkout-btn-pincode" class="px-6 py-3 text-white font-bold rounded-lg transition-colors text-[14px] min-w-[90px]" style="background-color: #0a4d27;">Check</button>
+                                    </div>
+                                    <div id="pincode-message" class="text-[12px] font-bold mt-1"></div>
+                                </div>
+                                <!-- Address Line 1 -->
+                                <div>
+                                    <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">Address Line 1 *</label>
+                                    <input type="text" id="checkout-address1" placeholder="House no., Building, Street, Area" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                                </div>
+                            </div>
+
+                            <!-- Address Line 2 -->
+                            <div>
+                                <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">Address Line 2 (Optional)</label>
+                                <input type="text" id="checkout-address2" placeholder="Apartment, Landmark, etc." class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                            </div>
+
+                            <!-- City, State, Landmark -->
+                            <div class="grid grid-cols-1 md:grid-cols-3" style="gap: 20px;">
+                                <div>
+                                    <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">City *</label>
+                                    <input type="text" id="checkout-city" placeholder="Enter your city" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                                </div>
+                                <div>
+                                    <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">State *</label>
+                                    <input type="text" id="checkout-state" placeholder="Enter your state" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                                </div>
+                                <div>
+                                    <label class="block text-[13px] font-bold text-[#1e293b] mb-1.5">Landmark (Optional)</label>
+                                    <input type="text" id="checkout-landmark" placeholder="Enter landmark" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] text-[14px] bg-white">
+                                </div>
+                            </div>
+
+                            <!-- Save Checkbox -->
+                            <div class="flex items-center gap-2 mt-2">
+                                <div class="w-5 h-5 rounded text-white flex items-center justify-center text-[12px] cursor-pointer" style="background-color: #0a4d27;">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <label class="text-[14px] font-medium text-[#1e293b] cursor-pointer">Save this address for future orders</label>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <a href="#" class="w-full block text-center px-10 py-4 text-white rounded-lg font-bold text-[16px] transition-colors shadow-md flex justify-center items-center gap-2" style="background-color: #0a4d27;">
+                                Pay Now <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div> <!-- END LEFT COLUMN -->
+
+                <!-- RIGHT COLUMN (35%) -->
+                <div class="w-full lg:w-[35%]">
+                    
+                    <div class="bg-[#f9fcf9] rounded-3xl border border-[#e2f6e9] overflow-hidden sticky" style="top: 2rem;">
+                        
+                        <!-- Order Summary Header -->
+                        <div style="padding: 32px 32px 16px 32px;">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h2 class="text-[20px] font-bold text-[#1e293b]">Order Summary</h2>
+                                    <p class="text-gray-500 text-[13px]">3 Items</p>
+                                </div>
+                                <a href="cart" class="text-[14px] font-bold text-[#106e39] hover:underline flex items-center gap-1.5">
+                                    <i class="fa-solid fa-pencil text-[12px]"></i> Edit Cart
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Items -->
+                        <div style="padding: 0 32px 24px 32px;">
+                            <div id="checkout-order-summary-items" class="flex flex-col" style="gap: 24px;">
+                                <!-- Dynamic items will be injected here -->
+                                <div class="text-center py-4 text-gray-500 text-[13px]">
+                                    <i class="fa-solid fa-circle-notch fa-spin"></i> Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="px-8"><div class="border-t border-gray-200/60"></div></div>
+
+                        <!-- Totals -->
+                        <!-- Totals -->
+                        <div style="padding: 24px 32px 16px 32px;">
+                            <div class="flex flex-col" style="gap: 12px;">
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span id="checkout-subtotal-label">Subtotal</span>
+                                    <span id="checkout-subtotal" class="font-bold">₹0.00</span>
+                                </div>
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Shipping</span>
+                                    <span id="checkout-shipping" class="font-bold text-[#106e39]">Free</span>
+                                </div>
+                                <div id="checkout-tax-row" class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Taxes (GST 5%)</span>
+                                    <span id="checkout-tax" class="font-bold">₹0.00</span>
+                                </div>
+                                <div id="checkout-discount-row" class="flex justify-between text-[#1e293b] font-medium text-[13px] hidden">
+                                    <span>Discount</span>
+                                    <span id="checkout-discount" class="font-bold text-[#106e39]">-₹0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Amount Block -->
+                        <div class="bg-[#f0fbf4] mx-4 mb-4 rounded-xl" style="padding: 20px 24px;">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-[18px] font-bold text-[#1e293b]">Total Amount</span>
+                                <span id="checkout-total" class="text-[22px] font-black" style="color: #0a4d27;">₹0.00</span>
+                            </div>
+                            <!-- Savings Tag -->
+                            <div id="checkout-savings" class="rounded-lg px-4 py-2.5 items-center justify-center gap-2 text-[13px] font-bold border border-[#d1f0df] hidden" style="background-color: #e2f6e9; color: #0a4d27;">
+                                <i class="fa-solid fa-tag"></i> <span id="checkout-savings-text"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- END RIGHT COLUMN -->
+            </div>
+            
+            <!-- Bottom Trust Banner -->
+            <div class="mt-16 mb-8 pt-10 border-t border-gray-200/50">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Natural & Safe<br>Products</div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Support Your<br>Health Goals</div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Trusted by<br>5,000+ Customers</div>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Fast & Reliable<br>Delivery</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/components_v15.js"></script>
+    <script src="../js/api.js"></script>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-address-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-xl transform scale-95 opacity-0 transition-all duration-200" id="delete-modal-content">
+            <div class="w-12 h-12 rounded-full bg-red-100 text-red-500 flex items-center justify-center text-xl mb-4 mx-auto">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-lg font-bold text-[#1e293b] text-center mb-2">Delete Address</h3>
+            <p class="text-sm text-gray-500 text-center mb-6">Are you sure you want to delete this address? This action cannot be undone.</p>
+            <div class="flex gap-3">
+                <button id="btn-cancel-delete" class="flex-1 py-3 px-4 rounded-xl font-bold text-[#1e293b] bg-gray-100 hover:bg-gray-200 transition-colors">Cancel</button>
+                <button id="btn-confirm-delete" class="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-red-500 hover:bg-red-600 transition-colors">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

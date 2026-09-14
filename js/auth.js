@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         HBM_API.setToken(res.data.token);
                         showSuccess(form, 'Login successful! Redirecting...');
                         setTimeout(() => {
-                            window.location.href = '../store.html'; // Assuming dashboard exists
+                            window.location.href = '../store'; // Assuming dashboard exists
                         }, 1000);
                     }
                 } catch (error) {
@@ -172,12 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (res.data && res.data.auto_activated) {
                         showSuccess(form, 'Registration successful! You can now log in.');
                         setTimeout(() => {
-                            window.location.href = 'login.html';
+                            window.location.href = 'login';
                         }, 1500);
                     } else {
                         showSuccess(form, 'Registration successful! Please verify your OTP.');
                         setTimeout(() => {
-                            window.location.href = 'verify-otp.html?email=' + encodeURIComponent(email);
+                            window.location.href = 'verify-otp?email=' + encodeURIComponent(email);
                         }, 1500);
                     }
                 } catch (error) {
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     showSuccess(form, 'Password reset successfully! Redirecting...');
                     setTimeout(() => {
-                        window.location.href = 'login.html';
+                        window.location.href = 'login';
                     }, 1500);
                 } catch (error) {
                     showError(form, error.message);
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     await HBM_API.request('/auth/verify-otp', 'POST', { identifier: email, otp, purpose: 'registration' });
                     showSuccess(form, 'OTP Verified! Redirecting...');
                     setTimeout(() => {
-                        window.location.href = '../store.html';
+                        window.location.href = '../store';
                     }, 1500);
                 } catch (error) {
                     showError(form, error.message);
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const editBtn = document.getElementById('edit-email-btn');
         if (editBtn) {
             editBtn.addEventListener('click', () => {
-                window.location.href = 'register.html';
+                window.location.href = 'register';
             });
         }
 

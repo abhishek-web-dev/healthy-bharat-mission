@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Determine which page we are on
     const path = window.location.pathname;
 
-    if (path.includes('store.html') && !path.includes('store/')) {
+    if (path.includes('store') && !path.includes('store/')) {
         await initStore();
-    } else if (path.includes('store/product.html')) {
+    } else if (path.includes('store/product')) {
         await initProductDetail();
-    } else if (path.includes('store/cart.html')) {
+    } else if (path.includes('store/cart')) {
         await initCart();
-    } else if (path.includes('wishlist.html')) {
+    } else if (path.includes('wishlist')) {
         await initWishlist();
     }
 });
@@ -86,7 +86,7 @@ function createProductCard(product, isSlider = false) {
 function goToProduct(event, productId) {
     if (event.target.closest('button')) return;
     const basePath = document.querySelector('hbm-header')?.getAttribute('base-path') || '';
-    window.location.href = basePath + `store/product.html?id=${productId}`;
+    window.location.href = basePath + `store/product?id=${productId}`;
 }
 
 // --- Store Listing ---
@@ -272,7 +272,7 @@ async function initProductDetail() {
     const productId = params.get('id');
 
     if (!productId) {
-        window.location.href = '../store.html';
+        window.location.href = '../store';
         return;
     }
 
@@ -290,7 +290,7 @@ async function initProductDetail() {
         const bcCategory = document.getElementById('product-breadcrumb-category');
         if (bcCategory) {
             bcCategory.innerText = product.category_name || 'Store';
-            bcCategory.href = `../store.html#section-${product.category_slug}`;
+            bcCategory.href = `../store#section-${product.category_slug}`;
         }
 
         // Update Product Info
@@ -460,7 +460,7 @@ async function initCart() {
             container.innerHTML = `
                 <div class="text-center py-10">
                     <p class="text-gray-500 mb-4">Please log in to view your cart.</p>
-                    <a href="../auth/login.html" class="bg-[#106e39] text-white px-6 py-2 rounded-lg font-bold">Login</a>
+                    <a href="../auth/login" class="bg-[#106e39] text-white px-6 py-2 rounded-lg font-bold">Login</a>
                 </div>
             `;
         }
@@ -523,7 +523,7 @@ async function renderCart() {
             container.innerHTML = `
                 <div class="text-center py-10">
                     <p class="text-gray-500 mb-4">Your cart is empty.</p>
-                    <a href="../store.html" class="bg-[#106e39] text-white px-6 py-2 rounded-lg font-bold">Continue Shopping</a>
+                    <a href="../store" class="bg-[#106e39] text-white px-6 py-2 rounded-lg font-bold">Continue Shopping</a>
                 </div>
             `;
             updateCartTotals(0);
@@ -535,14 +535,14 @@ async function renderCart() {
             html += `
                 <div class="relative flex flex-col sm:flex-row gap-5 p-5 mb-4 border border-gray-100 rounded-3xl bg-white hover:shadow-sm transition-shadow">
                     
-                    <div class="w-32 h-32 shrink-0 bg-[#f4f6f8] rounded-2xl flex items-center justify-center relative overflow-hidden cursor-pointer" onclick="window.location.href='product.html?id=${item.product_id || item.id}'">
+                    <div class="w-32 h-32 shrink-0 bg-[#f4f6f8] rounded-2xl flex items-center justify-center relative overflow-hidden cursor-pointer" onclick="window.location.href='product?id=${item.product_id || item.id}'">
                         ${item.primary_image || item.thumbnail_url
                     ? `<img src="${item.primary_image || item.thumbnail_url}" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300" alt="${item.name}" onerror="this.parentElement.innerHTML='&lt;i class=&quot;fa-regular fa-image text-4xl text-gray-300&quot;&gt;&lt;/i&gt;'">`
                     : `<i class="fa-regular fa-image text-4xl text-gray-300"></i>`
                 }
                     </div>
                     
-                    <div class="flex flex-col flex-1 cursor-pointer" onclick="window.location.href='product.html?id=${item.product_id || item.id}'">
+                    <div class="flex flex-col flex-1 cursor-pointer" onclick="window.location.href='product?id=${item.product_id || item.id}'">
                         <div>
                             <h3 class="text-[#1e293b] font-bold text-lg leading-snug mb-1.5 hover:text-[#106e39] transition-colors">${item.name}</h3>
                             <div class="text-gray-400 text-sm mb-3">${item.category_name || 'Product'}</div>
@@ -713,7 +713,7 @@ function updateCartTotals(subtotal) {
 // --- Wishlist ---
 async function initWishlist() {
     if (!localStorage.getItem('hbm_token')) {
-        window.location.href = '../auth/login.html?redirect=../dashboard/wishlist.html';
+        window.location.href = '../auth/login?redirect=../dashboard/wishlist';
         return;
     }
 
@@ -728,7 +728,7 @@ async function initWishlist() {
             container.innerHTML = `
                 <div class="col-span-full text-center py-10 bg-white rounded-2xl shadow-sm border border-gray-100">
                     <p class="text-gray-500 mb-4">Your wishlist is empty.</p>
-                    <a href="../store.html" class="bg-[#106e39] text-white px-6 py-2 rounded-lg font-bold">Browse Store</a>
+                    <a href="../store" class="bg-[#106e39] text-white px-6 py-2 rounded-lg font-bold">Browse Store</a>
                 </div>
             `;
             return;

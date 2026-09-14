@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check authentication on all checkout pages
     if (!HBM_API.getToken()) {
         localStorage.setItem('redirectUrl', window.location.pathname);
-        window.location.href = '../auth/login.html';
+        window.location.href = '../auth/login';
         return;
     }
 
@@ -12,30 +12,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let checkoutState = JSON.parse(localStorage.getItem('hbm_checkout_state') || '{}');
 
     // ----------------------------------------------------
-    // PAGE 1: Address (checkout.html)
+    // PAGE 1: Address (checkout.php)
     // ----------------------------------------------------
-    if (currentPath.includes('checkout.html') && !currentPath.includes('payment') && !currentPath.includes('review')) {
+    if (currentPath.includes('checkout') && !currentPath.includes('payment') && !currentPath.includes('review')) {
         initAddressPage();
     }
 
     // ----------------------------------------------------
-    // PAGE 2: Payment (checkout-payment.html)
+    // PAGE 2: Payment (checkout-payment.php)
     // ----------------------------------------------------
-    if (currentPath.includes('checkout-payment.html')) {
+    if (currentPath.includes('checkout-payment')) {
         initPaymentPage();
     }
 
     // ----------------------------------------------------
-    // PAGE 3: Review & Place Order (checkout-review.html)
+    // PAGE 3: Review & Place Order (checkout-review.php)
     // ----------------------------------------------------
-    if (currentPath.includes('checkout-review.html')) {
+    if (currentPath.includes('checkout-review')) {
         initReviewPage();
     }
 
     // ----------------------------------------------------
-    // PAGE 4: Order Confirmation (order-confirmation.html)
+    // PAGE 4: Order Confirmation (order-confirmation.php)
     // ----------------------------------------------------
-    if (currentPath.includes('order-confirmation.html')) {
+    if (currentPath.includes('order-confirmation')) {
         initConfirmationPage();
     }
 
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Awaiting Payment...';
                             const options = {
                                 key: "rzp_test_Smv6k8a60175SA",
-                                amount: order.total_amount * 100, // Amount is in paise
+                                amount: Math.round(order.total_amount * 100), // Amount is in paise
                                 currency: "INR",
                                 name: "Healthy Bharat Mission",
                                 description: "Order #" + order.order_number,
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                             status: 'captured'
                                         });
                                         if (verifyRes.success) {
-                                            window.location.href = 'order-confirmation.html';
+                                            window.location.href = 'order-confirmation';
                                         } else {
                                             alert("Payment verification failed. Please contact support.");
                                             btn.innerHTML = 'Pay Now <i class="fa-solid fa-arrow-right"></i>';
@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     } catch (error) {
                         console.error('Order creation error:', error);
-                        alert('An error occurred during checkout.');
+                        alert(error.message || 'An error occurred during checkout.');
                         btn.innerHTML = 'Continue to Payment <i class="fa-solid fa-arrow-right"></i>';
                         btn.style.pointerEvents = 'auto';
                     }
@@ -643,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 checkoutState.payment_method = selectedPayment;
                 localStorage.setItem('hbm_checkout_state', JSON.stringify(checkoutState));
-                window.location.href = 'checkout-review.html';
+                window.location.href = 'checkout-review';
             });
         }
     }
@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderTotals(cartResponse.data.subtotal);
             } else {
                 alert("Your cart is empty!");
-                window.location.href = 'cart.html';
+                window.location.href = 'cart';
                 return;
             }
         } catch (error) {
@@ -669,7 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderDeliveryInfo(checkoutState.address_snapshot);
         } else {
             // Missing address
-            window.location.href = 'checkout.html';
+            window.location.href = 'checkout';
         }
 
         const placeOrderBtn = Array.from(document.querySelectorAll('a, button')).find(el => el.textContent.includes('Place Order'));
@@ -697,12 +697,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (order.payment_method === 'cod') {
                             // Clear state and redirect to confirmation
-                            window.location.href = 'order-confirmation.html';
+                            window.location.href = 'order-confirmation';
                         } else {
                             // Launch Razorpay
                             const options = {
                                 key: "rzp_test_Smv6k8a60175SA",
-                                amount: order.total_amount * 100, // Amount is in paise
+                                amount: Math.round(order.total_amount * 100), // Amount is in paise
                                 currency: "INR",
                                 name: "Healthy Bharat Mission",
                                 description: "Order #" + order.order_number,
@@ -718,7 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                             status: 'captured'
                                         });
                                         if (verifyRes.success) {
-                                            window.location.href = 'order-confirmation.html';
+                                            window.location.href = 'order-confirmation';
                                         } else {
                                             alert("Payment verification failed. Please contact support.");
                                             placeOrderBtn.innerHTML = 'Place Order <i class="fa-solid fa-arrow-right"></i>';
@@ -768,7 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initConfirmationPage() {
         if (!checkoutState.last_order) {
-            window.location.href = '../store.html';
+            window.location.href = '../store';
             return;
         }
 

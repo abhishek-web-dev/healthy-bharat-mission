@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+</head>
+<body class="font-body text-gray-800 bg-[#f9fbf9] antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="../"></hbm-header>
+    
+    <main class="flex-grow pb-16">
+        <!-- Container -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative">
+            
+            <!-- Breadcrumb -->
+            <nav class="text-[12px] text-gray-500 mb-8 font-medium">
+                <a href="../index" class="hover:text-[#106e39] transition-colors">Home</a> 
+                <span class="mx-1">›</span> 
+                <a href="../store" class="hover:text-[#106e39] transition-colors">Store</a> 
+                <span class="mx-1">›</span> 
+                <span class="text-gray-800">Order Confirmation</span>
+            </nav>
+
+            <!-- Success Header Section -->
+            <div class="flex flex-col items-center text-center mb-10 relative">
+                
+                <div class="absolute right-0 top-10 hidden md:flex flex-col items-end transform rotate-[-5deg] z-0">
+                    <span class="font-outfit text-3xl font-bold text-[#106e39] opacity-80" style="font-family: 'Brush Script MT', cursive; font-style: italic;">Small</span>
+                    <span class="font-outfit text-3xl font-bold text-[#106e39] opacity-80" style="font-family: 'Brush Script MT', cursive; font-style: italic;">Steps</span>
+                    <span class="font-outfit text-4xl font-bold text-[#106e39] opacity-80" style="font-family: 'Brush Script MT', cursive; font-style: italic;">Big</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-outfit text-4xl font-bold text-[#106e39] opacity-80" style="font-family: 'Brush Script MT', cursive; font-style: italic;">Change</span>
+                        <i class="fa-regular fa-heart text-[#106e39] text-2xl opacity-80"></i>
+                    </div>
+                </div>
+
+                <!-- Confetti & Checkmark -->
+                <div class="relative w-20 h-20 mb-4 z-10">
+                    <!-- Abstract Confetti dots using CSS -->
+                    <div class="absolute -top-4 -left-4 w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    <div class="absolute -top-6 right-2 w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                    <div class="absolute top-2 -right-6 w-2 h-2 bg-red-400 rounded-full"></div>
+                    <div class="absolute top-10 -left-8 w-2 h-4 bg-green-400 transform rotate-45"></div>
+                    <div class="absolute top-8 -right-8 w-2 h-4 bg-yellow-400 transform -rotate-12"></div>
+                    
+                    <div class="w-20 h-20 bg-[#e2f6e9] rounded-full flex items-center justify-center mx-auto shadow-[0_4px_12px_rgba(16,110,57,0.15)] border-4 border-white">
+                        <i class="fa-solid fa-check text-4xl text-[#106e39]"></i>
+                    </div>
+                </div>
+                
+                <h1 class="text-[32px] font-black text-[#106e39] leading-tight mb-2 z-10">Thank You for Your Order!</h1>
+                <p class="text-[#1e293b] font-bold text-[15px] mb-1 z-10">Your order has been placed successfully.</p>
+                <p class="text-gray-500 text-[14px] z-10">We've received your order and will get it ready soon.</p>
+            </div>
+
+            <!-- Order Details Banner -->
+            <div class="bg-[#f0fbf4] rounded-[14px] border border-[#d1f0df] p-5 max-w-[800px] mx-auto mb-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left shadow-sm relative z-10">
+                <div class="flex-1 md:border-r border-[#d1f0df] md:pr-6">
+                    <p class="text-[#106e39] text-[11px] font-bold uppercase tracking-wider mb-1">Order Number</p>
+                    <p class="text-[#1e293b] font-bold text-[15px]" id="confirm-order-number">Loading...</p>
+                </div>
+                <div class="flex-1 md:border-r border-[#d1f0df] md:pr-6 md:pl-2">
+                    <p class="text-[#106e39] text-[11px] font-bold uppercase tracking-wider mb-1">Order Date</p>
+                    <p class="text-[#1e293b] font-bold text-[15px]" id="confirm-order-date">Loading...</p>
+                </div>
+                <div class="flex-1 md:pl-2">
+                    <p class="text-[#106e39] text-[11px] font-bold uppercase tracking-wider mb-1">Payment Status</p>
+                    <p class="text-[#106e39] font-bold text-[15px] inline-flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check"></i> Paid Successfully
+                    </p>
+                </div>
+            </div>
+
+            <!-- What's Next & Order Tracker -->
+            <div class="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100 max-w-[800px] mx-auto mb-12" style="padding: 32px;">
+                <h2 class="text-[18px] font-bold text-[#1e293b] mb-10 text-center">What's Next?</h2>
+                
+                <style>
+                    .tracker-line { display: none; position: absolute; top: 24px; left: 12%; right: 12%; height: 2px; background-color: #f3f4f6; z-index: 0; }
+                    .tracker-arrow-desktop { display: none; position: absolute; top: 21px; left: -14px; background-color: white; padding: 0 4px; font-size: 10px; color: #e5e7eb; }
+                    .tracker-arrow-mobile { display: block; margin-top: 16px; color: #e5e7eb; }
+                    .tracker-step-icon { width: 48px; height: 48px; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 12px; position: relative; z-index: 10; margin-left: auto; margin-right: auto; }
+                    .tracker-step-active { background-color: #e2f6e9; color: #106e39; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+                    .tracker-step-inactive { background-color: #f9fbf9; color: #d1d5db; }
+                    @media (min-width: 640px) {
+                        .tracker-line { display: block; }
+                        .tracker-arrow-desktop { display: block; }
+                        .tracker-arrow-mobile { display: none; }
+                    }
+                </style>
+
+                <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between relative mb-10 px-2">
+                    <!-- Connecting Line -->
+                    <div class="tracker-line"></div>
+
+                    <!-- Step 1 (Active) -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative group">
+                        <div class="tracker-step-icon tracker-step-active">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Order Confirmed</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">We've received your order.</p>
+                        <!-- Mobile connecting arrow -->
+                        <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
+                        <div class="tracker-step-icon tracker-step-inactive">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Processing</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">We're preparing your items.</p>
+                        <!-- Arrow overlapping line for desktop -->
+                        <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
+                        <!-- Mobile connecting arrow -->
+                        <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
+                        <div class="tracker-step-icon tracker-step-inactive">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Shipped</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">You'll receive a tracking link.</p>
+                        <!-- Arrow overlapping line for desktop -->
+                        <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
+                        <!-- Mobile connecting arrow -->
+                        <i class="fa-solid fa-chevron-down tracker-arrow-mobile"></i>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 relative">
+                        <div class="tracker-step-icon tracker-step-inactive">
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                        <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Delivered</h4>
+                        <p class="text-gray-400 text-[11px] font-medium leading-tight px-2">Get ready for a healthier you!</p>
+                        <!-- Arrow overlapping line for desktop -->
+                        <i class="fa-solid fa-chevron-right tracker-arrow-desktop"></i>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4 border-t border-gray-100">
+                    <a href="../store" class="w-full sm:w-auto px-8 py-3.5 bg-[#106e39] hover:bg-[#0a4d27] text-white rounded-lg font-bold text-[13px] flex items-center justify-center gap-2 transition-colors shadow-sm text-center" style="min-width: 220px;">
+                        <i class="fa-solid fa-lock"></i> Continue Shopping
+                    </a>
+                    <a href="my-orders" class="w-full sm:w-auto px-8 py-3.5 bg-white border border-[#106e39] text-[#106e39] hover:bg-[#f0fbf4] rounded-lg font-bold text-[13px] flex items-center justify-center gap-2 transition-colors text-center" style="min-width: 220px;">
+                        <i class="fa-regular fa-file-lines"></i> View My Orders
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="flex flex-col lg:flex-row gap-8">
+                
+                <!-- LEFT COLUMN (65%) -->
+                <div class="w-full lg:w-[65%] flex flex-col" style="gap: 32px;">
+                    
+                    <!-- Items Ordered -->
+                    <div class="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;" id="confirm-items-container">
+                        <h2 class="text-[18px] font-bold text-[#1e293b] mb-6">Items Ordered</h2>
+                        <!-- Items will be injected here via JS -->
+                    </div>
+
+                </div> <!-- END LEFT COLUMN -->
+
+                <!-- RIGHT COLUMN (35%) -->
+                <div class="w-full lg:w-[35%] space-y-6">
+                    
+                    <!-- Delivery Information -->
+                    <div class="bg-white rounded-2xl p-6 lg:p-7 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100 flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-location-dot text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1e293b] text-[14px] mb-3">Delivery Information</h3>
+                            <p class="font-bold text-[#1e293b] text-[12px] mb-1" id="confirm-delivery-name">Loading...</p>
+                            <p class="text-gray-500 text-[12px] leading-relaxed mb-3" id="confirm-delivery-address">
+                                Loading address...
+                            </p>
+                            <p class="text-gray-500 text-[12px] font-medium flex items-center gap-2" id="confirm-delivery-phone">
+                                <i class="fa-solid fa-phone text-[10px] text-gray-400"></i> Loading...
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Estimated Delivery -->
+                    <div class="bg-[#f0fbf4] rounded-2xl p-6 lg:p-7 border border-[#d1f0df] flex gap-4 shadow-[0_2px_12px_rgba(16,110,57,0.05)]">
+                        <div class="w-8 h-8 rounded-full bg-[#106e39] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                            <i class="fa-solid fa-truck-fast text-xs"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1e293b] text-[13px] mb-1.5">Estimated Delivery</h3>
+                            <p class="font-black text-[#106e39] text-[14px] mb-1.5">12 Sep 2026 - 15 Sep 2026</p>
+                            <p class="text-[#106e39] text-[11px] opacity-80 font-medium leading-snug">We will notify you once your order is shipped.</p>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary Card -->
+                    <div class="bg-white rounded-2xl p-6 lg:p-7 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-8 h-8 rounded-lg bg-[#e2f6e9] text-[#106e39] flex items-center justify-center shrink-0 border border-[#d1f0df]">
+                                <i class="fa-regular fa-file-lines text-sm"></i>
+                            </div>
+                            <h2 class="text-[15px] font-bold text-[#1e293b]">Order Summary</h2>
+                        </div>
+                        
+                        <div class="space-y-3 text-[12px] mb-6">
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <span id="confirm-subtotal-label">Subtotal</span>
+                                <span class="font-bold text-[#1e293b]" id="confirm-subtotal">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium hidden" id="confirm-discount-row">
+                                <span>Discount</span>
+                                <span class="font-bold text-[#106e39]" id="confirm-discount">- ₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <span>Shipping</span>
+                                <span class="font-bold text-[#1e293b]" id="confirm-shipping">Free</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 pt-5 mb-5">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[14px] font-bold text-[#1e293b]">Total Amount</span>
+                                <span class="text-[20px] font-black text-[#106e39]" id="confirm-total">₹0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- END RIGHT COLUMN -->
+            </div>
+
+            <!-- Bottom Banner -->
+            <div class="mt-12 bg-white rounded-[20px] border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] overflow-hidden relative mb-4">
+                
+                <div class="flex flex-col lg:flex-row items-center">
+                    <!-- Left Content -->
+                    <div class="w-full lg:w-[60%] flex flex-col sm:flex-row items-center sm:items-start lg:items-center text-center sm:text-left gap-6 lg:gap-8 p-6 lg:p-8 relative z-10 bg-gradient-to-r from-[#f9fbf9] to-white">
+                        <img src="../assets/combos_packs.png" alt="Products" class="w-32 lg:w-36 object-contain mix-blend-multiply">
+                        <div>
+                            <h3 class="text-lg lg:text-[22px] font-black text-[#1e293b] mb-1.5 leading-tight">Continue Your<br>Health Journey</h3>
+                            <p class="text-gray-500 text-[12px] font-medium mb-4">Explore more natural products for a healthier tomorrow.</p>
+                            <a href="../store" class="inline-flex bg-[#106e39] hover:bg-[#0a4d27] text-white px-5 py-2.5 rounded-lg font-bold text-[12px] items-center gap-2 transition-colors shadow-sm">
+                                Shop More Products <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Trust Grid -->
+                    <div class="w-full lg:w-[40%] p-6 lg:p-8 relative z-10 bg-white lg:border-l border-gray-50">
+                        <div class="grid grid-cols-2 gap-x-2 gap-y-6">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 bg-[#e2f6e9] rounded-full flex items-center justify-center text-[#106e39] text-[13px] shrink-0">
+                                    <i class="fa-solid fa-leaf"></i>
+                                </div>
+                                <div class="font-bold text-[#1e293b] text-[10px] leading-[1.3]">Natural & Safe<br>Products</div>
+                            </div>
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 bg-[#e2f6e9] rounded-full flex items-center justify-center text-[#106e39] text-[13px] shrink-0">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <div class="font-bold text-[#1e293b] text-[10px] leading-[1.3]">Support Your<br>Health Goals</div>
+                            </div>
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 bg-[#e2f6e9] rounded-full flex items-center justify-center text-[#106e39] text-[13px] shrink-0">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div class="font-bold text-[#1e293b] text-[10px] leading-[1.3]">Trusted by<br>5,000+ Customers</div>
+                            </div>
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 bg-[#e2f6e9] rounded-full flex items-center justify-center text-[#106e39] text-[13px] shrink-0">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                </div>
+                                <div class="font-bold text-[#1e293b] text-[10px] leading-[1.3]">Fast & Reliable<br>Delivery</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/components_v15.js"></script>
+<script src="../js/api.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

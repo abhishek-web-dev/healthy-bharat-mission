@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="./dist/output.css" rel="stylesheet">
+    
+    <style>
+        /* Fallback Styles: Guarantee the 404 page renders perfectly even if Tailwind watcher isn't running to compile arbitrary values */
+        
+        .wood-texture {
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.03) 10px, rgba(0,0,0,0.03) 20px);
+        }
+        
+        /* Typography & Colors */
+        .text-green-main { color: #106e39; }
+        .bg-green-main { background-color: #106e39; }
+        .text-blue-main { color: #1e3a5f; }
+        .bg-gradient-404 { background: linear-gradient(to bottom, #ffffff, #ffffff, #f0fbf4); }
+        
+        /* Clouds */
+        .cloud-group { display: flex; align-items: flex-end; position: absolute; opacity: 0.7; }
+        .cloud-1 { top: 15%; left: 8%; transform: scale(0.75); }
+        .cloud-2 { bottom: 20%; right: 10%; transform: scale(0.5); display: none; }
+        .cloud-3 { bottom: 5%; left: 25%; transform: scale(0.75); display: none; }
+        @media (min-width: 640px) {
+            .cloud-1 { transform: scale(1); }
+            .cloud-2 { display: flex; transform: scale(0.75); }
+        }
+        @media (min-width: 768px) {
+            .cloud-3 { display: flex; transform: scale(1.25); }
+        }
+        
+        .c-circle-1 { width: 4rem; height: 4rem; background-color: #eaf7f0; border-radius: 50%; transform: translate(2rem, 0.5rem); }
+        .c-circle-2 { width: 6rem; height: 6rem; background-color: #eaf7f0; border-radius: 50%; position: relative; z-index: 10; }
+        .c-circle-3 { width: 4rem; height: 4rem; background-color: #eaf7f0; border-radius: 50%; transform: translate(-1.5rem, 0); }
+        .c-base { position: absolute; bottom: 0; left: 1.5rem; width: 140px; height: 2.5rem; background-color: #eaf7f0; border-radius: 9999px; z-index: 0; }
+
+        /* Absolute Containers */
+        .deco-wrapper { position: absolute; top: 0; right: 0; bottom: 0; left: 0; max-width: 1400px; margin: 0 auto; pointer-events: none; }
+        
+        /* Left Decorations */
+        .left-deco { position: absolute; bottom: 0; left: -20px; width: 200px; height: 300px; }
+        @media (min-width: 768px) { .left-deco { left: 40px; } }
+        
+        .left-note { position: absolute; top: -100px; left: 50px; font-family: 'Caveat', cursive; color: #106e39; font-size: 22px; transform: rotate(-15deg); line-height: 1.1; text-align: center; min-width: 200px; }
+        @media (min-width: 768px) { .left-note { top: -60px; font-size: 26px; } }
+        
+        .left-arrow { width: 6rem; height: 6rem; position: absolute; bottom: -5rem; left: 50%; transform: translateX(-50%) rotate(15deg); opacity: 0.7; }
+        .left-leaves { position: absolute; bottom: -20px; left: -30px; display: flex; align-items: flex-end; }
+        
+        /* Right Decorations */
+        .right-deco { position: absolute; bottom: 0; right: 40px; width: 250px; height: 280px; display: none; }
+        @media (min-width: 1024px) { .right-deco { display: block; } }
+        
+        .right-note { position: absolute; top: 80px; right: -60px; font-family: 'Caveat', cursive; color: #106e39; font-size: 22px; transform: rotate(6deg); line-height: 1.1; text-align: center; min-width: 150px; }
+        .right-arrow { width: 4rem; height: 4rem; position: absolute; bottom: -2rem; left: -2.5rem; transform: rotate(140deg); opacity: 0.7; }
+        
+        /* Wooden Signpost */
+        .signpost { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; height: 260px; }
+        .post { width: 24px; height: 100%; background-color: #8c5a2c; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; position: relative; z-index: 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        
+        .signs-container { position: absolute; top: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; width: 220px; align-items: center; z-index: 10; }
+        .sign { position: relative; width: 100%; height: 45px; display: flex; align-items: center; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 4px; clip-path: polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0 50%); }
+        .sign-text { color: #4a2e15; font-weight: 700; font-size: 14px; line-height: 1.1; margin-left: 2.5rem; width: 100%; text-align: center; padding-right: 1rem; font-family: 'Outfit', sans-serif; }
+        
+        .right-leaves { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); display: flex; align-items: flex-end; }
+
+        /* 404 Center Graphic */
+        .center-graphic { display: flex; align-items: center; justify-content: center; color: #106e39; font-weight: 900; font-size: 140px; line-height: 1; user-select: none; position: relative; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif; letter-spacing: -0.05em; }
+        @media (min-width: 768px) { .center-graphic { font-size: 200px; } }
+        
+        .mag-glass { position: relative; width: 110px; height: 110px; margin: 0 0.25rem; flex-shrink: 0; }
+        @media (min-width: 768px) { .mag-glass { width: 150px; height: 150px; margin: -1.5rem 0.75rem 0; } }
+        
+        .mag-accents { position: absolute; top: -2rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.75rem; }
+        @media (min-width: 768px) { .mag-accents { top: -3rem; gap: 1rem; } }
+        
+        .mag-accent-1 { width: 6px; height: 16px; background-color: #106e39; border-radius: 9999px; transform: rotate(-25deg); margin-top: 0.5rem; }
+        .mag-accent-2 { width: 6px; height: 24px; background-color: #106e39; border-radius: 9999px; }
+        .mag-accent-3 { width: 6px; height: 16px; background-color: #106e39; border-radius: 9999px; transform: rotate(25deg); margin-top: 0.5rem; }
+        @media (min-width: 768px) {
+            .mag-accent-1 { width: 8px; height: 24px; }
+            .mag-accent-2 { width: 8px; height: 32px; }
+            .mag-accent-3 { width: 8px; height: 24px; }
+        }
+        
+        .mag-ring { width: 100%; height: 100%; border: 14px solid #106e39; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: white; z-index: 10; position: relative; }
+        @media (min-width: 768px) { .mag-ring { border-width: 20px; } }
+        
+        .mag-eyes { display: flex; gap: 1rem; margin-bottom: 0.25rem; margin-top: 1rem; }
+        @media (min-width: 768px) { .mag-eyes { gap: 1.25rem; margin-bottom: 0.5rem; margin-top: 1.5rem; } }
+        
+        .mag-eye { width: 12px; height: 12px; background-color: #106e39; border-radius: 50%; }
+        @media (min-width: 768px) { .mag-eye { width: 16px; height: 16px; } }
+        
+        .mag-frown { width: 32px; height: 16px; border-top: 4px solid #106e39; border-top-left-radius: 9999px; border-top-right-radius: 9999px; margin-top: 0.5rem; }
+        @media (min-width: 768px) { .mag-frown { width: 40px; height: 20px; border-top-width: 6px; } }
+        
+        .mag-handle { position: absolute; width: 40px; height: 16px; background-color: #106e39; border-radius: 9999px; transform: rotate(45deg); bottom: -6px; right: -14px; z-index: 0; transform-origin: top left; }
+        @media (min-width: 768px) { .mag-handle { width: 50px; height: 22px; bottom: -10px; right: -20px; } }
+    </style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/images/favicon/site.webmanifest" />
+</head>
+<body class="font-body text-gray-800 bg-white antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="./"></hbm-header>
+    
+    <!-- Use standard HTML/CSS fallback classes to ensure flawless rendering -->
+    <main class="flex-grow flex flex-col relative overflow-hidden bg-cover bg-right bg-no-repeat" style="background-image: url('./assets/404-banner.png');">
+        
+        <!-- Main Center Content -->
+        <div class="flex-grow flex flex-col items-center justify-center relative z-20 px-4 mt-8 md:mt-0 py-16">
+            
+            <!-- Custom CSS 404 Graphic -->
+            <div class="center-graphic">
+                <span>4</span>
+                <div class="mag-glass">
+                    <div class="mag-accents">
+                        <div class="mag-accent-1"></div>
+                        <div class="mag-accent-2"></div>
+                        <div class="mag-accent-3"></div>
+                    </div>
+                    <div class="mag-ring">
+                        <div class="mag-eyes">
+                            <div class="mag-eye"></div>
+                            <div class="mag-eye"></div>
+                        </div>
+                        <div class="mag-frown"></div>
+                    </div>
+                    <div class="mag-handle"></div>
+                </div>
+                <span>4</span>
+            </div>
+
+            <!-- Text Content -->
+            <h1 class="text-3xl md:text-5xl font-black text-blue-main font-heading mb-4 text-center mt-6" style="color: #1e3a5f;">Oops! Page Not Found</h1>
+            <p class="text-gray-500 text-sm md:text-base text-center max-w-[500px] leading-relaxed mb-8 font-medium">
+                The page you're looking for doesn't exist or may have been moved.<br class="hidden md:block">
+                But don't worry, let's get you back on track to a healthier tomorrow!
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+                <a href="./index" class="text-white px-6 py-3.5 rounded-lg font-bold text-[15px] flex items-center justify-center gap-2 transition-colors shadow-md w-full sm:w-auto" style="background-color: #106e39;">
+                    <i class="fa-solid fa-house"></i> Go to Homepage
+                </a>
+                <a href="javascript:history.back()" class="bg-white px-6 py-3.5 rounded-lg font-bold text-[15px] flex items-center justify-center gap-2 transition-colors shadow-sm w-full sm:w-auto" style="color: #106e39; border: 2px solid #106e39;">
+                    <i class="fa-solid fa-arrow-left"></i> Go Back
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Trust Banner -->
+    <section class="border-t border-gray-100 py-10 relative z-30" style="background-color: #f9fcf9;">
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-xl md:text-2xl flex-shrink-0" style="background-color: #e2f6e9; color: #106e39;">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div class="font-bold text-[13px] md:text-[14px] leading-tight" style="color: #1e3a5f;">Natural & Safe<br>Products</div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-xl md:text-2xl flex-shrink-0" style="background-color: #e2f6e9; color: #106e39;">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="font-bold text-[13px] md:text-[14px] leading-tight" style="color: #1e3a5f;">Support Your<br>Health Goals</div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-xl md:text-2xl flex-shrink-0" style="background-color: #e2f6e9; color: #106e39;">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="font-bold text-[13px] md:text-[14px] leading-tight" style="color: #1e3a5f;">Trusted by<br>5,000+ Customers</div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-xl md:text-2xl flex-shrink-0" style="background-color: #e2f6e9; color: #106e39;">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div class="font-bold text-[13px] md:text-[14px] leading-tight" style="color: #1e3a5f;">Fast & Reliable<br>Delivery</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hbm-footer base-path="./"></hbm-footer>
+    <script src="./js/components_v15.js"></script>
+</body>
+</html>

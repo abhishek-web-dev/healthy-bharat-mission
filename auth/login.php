@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Healthy Bharat Mission</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Built Tailwind CSS -->
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+</head>
+
+<body
+    class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex items-center justify-center p-3 sm:p-3 lg:p-4">
+
+    <!-- Centered Card Container -->
+    <div
+        class="w-full max-w-[1200px] bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.04)] border border-gray-100 flex overflow-hidden relative min-h-[700px]">
+
+        <!-- Left Banner (Hidden on mobile) -->
+        <div class="hidden lg:block lg:w-[45%] relative bg-[#f4f7f5] shrink-0 overflow-hidden">
+            <!-- Background Image -->
+            <img src="../assets/auth/Login-banner.png" alt="Healthy Bharat Mission"
+                class="w-full h-full object-cover absolute inset-0">
+
+            <!-- Gradient Overlay for text readability (using CSS to avoid Tailwind muddy shadows with transparent) -->
+            <div class="absolute inset-0"
+                style="background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 60%, rgba(255,255,255,0) 100%);">
+            </div>
+            <div class="absolute inset-0"
+                style="background: linear-gradient(to bottom, rgba(255,255,255,0) 60%, rgba(0,43,20,0.6) 100%);"></div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 w-full h-full p-8 xl:p-12 flex flex-col">
+
+                <!-- Logo -->
+                <div class="mb-10 xl:mb-10 flex items-center gap-3">
+                    <img src="../assets/logo.webp" alt="Logo" class="h-20 w-20 object-contain shrink-0">
+                    <div>
+                        <h2 class="text-[#052b14] font-extrabold text-[18px] xl:text-[20px] leading-tight">
+                            Healthy<br>Bharat Mission</h2>
+                        <p class="text-[#106e39] font-bold text-[11px] xl:text-[12px] mt-0.5 tracking-wide">Towards a
+                            Diabetes Free India</p>
+                    </div>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-[32px] xl:text-[40px] font-extrabold text-[#052b14] leading-[1.1] mb-5 tracking-tight">
+                    Better Habits<br>Brighter<span class="text-[#106e39]">Tomorrows <i
+                            class="fa-solid fa-leaf text-[22px]"></i></span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-gray-800 text-[14px] xl:text-[15px] max-w-[320px] mb-8 leading-relaxed font-semibold">
+                    Your health journey is unique. We're here<br>to support you with expert guidance,<br>personalized programs and trusted care.
+                </p>
+
+                <!-- Features List -->
+                <div class="space-y-4 max-w-[320px]">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-solid fa-leaf text-[15px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Personalized<br>Guidance</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-solid fa-user-group text-[14px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Expert<br>Support</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-regular fa-heart text-[15px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Healthy<br>Lifestyle</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-[38px] h-[38px] rounded-full bg-white shadow-sm flex items-center justify-center text-[#106e39] shrink-0 border border-green-50">
+                            <i class="fa-solid fa-book-open text-[15px]"></i>
+                        </div>
+                        <span
+                            class="text-[14px] xl:text-[15px] font-bold text-[#052b14] leading-tight">Trusted<br>Resources</span>
+                    </div>
+                </div>
+
+                <!-- Decorative Texts (floating right) -->
+                <!-- <div class="absolute rotate-[-6deg] text-center z-10 opacity-90 hidden xl:block"
+                    style="top: 45%; right: 5%;">
+                    <p class="font-['Outfit'] italic text-[24px] font-bold text-[#052b14] leading-[1.1]">
+                        Healthy<br>People<br>Happier<br>Lives <i
+                            class="fa-regular fa-heart text-xl ml-1 text-[#106e39]"></i></p>
+                </div> -->
+
+                <div class="flex-grow"></div>
+
+                <div class="mt-8 flex flex-col gap-8">
+                    <!-- Quote Box (Simple white text) -->
+                    <div class="relative">
+                        <p class="text-[14px] xl:text-[15px] text-white font-medium leading-relaxed max-w-[280px]">
+                            "A healthier tomorrow begins with a single step today."
+                        </p>
+                        <div class="w-8 h-[2px] bg-white/70 mt-3 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Form Area -->
+        <div class="w-full lg:w-[55%] flex flex-col p-6 sm:p-8 lg:p-10 xl:p-12 relative">
+
+            <!-- Top Right Link -->
+            <div class="text-[13px] flex justify-end w-full mb-2">
+                <span class="text-gray-500 font-medium">New here?</span>
+                <a href="register" class="text-[#106e39] font-bold hover:underline ml-1">Create an Account</a>
+            </div>
+
+            <div class="w-full max-w-[440px] mx-auto flex-grow flex flex-col justify-center">
+                <h1 class="text-3xl md:text-[38px] font-extrabold text-[#052b14] mb-2 tracking-tight">Welcome <span
+                        class="text-[#106e39]">Back</span></h1>
+
+                <p class="text-gray-500 text-[14px] mb-6 leading-relaxed font-medium">Login to your account and continue
+                    your journey towards a healthier, happier you.</p>
+
+                <form>
+                    <div class="flex flex-col gap-4">
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">Email Address</label>
+                            <div
+                                class="flex items-center rounded-xl border border-gray-200 bg-white focus-within:border-[#106e39] focus-within:ring-1 focus-within:ring-[#106e39] transition-colors overflow-hidden h-[50px] shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                                <div class="px-3.5 flex items-center text-gray-500">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <input type="email"
+                                    class="w-full h-full pr-4 outline-none text-[14px] text-gray-700 placeholder-gray-400 bg-transparent font-medium"
+                                    placeholder="Enter your email address">
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <label class="block text-[13px] font-semibold text-[#052b14] mb-2">Password</label>
+                            <div
+                                class="flex items-center rounded-xl border border-gray-200 bg-white focus-within:border-[#106e39] focus-within:ring-1 focus-within:ring-[#106e39] transition-colors overflow-hidden h-[50px] shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                                <div class="px-3.5 flex items-center text-gray-500">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <input type="password"
+                                    class="w-full h-full pr-2 outline-none text-[14px] text-gray-700 placeholder-gray-400 bg-transparent font-medium"
+                                    placeholder="Enter your password">
+                                <button type="button" class="px-4 text-gray-500 hover:text-gray-700">
+                                    <i class="fa-regular fa-eye-slash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="flex justify-end mt-2 mb-5">
+                        <a href="forgot-password"
+                            class="text-[#106e39] text-[13px] font-semibold hover:underline">Forgot Password?</a>
+                    </div>
+
+                    <!-- Button -->
+                    <button type="submit" style="padding-top: 14px; padding-bottom: 14px; font-size: 16px;"
+                        class="w-full flex items-center justify-center bg-[#052b14] hover:bg-[#1a5c2e] text-white font-bold px-4 rounded-xl shadow-[0_4px_12px_rgba(5,43,20,0.15)] transition-all">
+                        Login <i class="fa-solid fa-arrow-right ml-2 text-[13px]"></i>
+                    </button>
+                    <!-- Info Box -->
+
+
+                    <!-- Info Box -->
+                    <div class="bg-[#f0f8f3] rounded-xl p-3.5 flex gap-4 mt-6 items-start border border-green-50">
+                        <div class="text-[#106e39] shrink-0 mt-0.5">
+                            <i class="fa-solid fa-shield-halved text-[20px]"></i>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-[#052b14] font-bold">Your data is safe with us.</p>
+                            <p class="text-[12.5px] text-gray-500 mt-0.5 font-medium">We use industry-standard security
+                                to protect your information.</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+
+</html>

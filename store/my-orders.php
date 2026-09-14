@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#064e3b',
+                        'primary-light': '#14532d',
+                        'primary-dark': '#022c22',
+                        secondary: '#0f3057',
+                        accent: '#f59e0b'
+                    },
+                    fontFamily: {
+                        body: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+</head>
+<body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="../"></hbm-header>
+    <main class="flex-grow pb-12">
+        <div class="container mx-auto px-4 lg:px-8 max-w-[1500px] mt-6">
+            
+            <!-- Top Row: Breadcrumb & Search -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                <!-- Breadcrumb -->
+                <div class="flex items-center text-[13px] font-medium text-gray-500">
+                    <a href="../index" class="hover:text-[#106e39] transition-colors">Home</a>
+                    <i class="fa-solid fa-chevron-right text-[9px] mx-2"></i>
+                    <span class="text-[#106e39]">My Orders</span>
+                </div>
+                
+                <!-- Search -->
+                <div class="relative w-full md:w-[400px]">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                        <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                    </div>
+                    <input type="text" placeholder="Search orders by order ID or product name..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-[13px] focus:outline-none focus:ring-1 focus:ring-[#106e39] focus:border-[#106e39] transition-all text-gray-600 shadow-sm">
+                </div>
+            </div>
+
+            <!-- Second Row: Title & Sort -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+                <div>
+                    <h1 class="font-heading font-extrabold text-3xl text-[#052b14] mb-1">My Orders</h1>
+                    <p class="text-sm text-gray-500 font-medium tracking-wide">Track and manage all your orders in one place.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-[13px] font-medium text-gray-600">Sort By</span>
+                    <div class="relative">
+                        <select id="sort-orders" class="appearance-none bg-white border border-gray-200 rounded-lg text-[13px] font-semibold text-gray-700 py-2 pl-4 pr-10 focus:outline-none focus:ring-1 focus:ring-[#106e39] focus:border-[#106e39] shadow-sm cursor-pointer">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i class="fa-solid fa-chevron-down text-[10px] text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders List -->
+            <div id="orders-container" class="flex flex-col gap-4">
+            </div>
+        </div>
+    </main>
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/components_v15.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/orders.js"></script>
+</body>
+</html>

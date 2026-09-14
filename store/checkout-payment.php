@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout (Payment) - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+</head>
+<body class="font-body text-gray-800 bg-[#f9fbf9] antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="../"></hbm-header>
+    
+    <main class="flex-grow pb-16">
+        <!-- Container -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative">
+            
+            <!-- Breadcrumb -->
+            <nav class="text-[12px] text-gray-500 mb-6 font-medium">
+                <a href="../index" class="hover:text-[#106e39] transition-colors">Home</a> 
+                <span class="mx-1">›</span> 
+                <a href="../store" class="hover:text-[#106e39] transition-colors">Store</a> 
+                <span class="mx-1">›</span> 
+                <a href="checkout" class="hover:text-[#106e39] transition-colors">Checkout</a>
+                <span class="mx-1">›</span> 
+                <span class="text-gray-800">Payment</span>
+            </nav>
+
+            <!-- Top Header Section -->
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between mb-8" style="gap: 24px;">
+                <!-- Title & Icon -->
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-[14px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-3xl shadow-sm border border-[#d1f0df]">
+                        <i class="fa-regular fa-credit-card"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-black text-[#1e293b]">Checkout</h1>
+                        <p class="text-gray-500 text-[14px] font-medium">Choose your preferred payment method</p>
+                    </div>
+                </div>
+
+                <!-- Stepper -->
+                <div class="flex items-center justify-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center text-[#106e39]">
+                        <div class="w-8 h-8 rounded-full bg-[#106e39] text-white flex items-center justify-center text-[14px] font-bold shadow-sm">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span class="mt-2 text-[13px] font-bold">Shipping Address</span>
+                    </div>
+                    <!-- Line -->
+                    <div class="w-16 sm:w-24 h-[2px] bg-[#106e39] mx-2 sm:mx-4" style="margin-top: -24px;"></div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-[#106e39]">
+                        <div class="w-8 h-8 rounded-full bg-[#106e39] text-white flex items-center justify-center text-[14px] font-bold shadow-sm">2</div>
+                        <span class="mt-2 text-[13px] font-bold">Payment</span>
+                    </div>
+                    <!-- Line -->
+                    <div class="w-16 sm:w-24 h-[2px] bg-gray-200 mx-2 sm:mx-4" style="margin-top: -24px;"></div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-gray-400">
+                        <div class="w-8 h-8 rounded-full bg-[#f9fbf9] border-2 border-gray-200 flex items-center justify-center text-[14px] font-bold">3</div>
+                        <span class="mt-2 text-[13px] font-medium text-gray-500">Review & Place Order</span>
+                    </div>
+                </div>
+
+                <!-- Trust Badge (Top Right) -->
+                <div class="hidden md:flex items-center gap-3">
+                    <div class="text-[#106e39] text-3xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <div class="text-[#106e39] font-bold text-[14px]">100% Secure Payment</div>
+                        <div class="text-gray-500 text-[12px] font-medium">Your payment information is safe with us</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="flex flex-col lg:flex-row" style="gap: 32px;">
+                
+                <!-- LEFT COLUMN (65%) -->
+                <div class="w-full lg:w-[65%] flex flex-col" style="gap: 32px;">
+                    
+                    <!-- Delivery Address Summary -->
+                    <div class="bg-white rounded-3xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;">
+                        <!-- Card Header -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6" style="gap: 16px;">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-[12px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-[20px] font-bold text-[#1e293b]">Delivery Address</h2>
+                                    <p class="text-gray-500 text-[13px]">Your order will be delivered to this address</p>
+                                </div>
+                            </div>
+                            <div class="text-[14px]">
+                                <a href="checkout" class="text-[#106e39] font-bold underline hover:text-[#0a4d27] flex items-center gap-1.5">
+                                    <i class="fa-solid fa-pencil text-[12px]"></i> Change Address
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Address Content -->
+                        <div class="pl-16">
+                            <p class="font-bold text-[#1e293b] text-[14px] mb-1">Rahul Sharma</p>
+                            <p class="text-gray-500 text-[14px] mb-1 leading-relaxed">
+                                H.No. 123, Green Park Colony, Indirapuram,<br>
+                                Ghaziabad - 201014, Uttar Pradesh, India
+                            </p>
+                            <p class="text-gray-500 text-[14px]">+91 98765 43210</p>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Selector -->
+                    <div class="bg-white rounded-3xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;">
+                        
+                        <!-- Card Header -->
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 rounded-[12px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-xl">
+                                <i class="fa-regular fa-credit-card"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-[20px] font-bold text-[#1e293b]">Select Payment Method</h2>
+                                <p class="text-gray-500 text-[13px]">Choose how you want to pay</p>
+                            </div>
+                        </div>
+
+                        <!-- Payment Options List -->
+                        <div class="flex flex-col" style="gap: 16px;">
+                            
+                            <!-- Option 1: UPI (Selected) -->
+                            <label class="payment-method-card rounded-2xl border-2 border-[#106e39] bg-[#f0fbf4] cursor-pointer block transition-colors" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-upi" value="upi" class="hidden peer" checked>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-4">
+                                        <!-- Custom Radio -->
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
+                                        </div>
+                                        <!-- Icon -->
+                                        <i class="fa-solid fa-qrcode text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
+                                        <div>
+                                            <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">UPI (Recommended)</p>
+                                            <p class="text-[12px] text-gray-500">Pay using any UPI app (Google Pay, PhonePe, Paytm, etc.)</p>
+                                        </div>
+                                    </div>
+                                    <!-- Right side logos -->
+                                    <div class="hidden sm:flex gap-2 text-xl items-center text-gray-600 grayscale opacity-80">
+                                        <i class="fa-brands fa-google-pay text-2xl"></i>
+                                        <i class="fa-brands fa-paypal"></i>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Option 2: Credit / Debit Card -->
+                            <label class="payment-method-card rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer block" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-card" value="card" class="hidden peer">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-4">
+                                        <!-- Custom Radio -->
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
+                                        </div>
+                                        <!-- Icon -->
+                                        <i class="fa-regular fa-credit-card text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
+                                        <div>
+                                            <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">Credit / Debit Card</p>
+                                            <p class="text-[12px] text-gray-500">Visa, Mastercard, RuPay and more</p>
+                                        </div>
+                                    </div>
+                                    <div class="hidden sm:flex gap-2 text-[#1e293b] text-xl">
+                                        <i class="fa-brands fa-cc-visa text-blue-700"></i>
+                                        <i class="fa-brands fa-cc-mastercard text-red-500"></i>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Option 3: Net Banking -->
+                            <label class="payment-method-card rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer block" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-netbanking" value="net_banking" class="hidden peer">
+                                <div class="flex items-center gap-4">
+                                    <!-- Custom Radio -->
+                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
+                                    </div>
+                                    <!-- Icon -->
+                                    <i class="fa-solid fa-building-columns text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
+                                    <div>
+                                        <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">Net Banking</p>
+                                        <p class="text-[12px] text-gray-500">All major banks supported</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Option 4: COD -->
+                            <label class="payment-method-card rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-colors cursor-pointer block" style="padding: 16px 24px;">
+                                <input type="radio" name="payment_method" id="payment-cod" value="cod" class="hidden peer">
+                                <div class="flex items-center gap-4">
+                                    <!-- Custom Radio -->
+                                    <div class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#106e39] flex items-center justify-center radio-outer">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-[#106e39] hidden peer-checked:block radio-inner"></div>
+                                    </div>
+                                    <!-- Icon -->
+                                    <i class="fa-solid fa-truck text-xl text-gray-700 peer-checked:text-[#106e39] icon-color"></i>
+                                    <div>
+                                        <p class="text-[14px] font-bold text-[#1e293b] peer-checked:text-[#106e39] title-color">Cash on Delivery</p>
+                                        <p class="text-[12px] text-gray-500">Pay when you receive your order</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <!-- Continue Button -->
+                    <div>
+                        <a href="checkout-review" class="w-full block text-center px-10 py-4 text-white rounded-xl font-bold text-[16px] transition-colors shadow-md flex justify-center items-center gap-2" style="background-color: #0a4d27;">
+                            Continue to Review <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div> <!-- END LEFT COLUMN -->
+
+                <!-- RIGHT COLUMN (35%) -->
+                <div class="w-full lg:w-[35%]">
+                    
+                    <div class="bg-[#f9fcf9] rounded-3xl border border-[#e2f6e9] overflow-hidden sticky" style="top: 2rem;">
+                        
+                        <!-- Order Summary Header -->
+                        <div style="padding: 32px 32px 16px 32px;">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h2 class="text-[20px] font-bold text-[#1e293b]">Order Summary</h2>
+                                    <p class="text-gray-500 text-[13px]" id="checkout-subtotal-label">Loading items...</p>
+                                </div>
+                                <a href="cart" class="text-[14px] font-bold text-[#106e39] hover:underline flex items-center gap-1.5">
+                                    <i class="fa-solid fa-pencil text-[12px]"></i> Edit Cart
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Items -->
+                        <div style="padding: 0 32px 24px 32px;">
+                            <div id="checkout-order-summary-items" class="flex flex-col" style="gap: 24px;">
+                                <!-- Dynamic items will be injected here -->
+                                <div class="text-center py-4 text-gray-400">
+                                    <i class="fa-solid fa-circle-notch fa-spin"></i> Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="px-8"><div class="border-t border-gray-200/60"></div></div>
+
+                        <!-- Totals -->
+                        <div style="padding: 24px 32px 16px 32px;">
+                            <div class="flex flex-col" style="gap: 12px;">
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Subtotal</span>
+                                    <span class="font-bold" id="checkout-subtotal">₹0.00</span>
+                                </div>
+                                <div id="checkout-discount-row" class="hidden flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Discount</span>
+                                    <span class="font-bold text-[#106e39]" id="checkout-discount">- ₹0.00</span>
+                                </div>
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Shipping</span>
+                                    <span class="font-bold" id="checkout-shipping">₹0.00</span>
+                                </div>
+                                <div class="flex justify-between text-[#1e293b] font-medium text-[13px]">
+                                    <span>Tax (GST 5%)</span>
+                                    <span class="font-bold" id="checkout-tax">₹0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Amount Block -->
+                        <div class="bg-[#f0fbf4] mx-4 mb-4 rounded-xl" style="padding: 20px 24px;">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-[18px] font-bold text-[#1e293b]">Total Amount</span>
+                                <span class="text-[22px] font-black" style="color: #0a4d27;" id="checkout-total">₹0.00</span>
+                            </div>
+                            <!-- Savings Tag -->
+                            <div id="checkout-savings" class="hidden rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 text-[13px] font-bold border border-[#d1f0df]" style="background-color: #e2f6e9; color: #0a4d27;">
+                                <i class="fa-solid fa-tag"></i> <span id="checkout-savings-text">You save ₹0.00 on this order!</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- END RIGHT COLUMN -->
+            </div>
+            
+            <!-- Bottom Trust Banner -->
+            <div class="mt-16 mb-8 pt-10 border-t border-gray-200/50">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Natural & Safe<br>Products</div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Support Your<br>Health Goals</div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Trusted by<br>5,000+ Customers</div>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-14 h-14 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-[22px] shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <div class="font-bold text-[#1e293b] text-[13px] leading-tight">Fast & Reliable<br>Delivery</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/components_v15.js"></script>
+<script src="../js/api.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

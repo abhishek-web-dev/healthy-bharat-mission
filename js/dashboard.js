@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (!HBM_API.getToken()) {
-        window.location.href = '../auth/login.html';
+        window.location.href = '../auth/login';
         return;
     }
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (error.status === 401) {
             // Token invalid or expired
             HBM_API.setToken(null);
-            window.location.href = '../auth/login.html';
+            window.location.href = '../auth/login';
         } else {
             // Network or server error
             if (mainContent) {

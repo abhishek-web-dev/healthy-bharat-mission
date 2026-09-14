@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+</head>
+<body class="font-body text-gray-800 bg-[#f8fcf9] antialiased min-h-screen flex flex-col">
+    <hbm-header base-path="../"></hbm-header>
+    
+    <main class="flex-grow pb-16">
+        <!-- Container -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+            
+            <!-- Breadcrumb -->
+            <nav class="text-[12px] text-gray-500 mb-8 font-medium">
+                <a href="../index" class="hover:text-[#106e39] transition-colors">Home</a> 
+                <span class="mx-1">›</span> 
+                <a href="../store" class="hover:text-[#106e39] transition-colors">Store</a> 
+                <span class="mx-1">›</span> 
+                <span class="text-gray-800">Cart</span>
+            </nav>
+
+            <!-- Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-[#e2f6e9] rounded-xl flex items-center justify-center text-[#106e39]">
+                        <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-[32px] font-bold text-[#1e293b] leading-tight">My Cart</h1>
+                        <p class="text-gray-500 text-[14px]">Review your items and proceed to checkout</p>
+                    </div>
+                </div>
+                <a href="../store" class="text-[#106e39] font-bold text-[14px] hover:underline flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-arrow-left text-xs"></i> Continue Shopping
+                </a>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="flex flex-col lg:flex-row gap-8">
+                
+                <!-- LEFT COLUMN (65%) -->
+                <div class="w-full lg:w-[65%] space-y-10">
+                    
+                    <!-- Cart Items Card -->
+                    <div class="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100">
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+                            <h2 id="cart-count-header" class="text-xl font-bold text-[#1e293b]">Loading Cart...</h2>
+                        </div>
+
+                        <!-- Dynamic Cart Items Container -->
+                        <div id="cart-items-container">
+                            <!-- Items will be injected here by store.js -->
+                        </div>
+                    </div> <!-- End Cart Items -->
+
+                    <!-- You May Also Like (Grid Layout as per screenshot) -->
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div>
+                                <h2 class="text-[22px] font-bold text-[#1e293b] mb-0.5">You May Also Like</h2>
+                                <p class="text-gray-500 text-[12px] font-medium">Handpicked products for your health journey</p>
+                            </div>
+                            <a href="../store" class="text-[#106e39] font-bold text-[12px] hover:underline flex items-center gap-1 transition-colors">View All Products <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                        </div>
+                        
+                        <div class="relative overflow-hidden w-full pb-4 hide-scrollbar">
+                            <div id="cart-recommended-products" class="flex gap-4 w-max transition-transform duration-500 ease-in-out">
+                                <!-- Dynamic products will be injected here -->
+                            </div>
+                        </div>
+                    </div> <!-- End You May Also Like -->
+
+                </div> <!-- END LEFT COLUMN -->
+
+                <!-- RIGHT COLUMN (35%) -->
+                <div class="w-full lg:w-[35%] space-y-6">
+                    
+                    <!-- Order Summary Card -->
+                    <div class="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100">
+                        <h2 class="text-[18px] font-bold text-[#1e293b] mb-6">Order Summary</h2>
+                        
+                        <div class="space-y-3 text-[13px] mb-6">
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <span>Subtotal</span>
+                                <span id="cart-subtotal" class="font-bold text-[#1e293b]">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <span>Discount</span>
+                                <span id="cart-discount" class="font-bold text-[#106e39]">- ₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <span>Shipping</span>
+                                <span id="cart-shipping" class="font-bold text-[#106e39]">Free</span>
+                            </div>
+                            <div class="flex justify-between text-gray-500 font-medium">
+                                <span>Taxes (GST 5%)</span>
+                                <span id="cart-tax" class="font-bold text-[#1e293b]">₹0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 pt-5 mb-5">
+                            <div class="flex justify-between items-center mb-5">
+                                <span class="text-[15px] font-bold text-[#1e293b]">Total Amount</span>
+                                <span id="cart-total" class="text-[22px] font-black text-[#106e39]">₹0.00</span>
+                            </div>
+                            
+                            <a href="checkout" class="w-full bg-[#106e39] hover:bg-[#083a1d] text-white py-3.5 rounded-[10px] font-bold text-[14px] flex items-center justify-center gap-2 transition-colors shadow-md hover:shadow-lg">
+                                Proceed to Checkout <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- Savings Banner -->
+                        <div id="cart-savings-banner" class="bg-[#e2f6e9] text-[#106e39] text-[12px] font-bold rounded-lg p-3 hidden items-center gap-2">
+                            <i class="fa-solid fa-tag"></i> You saved ₹<span id="cart-savings-amount">0.00</span> on this order!
+                        </div>
+                    </div>
+
+                    <!-- Apply Coupon -->
+                    <div class="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100">
+                        <h3 class="font-bold text-[#1e293b] text-[14px] mb-3">Apply Coupon Code</h3>
+                        <div class="flex gap-2">
+                            <input type="text" id="coupon-input" placeholder="Enter coupon code" class="flex-1 bg-[#f8fcf9] border border-gray-200 rounded-lg px-4 py-2 text-[13px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] placeholder-gray-400">
+                            <button onclick="window.applyCoupon()" class="bg-[#106e39] hover:bg-[#083a1d] text-white px-5 py-2 rounded-lg font-bold text-[13px] transition-colors shadow-sm">Apply</button>
+                        </div>
+                        <div id="coupon-message" class="text-[12px] font-bold mt-2 hidden"></div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <h4 class="text-[11px] font-bold text-gray-400 mb-3 uppercase tracking-wider">Available Offers</h4>
+                            <div class="flex items-start gap-2 mb-2.5">
+                                <i class="fa-solid fa-tag text-[#106e39] mt-0.5 text-[10px]"></i>
+                                <div class="text-[12px] text-[#1e293b]">Save <span class="font-bold text-[#106e39]">₹100</span> on your first order! Use code: <span class="font-bold border border-dashed border-gray-300 px-1.5 py-0.5 rounded bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors ml-1" onclick="document.getElementById('coupon-input').value='HBM1'; window.applyCoupon();">HBM1</span></div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa-solid fa-tag text-[#106e39] mt-0.5 text-[10px]"></i>
+                                <div class="text-[12px] text-[#1e293b]">Save <span class="font-bold text-[#106e39]">₹50</span> on your second order! Use code: <span class="font-bold border border-dashed border-gray-300 px-1.5 py-0.5 rounded bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors ml-1" onclick="document.getElementById('coupon-input').value='HBM2'; window.applyCoupon();">HBM2</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="bg-white rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100">
+                        <h3 class="font-bold text-[#1e293b] text-[14px] mb-5">Why Shop With Us?</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-shield-halved text-[13px]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1e293b] text-[12px]">100% Genuine Products</h4>
+                                    <p class="text-gray-400 font-medium text-[11px] mt-0.5">Trusted quality you can rely on</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-truck-fast text-[13px]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1e293b] text-[12px]">Fast & Free Delivery</h4>
+                                    <p class="text-gray-400 font-medium text-[11px] mt-0.5">Free shipping on orders above ₹499</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-rotate-left text-[13px]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1e293b] text-[12px]">Easy Returns</h4>
+                                    <p class="text-gray-400 font-medium text-[11px] mt-0.5">7-day hassle-free return policy</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-[#e2f6e9] text-[#106e39] flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-lock text-[13px]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#1e293b] text-[12px]">Secure Payments</h4>
+                                    <p class="text-gray-400 font-medium text-[11px] mt-0.5">100% safe & secure transactions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- END RIGHT COLUMN -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Trust Banner -->
+    <div class="bg-[#f0fcf4] py-8 mt-auto">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-[#cbf0d8] rounded-full flex items-center justify-center text-[#0a4d27] text-[20px] shrink-0">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div class="font-bold text-[#1e293b] text-[12px] leading-[1.3]">Natural & Safe<br>Products</div>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-[#cbf0d8] rounded-full flex items-center justify-center text-[#0a4d27] text-[20px] shrink-0">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="font-bold text-[#1e293b] text-[12px] leading-[1.3]">Support Your<br>Health Goals</div>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-[#cbf0d8] rounded-full flex items-center justify-center text-[#0a4d27] text-[20px] shrink-0">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="font-bold text-[#1e293b] text-[12px] leading-[1.3]">Trusted by<br>5,000+ Customers</div>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-[#cbf0d8] rounded-full flex items-center justify-center text-[#0a4d27] text-[20px] shrink-0">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div class="font-bold text-[#1e293b] text-[12px] leading-[1.3]">Fast & Reliable<br>Delivery</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hbm-footer base-path="../"></hbm-footer>
+    <script src="../js/api.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/components_v15.js"></script>
+    <script src="../js/store.js"></script>
+    <script src="../js/store.js"></script>
+</body>
+</html>

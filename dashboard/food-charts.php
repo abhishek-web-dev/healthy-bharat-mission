@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Charts - Healthy Bharat Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+</head>
+<body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex flex-col">
+
+    <hbm-header base-path="../"></hbm-header>
+
+    <div class="flex-grow py-8 px-4 lg:px-8 max-w-[1500px] mx-auto w-full">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar -->
+            <hbm-dashboard-sidebar active-page="food-charts"></hbm-dashboard-sidebar>
+
+            <!-- Main Content -->
+            <div id="dashboard-main" class="flex-1 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 lg:p-8 transition-opacity duration-300">
+                <!-- Header & Quote -->
+                <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center border-b border-gray-100 pb-5 mb-6 gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-[#106e39] rounded-full flex items-center justify-center text-white shrink-0">
+                            <i class="fa-solid fa-apple-whole text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-heading font-bold text-gray-800">Food Charts</h2>
+                            <p class="text-gray-500 mt-1">Get personalized meal plans and healthy recipes to support your health goals.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quote Banner -->
+                    <div class="bg-green-50 rounded-lg p-4 flex gap-4 items-start max-w-md w-full border border-green-100">
+                        <div class="text-[#106e39] text-xl mt-1 shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <p class="text-[#106e39] font-medium italic">"Good food fuels a healthier you."</p>
+                            <p class="text-[#106e39] text-sm mt-1">- Healthy Bharat Mission</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex gap-8 border-b border-gray-100 mb-6 overflow-x-auto">
+                    <button id="tab-btn-meal-plan" class="tab-btn pb-3 px-2 border-b-2 border-[#106e39] text-[#106e39] font-bold text-sm whitespace-nowrap" onclick="switchTab('meal-plan')">My Meal Plan</button>
+                    <button id="tab-btn-recipe-library" class="tab-btn pb-3 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm whitespace-nowrap transition-colors" onclick="switchTab('recipe-library')">Recipe Library</button>
+                    <button id="tab-btn-nutrition-guide" class="tab-btn pb-3 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm whitespace-nowrap transition-colors" onclick="switchTab('nutrition-guide')">Nutrition Guide</button>
+                    <button id="tab-btn-diet-tips" class="tab-btn pb-3 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm whitespace-nowrap transition-colors" onclick="switchTab('diet-tips')">Diet Tips</button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div id="tab-content-meal-plan" class="tab-content hidden">
+                    <!-- Dynamic Content Will Be Injected Here -->
+                </div>
+
+                <div id="tab-content-recipe-library" class="tab-content hidden">
+                    <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-12 text-center">
+                        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-book-open text-2xl text-[#106e39]"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Recipe Library Coming Soon!</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">We are building an extensive library of healthy, diabetes-friendly recipes just for you. Stay tuned!</p>
+                    </div>
+                </div>
+
+                <div id="tab-content-nutrition-guide" class="tab-content hidden">
+                    <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-12 text-center">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-chart-pie text-2xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Nutrition Guide Coming Soon!</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">Detailed guides on understanding macros, micros, and how they affect your health.</p>
+                    </div>
+                </div>
+
+                <div id="tab-content-diet-tips" class="tab-content hidden">
+                    <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-12 text-center">
+                        <div class="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-regular fa-lightbulb text-2xl text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Diet Tips Coming Soon!</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">Actionable, daily tips to help you stick to your goals and improve your lifestyle.</p>
+                    </div>
+                </div>
+                
+                <div id="food-charts-loading" class="py-12 flex justify-center">
+                    <div class="w-8 h-8 border-4 border-[#106e39] border-t-transparent rounded-full animate-spin"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/api.js?v=2"></script>
+    <script src="../js/components_v15.js?v=2"></script>
+    <script src="../js/dashboard.js?v=2"></script>
+    <script src="../js/food-charts-v3.js"></script>
+</body>
+</html>
