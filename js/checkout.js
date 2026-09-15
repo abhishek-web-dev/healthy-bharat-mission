@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Launch Razorpay
                             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Awaiting Payment...';
                             const options = {
-                                key: "rzp_test_Smv6k8a60175SA",
+                                key: order.razorpay_key_id,
                                 amount: Math.round(order.total_amount * 100), // Amount is in paise
                                 currency: "INR",
                                 name: "Healthy Bharat Mission",
@@ -701,7 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         } else {
                             // Launch Razorpay
                             const options = {
-                                key: "rzp_test_Smv6k8a60175SA",
+                                key: order.razorpay_key_id,
                                 amount: Math.round(order.total_amount * 100), // Amount is in paise
                                 currency: "INR",
                                 name: "Healthy Bharat Mission",
