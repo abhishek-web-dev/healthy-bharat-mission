@@ -28,6 +28,9 @@ require_once __DIR__ . '/admin-auth.php'; // Ensures protection is applied immed
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #e5e7eb; border-radius: 20px; }
+        @media (min-width: 768px) {
+            .md\:pl-64 { padding-left: 16rem; }
+        }
     </style>
 </head>
 <body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen">
@@ -45,8 +48,18 @@ require_once __DIR__ . '/admin-auth.php'; // Ensures protection is applied immed
                 </button>
                 <h1 class="text-xl font-bold text-gray-800 hidden sm:block">
                     <?php 
-                    $pageName = basename($_SERVER['PHP_SELF'], '.php');
-                    echo htmlspecialchars(ucfirst(str_replace('-', ' ', $pageName)));
+                    $pageFile = basename($_SERVER['PHP_SELF']);
+                    $displayName = ucfirst(str_replace('-', ' ', basename($pageFile, '.php')));
+                    
+                    if (isset($menuItems)) {
+                        foreach ($menuItems as $item) {
+                            if (basename($item['url']) === $pageFile) {
+                                $displayName = $item['name'];
+                                break;
+                            }
+                        }
+                    }
+                    echo htmlspecialchars($displayName);
                     ?>
                 </h1>
             </div>

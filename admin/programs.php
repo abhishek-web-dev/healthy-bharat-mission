@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="px-6 py-4">
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-10 rounded bg-gray-100 border border-gray-200 overflow-hidden shrink-0">
-                                <img src="${imgUrl}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.src='../assets/images/programs/program-placeholder.jpg'">
+                                <img src="${imgUrl}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='../assets/images/programs/program-placeholder.jpg'">
                             </div>
                             <div>
                                 <p class="font-bold text-gray-800 text-sm truncate max-w-[250px]" title="${p.title}">${p.title}</p>

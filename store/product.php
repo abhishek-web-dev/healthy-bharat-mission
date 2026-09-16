@@ -60,27 +60,8 @@
                 </div>
 
                 <!-- Thumbnails -->
-                <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide snap-x">
-                    <!-- Thumb 1 -->
-                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-black snap-start hover:opacity-80 transition-opacity bg-white">
-                        <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=200&q=80" alt="Thumb 1" class="w-full h-full object-contain">
-                    </button>
-                    <!-- Thumb 2 -->
-                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
-                        <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=200&q=80" alt="Thumb 2" class="w-full h-full object-contain">
-                    </button>
-                    <!-- Thumb 3 -->
-                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=200&q=80" alt="Thumb 3" class="w-full h-full object-contain">
-                    </button>
-                    <!-- Thumb 4 -->
-                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Thumb 4" class="w-full h-full object-contain">
-                    </button>
-                    <!-- Thumb 5 -->
-                    <button onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 snap-start hover:opacity-80 transition-opacity bg-white">
-                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" alt="Thumb 5" class="w-full h-full object-contain">
-                    </button>
+                <div id="product-thumbnails-container" class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide snap-x">
+                    <!-- Dynamic thumbnails will be injected here -->
                 </div>
             </div>
 
@@ -119,10 +100,10 @@
 
                 <!-- Price -->
                 <div class="flex items-center gap-3 mb-6">
-                    <span id="product-price" class="text-3xl font-extrabold text-[#106e39]">₹999.00</span>
-                    <span class="text-[16px] font-medium text-gray-400 line-through mt-1">₹1,199.00</span>
-                    <span class="bg-[#dcfce7] text-[#166534] text-[12px] font-bold px-2.5 py-1 rounded-full mt-1 ml-1">
-                        You save ₹200 (17%)
+                    <span id="product-price" class="text-3xl font-extrabold text-[#106e39]"></span>
+                    <span id="product-mrp" class="text-[16px] font-medium text-gray-400 line-through mt-1 hidden"></span>
+                    <span id="product-discount-badge" class="bg-[#dcfce7] text-[#166534] text-[12px] font-bold px-2.5 py-1 rounded-full mt-1 ml-1 hidden">
+                        <!-- Discount text injected here -->
                     </span>
                 </div>
 
@@ -724,13 +705,13 @@
     <hbm-footer base-path="../"></hbm-footer>
     <script src="../js/api.js"></script>
     <script src="../js/components_v15.js"></script>
-    <script src="../js/store.js"></script>
+    <script src="../js/store.js?v=1789550392"></script>
 
     <!-- Thumbnail Script -->
     <script>
         function changeMainImage(btn, imageUrl) {
             // Update main image source
-            document.getElementById('mainProductImage').src = imageUrl;
+            document.getElementById('product-main-image').src = imageUrl;
 
             // Remove active border from all thumbnails
             const thumbnails = document.querySelectorAll('.thumbnail-btn');

@@ -10,6 +10,12 @@ if ($uri === '/' || $uri === '/index.php') {
     return true;
 }
 
+// Proxy uploads to the backend server for local development
+if (strpos($uri, '/uploads/') === 0) {
+    header('Location: http://localhost:8000' . $uri);
+    exit;
+}
+
 // If the requested file actually exists (like images, css, js), serve it as is
 if (file_exists(__DIR__ . $uri) && !is_dir(__DIR__ . $uri)) {
     return false; // Let the built-in server handle it

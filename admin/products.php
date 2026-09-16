@@ -10,9 +10,9 @@
             <i class="fa-solid fa-box text-[#106e39]"></i>
             <span class="font-medium text-gray-600">Total Products: <span id="total-count-badge" class="font-bold text-gray-800">...</span></span>
         </div>
-        <button onclick="openProductModal()" class="bg-[#106e39] text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:bg-[#0b5028] transition-colors flex items-center gap-2">
+        <a href="add-product.php" class="bg-[#106e39] text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:bg-[#0b5028] transition-colors flex items-center gap-2">
             <i class="fa-solid fa-plus"></i> Add Product
-        </button>
+        </a>
     </div>
 </div>
 
@@ -82,93 +82,7 @@
     </div>
 </div>
 
-<!-- Add/Edit Product Modal -->
-<div id="product-modal" class="fixed inset-0 bg-gray-900/50 z-50 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 overflow-y-auto pt-16 pb-16">
-    <div class="bg-white rounded-2xl shadow-xl w-full max-w-3xl overflow-hidden transform scale-95 transition-transform duration-300" id="product-modal-content">
-        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50 sticky top-0 z-10">
-            <h3 class="text-lg font-bold text-gray-800" id="modal-title">Add Product</h3>
-            <button id="close-modal-btn" class="text-gray-400 hover:text-gray-600 transition-colors">
-                <i class="fa-solid fa-times"></i>
-            </button>
-        </div>
-        
-        <div class="p-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
-            <div id="modal-error" class="hidden mb-4 p-3 rounded-lg bg-red-50 text-red-600 text-sm font-medium border border-red-100"></div>
-            
-            <form id="product-form" class="space-y-5">
-                <input type="hidden" id="product-id" value="">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <!-- Left Column -->
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Product Name *</label>
-                            <input type="text" id="product-name" required class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Slug *</label>
-                            <input type="text" id="product-slug" required class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors" placeholder="e.g. ashwagandha-powder">
-                            <p class="text-[10px] text-gray-400 mt-1">Used in the URL (must be unique, no spaces).</p>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Category *</label>
-                            <select id="product-category" required class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors">
-                                <!-- Populated by JS -->
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Description</label>
-                            <textarea id="product-description" rows="4" class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors custom-scrollbar"></textarea>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Column -->
-                    <div class="space-y-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Price (₹) *</label>
-                                <input type="number" step="0.01" min="0" id="product-price" required class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Stock Quantity</label>
-                                <input type="number" min="0" id="product-stock" value="0" class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Image URL</label>
-                            <input type="text" id="product-image" class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors" placeholder="/assets/images/products/product.jpg">
-                            <p class="text-[10px] text-gray-400 mt-1">Relative or absolute URL to the product thumbnail.</p>
-                        </div>
 
-                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3">
-                            <label class="flex items-center gap-3">
-                                <input type="checkbox" id="product-active" checked class="w-4 h-4 text-[#106e39] bg-white border-gray-300 rounded focus:ring-[#106e39]">
-                                <span class="text-sm font-bold text-gray-700">Active (Visible in store)</span>
-                            </label>
-                            <label class="flex items-center gap-3">
-                                <input type="checkbox" id="product-digital" class="w-4 h-4 text-[#106e39] bg-white border-gray-300 rounded focus:ring-[#106e39]">
-                                <span class="text-sm font-bold text-gray-700">Digital Product</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 pt-6 border-t border-gray-100 flex justify-end gap-3 sticky bottom-0 bg-white">
-                    <button type="button" id="cancel-modal-btn" class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-bold text-gray-600 hover:bg-gray-50 transition-colors">Cancel</button>
-                    <button type="submit" id="save-product-btn" class="px-4 py-2 bg-[#106e39] border border-transparent rounded-lg text-sm font-bold text-white hover:bg-[#0b5028] transition-colors flex items-center gap-2">
-                        <span id="save-btn-text">Save Product</span>
-                        <i id="save-btn-spinner" class="fa-solid fa-spinner fa-spin hidden"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -183,21 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusFilter = document.getElementById('status-filter');
     const totalCountBadge = document.getElementById('total-count-badge');
     
-    // Modal Elements
-    const modal = document.getElementById('product-modal');
-    const modalContent = document.getElementById('product-modal-content');
-    const closeBtn = document.getElementById('close-modal-btn');
-    const cancelBtn = document.getElementById('cancel-modal-btn');
-    const form = document.getElementById('product-form');
-    const errorMsg = document.getElementById('modal-error');
+
     
-    // Auto-generate slug from name
-    document.getElementById('product-name').addEventListener('input', function(e) {
-        if (!document.getElementById('product-id').value) { // Only auto-slug for new products
-            const slug = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-            document.getElementById('product-slug').value = slug;
-        }
-    });
 
     async function loadInitialData() {
         try {
@@ -207,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 categories = catRes.data;
                 const catOptions = categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
                 document.getElementById('category-filter').innerHTML += catOptions;
-                document.getElementById('product-category').innerHTML = `<option value="">Select a category</option>` + catOptions;
             }
             
             // Load Products (Using our new admin endpoint which includes inactive products)
@@ -273,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="px-6 py-4">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-lg bg-gray-100 border border-gray-200 overflow-hidden shrink-0">
-                                <img src="${imgUrl}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='../assets/images/products/product-placeholder.jpg'">
+                                <img src="${imgUrl}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='../assets/images/products/product-placeholder.jpg'">
                             </div>
                             <div>
                                 <p class="font-bold text-gray-800 text-sm truncate max-w-[200px]" title="${p.name}">${p.name}</p>
@@ -286,109 +186,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="px-6 py-4 text-sm font-bold ${stockColor} text-right">${p.stock}</td>
                     <td class="px-6 py-4 text-center">${statusBadge}</td>
                     <td class="px-6 py-4 text-right">
-                        <button onclick="openProductModal(${p.id})" class="p-2 text-gray-400 hover:text-[#106e39] hover:bg-[#f2fbf5] rounded-lg transition-colors" title="Edit Product">
+                        <a href="add-product.php?id=${p.id}" class="p-2 text-gray-400 hover:text-[#106e39] hover:bg-[#f2fbf5] rounded-lg transition-colors inline-block" title="Edit Product">
                             <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             `;
         }).join('');
     }
     
-    window.openProductModal = function(id = null) {
-        errorMsg.classList.add('hidden');
-        form.reset();
-        
-        if (id) {
-            // Edit Mode
-            document.getElementById('modal-title').textContent = 'Edit Product';
-            const p = allProducts.find(x => x.id === id);
-            if (!p) return;
-            
-            document.getElementById('product-id').value = p.id;
-            document.getElementById('product-name').value = p.name;
-            document.getElementById('product-slug').value = p.slug;
-            document.getElementById('product-category').value = p.category_id;
-            document.getElementById('product-description').value = p.description || '';
-            document.getElementById('product-price').value = p.price;
-            document.getElementById('product-stock').value = p.stock;
-            document.getElementById('product-image').value = p.thumbnail_url || '';
-            document.getElementById('product-active').checked = p.is_active == 1;
-            document.getElementById('product-digital').checked = p.is_digital == 1;
-            
-        } else {
-            // Add Mode
-            document.getElementById('modal-title').textContent = 'Add Product';
-            document.getElementById('product-id').value = '';
-            document.getElementById('product-active').checked = true;
-        }
-        
-        // Show Modal
-        modal.classList.remove('hidden');
-        void modal.offsetWidth;
-        modal.classList.remove('opacity-0');
-        modalContent.classList.remove('scale-95');
-    };
-    
-    function closeModal() {
-        modal.classList.add('opacity-0');
-        modalContent.classList.add('scale-95');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
-    }
-    
-    closeBtn.addEventListener('click', closeModal);
-    cancelBtn.addEventListener('click', closeModal);
-    
     // Search & Filter Listeners
     searchInput.addEventListener('input', renderProducts);
     categoryFilter.addEventListener('change', renderProducts);
     statusFilter.addEventListener('change', renderProducts);
-    
-    // Form Submit
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const id = document.getElementById('product-id').value;
-        const payload = {
-            name: document.getElementById('product-name').value.trim(),
-            slug: document.getElementById('product-slug').value.trim(),
-            category_id: document.getElementById('product-category').value,
-            description: document.getElementById('product-description').value.trim(),
-            price: document.getElementById('product-price').value,
-            stock: document.getElementById('product-stock').value,
-            thumbnail_url: document.getElementById('product-image').value.trim(),
-            is_active: document.getElementById('product-active').checked ? 1 : 0,
-            is_digital: document.getElementById('product-digital').checked ? 1 : 0,
-        };
-        
-        const btnText = document.getElementById('save-btn-text');
-        const btnSpinner = document.getElementById('save-btn-spinner');
-        const submitBtn = document.getElementById('save-product-btn');
-        
-        submitBtn.disabled = true;
-        btnText.textContent = 'Saving...';
-        btnSpinner.classList.remove('hidden');
-        errorMsg.classList.add('hidden');
-        
-        try {
-            if (id) {
-                await window.HBM_API.request(`/admin/products/${id}`, 'PUT', payload);
-            } else {
-                await window.HBM_API.request('/admin/products', 'POST', payload);
-            }
-            closeModal();
-            fetchProducts();
-        } catch (err) {
-            errorMsg.textContent = err.message || 'An error occurred while saving the product.';
-            errorMsg.classList.remove('hidden');
-        } finally {
-            submitBtn.disabled = false;
-            btnText.textContent = 'Save Product';
-            btnSpinner.classList.add('hidden');
-        }
-    });
+
 
     loadInitialData();
 });

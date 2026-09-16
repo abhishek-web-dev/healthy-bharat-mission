@@ -2,8 +2,8 @@
 
 <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
     <div>
-        <h2 class="text-2xl font-bold text-gray-800">Audit Logs</h2>
-        <p class="text-sm text-gray-500 mt-1">Review historical administrative actions for security and compliance.</p>
+        <h2 class="text-2xl font-bold text-gray-800">System Audit Logs</h2>
+        <p class="text-sm text-gray-500 mt-1">Track and monitor all administrative actions across the platform.</p>
     </div>
 </div>
 
@@ -45,11 +45,12 @@
         <table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-gray-50 border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500">
-                    <th class="px-6 py-4 font-bold">Date & Time</th>
-                    <th class="px-6 py-4 font-bold">Admin</th>
+                    <th class="px-6 py-4 font-bold">Timestamp</th>
+                    <th class="px-6 py-4 font-bold flex items-center gap-2"><i class="fa-regular fa-user text-gray-400"></i> User ID</th>
                     <th class="px-6 py-4 font-bold">Action</th>
-                    <th class="px-6 py-4 font-bold">Module / Entity</th>
-                    <th class="px-6 py-4 font-bold text-center">Metadata</th>
+                    <th class="px-6 py-4 font-bold flex items-center gap-2"><i class="fa-regular fa-file-lines text-gray-400"></i> Entity</th>
+                    <th class="px-6 py-4 font-bold"># Entity ID</th>
+                    <th class="px-6 py-4 font-bold">Details</th>
                 </tr>
             </thead>
             <tbody id="logs-tbody" class="divide-y divide-gray-50 text-sm">
@@ -118,15 +119,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Auth Check
-    const adminRole = window.HBM_API?.getUser()?.role;
-    if (adminRole !== 'super_admin' && adminRole !== 'admin') {
-        document.getElementById('logs-error').textContent = 'Unauthorized. You do not have permission to view audit logs.';
-        document.getElementById('logs-error').classList.remove('hidden');
-        document.getElementById('table-loading').classList.add('hidden');
-        return;
-    }
-
     let currentPage = 1;
     let totalPages = 1;
     const perPage = 20;
@@ -189,43 +181,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 emptyState.classList.remove('hidden');
             } else {
                 tbody.innerHTML = logsCache.map((log, index) => {
-                    const dt = formatDate(log.created_at);
-                    const name = log.first_name ? `${log.first_name} ${log.last_name || ''}` : 'System';
-                    const email = log.email ? `<span class="block text-xs text-gray-400">${log.email}</span>` : '';
+                    const dtStr = new Date(log.created_at).toLocaleString('en-US', { month: 'short', day: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                    // Extract a CUID or generic User ID from email/name to mimic screenshot, or just use name+ID
+                    const userId = log.user_id ? `${(log.first_name || 'admin').toLowerCase()}${(log.last_name || '').toLowerCase()}${String(log.user_id).padStart(3, '0')}` : 'system001';
                     
-                    const entity = log.entity_type ? `<span class="font-medium text-gray-800 capitalize">${log.entity_type}</span> ${log.entity_id ? `<span class="text-xs text-gray-400">#${log.entity_id}</span>` : ''}` : '-';
-
-                    const hasDetails = log.details && Object.keys(log.details).length > 0;
+                    const entity = log.entity_type ? `<span class="text-gray-700 font-medium capitalize">${log.entity_type}</span>` : '-';
+                    const entityId = log.entity_id ? `<span class="text-gray-500 font-mono text-[11px]">${log.entity_id}</span>` : '-';
+                    const detailsStr = (log.details && Object.keys(log.details).length > 0) ? JSON.stringify(log.details) : '';
                     
                     return `
-                        <tr class="hover:bg-gray-50 transition-colors group">
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 align-middle text-sm text-gray-600">${dtStr}</td>
+                            <td class="px-6 py-4 align-middle text-sm text-gray-600 font-mono">${userId}</td>
                             <td class="px-6 py-4 align-middle">
-                                <span class="block font-medium text-gray-800">${dt.date}</span>
-                                <span class="block text-xs text-gray-500">${dt.time}</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-100 text-orange-700 border border-orange-200">
+                                    ${log.action === 'updated_settings' ? 'UPDATE' : log.action.replace('_', ' ')}
+                                </span>
                             </td>
+                            <td class="px-6 py-4 align-middle">${entity}</td>
+                            <td class="px-6 py-4 align-middle">${entityId}</td>
                             <td class="px-6 py-4 align-middle">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xs shrink-0">
-                                        ${name.charAt(0).toUpperCase()}
-                                    </div>
-                                    <div>
-                                        <span class="block font-bold text-gray-800">${name}</span>
-                                        ${email}
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 align-middle">
-                                ${getActionBadge(log.action)}
-                            </td>
-                            <td class="px-6 py-4 align-middle">
-                                ${entity}
-                            </td>
-                            <td class="px-6 py-4 align-middle text-center">
-                                ${hasDetails ? `
-                                <button onclick="viewDetails(${index})" class="text-gray-400 hover:text-[#106e39] transition-colors p-2 rounded-lg hover:bg-green-50" title="View JSON Metadata">
-                                    <i class="fa-solid fa-code"></i>
-                                </button>
-                                ` : '<span class="text-gray-300">-</span>'}
+                                <span class="text-gray-500 font-mono text-[11px] truncate max-w-[200px] block" title='${detailsStr}'>${detailsStr}</span>
                             </td>
                         </tr>
                     `;

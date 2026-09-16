@@ -2,13 +2,13 @@
 
 <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
     <div>
-        <h2 class="text-2xl font-bold text-gray-800">User Management</h2>
-        <p class="text-sm text-gray-500 mt-1">Manage system users, roles, and account statuses.</p>
+        <h2 class="text-2xl font-bold text-gray-800">Deleted Accounts</h2>
+        <p class="text-sm text-gray-500 mt-1">View and manage accounts that have been removed from the active user list.</p>
     </div>
     <div class="flex items-center gap-3">
         <div class="bg-white rounded-lg border border-gray-100 px-4 py-2 flex items-center gap-3 text-sm shadow-sm">
-            <i class="fa-solid fa-users text-[#106e39]"></i>
-            <span class="font-medium text-gray-600">Total Users: <span id="total-count-badge" class="font-bold text-gray-800">...</span></span>
+            <i class="fa-solid fa-user-slash text-[#106e39]"></i>
+            <span class="font-medium text-gray-600">Total Deleted: <span id="total-users-badge" class="font-bold text-gray-800">...</span></span>
         </div>
     </div>
 </div>
@@ -57,8 +57,8 @@
                     <th class="px-6 py-4 font-bold">User</th>
                     <th class="px-6 py-4 font-bold">Role</th>
                     <th class="px-6 py-4 font-bold">Status</th>
-                    <th class="px-6 py-4 font-bold">Registered</th>
-                    <th class="px-6 py-4 font-bold text-right">Actions</th>
+                    <th class="px-6 py-4 text-xs font-bold text-gray-500 tracking-wider">Deleted Date</th>
+                    <th class="px-6 py-4 text-xs font-bold text-gray-500 tracking-wider text-right">Actions</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 text-sm" id="users-tbody">
@@ -74,11 +74,11 @@
     
     <!-- Empty State -->
     <div id="empty-state" class="hidden flex-col items-center justify-center p-12 text-center">
-        <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 text-2xl mb-4">
-            <i class="fa-solid fa-users-slash"></i>
+        <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-100">
+            <i class="fa-solid fa-user-slash text-3xl text-gray-300"></i>
         </div>
-        <h3 class="font-bold text-gray-800 text-lg mb-1">No users found</h3>
-        <p class="text-sm text-gray-500 max-w-sm">No users matched your current search and filter criteria.</p>
+        <h3 class="text-lg font-bold text-gray-900 mb-1">No Deleted Accounts</h3>
+        <p class="text-gray-500 text-sm max-w-md mx-auto mb-6">Deleted or removed accounts will appear here.</p>
     </div>
 </div>
 
@@ -95,16 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const roleFilter = document.getElementById('role-filter');
     const statusFilter = document.getElementById('status-filter');
-    const totalCountBadge = document.getElementById('total-count-badge');
+    const totalUsersBadge = document.getElementById('total-users-badge');
     
     // Modal Elements
     // Fetch and render users
     async function fetchUsers() {
         try {
-            const res = await window.HBM_API.request('/admin/users');
+            const res = await window.HBM_API.request('/admin/users/deleted/all');
             if (res.data && res.data.users) {
                 allUsers = res.data.users; // AdminUserController listUsers returns { users: [...] }
-                totalCountBadge.textContent = allUsers.length;
+                totalUsersBadge.textContent = allUsers.length;
                 renderUsers();
             }
         } catch (error) {
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tableHeader.style.display = 'table-header-group';
         
         tbody.innerHTML = filtered.map(u => {
-            const date = new Date(u.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            const date = new Date(u.deleted_at || u.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
             const name = `${u.first_name} ${u.last_name}`;
             
             return `
@@ -186,12 +186,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </td>
                     <td class="px-6 py-4 text-sm text-gray-500">${date}</td>
                     <td class="px-6 py-4 text-right">
-                        <a href="edit-user.php?id=${u.id}" class="p-2 inline-block text-gray-400 hover:text-[#106e39] hover:bg-[#f2fbf5] rounded-lg transition-colors" title="Edit User">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
-                        ${(window.adminUser && window.adminUser.permissions && window.adminUser.permissions.includes('delete_users')) ? `
-                        <button onclick="deleteUser(${u.id}, '${name}')" class="p-2 inline-block text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete User">
-                            <i class="fa-solid fa-trash"></i>
+                        ${(window.adminUser && window.adminUser.permissions && (window.adminUser.permissions.includes('edit_deleted_accounts') || window.adminUser.permissions.includes('create_deleted_accounts'))) ? `
+                        <button onclick="restoreUser(${u.id}, '${name}')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-green-50 text-[#106e39] border border-green-200 hover:bg-[#106e39] hover:text-white transition-colors" title="Restore Account">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> Restore
                         </button>
                         ` : ''}
                     </td>
@@ -200,20 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
     
-    // Delete user handler
-    window.deleteUser = async function(id, name) {
-        if (!confirm(`Are you sure you want to delete the user account for ${name}?\n\nThis will remove them from the active user list and invalidate their current sessions.`)) {
+    // Restore user handler
+    window.restoreUser = async function(id, name) {
+        if (!confirm(`Are you sure you want to restore the user account for ${name}?\n\nThis will return them to the active user list with their original role.`)) {
             return;
         }
         
         try {
-            await window.HBM_API.request(`/admin/users/${id}`, 'DELETE');
+            await window.HBM_API.request(`/admin/users/${id}/restore`, 'POST');
             // Remove from local array and re-render
             allUsers = allUsers.filter(u => u.id !== id);
-            totalCountBadge.textContent = allUsers.length;
+            totalUsersBadge.textContent = allUsers.length;
             renderUsers();
         } catch (error) {
-            alert('Failed to delete user: ' + (error.message || 'Unknown error'));
+            alert('Failed to restore user: ' + (error.message || 'Unknown error'));
         }
     };
     

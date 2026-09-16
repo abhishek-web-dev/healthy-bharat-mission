@@ -74,7 +74,9 @@ function createProductCard(product, isSlider = false) {
                 <div class="flex items-end justify-between mt-auto pt-4">
                     <div>
                         <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
-                        <div class="text-lg font-black text-[#064e3b]">₹${product.price}</div>
+                        ${product.mrp && parseFloat(product.mrp) > parseFloat(product.price) 
+                            ? `<div class="flex items-center gap-1.5"><span class="text-lg font-black text-[#064e3b]">₹${product.price}</span><span class="text-xs text-gray-400 line-through">₹${product.mrp}</span></div>` 
+                            : `<div class="text-lg font-black text-[#064e3b]">₹${product.price}</div>`}
                     </div>
                     ${cartUI}
                 </div>
@@ -134,14 +136,10 @@ async function initStore() {
             catList.innerHTML = catHtml;
         }
 
-        // Group by category slug
-        const grouped = {
-            'atta': [],
-            'cookies': [],
-            'supplements': [],
-            'health': [],
-            'default': []
-        };
+        // Group dynamically by category slug
+        const grouped = {};
+        categories.forEach(cat => grouped[cat.slug] = []);
+        grouped['default'] = [];
 
         products.forEach(p => {
             if (grouped[p.category_slug]) {
@@ -152,6 +150,64 @@ async function initStore() {
         });
 
         window.storeGroupedProducts = grouped;
+        window.storeCategories = categories;
+        
+        // Dynamically build top nav, main sections and filters
+        const topNav = document.getElementById('top-category-nav');
+        const mainContent = document.getElementById('store-main-content');
+        const filters = document.getElementById('popular-products-filters');
+        
+        const iconMap = {
+            'atta': 'fa-wheat-awn text-[#064e3b]',
+            'cookies': 'fa-cookie text-[#064e3b]',
+            'supplements': 'fa-pills text-emerald-600',
+            'health': 'fa-leaf text-green-600'
+        };
+
+        if (topNav) {
+            topNav.innerHTML = categories.map(cat => {
+                const icon = iconMap[cat.slug] || 'fa-box text-[#064e3b]';
+                return `<a href="#section-${cat.slug}" class="category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors">
+                    <i class="fa-solid ${icon}"></i> ${cat.name}
+                </a>`;
+            }).join('');
+            // Make the first one active style (if needed, adjust classes)
+            const firstPill = topNav.querySelector('a');
+            if(firstPill) {
+                firstPill.className = firstPill.className.replace('bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30', 'bg-[#064e3b] text-white');
+            }
+        }
+
+        if (filters) {
+            let filterHtml = `<button data-filter="all" class="filter-btn snap-start shrink-0 px-6 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-sm">All</button>`;
+            filterHtml += categories.map(cat => {
+                return `<button data-filter="${cat.slug}" class="filter-btn snap-start shrink-0 px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 hover:text-primary hover:border-primary text-sm font-semibold transition-colors shadow-sm flex items-center gap-2">
+                    ${cat.name}
+                </button>`;
+            }).join('');
+            filters.innerHTML = filterHtml;
+        }
+
+        if (mainContent) {
+            mainContent.innerHTML = categories.map(cat => {
+                const icon = iconMap[cat.slug] || 'fa-box text-[#064e3b]';
+                return `<div id="section-${cat.slug}" class="product-category-section scroll-mt-[200px]">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#f0fdf4] text-[#064e3b] flex items-center justify-center shadow-sm border border-[#064e3b]/10">
+                                <i class="fa-solid ${icon} text-lg"></i>
+                            </div>
+                            <h2 class="text-2xl font-extrabold text-[#064e3b] tracking-tight">${cat.name}</h2>
+                        </div>
+                        <span class="text-xs font-bold text-[#064e3b] bg-[#f0fdf4] px-3 py-1 rounded-full border border-[#064e3b]/10 product-count-badge">${cat.product_count || 0} Products</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-16 product-grid">
+                        <!-- Products injected here -->
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
         window.renderStoreGrids();
 
         if (typeof window.renderPopularProducts === 'function') {
@@ -164,19 +220,22 @@ async function initStore() {
 }
 
 window.renderStoreGrids = function () {
-    if (!window.storeGroupedProducts) return;
-    const sections = ['atta', 'cookies', 'supplements', 'health'];
-    sections.forEach(slug => {
+    if (!window.storeGroupedProducts || !window.storeCategories) return;
+    
+    window.storeCategories.forEach(cat => {
+        const slug = cat.slug;
         const sectionDiv = document.getElementById(`section-${slug}`);
         if (sectionDiv) {
             const grid = sectionDiv.querySelector('.product-grid');
-            const countBadge = sectionDiv.querySelector('.rounded-full.border');
-
+            const countBadge = sectionDiv.querySelector('.product-count-badge');
+            
+            const catProducts = window.storeGroupedProducts[slug] || [];
+            
             if (grid) {
-                grid.innerHTML = window.storeGroupedProducts[slug].map(p => createProductCard(p)).join('');
+                grid.innerHTML = catProducts.map(p => createProductCard(p)).join('');
             }
             if (countBadge) {
-                countBadge.innerText = `${window.storeGroupedProducts[slug].length} Products`;
+                countBadge.innerText = `${catProducts.length} Products`;
             }
         }
     });
@@ -298,7 +357,27 @@ async function initProductDetail() {
         if (titleEl) titleEl.innerText = product.name;
 
         const priceEl = document.getElementById('product-price');
+        const mrpEl = document.getElementById('product-mrp');
+        const discountBadge = document.getElementById('product-discount-badge');
+        
         if (priceEl) priceEl.innerText = `₹${product.price}`;
+        if (mrpEl && discountBadge) {
+            if (product.mrp && parseFloat(product.mrp) > parseFloat(product.price)) {
+                const mrp = parseFloat(product.mrp);
+                const price = parseFloat(product.price);
+                const saveAmount = mrp - price;
+                const savePercent = Math.round((saveAmount / mrp) * 100);
+                
+                mrpEl.innerText = `₹${mrp.toFixed(2)}`;
+                mrpEl.classList.remove('hidden');
+                
+                discountBadge.innerText = `You save ₹${saveAmount.toFixed(2)} (${savePercent}%)`;
+                discountBadge.classList.remove('hidden');
+            } else {
+                mrpEl.classList.add('hidden');
+                discountBadge.classList.add('hidden');
+            }
+        }
 
         const descEl = document.getElementById('product-description');
         if (descEl) descEl.innerText = product.description || 'No description available.';
@@ -309,9 +388,22 @@ async function initProductDetail() {
 
         // Images
         const imgGallery = document.getElementById('product-main-image');
-        if (imgGallery && product.primary_image) {
-            imgGallery.src = product.primary_image;
-            // You can also populate thumbnails if the UI has a container for it
+        if (imgGallery && product.thumbnail_url) {
+            imgGallery.src = product.thumbnail_url;
+        }
+
+        const thumbsContainer = document.getElementById('product-thumbnails-container');
+        if (thumbsContainer && product.images && product.images.length > 0) {
+            thumbsContainer.innerHTML = '';
+            product.images.forEach((imgObj, idx) => {
+                const imgUrl = typeof imgObj === 'string' ? imgObj : (imgObj.image_url || imgObj);
+                const borderClass = idx === 0 ? 'border-black' : 'border-transparent hover:border-gray-300';
+                thumbsContainer.innerHTML += `
+                    <button onclick="changeMainImage(this, '${imgUrl}')" class="thumbnail-btn w-24 h-24 shrink-0 rounded-lg overflow-hidden border-2 ${borderClass} snap-start hover:opacity-80 transition-opacity bg-white">
+                        <img src="${imgUrl}" alt="Thumb ${idx + 1}" class="w-full h-full object-contain">
+                    </button>
+                `;
+            });
         }
 
         // Fetch all products for "You May Also Like"
@@ -473,6 +565,9 @@ async function initCart() {
     }
 
     await renderCart();
+    if (typeof window.loadAvailableCoupons === 'function') {
+        await window.loadAvailableCoupons();
+    }
 
     // Fetch recommended products dynamically
     try {
@@ -615,41 +710,83 @@ async function removeCartItem(cartItemId) {
 window.currentDiscount = 0;
 window.currentCartSubtotal = 0;
 
-window.applyCoupon = function () {
+window.applyCoupon = async function () {
     const code = document.getElementById('coupon-input').value.trim().toUpperCase();
     const msgEl = document.getElementById('coupon-message');
 
-    // If code is empty, we allow removing the coupon
     if (code === '') {
-        // Continue to the else block to remove
-    }
-
-    if (code === 'HBM1') {
-        window.currentDiscount = 100;
-        sessionStorage.setItem('hbm_discount', 100);
-        msgEl.innerText = 'Coupon applied successfully!';
-        msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
-        msgEl.style.display = 'block';
-    } else if (code === 'HBM2') {
-        window.currentDiscount = 50;
-        sessionStorage.setItem('hbm_discount', 50);
-        msgEl.innerText = 'Coupon applied successfully!';
-        msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
-        msgEl.style.display = 'block';
-    } else {
         window.currentDiscount = 0;
         sessionStorage.removeItem('hbm_discount');
-        if (code === '') {
-            msgEl.innerText = 'Coupon removed.';
-            msgEl.className = 'text-[12px] font-bold mt-2 text-gray-500 block';
+        sessionStorage.removeItem('hbm_coupon_code');
+        msgEl.innerText = 'Coupon removed.';
+        msgEl.className = 'text-[12px] font-bold mt-2 text-gray-500 block';
+        msgEl.style.display = 'block';
+        updateCartTotals(window.currentCartSubtotal);
+        return;
+    }
+
+    try {
+        msgEl.innerText = 'Applying...';
+        msgEl.className = 'text-[12px] font-bold mt-2 text-gray-500 block';
+        msgEl.style.display = 'block';
+
+        const res = await HBM_API.request(`/store/coupons/validate?code=${encodeURIComponent(code)}&subtotal=${window.currentCartSubtotal}`);
+        
+        if (res.success || res.status === 'success') {
+            window.currentDiscount = res.data.coupon.discount_amount;
+            sessionStorage.setItem('hbm_discount', window.currentDiscount);
+            sessionStorage.setItem('hbm_coupon_code', code);
+            
+            msgEl.innerText = `Coupon applied successfully! - ₹${window.currentDiscount} OFF`;
+            msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
         } else {
-            msgEl.innerText = 'Invalid coupon code.';
+            window.currentDiscount = 0;
+            sessionStorage.removeItem('hbm_discount');
+            sessionStorage.removeItem('hbm_coupon_code');
+            msgEl.innerText = res.message || 'Invalid coupon code.';
             msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
         }
-        msgEl.style.display = 'block';
+    } catch (err) {
+        console.error(err);
+        window.currentDiscount = 0;
+        sessionStorage.removeItem('hbm_discount');
+        sessionStorage.removeItem('hbm_coupon_code');
+        msgEl.innerText = 'Error validating coupon. Please try again.';
+        msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
     }
 
     updateCartTotals(window.currentCartSubtotal);
+};
+
+window.loadAvailableCoupons = async function() {
+    const container = document.getElementById('available-coupons-container');
+    if (!container) return; // Only run on cart page
+
+    try {
+        const res = await HBM_API.request('/store/coupons');
+        if (res.success && res.data.coupons && res.data.coupons.length > 0) {
+            container.innerHTML = res.data.coupons.map(coupon => {
+                let description = coupon.description || coupon.name;
+                return `
+                    <div class="flex items-start gap-2 mb-2.5">
+                        <i class="fa-solid fa-tag text-[#106e39] mt-0.5 text-[10px]"></i>
+                        <div class="text-[12px] text-[#1e293b]">
+                            ${description} Use code: 
+                            <span class="font-bold border border-dashed border-gray-300 px-1.5 py-0.5 rounded bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors ml-1" 
+                                  onclick="document.getElementById('coupon-input').value='${coupon.code}';">
+                                ${coupon.code}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } else {
+            container.innerHTML = '<div class="text-[12px] text-gray-500">No active offers right now.</div>';
+        }
+    } catch (err) {
+        console.error(err);
+        container.innerHTML = '<div class="text-[12px] text-gray-500">Could not load offers.</div>';
+    }
 };
 
 function updateCartTotals(subtotal) {

@@ -128,8 +128,13 @@
                         </div>
                         
                         <!-- Savings Banner -->
-                        <div id="cart-savings-banner" class="bg-[#e2f6e9] text-[#106e39] text-[12px] font-bold rounded-lg p-3 hidden items-center gap-2">
-                            <i class="fa-solid fa-tag"></i> You saved ₹<span id="cart-savings-amount">0.00</span> on this order!
+                        <div id="cart-savings-banner" class="bg-[#e2f6e9] text-[#106e39] text-[12px] font-bold rounded-lg p-3 hidden items-center justify-between gap-2 shadow-sm border border-[#bbf7d0]">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-tag"></i> You saved ₹<span id="cart-savings-amount">0.00</span> on this order!
+                            </div>
+                            <button onclick="document.getElementById('coupon-input').value=''; window.applyCoupon();" class="bg-red-50 text-red-600 px-3 py-1.5 rounded text-[11px] font-bold hover:bg-red-100 transition-colors">
+                                Remove
+                            </button>
                         </div>
                     </div>
 
@@ -143,13 +148,8 @@
                         <div id="coupon-message" class="text-[12px] font-bold mt-2 hidden"></div>
                         <div class="mt-4 pt-4 border-t border-gray-100">
                             <h4 class="text-[11px] font-bold text-gray-400 mb-3 uppercase tracking-wider">Available Offers</h4>
-                            <div class="flex items-start gap-2 mb-2.5">
-                                <i class="fa-solid fa-tag text-[#106e39] mt-0.5 text-[10px]"></i>
-                                <div class="text-[12px] text-[#1e293b]">Save <span class="font-bold text-[#106e39]">₹100</span> on your first order! Use code: <span class="font-bold border border-dashed border-gray-300 px-1.5 py-0.5 rounded bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors ml-1" onclick="document.getElementById('coupon-input').value='HBM1'; window.applyCoupon();">HBM1</span></div>
-                            </div>
-                            <div class="flex items-start gap-2">
-                                <i class="fa-solid fa-tag text-[#106e39] mt-0.5 text-[10px]"></i>
-                                <div class="text-[12px] text-[#1e293b]">Save <span class="font-bold text-[#106e39]">₹50</span> on your second order! Use code: <span class="font-bold border border-dashed border-gray-300 px-1.5 py-0.5 rounded bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors ml-1" onclick="document.getElementById('coupon-input').value='HBM2'; window.applyCoupon();">HBM2</span></div>
+                            <div id="available-coupons-container" class="space-y-2.5">
+                                <div class="text-[12px] text-gray-500">Loading offers...</div>
                             </div>
                         </div>
                     </div>

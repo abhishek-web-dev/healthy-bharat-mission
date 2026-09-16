@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const saveBtn = document.getElementById('save-btn');
 
     // Super Admin Check (Basic UI guard)
-    const adminRole = window.HBM_API?.getUser()?.role;
-    if (adminRole !== 'super_admin') {
+    const adminRole = <?php echo json_encode($GLOBALS['adminUser']['role_slug'] ?? ''); ?>;
+    if (adminRole !== 'superadmin') {
         loading.classList.add('hidden');
         errorMsg.textContent = 'Only Super Admins can view and edit global settings.';
         errorBlock.classList.remove('hidden');

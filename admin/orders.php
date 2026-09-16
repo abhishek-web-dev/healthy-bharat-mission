@@ -74,6 +74,14 @@
         </table>
     </div>
     
+    <!-- Pagination -->
+    <div id="pagination-container" class="px-6 py-4 border-t border-gray-100 flex items-center justify-between hidden">
+        <p class="text-sm text-gray-500">Showing <span id="page-start" class="font-bold">0</span> to <span id="page-end" class="font-bold">0</span> of <span id="page-total" class="font-bold">0</span> results</p>
+        <div class="flex items-center gap-1" id="pagination-buttons">
+            <!-- Buttons injected by JS -->
+        </div>
+    </div>
+    
     <!-- Empty State -->
     <div id="empty-state" class="hidden flex-col items-center justify-center p-12 text-center">
         <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 text-2xl mb-4">
@@ -247,6 +255,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     let allOrders = [];
     let currentOrderId = null;
+    let currentPage = 1;
+    const itemsPerPage = 15;
     
     const tbody = document.getElementById('orders-tbody');
     const emptyState = document.getElementById('empty-state');
@@ -255,6 +265,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusFilter = document.getElementById('status-filter');
     const paymentFilter = document.getElementById('payment-filter');
     const totalCountBadge = document.getElementById('total-count-badge');
+    
+    // Pagination Elements
+    const paginationContainer = document.getElementById('pagination-container');
+    const pageStart = document.getElementById('page-start');
+    const pageEnd = document.getElementById('page-end');
+    const pageTotal = document.getElementById('page-total');
+    const paginationButtons = document.getElementById('pagination-buttons');
     
     // Modal Elements
     const modal = document.getElementById('order-modal');
@@ -326,14 +343,30 @@ document.addEventListener('DOMContentLoaded', () => {
             tableHeader.style.display = allOrders.length === 0 ? 'none' : 'table-header-group';
             emptyState.classList.remove('hidden');
             emptyState.classList.add('flex');
+            if (paginationContainer) paginationContainer.classList.add('hidden');
             return;
         }
+        
+        const totalPages = Math.ceil(filtered.length / itemsPerPage);
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+        
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = Math.min(startIndex + itemsPerPage, filtered.length);
+        const paginated = filtered.slice(startIndex, endIndex);
         
         emptyState.classList.add('hidden');
         emptyState.classList.remove('flex');
         tableHeader.style.display = 'table-header-group';
+        if (paginationContainer) paginationContainer.classList.remove('hidden');
         
-        tbody.innerHTML = filtered.map(o => {
+        if (pageStart) pageStart.textContent = startIndex + 1;
+        if (pageEnd) pageEnd.textContent = endIndex;
+        if (pageTotal) pageTotal.textContent = filtered.length;
+        
+        renderPaginationButtons(totalPages);
+        
+        tbody.innerHTML = paginated.map(o => {
             const date = new Date(o.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute:'2-digit' });
             const name = `${o.shipping_first_name || ''} ${o.shipping_last_name || ''}`.trim() || 'Unknown Customer';
             
@@ -457,9 +490,9 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', closeModal);
     
     // Search & Filter Listeners
-    searchInput.addEventListener('input', renderOrders);
-    statusFilter.addEventListener('change', renderOrders);
-    paymentFilter.addEventListener('change', renderOrders);
+    searchInput.addEventListener('input', () => { currentPage = 1; renderOrders(); });
+    statusFilter.addEventListener('change', () => { currentPage = 1; renderOrders(); });
+    paymentFilter.addEventListener('change', () => { currentPage = 1; renderOrders(); });
     
     // Status Updates
     statusForm.addEventListener('submit', async (e) => {
@@ -485,7 +518,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnText.classList.replace('text-green-400', 'text-white');
             }, 2000);
             
-            fetchOrders(); // Refresh table in background
+            function renderPaginationButtons(totalPages) {
+        let html = '';
+        if (totalPages <= 1) {
+            paginationButtons.innerHTML = '';
+            return;
+        }
+        
+        html += `<button onclick="window.goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="px-2.5 py-1 border border-gray-200 rounded-md text-sm font-medium ${currentPage === 1 ? 'text-gray-300 bg-gray-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>`;
+        
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, currentPage + 2);
+        
+        if (startPage > 1) {
+            html += `<button onclick="window.goToPage(1)" class="px-3 py-1 border border-gray-200 text-gray-600 hover:bg-gray-50 rounded-md text-sm font-medium">1</button>`;
+            if (startPage > 2) html += `<span class="px-2 text-gray-400">...</span>`;
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+            html += `<button onclick="window.goToPage(${i})" class="px-3 py-1 border ${currentPage === i ? 'bg-[#106e39] text-white border-[#106e39]' : 'border-gray-200 text-gray-600 hover:bg-gray-50'} rounded-md text-sm font-medium">${i}</button>`;
+        }
+        
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) html += `<span class="px-2 text-gray-400">...</span>`;
+            html += `<button onclick="window.goToPage(${totalPages})" class="px-3 py-1 border border-gray-200 text-gray-600 hover:bg-gray-50 rounded-md text-sm font-medium">${totalPages}</button>`;
+        }
+        
+        html += `<button onclick="window.goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="px-2.5 py-1 border border-gray-200 rounded-md text-sm font-medium ${currentPage === totalPages ? 'text-gray-300 bg-gray-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>`;
+        
+        paginationButtons.innerHTML = html;
+    }
+    
+    window.goToPage = function(page) {
+        currentPage = page;
+        renderOrders();
+    };
+
+    fetchOrders(); // Refresh table in background
         } catch (err) {
             alert(err.message || "Failed to update order status");
         } finally {
@@ -517,7 +586,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnText.classList.replace('text-green-600', 'text-gray-700');
             }, 2000);
             
-            fetchOrders(); // Refresh table in background
+            function renderPaginationButtons(totalPages) {
+        let html = '';
+        if (totalPages <= 1) {
+            paginationButtons.innerHTML = '';
+            return;
+        }
+        
+        html += `<button onclick="window.goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="px-2.5 py-1 border border-gray-200 rounded-md text-sm font-medium ${currentPage === 1 ? 'text-gray-300 bg-gray-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>`;
+        
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, currentPage + 2);
+        
+        if (startPage > 1) {
+            html += `<button onclick="window.goToPage(1)" class="px-3 py-1 border border-gray-200 text-gray-600 hover:bg-gray-50 rounded-md text-sm font-medium">1</button>`;
+            if (startPage > 2) html += `<span class="px-2 text-gray-400">...</span>`;
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+            html += `<button onclick="window.goToPage(${i})" class="px-3 py-1 border ${currentPage === i ? 'bg-[#106e39] text-white border-[#106e39]' : 'border-gray-200 text-gray-600 hover:bg-gray-50'} rounded-md text-sm font-medium">${i}</button>`;
+        }
+        
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) html += `<span class="px-2 text-gray-400">...</span>`;
+            html += `<button onclick="window.goToPage(${totalPages})" class="px-3 py-1 border border-gray-200 text-gray-600 hover:bg-gray-50 rounded-md text-sm font-medium">${totalPages}</button>`;
+        }
+        
+        html += `<button onclick="window.goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="px-2.5 py-1 border border-gray-200 rounded-md text-sm font-medium ${currentPage === totalPages ? 'text-gray-300 bg-gray-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>`;
+        
+        paginationButtons.innerHTML = html;
+    }
+    
+    window.goToPage = function(page) {
+        currentPage = page;
+        renderOrders();
+    };
+
+    fetchOrders(); // Refresh table in background
         } catch (err) {
             alert(err.message || "Failed to update payment status");
         } finally {
@@ -525,6 +630,42 @@ document.addEventListener('DOMContentLoaded', () => {
             btnSpinner.classList.add('hidden');
         }
     });
+
+    function renderPaginationButtons(totalPages) {
+        let html = '';
+        if (totalPages <= 1) {
+            paginationButtons.innerHTML = '';
+            return;
+        }
+        
+        html += `<button onclick="window.goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="px-2.5 py-1 border border-gray-200 rounded-md text-sm font-medium ${currentPage === 1 ? 'text-gray-300 bg-gray-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>`;
+        
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, currentPage + 2);
+        
+        if (startPage > 1) {
+            html += `<button onclick="window.goToPage(1)" class="px-3 py-1 border border-gray-200 text-gray-600 hover:bg-gray-50 rounded-md text-sm font-medium">1</button>`;
+            if (startPage > 2) html += `<span class="px-2 text-gray-400">...</span>`;
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+            html += `<button onclick="window.goToPage(${i})" class="px-3 py-1 border ${currentPage === i ? 'bg-[#106e39] text-white border-[#106e39]' : 'border-gray-200 text-gray-600 hover:bg-gray-50'} rounded-md text-sm font-medium">${i}</button>`;
+        }
+        
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) html += `<span class="px-2 text-gray-400">...</span>`;
+            html += `<button onclick="window.goToPage(${totalPages})" class="px-3 py-1 border border-gray-200 text-gray-600 hover:bg-gray-50 rounded-md text-sm font-medium">${totalPages}</button>`;
+        }
+        
+        html += `<button onclick="window.goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="px-2.5 py-1 border border-gray-200 rounded-md text-sm font-medium ${currentPage === totalPages ? 'text-gray-300 bg-gray-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>`;
+        
+        paginationButtons.innerHTML = html;
+    }
+    
+    window.goToPage = function(page) {
+        currentPage = page;
+        renderOrders();
+    };
 
     fetchOrders();
 });

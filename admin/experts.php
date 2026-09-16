@@ -83,7 +83,7 @@
             
             <div class="flex items-center gap-4 mb-6 pb-6 border-b border-gray-100">
                 <div class="w-16 h-16 rounded-full bg-gray-100 border border-gray-200 overflow-hidden">
-                    <img id="detail-image" src="" alt="Expert" class="w-full h-full object-cover hidden" onerror="this.src='../assets/images/default-avatar.png'">
+                    <img id="detail-image" src="" alt="Expert" class="w-full h-full object-cover hidden" onerror="this.onerror=null; this.src='../assets/images/default-avatar.png'">
                     <i class="fa-solid fa-user text-gray-400 text-3xl flex justify-center items-center h-full w-full" id="detail-image-fallback"></i>
                 </div>
                 <div>
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusBadge = `<span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider border ${sStyle}">${e.user_status}</span>`;
             
             const imgHtml = e.profile_image_url 
-                ? `<img src="${e.profile_image_url}" class="w-full h-full object-cover" onerror="this.src='../assets/images/default-avatar.png'">`
+                ? `<img src="${e.profile_image_url}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='../assets/images/default-avatar.png'">`
                 : `<i class="fa-solid fa-user text-gray-400"></i>`;
             
             return `
