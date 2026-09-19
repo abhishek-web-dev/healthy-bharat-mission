@@ -10,11 +10,25 @@
             <i class="fa-solid fa-book-medical text-[#106e39]"></i>
             <span class="font-medium text-gray-600">Total Articles: <span id="total-count-badge" class="font-bold text-gray-800">...</span></span>
         </div>
-        <button onclick="openArticleModal()" class="bg-[#106e39] text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:bg-[#0b5028] transition-colors flex items-center gap-2">
+        <a href="article-create.php" class="bg-[#106e39] text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:bg-[#0b5028] transition-colors flex items-center gap-2">
             <i class="fa-solid fa-plus"></i> Write Article
-        </button>
+        </a>
     </div>
 </div>
+
+<!-- Tabs Navigation -->
+<div class="mb-6 border-b border-gray-200">
+    <nav class="-mb-px flex space-x-4" aria-label="Tabs">
+        <button onclick="switchTab('articles')" id="nav-tab-articles" class="whitespace-nowrap py-4 px-6 border-b-2 font-bold text-sm border-[#106e39] text-[#106e39] hover:bg-gray-50 transition-colors focus:outline-none">
+            <i class="fa-solid fa-file-lines mr-2"></i> Articles
+        </button>
+        <button onclick="switchTab('contact-form')" id="nav-tab-contact-form" class="whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-colors focus:outline-none">
+            <i class="fa-solid fa-envelope mr-2"></i> Contact Form
+        </button>
+    </nav>
+</div>
+
+<div id="tab-articles-content" class="block">
 
 <!-- Filters & Search -->
 <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm mb-6 flex flex-col md:flex-row gap-4 items-end">
@@ -81,100 +95,76 @@
         <p class="text-sm text-gray-500 max-w-sm">No articles matched your search or you haven't written any yet.</p>
     </div>
 </div>
+</div> <!-- End Articles Tab -->
 
-<!-- Add/Edit Article Modal -->
-<div id="article-modal" class="fixed inset-0 bg-gray-900/50 z-50 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 overflow-y-auto pt-16 pb-16">
-    <div class="bg-white rounded-2xl shadow-xl w-full max-w-5xl overflow-hidden transform scale-95 transition-transform duration-300" id="article-modal-content">
-        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50 sticky top-0 z-10">
-            <h3 class="text-lg font-bold text-gray-800" id="modal-title">Write Article</h3>
-            <button id="close-modal-btn" class="text-gray-400 hover:text-gray-600 transition-colors">
-                <i class="fa-solid fa-times"></i>
-            </button>
-        </div>
-        
-        <!-- Loading Overlay for Edit fetch -->
-        <div id="modal-loading" class="hidden absolute inset-0 bg-white/90 z-20 flex-col items-center justify-center top-[73px]">
-            <i class="fa-solid fa-spinner fa-spin text-3xl text-[#106e39] mb-3"></i>
-            <p class="text-gray-500 font-medium">Loading content...</p>
-        </div>
+<!-- Contact Form Tab -->
+<div id="tab-contact-form-content" class="hidden">
+    <div class="mb-4">
+        <h3 class="text-xl font-bold text-gray-800">Interested In Options</h3>
+        <p class="text-sm text-gray-500 mt-1">Manage dropdown options for the public article contact inquiry forms.</p>
+    </div>
 
-        <div class="p-6 max-h-[75vh] overflow-y-auto custom-scrollbar relative">
-            <div id="modal-error" class="hidden mb-4 p-3 rounded-lg bg-red-50 text-red-600 text-sm font-medium border border-red-100"></div>
-            
-            <form id="article-form" class="space-y-5">
-                <input type="hidden" id="article-id" value="">
-                
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Main Content Column -->
-                    <div class="lg:col-span-2 space-y-5">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Article Title *</label>
-                            <input type="text" id="article-title" required class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-lg font-bold transition-colors">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Excerpt (Short Description)</label>
-                            <textarea id="article-excerpt" rows="2" class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors custom-scrollbar" placeholder="A brief summary of the article..."></textarea>
-                        </div>
-                        
-                        <div class="flex flex-col h-[400px]">
-                            <div class="flex justify-between items-center mb-1.5">
-                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">HTML Content *</label>
-                                <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded border border-gray-200">Raw HTML mode active</span>
-                            </div>
-                            <!-- Minimal Raw HTML Textarea to preserve existing styling without bloating the Admin -->
-                            <textarea id="article-content" required class="block w-full flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm font-mono transition-colors custom-scrollbar bg-gray-50" placeholder="<p>Write your HTML content here...</p>"></textarea>
-                        </div>
-                    </div>
-                    
-                    <!-- Sidebar Column -->
-                    <div class="space-y-6">
-                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-4">
-                            <h4 class="font-bold text-gray-700 uppercase tracking-wider text-xs border-b border-gray-200 pb-2">Publishing details</h4>
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Status *</label>
-                                <select id="article-status" required class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm font-bold transition-colors">
-                                    <option value="draft">Draft (Hidden)</option>
-                                    <option value="published">Published (Visible)</option>
-                                    <option value="archived">Archived</option>
-                                </select>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Category</label>
-                                <select id="article-category" class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors">
-                                    <option value="">Select a category</option>
-                                    <!-- Populated by JS -->
-                                </select>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">URL Slug *</label>
-                                <input type="text" id="article-slug" required class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors" placeholder="e.g. healthy-eating-tips">
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-xl border border-gray-100 space-y-4 shadow-sm">
-                            <h4 class="font-bold text-gray-700 uppercase tracking-wider text-xs border-b border-gray-100 pb-2">Media</h4>
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Featured Image URL</label>
-                                <input type="text" id="article-image" class="block w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors" placeholder="/assets/images/articles/hero.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 pt-6 border-t border-gray-100 flex justify-end gap-3 sticky bottom-0 bg-white">
-                    <button type="button" id="cancel-modal-btn" class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-bold text-gray-600 hover:bg-gray-50 transition-colors">Cancel</button>
-                    <button type="submit" id="save-article-btn" class="px-6 py-2 bg-[#106e39] border border-transparent rounded-lg text-sm font-bold text-white hover:bg-[#0b5028] transition-colors flex items-center gap-2">
-                        <span id="save-btn-text">Publish Article</span>
-                        <i id="save-btn-spinner" class="fa-solid fa-spinner fa-spin hidden"></i>
-                    </button>
-                </div>
-            </form>
+    <div class="flex justify-end mb-4">
+        <button onclick="openOptionModal()" class="px-4 py-2 bg-[#106e39] text-white font-medium rounded-lg hover:bg-[#0b5028] flex items-center gap-2 text-sm shadow-sm">
+            <i class="fa-solid fa-plus"></i> Add Option
+        </button>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-gray-50 border-b border-gray-100">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Label</th>
+                        <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Value</th>
+                        <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Sort Order</th>
+                        <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
+                        <th class="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="options-tbody" class="divide-y divide-gray-100 text-sm">
+                    <tr><td colspan="5" class="px-6 py-8 text-center text-gray-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Loading options...</td></tr>
+                </tbody>
+            </table>
         </div>
+    </div>
+</div> <!-- End Contact Form Tab -->
+
+<!-- Add Option Modal -->
+<div id="option-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center">
+    <div class="bg-white rounded-2xl w-full max-w-lg p-6 mx-4">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-gray-800" id="modal-title">Add Option</h3>
+            <button onclick="closeOptionModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-times"></i></button>
+        </div>
+        <form id="option-form" class="space-y-4">
+            <input type="hidden" id="option-id">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Option Label *</label>
+                <input type="text" id="option-label" required class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#106e39] text-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Option Value (Slug) *</label>
+                <input type="text" id="option-value" required class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#106e39] text-sm" placeholder="e.g. consultation">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Sort Order</label>
+                <input type="number" id="option-sort" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#106e39] text-sm" value="0">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <select id="option-status" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#106e39] text-sm">
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </select>
+            </div>
+            <div id="modal-error" class="hidden p-3 bg-red-50 text-red-600 text-sm rounded-lg"></div>
+            <div class="flex justify-end gap-3 mt-6">
+                <button type="button" onclick="closeOptionModal()" class="px-5 py-2 text-gray-600 text-sm font-medium hover:bg-gray-50 rounded-lg">Cancel</button>
+                <button type="submit" class="px-5 py-2 bg-[#106e39] text-white text-sm font-medium rounded-lg hover:bg-[#0b5028]">Save Option</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -190,29 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusFilter = document.getElementById('status-filter');
     const categoryFilter = document.getElementById('category-filter');
     const totalCountBadge = document.getElementById('total-count-badge');
-    
-    // Modal Elements
-    const modal = document.getElementById('article-modal');
-    const modalContent = document.getElementById('article-modal-content');
-    const modalLoading = document.getElementById('modal-loading');
-    const closeBtn = document.getElementById('close-modal-btn');
-    const cancelBtn = document.getElementById('cancel-modal-btn');
-    const form = document.getElementById('article-form');
-    const errorMsg = document.getElementById('modal-error');
-    
-    // Auto-generate slug from title
-    document.getElementById('article-title').addEventListener('input', function(e) {
-        if (!document.getElementById('article-id').value) {
-            const slug = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-            document.getElementById('article-slug').value = slug;
-        }
-    });
-    
-    // Update button text based on status
-    document.getElementById('article-status').addEventListener('change', function(e) {
-        const btnText = document.getElementById('save-btn-text');
-        btnText.textContent = e.target.value === 'published' ? 'Publish Article' : 'Save ' + e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
-    });
 
     async function loadInitialData() {
         try {
@@ -252,10 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const filterHtml = categories.map(c => `<option value="${c.name}">${c.name}</option>`).join('');
                 document.getElementById('category-filter').innerHTML = `<option value="">All Categories</option>` + filterHtml;
                 
-                // For the form we need IDs
-                // Note: since we might only have names in fallback, we'll try to use category_id if we have the proper API
-                const formCatsHtml = categories.map(c => `<option value="${c.id || ''}">${c.name}</option>`).join('');
-                document.getElementById('article-category').innerHTML = `<option value="">Select a category</option>` + formCatsHtml;
+                // For the form we need IDs (This was for the old modal, now removed)
                 
                 renderArticles();
             }
@@ -300,7 +264,10 @@ document.addEventListener('DOMContentLoaded', () => {
         tableHeader.style.display = 'table-header-group';
         
         tbody.innerHTML = filtered.map(a => {
-            const imgUrl = a.image_url || '../assets/images/articles/placeholder.jpg';
+            let imgUrl = a.image_url || '../assets/images/articles/placeholder.jpg';
+            if (imgUrl.startsWith('assets/')) {
+                imgUrl = '../' + imgUrl;
+            }
             const pubDate = a.published_at ? new Date(a.published_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '-';
             const catDisplay = a.category_name || 'Uncategorized';
             
@@ -322,125 +289,156 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="px-6 py-4 text-center">${getStatusBadge(a.status)}</td>
                     <td class="px-6 py-4 text-sm text-gray-500">${pubDate}</td>
                     <td class="px-6 py-4 text-right">
-                        <button onclick="openArticleModal(${a.id})" class="p-2 text-gray-400 hover:text-[#106e39] hover:bg-[#f2fbf5] rounded-lg transition-colors" title="Edit Article">
+                        <a href="article-edit.php?id=${a.id}" class="inline-block p-2 text-gray-400 hover:text-[#106e39] hover:bg-[#f2fbf5] rounded-lg transition-colors" title="Edit Article">
                             <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             `;
         }).join('');
     }
     
-    window.openArticleModal = async function(id = null) {
-        errorMsg.classList.add('hidden');
-        form.reset();
-        
-        // Show Modal
-        modal.classList.remove('hidden');
-        void modal.offsetWidth;
-        modal.classList.remove('opacity-0');
-        modalContent.classList.remove('scale-95');
-        
-        if (id) {
-            // Edit Mode - Fetch complete content
-            document.getElementById('modal-title').textContent = 'Edit Article';
-            modalLoading.classList.remove('hidden');
-            document.getElementById('article-id').value = id;
-            
-            try {
-                const res = await window.HBM_API.request(`/admin/articles/${id}`);
-                const a = res.data;
-                
-                document.getElementById('article-title').value = a.title || '';
-                document.getElementById('article-slug').value = a.slug || '';
-                document.getElementById('article-excerpt').value = a.excerpt || '';
-                document.getElementById('article-content').value = a.content || '';
-                
-                if (a.category_id) {
-                    document.getElementById('article-category').value = a.category_id;
-                }
-                
-                document.getElementById('article-image').value = a.image_url || '';
-                document.getElementById('article-status').value = a.status || 'draft';
-                document.getElementById('article-status').dispatchEvent(new Event('change'));
-                
-            } catch (err) {
-                errorMsg.textContent = 'Failed to fetch full article details.';
-                errorMsg.classList.remove('hidden');
-            } finally {
-                modalLoading.classList.add('hidden');
-            }
-            
-        } else {
-            // Add Mode
-            document.getElementById('modal-title').textContent = 'Write Article';
-            document.getElementById('article-id').value = '';
-            document.getElementById('article-status').value = 'draft';
-            document.getElementById('article-status').dispatchEvent(new Event('change'));
-        }
-    };
-    
-    function closeModal() {
-        modal.classList.add('opacity-0');
-        modalContent.classList.add('scale-95');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
-    }
-    
-    closeBtn.addEventListener('click', closeModal);
-    cancelBtn.addEventListener('click', closeModal);
-    
     // Search & Filter Listeners
     searchInput.addEventListener('input', renderArticles);
     statusFilter.addEventListener('change', renderArticles);
     categoryFilter.addEventListener('change', renderArticles);
-    
-    // Form Submit
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const id = document.getElementById('article-id').value;
-        const payload = {
-            title: document.getElementById('article-title').value.trim(),
-            slug: document.getElementById('article-slug').value.trim(),
-            excerpt: document.getElementById('article-excerpt').value.trim(),
-            content: document.getElementById('article-content').value,
-            category_id: document.getElementById('article-category').value,
-            image_url: document.getElementById('article-image').value.trim(),
-            status: document.getElementById('article-status').value,
-        };
-        
-        const btnText = document.getElementById('save-btn-text');
-        const btnSpinner = document.getElementById('save-btn-spinner');
-        const submitBtn = document.getElementById('save-article-btn');
-        
-        submitBtn.disabled = true;
-        const originalText = btnText.textContent;
-        btnText.textContent = 'Saving...';
-        btnSpinner.classList.remove('hidden');
-        errorMsg.classList.add('hidden');
-        
-        try {
-            if (id) {
-                await window.HBM_API.request(`/admin/articles/${id}`, 'PUT', payload);
-            } else {
-                await window.HBM_API.request('/admin/articles', 'POST', payload);
-            }
-            closeModal();
-            fetchArticles(); // Refresh listing
-        } catch (err) {
-            errorMsg.textContent = err.message || 'An error occurred while saving the article.';
-            errorMsg.classList.remove('hidden');
-        } finally {
-            submitBtn.disabled = false;
-            btnText.textContent = originalText;
-            btnSpinner.classList.add('hidden');
-        }
-    });
 
     loadInitialData();
 });
+
+// Tab Switching Logic
+function switchTab(tabId) {
+    // Hide all contents
+    document.getElementById('tab-articles-content').classList.add('hidden');
+    document.getElementById('tab-contact-form-content').classList.add('hidden');
+    
+    // Reset nav styles
+    const navArticles = document.getElementById('nav-tab-articles');
+    const navContact = document.getElementById('nav-tab-contact-form');
+    
+    navArticles.className = "whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-colors focus:outline-none";
+    navContact.className = "whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-colors focus:outline-none";
+    
+    // Show active content and style active nav
+    if (tabId === 'articles') {
+        document.getElementById('tab-articles-content').classList.remove('hidden');
+        navArticles.className = "whitespace-nowrap py-4 px-6 border-b-2 font-bold text-sm border-[#106e39] text-[#106e39] hover:bg-gray-50 transition-colors focus:outline-none";
+    } else if (tabId === 'contact-form') {
+        document.getElementById('tab-contact-form-content').classList.remove('hidden');
+        navContact.className = "whitespace-nowrap py-4 px-6 border-b-2 font-bold text-sm border-[#106e39] text-[#106e39] hover:bg-gray-50 transition-colors focus:outline-none";
+        loadOptions(); // Load contact options when tab is opened
+    }
+}
+
+// Contact Options Logic
+let optionsData = [];
+
+async function loadOptions() {
+    const tbody = document.getElementById('options-tbody');
+    try {
+        const res = await window.HBM_API.request('/admin/contact-options');
+        optionsData = res.data || [];
+        
+        if (optionsData.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-gray-500">No options found.</td></tr>';
+            return;
+        }
+        
+        tbody.innerHTML = optionsData.map(o => `
+            <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-bold text-gray-800">${o.label}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    <code>${o.value}</code>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    ${o.sort_order}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-bold ${o.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'}">
+                        ${o.is_active ? 'Active' : 'Inactive'}
+                    </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <button onclick="editOption(${o.id})" class="inline-block p-2 text-gray-400 hover:text-[#106e39] hover:bg-[#f2fbf5] rounded-lg transition-colors" title="Edit"><i class="fa-solid fa-edit"></i></button>
+                    <button onclick="deleteOption(${o.id})" class="inline-block p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>
+        `).join('');
+        
+    } catch (err) {
+        console.error(err);
+        tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-red-500">Failed to load options: ${err.message}</td></tr>`;
+    }
+}
+
+function openOptionModal(id = null) {
+    document.getElementById('modal-error').classList.add('hidden');
+    if (id) {
+        document.getElementById('modal-title').textContent = 'Edit Option';
+        const o = optionsData.find(x => x.id == id);
+        if(o) {
+            document.getElementById('option-id').value = o.id;
+            document.getElementById('option-label').value = o.label;
+            document.getElementById('option-value').value = o.value;
+            document.getElementById('option-sort').value = o.sort_order;
+            document.getElementById('option-status').value = o.is_active;
+        }
+    } else {
+        document.getElementById('modal-title').textContent = 'Add Option';
+        document.getElementById('option-form').reset();
+        document.getElementById('option-id').value = '';
+        document.getElementById('option-sort').value = '0';
+    }
+    document.getElementById('option-modal').classList.remove('hidden');
+}
+
+function closeOptionModal() {
+    document.getElementById('option-modal').classList.add('hidden');
+}
+
+function editOption(id) {
+    openOptionModal(id);
+}
+
+async function deleteOption(id) {
+    if (!confirm('Are you sure you want to disable this option? Deleting might affect past inquiries if they rely on it. Disabling is recommended instead if possible.')) return;
+    try {
+        await window.HBM_API.request('/admin/contact-options/' + id, 'DELETE');
+        loadOptions();
+    } catch (err) {
+        alert(err.message || 'Failed to delete option');
+    }
+}
+
+document.getElementById('option-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('option-id').value;
+    const errDiv = document.getElementById('modal-error');
+    errDiv.classList.add('hidden');
+    
+    const payload = {
+        label: document.getElementById('option-label').value.trim(),
+        value: document.getElementById('option-value').value.trim(),
+        sort_order: parseInt(document.getElementById('option-sort').value) || 0,
+        is_active: parseInt(document.getElementById('option-status').value)
+    };
+    
+    try {
+        if (id) {
+            await window.HBM_API.request('/admin/contact-options/' + id, 'PUT', payload);
+        } else {
+            await window.HBM_API.request('/admin/contact-options', 'POST', payload);
+        }
+        closeOptionModal();
+        loadOptions();
+    } catch (err) {
+        errDiv.textContent = err.message || 'An error occurred';
+        errDiv.classList.remove('hidden');
+    }
+});
+
 </script>
 
 <?php require_once __DIR__ . '/components/admin-footer.php'; ?>

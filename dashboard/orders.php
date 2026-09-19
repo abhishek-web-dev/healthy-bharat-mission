@@ -278,7 +278,7 @@
                     
                     // Get first item
                     const firstItem = order.items && order.items.length > 0 ? order.items[0] : null;
-                    const productImg = firstItem && firstItem.image_url ? firstItem.image_url : '../assets/logo.webp';
+                    const productImg = firstItem && firstItem.image_url ? firstItem.image_url : '../assets/images/logo.png';
                     const productName = firstItem ? firstItem.product_name_snapshot : 'Order Items';
                     const qty = firstItem ? firstItem.quantity : 1;
                     const extraItems = order.items ? order.items.length - 1 : 0;
@@ -309,7 +309,7 @@
                         <div class="p-5 px-6 flex flex-col xl:flex-row xl:items-center gap-5 hover:bg-slate-50/50 transition-colors">
                             <!-- Image -->
                             <div class="w-14 h-14 bg-gray-50 rounded-xl border border-gray-100 shrink-0 p-1 shadow-[0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden flex items-center justify-center">
-                                <img src="${productImg}" alt="Product" class="w-full h-full object-contain" onerror="this.src='../assets/logo.webp'">
+                                <img src="${productImg}" alt="Product" class="w-full h-full object-contain" onerror="this.src='../assets/images/logo.png'">
                             </div>
                             
                             <!-- Order Info -->

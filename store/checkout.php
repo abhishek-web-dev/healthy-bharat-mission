@@ -87,7 +87,7 @@
                 <div class="w-full lg:w-[65%]">
                     
                     <!-- Shipping Address Card -->
-                    <div class="bg-white rounded-3xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;">
+                    <div id="shipping-address-card" class="bg-white rounded-3xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100" style="padding: 32px;">
                         
                         <!-- Card Header -->
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8" style="gap: 16px;">

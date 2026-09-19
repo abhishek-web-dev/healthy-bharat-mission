@@ -135,14 +135,14 @@
                 </div>
 
                 <!-- Actions -->
-                <div class="flex flex-col sm:flex-row gap-3 w-full mb-8">
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-4/5 lg:w-3/4 xl:w-2/3 mb-8">
                     <div id="product-cart-ui" class="flex-1">
                         <!-- Filled dynamically by JS -->
                         <button class="w-full bg-gray-100 h-[52px] rounded-xl animate-pulse"></button>
                     </div>
-                    <button id="btn-add-to-wishlist"
-                        class="flex-1 bg-white hover:bg-gray-50 text-[#106e39] border-2 border-[#106e39] h-[52px] rounded-xl font-bold flex items-center justify-center gap-2 transition-all">
-                        <i class="fa-regular fa-heart"></i> Add to Wishlist
+                    <button id="btn-buy-now"
+                        class="flex-1 bg-[#106e39] hover:bg-[#0c5c2d] text-white h-[52px] rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg">
+                        <i class="fa-solid fa-bolt"></i> Buy Now
                     </button>
                 </div>
 
@@ -232,12 +232,9 @@
                 <!-- Left: Description -->
                 <div class="w-full lg:w-[60%] xl:w-[65%]">
                     <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">Product Description</h2>
-                    <p class="text-[15px] text-gray-600 leading-relaxed mb-10 font-medium">
-                        NutroActive Keto Atta is a low-carb, high-fibre flour made from carefully selected natural
-                        ingredients. It helps you enjoy your favourite rotis, parathas and baked foods without the
-                        guilt. Paired with NutroActive Keto Sugar, a 0-calorie natural sweetener, this combo is perfect
-                        for people looking to manage diabetes, lose weight or simply live a healthier lifestyle.
-                    </p>
+                    <div id="dynamic-description" class="text-[15px] text-gray-600 leading-relaxed mb-10 font-medium whitespace-pre-line">
+                        Loading description...
+                    </div>
 
                     <!-- Feature Icons Row -->
                     <div class="flex flex-wrap items-center gap-6 xl:gap-8">
@@ -336,39 +333,25 @@
             <!-- Tab Ingredients -->
             <div id="tab-ingredients" class="tab-pane hidden py-10">
                 <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">Ingredients</h2>
-                <p class="text-[15px] text-gray-600 leading-relaxed font-medium mb-6">
-                    Our NutroActive Keto Combo is crafted with the finest natural ingredients to ensure maximum health benefits without compromising on taste.
-                </p>
-                <ul class="list-disc list-inside text-[15px] text-gray-600 space-y-2">
-                    <li>Almond Flour</li>
-                    <li>Flaxseed Powder</li>
-                    <li>Coconut Flour</li>
-                    <li>Isolated Wheat Protein</li>
-                    <li>Erythritol (Natural Sweetener)</li>
-                    <li>Stevia Extract</li>
-                </ul>
+                <div id="dynamic-ingredients" class="text-[15px] text-gray-600 leading-relaxed font-medium whitespace-pre-line">
+                    Loading ingredients...
+                </div>
             </div>
 
             <!-- Tab Nutritional Information -->
             <div id="tab-nutrition" class="tab-pane hidden py-10">
                 <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">Nutritional Information</h2>
-                <p class="text-[15px] text-gray-600 leading-relaxed font-medium mb-6">Values per 100g of serving:</p>
-                <table class="w-full max-w-lg text-left border-collapse">
-                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Calories</th><td class="py-3 text-gray-600">320 kcal</td></tr>
-                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Protein</th><td class="py-3 text-gray-600">22g</td></tr>
-                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Net Carbs</th><td class="py-3 text-gray-600">4g</td></tr>
-                    <tr class="border-b border-gray-100"><th class="py-3 font-semibold text-[#052b14]">Dietary Fibre</th><td class="py-3 text-gray-600">18g</td></tr>
-                    <tr><th class="py-3 font-semibold text-[#052b14]">Fat</th><td class="py-3 text-gray-600">20g</td></tr>
-                </table>
+                <div id="dynamic-nutrition" class="text-[15px] text-gray-600 leading-relaxed font-medium whitespace-pre-line">
+                    Loading nutritional information...
+                </div>
             </div>
 
             <!-- Tab How to Use -->
             <div id="tab-usage" class="tab-pane hidden py-10">
                 <h2 class="text-2xl font-extrabold text-[#052b14] mb-4">How to Use</h2>
-                <p class="text-[15px] text-gray-600 leading-relaxed font-medium">
-                    <strong>Keto Atta:</strong> Knead with warm water. Let the dough rest for 10-15 minutes before rolling into rotis. Cook on a medium flame for best results.<br><br>
-                    <strong>Keto Sugar:</strong> Use exactly like regular sugar in your tea, coffee, baking, or desserts. 1 spoon of Keto Sugar = 1 spoon of regular sugar in sweetness!
-                </p>
+                <div id="dynamic-usage" class="text-[15px] text-gray-600 leading-relaxed font-medium whitespace-pre-line">
+                    Loading instructions...
+                </div>
             </div>
 
 
@@ -434,39 +417,17 @@
             </div>
                 
                 <!-- Rating Summary -->
-                <div class="flex items-center gap-2 mb-1">
-                    <div class="text-[28px] font-medium text-[#212121] leading-none">4.4 <i class="fa-solid fa-star text-[18px] text-[#212121] -mt-1"></i></div>
-                    <span class="bg-[#e2f6e9] text-[#106e39] text-[13px] font-medium px-2 py-0.5 rounded ml-2">Very Good</span>
+                <div class="flex items-center gap-2 mb-1" id="reviewAggregateStats">
+                    <div class="text-[28px] font-medium text-[#212121] leading-none"><span id="avgRatingText">--</span> <i class="fa-solid fa-star text-[18px] text-[#212121] -mt-1"></i></div>
+                    <span class="bg-[#e2f6e9] text-[#106e39] text-[13px] font-medium px-2 py-0.5 rounded ml-2" id="ratingBadgeText">No Ratings Yet</span>
                 </div>
                 <div class="text-[#878787] text-[13px] mb-6">
-                    based on 22,946 ratings by <i class="fa-regular fa-circle-check text-[#878787] ml-1 mr-0.5"></i>Verified Buyers
+                    based on <span id="totalRatingsText">0</span> ratings by <i class="fa-regular fa-circle-check text-[#878787] ml-1 mr-0.5"></i>Verified Buyers
                 </div>
 
                 <!-- Image Grid -->
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 6px; aspect-ratio: 3/1; width: 100%; margin-bottom: 20px;">
-                    <!-- Big Left Image -->
-                    <div onclick="openSingleImageModal(0)" style="grid-column: span 2; grid-row: span 2;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800&h=800&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 1" />
-                    </div>
-                    <!-- Middle Top -->
-                    <div onclick="openSingleImageModal(1)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 2" />
-                    </div>
-                    <!-- Right Top -->
-                    <div onclick="openSingleImageModal(2)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1625940629601-8f2570086b06?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 3" />
-                    </div>
-                    <!-- Middle Bottom -->
-                    <div onclick="openSingleImageModal(3)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Customer Photo 4" />
-                    </div>
-                    <!-- Right Bottom (+437) -->
-                    <div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative rounded-[4px] cursor-pointer overflow-hidden group">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Customer Photo 5" />
-                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center transition-colors">
-                            <span class="text-white font-bold text-xl">+437</span>
-                        </div>
-                    </div>
+                <div id="customerPhotosGrid" style="display: none; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 6px; aspect-ratio: 3/1; width: 100%; margin-bottom: 20px;">
+                    <!-- Filled dynamically via JS -->
                 </div>
 
                 <!-- Feature Ratings (Flipkart Style) -->
@@ -497,151 +458,7 @@
                 </style>
                 <div class="relative mb-6 group">
                     <div id="reviewsScrollContainer" style="-ms-overflow-style: none; scrollbar-width: none;" class="flex overflow-x-auto gap-4 pb-2 snap-x">
-                        
-                        <!-- Review Card 1 -->
-                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center gap-2">
-                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
-                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Highly rec...</span>
-                                    </div>
-                                    <span class="text-[#878787] text-[12px]">1 year ago</span>
-                                </div>
-                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Super Atta And Very Nice Rotis. Helped with my diet perfectly.</p>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <span class="text-[#878787] text-[12px] font-medium">Healthy Mission Customer</span>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
-                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 756</span>
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 242</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Review Card 2 -->
-                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center gap-2">
-                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
-                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Great prod...</span>
-                                    </div>
-                                    <span class="text-[#878787] text-[12px]">10 months ago</span>
-                                </div>
-                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Value for money. Best keto sugar I've tried so far!</p>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <span class="text-[#878787] text-[12px] font-medium">Aswanth Kp</span>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
-                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 72</span>
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 16</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Review Card 3 -->
-                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center gap-2">
-                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">4 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
-                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Wonderful</span>
-                                    </div>
-                                    <span class="text-[#878787] text-[12px]">11 months ago</span>
-                                </div>
-                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">It's a good combo for diabetes control. Making rotis is a bit different...<span class="text-[#2874f0] cursor-pointer ml-1">more</span></p>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <span class="text-[#878787] text-[12px] font-medium">Healthy Mission Customer</span>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
-                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 343</span>
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 113</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Review Card 4 -->
-                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center gap-2">
-                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
-                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Awesome</span>
-                                    </div>
-                                    <span class="text-[#878787] text-[12px]">1 year ago</span>
-                                </div>
-                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Lovely products. No problem making sweets now...<span class="text-[#2874f0] cursor-pointer ml-1">more</span></p>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <span class="text-[#878787] text-[12px] font-medium">Anup Pandey</span>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
-                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 67</span>
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 15</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Review Card 5 (NEW) -->
-                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center gap-2">
-                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">5 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
-                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Excellent...</span>
-                                    </div>
-                                    <span class="text-[#878787] text-[12px]">4 months ago</span>
-                                </div>
-                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">The keto flour texture is spot on and the sugar substitute is perfect.</p>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <span class="text-[#878787] text-[12px] font-medium">Priya Sharma</span>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
-                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 120</span>
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 8</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Review Card 6 (NEW) -->
-                        <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center gap-2">
-                                        <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">4 <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
-                                        <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">Very satis...</span>
-                                    </div>
-                                    <span class="text-[#878787] text-[12px]">2 months ago</span>
-                                </div>
-                                <p class="text-[#212121] text-[13px] mb-8 line-clamp-2 leading-snug">Helped me stick to my diet without feeling deprived. Good packaging.</p>
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <span class="text-[#878787] text-[12px] font-medium">Rahul M.</span>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
-                                    <div class="flex items-center gap-3 text-[#878787] text-[12px]">
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-up"></i> 85</span>
-                                        <span class="flex items-center gap-1 cursor-pointer hover:text-gray-600"><i class="fa-regular fa-thumbs-down"></i> 12</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <div class="w-full text-center text-gray-500 py-8" id="noReviewsMsg" style="display: none;">No reviews yet. Be the first to write a review!</div>
                     </div>
                     
                     <!-- Right Arrow Button Overlay -->
@@ -651,21 +468,24 @@
                 </div>
 
                 <script>
-                    document.addEventListener('DOMContentLoaded', () => {
+                    let reviewSliderInterval;
+                    function initReviewSlider() {
                         const slider = document.getElementById('reviewsScrollContainer');
-                        if(slider) {
+                        if(slider && slider.children.length > 2) {
+                            if(reviewSliderInterval) clearInterval(reviewSliderInterval);
+                            
                             // Clone all cards for a seamless infinite loop
                             const originalCount = slider.children.length;
-                            slider.innerHTML += slider.innerHTML;
+                            const html = slider.innerHTML;
+                            slider.innerHTML += html; // Add clones
                             
-                            setInterval(() => {
+                            reviewSliderInterval = setInterval(() => {
                                 // Only slide if user isn't hovering over the reviews
                                 if(!slider.matches(':hover')) {
                                     // Calculate exact distance from original to cloned cards
                                     const jumpDistance = slider.children[originalCount].offsetLeft - slider.children[0].offsetLeft;
                                     
                                     // If we've reached the cloned set, instantly snap back to the original set
-                                    // This snap is invisible to the user because the cloned cards look identical
                                     if(slider.scrollLeft >= jumpDistance) {
                                         slider.scrollBy({ left: -jumpDistance, behavior: 'auto' });
                                     }
@@ -677,7 +497,7 @@
                                 }
                             }, 3500); // Slide every 3.5 seconds
                         }
-                    });
+                    }
                 </script>
 
 
@@ -759,6 +579,7 @@
             document.getElementById('allImagesModal').style.display = 'none';
             document.body.style.overflow = '';
         }
+
         
         // Generate placeholder images for the modal grid
         document.addEventListener('DOMContentLoaded', () => {
@@ -789,7 +610,7 @@
     <div id="allImagesModal" style="display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; background: white; overflow: hidden; width: 100vw; height: 100vh;">
         <!-- Header -->
         <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100 shadow-sm" style="background: white; z-index: 10;">
-            <h3 class="text-xl font-bold text-[#212121]">Customer Photos (442)</h3>
+            <h3 class="text-xl font-bold text-[#212121]" id="allPhotosTitle">Customer Photos (0)</h3>
             <button onclick="closeAllImagesModal()" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 text-gray-500 hover:text-black transition-colors" style="cursor: pointer;">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
@@ -801,6 +622,168 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function renderStars(rating, sizeClass = 'text-[10px]') {
+            let html = '';
+            for (let i = 1; i <= 5; i++) {
+                if (rating >= i) {
+                    html += `<i class="fa-solid fa-star ${sizeClass}"></i>`;
+                } else if (rating >= i - 0.5) {
+                    html += `<i class="fa-solid fa-star-half-stroke ${sizeClass}"></i>`;
+                } else {
+                    html += `<i class="fa-regular fa-star ${sizeClass}"></i>`;
+                }
+            }
+            return html;
+        }
+
+        function timeAgo(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const seconds = Math.floor((now - date) / 1000);
+            
+            let interval = Math.floor(seconds / 31536000);
+            if (interval > 1) return interval + " years ago";
+            if (interval === 1) return "1 year ago";
+            interval = Math.floor(seconds / 2592000);
+            if (interval > 1) return interval + " months ago";
+            if (interval === 1) return "1 month ago";
+            interval = Math.floor(seconds / 86400);
+            if (interval > 1) return interval + " days ago";
+            if (interval === 1) return "1 day ago";
+            return "today";
+        }
+
+        async function loadProductReviews(productId) {
+            try {
+                const data = await window.HBM_API.request(`/store/products/${productId}/reviews`);
+                
+                if (data.success) {
+                    const stats = data.data.stats;
+                    const reviews = data.data.reviews;
+                    const photos = data.data.photos;
+                    
+                    // Update Aggregate Stats
+                    if(stats.total_reviews > 0) {
+                        const avg = parseFloat(stats.average_rating).toFixed(1);
+                        document.getElementById('avgRatingText').textContent = avg;
+                        document.getElementById('totalRatingsText').textContent = stats.total_reviews;
+                        
+                        const badge = document.getElementById('ratingBadgeText');
+                        if(avg >= 4.5) badge.textContent = 'Excellent';
+                        else if(avg >= 4) badge.textContent = 'Very Good';
+                        else if(avg >= 3) badge.textContent = 'Good';
+                        else badge.textContent = 'Average';
+                    }
+
+                    // Update Review List
+                    const scrollContainer = document.getElementById('reviewsScrollContainer');
+                    const noReviewsMsg = document.getElementById('noReviewsMsg');
+                    
+                    if (reviews.length === 0) {
+                        noReviewsMsg.style.display = 'block';
+                    } else {
+                        noReviewsMsg.style.display = 'none';
+                        let reviewsHtml = '';
+                        reviews.forEach(r => {
+                            let photosHtml = '';
+                            if(r.photos && r.photos.length > 0) {
+                                photosHtml = '<div class="flex gap-2 mt-3 overflow-x-auto">';
+                                r.photos.forEach(img => {
+                                    photosHtml += `<img src="${img}" class="h-16 w-16 object-cover rounded shadow-sm border border-gray-100">`;
+                                });
+                                photosHtml += '</div>';
+                            }
+                            
+                            reviewsHtml += `
+                            <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div class="flex items-center gap-2">
+                                            <span class="bg-[#106e39] text-white font-bold" style="font-size: 12px; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; line-height: 1;">${r.rating} <i class="fa-solid fa-star" style="font-size: 9px; margin-bottom: 1px;"></i></span>
+                                            <span class="font-bold text-[#212121] text-[13px] truncate max-w-[120px]">${r.title}</span>
+                                        </div>
+                                        <span class="text-[#878787] text-[12px]">${timeAgo(r.created_at)}</span>
+                                    </div>
+                                    <p class="text-[#212121] text-[13px] line-clamp-3 leading-snug">${r.content}</p>
+                                    ${photosHtml}
+                                </div>
+                                <div class="flex flex-col gap-1 mt-4">
+                                    <span class="text-[#878787] text-[12px] font-medium">${r.reviewer_name}</span>
+                                    <span class="text-[#878787] text-[12px] flex items-center gap-1"><i class="fa-regular fa-circle-check"></i> Verified Buyer</span>
+                                </div>
+                            </div>`;
+                        });
+                        scrollContainer.innerHTML = reviewsHtml;
+                        initReviewSlider();
+                    }
+
+                    // Update Photos Gallery
+                    const photoGrid = document.getElementById('customerPhotosGrid');
+                    const allPhotosTitle = document.getElementById('allPhotosTitle');
+                    
+                    if (photos && photos.length > 0) {
+                        photoGrid.style.display = 'grid';
+                        allPhotosTitle.textContent = `Customer Photos (${photos.length})`;
+                        
+                        // Populate modal grid
+                        const allImagesGrid = document.getElementById('allImagesGrid');
+                        if (allImagesGrid) {
+                            window.allGalleryImages = photos.map(p => p.image_path);
+                            let modalHtml = '';
+                            photos.forEach((p, idx) => {
+                                modalHtml += `<div onclick="openSingleImageModal(${idx}, window.allGalleryImages)" style="aspect-ratio: 1/1; background: #f3f4f6; overflow: hidden; cursor: pointer;">
+                                                <img src="${p.image_path}" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1" />
+                                             </div>`;
+                            });
+                            allImagesGrid.innerHTML = modalHtml;
+                        }
+
+                        // Populate small display grid (up to 5 photos)
+                        let gridHtml = '';
+                        if (photos.length > 0) {
+                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 2; grid-row: span 2;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                                            <img src="${photos[0].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                         </div>`;
+                        }
+                        if (photos.length > 1) {
+                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                                            <img src="${photos[1].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                         </div>`;
+                        }
+                        if (photos.length > 2) {
+                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                                            <img src="${photos[2].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                         </div>`;
+                        }
+                        if (photos.length > 3) {
+                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                                            <img src="${photos[3].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                         </div>`;
+                        }
+                        if (photos.length > 4) {
+                            let overlay = '';
+                            if (photos.length > 5) {
+                                overlay = `<div class="absolute inset-0 bg-black/60 flex items-center justify-center transition-colors">
+                                              <span class="text-white font-bold text-xl">+${photos.length - 5}</span>
+                                           </div>`;
+                            }
+                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative rounded-[4px] cursor-pointer overflow-hidden group">
+                                            <img src="${photos[4].image_path}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                            ${overlay}
+                                         </div>`;
+                        }
+                        photoGrid.innerHTML = gridHtml;
+                    } else {
+                        photoGrid.style.display = 'none';
+                    }
+                }
+            } catch (err) {
+                console.error("Error loading reviews:", err);
+            }
+        }
+    </script>
 
     <!-- Write a Review Modal -->
     <div id="writeReviewModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 10000; align-items: center; justify-content: center; padding: 1rem;">
@@ -821,6 +804,11 @@
             <!-- Form Body -->
             <div class="px-8 pb-8 flex-1 flex flex-col gap-6">
                 
+                <!-- Error Message Container -->
+                <div id="reviewErrorContainer" class="hidden bg-red-50 text-red-700 p-3 rounded-lg text-sm mb-2">
+                    <i class="fa-solid fa-circle-exclamation mr-2"></i><span id="reviewErrorMsg"></span>
+                </div>
+                
                 <!-- Rating -->
                 <div>
                     <label class="block text-[#212121] font-bold text-[14px] mb-2">Overall Rating <span class="text-red-500">*</span></label>
@@ -836,25 +824,25 @@
                 <!-- Review Title -->
                 <div>
                     <label class="block text-[#212121] font-bold text-[14px] mb-2">Review Title <span class="text-red-500">*</span></label>
-                    <input type="text" placeholder="Summarize your experience in a few words" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400">
+                    <input type="text" id="reviewTitleInput" placeholder="Summarize your experience in a few words" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400">
                 </div>
 
                 <!-- Your Review -->
                 <div>
                     <label class="block text-[#212121] font-bold text-[14px] mb-2">Your Review</label>
-                    <textarea rows="5" placeholder="Share your experience with this product..." class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400 resize-none"></textarea>
+                    <textarea id="reviewContentInput" rows="5" placeholder="Share your experience with this product..." class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400 resize-none"></textarea>
                 </div>
 
                 <!-- Size / Variant Purchased -->
                 <div>
                     <label class="block text-[#212121] font-bold text-[14px] mb-2">Size / Variant Purchased <span class="font-normal text-gray-400">(optional)</span></label>
-                    <input type="text" placeholder="e.g. 10 Lb, 20 Lb" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400">
+                    <input type="text" id="reviewVariantInput" placeholder="e.g. 10 Lb, 20 Lb" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400">
                 </div>
 
                 <!-- Add Photos -->
                 <div>
                     <label class="block text-[#212121] font-bold text-[14px] mb-2">Add Photos <span class="font-normal text-gray-400">(up to 3)</span></label>
-                    <input type="file" id="reviewPhotoInput" accept="image/*" multiple style="display: none;" onchange="updatePhotoCount(this)">
+                    <input type="file" id="reviewPhotoInput" accept="image/jpeg, image/png, image/webp" multiple style="display: none;" onchange="updatePhotoCount(this)">
                     <button onclick="document.getElementById('reviewPhotoInput').click()" class="w-24 h-24 rounded-lg border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-2 text-gray-400 hover:text-[#106e39] hover:border-[#106e39] transition-all">
                         <i class="fa-solid fa-camera text-[24px]"></i>
                         <span id="photoCountText" class="text-[12px] font-medium text-center leading-tight">Add Photo</span>
@@ -863,7 +851,7 @@
 
                 <!-- Submit Button -->
                 <div class="pt-4">
-                    <button onclick="closeWriteReviewModal(); alert('Review submitted successfully!');" style="background-color: #ea580c; color: white;" class="px-8 py-3 rounded-lg font-bold text-[15px] hover:opacity-90 transition-opacity shadow-md">
+                    <button id="btn-submit-review" onclick="submitReview()" style="background-color: #ea580c; color: white;" class="px-8 py-3 rounded-lg font-bold text-[15px] hover:opacity-90 transition-opacity shadow-md">
                         Submit Review
                     </button>
                 </div>
@@ -873,43 +861,38 @@
     </div>
 
     <script>
+        let currentReviewRating = 0;
+
+        function updatePhotoCount(input) {
+            const countText = document.getElementById('photoCountText');
+            if (input.files && input.files.length > 0) {
+                const count = Math.min(input.files.length, 3);
+                countText.textContent = `${count} Photo${count > 1 ? 's' : ''} Selected`;
+                countText.classList.add('text-[#106e39]', 'font-bold');
+            } else {
+                countText.textContent = 'Add Photo';
+                countText.classList.remove('text-[#106e39]', 'font-bold');
+            }
+        }
+
         function openWriteReviewModal() {
             document.getElementById('writeReviewModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            document.getElementById('reviewErrorContainer').classList.add('hidden');
         }
         function closeWriteReviewModal() {
             document.getElementById('writeReviewModal').style.display = 'none';
             document.body.style.overflow = '';
             // Reset form visually when closed
             setRating(0);
-            const photoInput = document.getElementById('reviewPhotoInput');
-            if(photoInput) photoInput.value = '';
-            const countText = document.getElementById('photoCountText');
-            if(countText) {
-                countText.innerText = 'Add Photo';
-                countText.style.color = '';
-            }
-        }
-        
-        function updatePhotoCount(input) {
-            const countText = document.getElementById('photoCountText');
-            if(!countText) return;
-            
-            if (input.files && input.files.length > 0) {
-                let count = input.files.length;
-                if(count > 3) {
-                    alert('You can only upload up to 3 photos. First 3 will be used.');
-                    count = 3;
-                }
-                countText.innerText = count + " Selected";
-                countText.style.color = '#106e39';
-            } else {
-                countText.innerText = "Add Photo";
-                countText.style.color = '';
-            }
+            document.getElementById('reviewTitleInput').value = '';
+            document.getElementById('reviewContentInput').value = '';
+            document.getElementById('reviewVariantInput').value = '';
+            document.getElementById('reviewErrorContainer').classList.add('hidden');
         }
         
         function setRating(rating) {
+            currentReviewRating = rating;
             const container = document.getElementById('starRatingContainer');
             if(!container) return;
             const stars = container.querySelectorAll('i');
@@ -925,6 +908,82 @@
                 }
             });
         }
+        
+        function submitReview() {
+            const errorContainer = document.getElementById('reviewErrorContainer');
+            const errorMsg = document.getElementById('reviewErrorMsg');
+            const submitBtn = document.getElementById('btn-submit-review');
+            
+            errorContainer.classList.add('hidden');
+            
+            const title = document.getElementById('reviewTitleInput').value.trim();
+            const content = document.getElementById('reviewContentInput').value.trim();
+            const variant = document.getElementById('reviewVariantInput').value.trim();
+            const productId = new URLSearchParams(window.location.search).get('id');
+
+            if (!productId) {
+                errorMsg.textContent = "Product not found.";
+                errorContainer.classList.remove('hidden');
+                return;
+            }
+
+            if (currentReviewRating === 0) {
+                errorMsg.textContent = "Please select a rating.";
+                errorContainer.classList.remove('hidden');
+                return;
+            }
+
+            if (!title) {
+                errorMsg.textContent = "Please enter a review title.";
+                errorContainer.classList.remove('hidden');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.style.opacity = '0.7';
+
+            const formData = new FormData();
+            formData.append('product_id', productId);
+            formData.append('rating', currentReviewRating);
+            formData.append('title', title);
+            formData.append('content', content);
+            formData.append('variant', variant);
+            
+            const photoInput = document.getElementById('reviewPhotoInput');
+            if (photoInput && photoInput.files.length > 0) {
+                const maxFiles = Math.min(photoInput.files.length, 3);
+                for(let i=0; i<maxFiles; i++) {
+                    formData.append('photos[]', photoInput.files[i]);
+                }
+            }
+
+            // Since HBM_API.request supports FormData, we can use it directly
+            window.HBM_API.request('/store/reviews', 'POST', formData)
+            .then(res => {
+                if (res.success) {
+                    closeWriteReviewModal();
+                    alert('Review submitted successfully! It will be published once approved.');
+                } else {
+                    errorMsg.textContent = res.message || "Failed to submit review. Please try again.";
+                    errorContainer.classList.remove('hidden');
+                    if (res.message && res.message.toLowerCase().includes('login')) {
+                        errorMsg.innerHTML = 'You must be logged in to submit a review. <a href="/login" class="underline font-bold">Login here</a>.';
+                    }
+                }
+            })
+            .catch(err => {
+                console.error('Review submit error:', err);
+                errorMsg.textContent = "A network error occurred. Please try again later.";
+                errorContainer.classList.remove('hidden');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Review';
+                submitBtn.style.opacity = '1';
+            });
+        }
+
         const gridImages = [
             'https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800&h=800&fit=crop',
             'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop',
@@ -984,6 +1043,14 @@
             </button>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlProductId = new URLSearchParams(window.location.search).get('id');
+            if (urlProductId) {
+                loadProductReviews(urlProductId);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,37 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Force HTTPS (Standard Hostinger Requirement)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # 2. Route API requests to the backend entry point
+    # Requests like /api/products will be handled by backend/public/index.php
+    RewriteRule ^api/(.*)$ backend/public/index.php [L,QSA]
+
+    # 3. Route uploads directly to the backend storage
+    RewriteRule ^uploads/(.*)$ backend/public/uploads/$1 [L]
+
+    # 4. Redirect old .html requests to extensionless URLs
+    RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+    # 5. Extensionless PHP URLs (simulates frontend router.php)
+    # This solves the conflict where a directory (e.g., /store/) and a file (/store.php) share the same name.
+    
+    # If a user visits /store/ (with a slash), it breaks relative CSS paths because the browser thinks it's a directory.
+    # We must 301 redirect it to /store (without the slash) so the browser URL updates and CSS loads properly.
+    RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+    RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+    # Handle requests without a trailing slash (e.g., /store)
+    # Internally route to the .php file without changing the URL
+    RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+    RewriteRule ^(.*)$ $1.php [L]
+
+</IfModule>
+
+# Handle 404 errors elegantly
+ErrorDocument 404 /404.php
+
+# Basic Security - Prevent directory browsing
+Options -Indexes

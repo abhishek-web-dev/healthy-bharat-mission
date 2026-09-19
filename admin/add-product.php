@@ -243,6 +243,23 @@ require_once __DIR__ . '/components/admin-header.php';
                             </div>
                         </div>
                         
+                        <div id="digital-asset-section" class="hidden flex-col sm:flex-row sm:items-start gap-2 pb-4 border-b border-orange-50">
+                            <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700 mt-2">
+                                Digital File
+                                <span class="block text-[10px] text-gray-400 font-normal">PDF, ZIP, DOC, XLS (Max: 100MB)</span>
+                            </label>
+                            <div class="w-full sm:w-2/3">
+                                <div id="current-digital-file-container" class="hidden mb-2 p-2 bg-green-50 rounded text-sm text-[#106e39] flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-file-arrow-down"></i>
+                                        <span id="current-digital-file-name" class="font-bold"></span>
+                                    </div>
+                                </div>
+                                <input type="file" id="digital-file" accept=".pdf,.zip,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.epub" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-[#106e39] hover:file:bg-green-100">
+                                <p class="text-xs text-gray-500 mt-1">Leave empty to keep existing file (when editing).</p>
+                            </div>
+                        </div>
+                        
                         <div class="pb-4 border-b border-orange-50">
                             <label class="block text-sm font-medium text-gray-700 mb-2">Purchase Note</label>
                             <textarea id="purchase-note" rows="3" class="block w-full px-3 py-2 border border-green-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm" placeholder="Enter an optional note to send the customer after purchase."></textarea>
@@ -556,6 +573,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         document.getElementById('product-slug').value = product.slug;
                         document.getElementById('product-category').value = product.category_id;
                         document.getElementById('product-description').value = product.description || '';
+                        document.getElementById('product-ingredients').value = product.ingredients || '';
+                        document.getElementById('product-nutritional-info').value = product.nutritional_info || '';
+                        document.getElementById('product-how-to-use').value = product.how_to_use || '';
                         document.getElementById('product-price').value = product.price;
                         document.getElementById('product-mrp').value = product.mrp || '';
                         document.getElementById('product-stock').value = product.stock;
@@ -580,6 +600,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Digital product
                         if (product.is_digital) {
                             document.getElementById('product-type').value = 'digital';
+                            document.getElementById('digital-asset-section').classList.remove('hidden');
+                            document.getElementById('digital-asset-section').style.display = 'flex';
+                            if (product.digital_file_name) {
+                                document.getElementById('current-digital-file-container').classList.remove('hidden');
+                                document.getElementById('current-digital-file-name').textContent = product.digital_file_name;
+                            }
                         }
                     } else {
                         throw new Error('Product not found.');
@@ -612,6 +638,9 @@ document.addEventListener('DOMContentLoaded', () => {
             slug: document.getElementById('product-slug').value.trim(),
             category_id: document.getElementById('product-category').value,
             description: document.getElementById('product-description').value.trim(),
+            ingredients: document.getElementById('product-ingredients').value.trim(),
+            nutritional_info: document.getElementById('product-nutritional-info').value.trim(),
+            how_to_use: document.getElementById('product-how-to-use').value.trim(),
             price: document.getElementById('product-price').value,
             mrp: document.getElementById('product-mrp').value ? document.getElementById('product-mrp').value : null,
             stock: document.getElementById('product-stock').value,
@@ -626,11 +655,31 @@ document.addEventListener('DOMContentLoaded', () => {
         btnSpinner.classList.remove('hidden');
         errorMsg.classList.add('hidden');
         
+        let submitData = payload;
+        
+        // If digital product is selected, try to send as FormData so the file uploads correctly
+        if (payload.is_digital) {
+            const formData = new FormData();
+            formData.append('payload', JSON.stringify(payload));
+            const digitalFile = document.getElementById('digital-file').files[0];
+            if (digitalFile) {
+                formData.append('digital_file', digitalFile);
+            } else if (!id && !document.getElementById('current-digital-file-name').textContent) {
+                errorMsg.textContent = 'A digital file is required for a new digital product.';
+                errorMsg.classList.remove('hidden');
+                submitBtn.disabled = false;
+                btnText.textContent = 'Save Product';
+                btnSpinner.classList.add('hidden');
+                return;
+            }
+            submitData = formData;
+        }
+
         try {
             if (id) {
-                await window.HBM_API.request(`/admin/products/${id}`, 'PUT', payload);
+                await window.HBM_API.request(`/admin/products/${id}`, 'POST', submitData);
             } else {
-                await window.HBM_API.request('/admin/products', 'POST', payload);
+                await window.HBM_API.request('/admin/products', 'POST', submitData);
             }
             
             // Redirect back to list
@@ -649,6 +698,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     init();
+    // Product Type Toggle
+    document.getElementById('product-type').addEventListener('change', (e) => {
+        const digitalSection = document.getElementById('digital-asset-section');
+        if (e.target.value === 'digital') {
+            digitalSection.classList.remove('hidden');
+            digitalSection.style.display = 'flex';
+        } else {
+            digitalSection.classList.add('hidden');
+            digitalSection.style.display = 'none';
+        }
+    });
 });
 </script>
 

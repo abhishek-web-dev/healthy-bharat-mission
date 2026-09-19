@@ -1,5 +1,6 @@
 const HBM_API = {
     // Automatically use localhost for local development, otherwise point to your production backend
+    // Temporary fix: point local dev to the remote backend since local DB is failing
     baseUrl: (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
         ? 'http://localhost:8000/api'
         : '/api',

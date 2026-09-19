@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             // Get first item
             const firstItem = order.items && order.items.length > 0 ? order.items[0] : null;
-            const productImg = firstItem && firstItem.image_url ? firstItem.image_url : '../assets/logo.webp';
+            const productImg = firstItem && firstItem.image_url ? firstItem.image_url : '../assets/images/logo.png';
             const productName = firstItem ? firstItem.product_name_snapshot : 'Order Items';
             const qty = firstItem ? firstItem.quantity : 1;
             const extraItems = order.items ? order.items.length - 1 : 0;
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row md:items-center gap-5 hover:shadow-md transition-shadow">
                     <!-- Image -->
                     <div class="w-16 h-16 md:w-20 md:h-20 bg-gray-50 rounded-xl border border-gray-100 shrink-0 p-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden flex items-center justify-center">
-                        <img src="${productImg}" alt="Product" class="w-full h-full object-contain" onerror="this.src='../assets/logo.webp'">
+                        <img src="${productImg}" alt="Product" class="w-full h-full object-contain" onerror="this.src='../assets/images/logo.png'">
                     </div>
                     
                     <!-- Order Info -->

@@ -96,7 +96,7 @@
                     <div class="bg-white rounded-3xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col">
                         
                         <!-- Section 1: Shipping Address -->
-                        <div style="padding: 32px;">
+                        <div id="review-delivery-info" style="padding: 32px;">
                             <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4" style="gap: 16px;">
                                 <div class="flex items-center gap-4">
                                     <div class="w-12 h-12 rounded-[12px] bg-[#e2f6e9] text-[#106e39] flex items-center justify-center text-xl flex-shrink-0">

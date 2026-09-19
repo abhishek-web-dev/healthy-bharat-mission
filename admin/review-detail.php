@@ -59,6 +59,14 @@
                 <div class="text-sm text-gray-400 mt-auto pt-4 border-t border-gray-50">
                     Submitted on: <span class="font-medium text-gray-600" id="detail-date">Date</span>
                 </div>
+                
+                <!-- Photos -->
+                <div id="detail-photos-container" class="mt-6 hidden">
+                    <h5 class="text-sm font-bold text-gray-800 mb-3">Attached Photos</h5>
+                    <div class="flex gap-3 overflow-x-auto pb-2" id="detail-photos-grid">
+                        <!-- Photos will be injected here -->
+                    </div>
+                </div>
             </div>
             
             <!-- Actions -->
@@ -198,10 +206,26 @@ function renderDetails(r) {
     
     // Content
     document.getElementById('detail-title').textContent = r.title;
-    document.getElementById('detail-content').textContent = r.content; // textContent for safety against XSS
+    document.getElementById('detail-content').textContent = r.content;
+    document.getElementById('detail-date').textContent = new Date(r.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute:'2-digit' });
     
-    const dateObj = new Date(r.created_at);
-    document.getElementById('detail-date').textContent = dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    // Photos
+    const photosContainer = document.getElementById('detail-photos-container');
+    const photosGrid = document.getElementById('detail-photos-grid');
+    if (r.photos && r.photos.length > 0) {
+        let photosHtml = '';
+        r.photos.forEach(photoUrl => {
+            photosHtml += `
+                <a href="${photoUrl}" target="_blank" class="block shrink-0">
+                    <img src="${photoUrl}" class="h-24 w-24 object-cover rounded-lg border border-gray-200 shadow-sm hover:opacity-90 transition-opacity">
+                </a>
+            `;
+        });
+        photosGrid.innerHTML = photosHtml;
+        photosContainer.classList.remove('hidden');
+    } else {
+        photosContainer.classList.add('hidden');
+    }
     
     // Customer
     document.getElementById('customer-name').textContent = r.reviewer_name;

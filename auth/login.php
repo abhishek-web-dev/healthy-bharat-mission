@@ -48,7 +48,7 @@
 
                 <!-- Logo -->
                 <div class="mb-10 xl:mb-10 flex items-center gap-3">
-                    <img src="../assets/logo.webp" alt="Logo" class="h-20 w-20 object-contain shrink-0">
+                    <img src="../assets/images/logo.png" alt="Logo" class="h-20 w-20 object-contain shrink-0">
                     <div>
                         <h2 class="text-[#052b14] font-extrabold text-[18px] xl:text-[20px] leading-tight">
                             Healthy<br>Bharat Mission</h2>

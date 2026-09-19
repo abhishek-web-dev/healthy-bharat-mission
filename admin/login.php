@@ -3,7 +3,13 @@
 $token = $_COOKIE['auth_token'] ?? null;
 if ($token) {
     // Attempt simple verification.
-    $backendDir = __DIR__ . '/../../backend';
+    $backendDir = $_SERVER['DOCUMENT_ROOT'] . '/backend'; // Production Hostinger
+    if (!file_exists($backendDir . '/vendor/autoload.php')) {
+        $backendDir = __DIR__ . '/../../backend'; // Local dev fallback
+    }
+    if (!file_exists($backendDir . '/vendor/autoload.php')) {
+        $backendDir = __DIR__ . '/../backend'; // Alternative fallback
+    }
     if (file_exists($backendDir . '/vendor/autoload.php')) {
         require_once $backendDir . '/vendor/autoload.php';
         spl_autoload_register(function ($class) use ($backendDir) {

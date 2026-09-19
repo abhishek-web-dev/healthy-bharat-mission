@@ -79,7 +79,7 @@
 
         <div class="flex justify-end gap-4 pt-6 border-t border-gray-100">
             <a href="team.php" class="px-6 py-2.5 border border-gray-200 rounded-lg text-gray-600 font-medium hover:bg-gray-50 transition-colors">Cancel</a>
-            <button type="submit" id="submit-btn" class="bg-[#e85d04] text-white px-8 py-2.5 rounded-lg font-bold hover:bg-[#d05303] transition-colors shadow-sm flex items-center gap-2">
+            <button type="submit" id="submit-btn" class="bg-gray-900 text-white px-8 py-2.5 rounded-lg font-bold hover:bg-gray-800 transition-colors shadow flex items-center gap-2">
                 Save Member
             </button>
         </div>

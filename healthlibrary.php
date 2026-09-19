@@ -199,116 +199,8 @@
                 </div>
 
                 <!-- Articles Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    
-                    <!-- Article 1 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1">
-                        <!-- Image Container -->
-                        <div class="relative h-[260px] overflow-hidden">
-                            <img src="assets/article_diet.png" alt="Healthy Diet" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <!-- Badge -->
-                            <div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">
-                                Nutrition & Diet
-                            </div>
-                        </div>
-                        
-                        <!-- Content Container -->
-                        <div class="p-7 flex flex-col flex-grow">
-                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors">
-                                A Beginner's Guide to a Balanced Diet
-                            </h3>
-                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow">
-                                Learn how to create simple, sustainable eating habits for long-term health.
-                            </p>
-                            
-                            <!-- Footer Meta -->
-                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto">
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
-                                    Aug 24, 2025
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
-                                    5 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 2 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1">
-                        <!-- Image Container -->
-                        <div class="relative h-[260px] overflow-hidden">
-                            <img src="assets/article_diabetes.png" alt="Diabetes Care" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <!-- Badge -->
-                            <div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">
-                                Diabetes Care
-                            </div>
-                        </div>
-                        
-                        <!-- Content Container -->
-                        <div class="p-7 flex flex-col flex-grow">
-                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors">
-                                10 Daily Habits to Manage Diabetes Naturally
-                            </h3>
-                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow">
-                                Small changes can make a big difference in your blood sugar levels.
-                            </p>
-                            
-                            <!-- Footer Meta -->
-                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto">
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
-                                    Aug 20, 2025
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
-                                    6 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 3 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1">
-                        <!-- Image Container -->
-                        <div class="relative h-[260px] overflow-hidden">
-                            <img src="assets/article_living.png" alt="Healthy Living" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" style="object-position: center 25%;">
-                            <!-- Badge -->
-                            <div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">
-                                Healthy Living
-                            </div>
-                        </div>
-                        
-                        <!-- Content Container -->
-                        <div class="p-7 flex flex-col flex-grow">
-                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors">
-                                The Power of Daily Movement
-                            </h3>
-                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow">
-                                Discover how regular exercise improves your overall well-being.
-                            </p>
-                            
-                            <!-- Footer Meta -->
-                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto">
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
-                                    Aug 18, 2025
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
-                                    4 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
+                <div id="featured-articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Fetched dynamically via JS -->
                 </div>
             </div>
         </section>
@@ -337,306 +229,8 @@
                 </div>
 
                 <!-- Articles Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                    
-                    <!-- Article 1 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_immunity.png" alt="Immunity" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Immunity
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                5 Natural Ways to Boost Your Immunity
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 16, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 2 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_mental.png" alt="Mental Wellness" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Mental Wellness
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                How Better Sleep Improves Your Health
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 14, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 3 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_digestive.png" alt="Digestive Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Digestive Health
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                Foods for a Happier Gut
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 12, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 4 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_heart.png" alt="Heart Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Heart Health
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                Keep Your Heart Healthy with Simple Lifestyle Changes
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 10, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 6 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 5 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/article_living.png" alt="Women's Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" style="object-position: center 30%;">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Women's Health
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                PCOS: Diet, Exercise & Lifestyle Tips
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 08, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 6 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/health_foods.png" alt="Weight Management" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Weight Management
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                Healthy Smoothie Recipes for Weight Loss
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 06, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 7 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/healthy_beverages.png" alt="Healthy Living" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Healthy Living
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                Building Healthy Habits for the Whole Family
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 04, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <!-- Article 8 -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/article_diet.png" alt="Nutrition & Diet" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Nutrition & Diet
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                The Benefits of Traditional Herbs in Modern Lifestyle
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 02, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-
-
-                    <!-- Extra Articles (Hidden initially) -->
-                    <a href="article" class="block cursor-pointer">
-                        <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_immunity.png" alt="Immunity" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Immunity
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                Top Foods for a Strong Immune System
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 16, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <a href="article" class="block cursor-pointer">
-                        <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_mental.png" alt="Mental Wellness" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Mental Wellness
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                The Science of Restful Sleep
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 14, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 5 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <a href="article" class="block cursor-pointer">
-                        <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_digestive.png" alt="Digestive Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Digestive Health
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                Understanding Your Microbiome
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 12, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 4 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-
-                    <a href="article" class="block cursor-pointer">
-                        <article class="hidden extra-article bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative h-[200px] overflow-hidden">
-                            <img src="assets/latest_heart.png" alt="Heart Health" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">
-                                Heart Health
-                            </div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow">
-                                Cardio Exercises for Beginners
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i> Aug 10, 2025
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i> 6 min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
+                <div id="latest-articles-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    <!-- Fetched dynamically via JS -->
                 </div>
 
                 <!-- Load More Button -->
@@ -876,151 +470,121 @@
         });
     </script>
 
-    <!-- Script for Load More Articles -->
+    <!-- Script for Dynamic Articles -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const loadMoreBtn = document.getElementById('loadMoreBtn');
-            const loadCountText = document.getElementById('loadCountText');
-            const grid = loadMoreBtn ? loadMoreBtn.closest('section').querySelector('.grid') : null;
+        document.addEventListener('DOMContentLoaded', async function() {
+            const featuredGrid = document.getElementById('featured-articles-grid');
+            const latestGrid = document.getElementById('latest-articles-grid');
             
-            // Total number of simulated articles
-            const totalArticles = 16;
-            let currentArticles = 8;
-            
-            if(loadMoreBtn && grid) {
-                // Generate the 8 hidden articles in memory from the existing ones so we have realistic data to show
-                const initialArticles = Array.from(grid.querySelectorAll('article'));
-                // We'll just clone the first 8 to act as our "extra" content
-                const hiddenArticlesPool = initialArticles.map(article => {
-                    const clone = article.cloneNode(true);
-                    return clone;
-                });
-                
-                let nextIndexToLoad = 0;
-
-                loadMoreBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Load up to 4 more articles
-                    const cardsToLoad = Math.min(4, totalArticles - currentArticles);
-                    
-                    for (let i = 0; i < cardsToLoad; i++) {
-                        if (nextIndexToLoad < hiddenArticlesPool.length) {
-                            grid.appendChild(hiddenArticlesPool[nextIndexToLoad]);
-                            nextIndexToLoad++;
-                        }
-                    }
-                    
-                    currentArticles += cardsToLoad;
-                    
-                    // Update text counter
-                    if (loadCountText) {
-                        loadCountText.textContent = `Showing ${currentArticles} of ${totalArticles} articles`;
-                    }
-                    
-                    // Hide button if all articles are loaded
-                    if (currentArticles >= totalArticles) {
-                        loadMoreBtn.style.display = 'none';
-                        // Optional: add a 'All caught up!' message
-                        loadCountText.innerHTML = `<i class="fa-solid fa-check-circle text-[#14532d] mr-1"></i> You've viewed all ${totalArticles} articles`;
-                    }
-                });
-            }
-        });
-    </script>
-
-    <!-- Script for Search Functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const searchBtn = document.getElementById('searchBtn');
-            const popularTags = document.querySelectorAll('.popular-search-tag');
-            let emptyStateDiv = null;
-
-            function performSearch(term) {
-                const query = term.toLowerCase().trim();
-                let matchCount = 0;
-                
-                // We re-query articles in case "Load More" added new ones to the DOM
-                const allArticles = document.querySelectorAll('article');
-                
-                allArticles.forEach(article => {
-                    // Skip hidden extra articles from the load more pool
-                    if(article.parentElement && !article.parentElement.classList.contains('grid')) {
-                        return; // It's probably unattached
-                    }
-                    
-                    const titleElement = article.querySelector('h3');
-                    const descElement = article.querySelector('p.text-gray-600');
-                    const title = titleElement ? titleElement.textContent.toLowerCase() : '';
-                    const desc = descElement ? descElement.textContent.toLowerCase() : '';
-                    
-                    if (title.includes(query) || desc.includes(query) || query === '') {
-                        article.style.display = '';
-                        matchCount++;
-                    } else {
-                        article.style.display = 'none';
-                    }
-                });
-                
-                // Handle Empty State
-                const mainGrid = document.querySelector('section.py-16 .grid, section.py-20 .grid');
-                if (mainGrid) {
-                    if (matchCount === 0 && query !== '') {
-                        if (!emptyStateDiv) {
-                            emptyStateDiv = document.createElement('div');
-                            emptyStateDiv.id = 'searchEmptyState';
-                            emptyStateDiv.className = 'col-span-full w-full flex flex-col items-center justify-center py-20 text-center';
-                            emptyStateDiv.innerHTML = `
-                                <i class="fa-solid fa-magnifying-glass text-5xl text-gray-200 mb-4"></i>
-                                <h3 class="text-2xl font-bold text-gray-700 mb-2">No articles found</h3>
-                                <p class="text-gray-500">We couldn't find anything matching "${term}". Try adjusting your keywords.</p>
-                            `;
-                            mainGrid.parentElement.appendChild(emptyStateDiv);
-                        } else {
-                            emptyStateDiv.querySelector('p').textContent = `We couldn't find anything matching "${term}". Try adjusting your keywords.`;
-                            emptyStateDiv.style.display = 'flex';
-                        }
-                    } else if (emptyStateDiv) {
-                        emptyStateDiv.style.display = 'none';
-                    }
+            try {
+                // By default the public API endpoint lists published articles
+                const res = await window.HBM_API.request('/articles');
+                let articles = [];
+                if (Array.isArray(res.data)) {
+                    articles = res.data;
+                } else if (res.data && Array.isArray(res.data.data)) {
+                    articles = res.data.data;
+                } else if (Array.isArray(res)) {
+                    articles = res;
                 }
                 
-                // Scroll down to results if they searched
-                if (query !== '' && window.scrollY < 300) {
-                    window.scrollTo({ top: 400, behavior: 'smooth' });
-                }
-            }
-
-            if (searchInput) {
-                // Real-time search as user types
-                searchInput.addEventListener('input', (e) => performSearch(e.target.value));
-                
-                // Button click
-                if (searchBtn) {
-                    searchBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        performSearch(searchInput.value);
-                    });
+                if (articles.length === 0) {
+                    featuredGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No articles available.</p>';
+                    latestGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No articles available.</p>';
+                    return;
                 }
                 
-                // Enter key press
-                searchInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        performSearch(searchInput.value);
+                // The original static implementation hardcoded these 3 specific articles as featured
+                const featuredSlugs = ['beginners-guide-balanced-diet', '10-daily-habits-manage-diabetes', 'power-of-daily-movement'];
+                
+                const featured = [];
+                const latest = [];
+                
+                // First extract the featured ones if they exist
+                featuredSlugs.forEach(slug => {
+                    const found = articles.find(a => a.slug === slug);
+                    if (found) featured.push(found);
+                });
+                
+                // If we didn't find all 3, pad with others
+                let i = 0;
+                while (featured.length < 3 && i < articles.length) {
+                    if (!featured.includes(articles[i])) {
+                        featured.push(articles[i]);
+                    }
+                    i++;
+                }
+                
+                // The rest go into latest (excluding those in featured)
+                articles.forEach(a => {
+                    if (!featured.includes(a)) {
+                        latest.push(a);
                     }
                 });
                 
-                // Popular Searches Clicks
-                popularTags.forEach(tag => {
-                    tag.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const term = tag.textContent.trim();
-                        searchInput.value = term;
-                        performSearch(term);
-                    });
-                });
+                // Limit latest to 8 as per original design
+                const limitedLatest = latest.slice(0, 8);
+                
+                // Render Featured
+                featuredGrid.innerHTML = featured.map(a => `
+                    <a href="article.php?slug=${a.slug}" class="block cursor-pointer">
+                        <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1 h-full">
+                        <div class="relative h-[260px] overflow-hidden shrink-0">
+                            <img src="${a.image_url || 'assets/article_diet.png'}" alt="${a.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            ${a.category_name ? `<div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">${a.category_name}</div>` : ''}
+                        </div>
+                        <div class="p-7 flex flex-col flex-grow">
+                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors line-clamp-2">
+                                ${a.title}
+                            </h3>
+                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow line-clamp-3">
+                                ${a.excerpt || ''}
+                            </p>
+                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto shrink-0">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
+                                    ${new Date(a.published_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
+                                    ${a.read_time_minutes || 5} min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    </a>
+                `).join('');
+                
+                // Render Latest
+                latestGrid.innerHTML = limitedLatest.map(a => `
+                    <a href="article.php?slug=${a.slug}" class="block cursor-pointer">
+                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 h-full">
+                        <div class="relative h-[200px] overflow-hidden shrink-0">
+                            <img src="${a.image_url || 'assets/latest_immunity.png'}" alt="${a.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            ${a.category_name ? `<div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">${a.category_name}</div>` : ''}
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow line-clamp-2">
+                                ${a.title}
+                            </h3>
+                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto shrink-0">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
+                                    ${new Date(a.published_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
+                                    ${a.read_time_minutes || 5} min read
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    </a>
+                `).join('');
+                
+            } catch(e) {
+                console.error("Failed to load articles", e);
+                featuredGrid.innerHTML = '<p class="col-span-full text-center text-red-500 py-10">Failed to load articles.</p>';
             }
         });
     </script>

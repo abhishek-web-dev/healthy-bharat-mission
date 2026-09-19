@@ -39,7 +39,7 @@ class HbmHeader extends HTMLElement {
             <div class="px-2 lg:px-8 py-4 flex justify-between items-center">
                 <!-- Logo -->
                 <a href="${basePath}index" class="flex items-center space-x-2 xl:space-x-3 -mt-2 group">
-                    <img src="${imgPath}assets/logo.webp" alt="Logo" class="flex-shrink-0 transition-transform group-hover:scale-105" style="height: 60px; width: auto;">
+                    <img src="${imgPath}assets/images/logo.png" alt="Logo" class="flex-shrink-0 transition-transform group-hover:scale-105" style="height: 60px; width: auto;">
                     <div>
                         <h1
                             class="font-heading font-bold text-lg xl:text-2xl text-slate-800 leading-tight mb-1 whitespace-nowrap group-hover:text-primary transition-colors">
@@ -105,7 +105,7 @@ class HbmHeader extends HTMLElement {
             document.body.insertAdjacentHTML('beforeend', `
             <div id="hbm-mobile-menu" class="fixed inset-0 bg-white z-[100] transition-transform duration-300 lg:hidden flex flex-col overflow-hidden" style="height: 100vh; height: 100dvh; transform: translateX(100%);">
                 <div class="p-4 px-6 flex justify-between items-center border-b border-gray-100 shadow-sm flex-shrink-0">
-                    <img src="${imgPath}assets/logo.webp" alt="Logo" class="h-12 w-auto">
+                    <img src="${imgPath}assets/images/logo.png" alt="Logo" class="h-12 w-auto">
                     <button id="close-mobile-menu" onclick="if(window.closeMobileMenu) window.closeMobileMenu();" class="text-3xl text-gray-400 hover:text-primary w-12 h-12 flex items-center justify-center rounded-full bg-gray-50 active:bg-gray-100 cursor-pointer" style="pointer-events: auto;">
                         <i class="fa-solid fa-xmark pointer-events-none"></i>
                     </button>
@@ -319,7 +319,7 @@ class HbmFooter extends HTMLElement {
                     <!-- Col 1: Logo & Mission -->
                     <div class="w-full lg:w-3/12 pr-0 xl:pr-4">
                         <a href="${basePath}index" class="flex items-center mb-4 group">
-                            <img src="${imgPath}assets/logo.webp" alt="Logo" class="mr-3 transition-transform group-hover:scale-105" style="height: 50px; width: auto;"
+                            <img src="${imgPath}assets/images/logo.png" alt="Logo" class="mr-3 transition-transform group-hover:scale-105" style="height: 50px; width: auto;"
                                 onerror="this.src='https://via.placeholder.com/40x40/10b981/ffffff?text=HBM'">
                             <div>
                                 <h4 class="text-white font-bold text-base xl:text-lg leading-tight group-hover:text-accent transition-colors">Healthy Bharat

@@ -106,7 +106,7 @@
 
                     <!-- Step 1 (Active) -->
                     <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative group">
-                        <div class="tracker-step-icon tracker-step-active">
+                        <div id="tracker-step-1" class="tracker-step-icon tracker-step-active">
                             <i class="fa-regular fa-envelope"></i>
                         </div>
                         <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Order Confirmed</h4>
@@ -117,7 +117,7 @@
 
                     <!-- Step 2 -->
                     <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
-                        <div class="tracker-step-icon tracker-step-inactive">
+                        <div id="tracker-step-2" class="tracker-step-icon tracker-step-inactive">
                             <i class="fa-solid fa-box-open"></i>
                         </div>
                         <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Processing</h4>
@@ -130,7 +130,7 @@
 
                     <!-- Step 3 -->
                     <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 mb-6 sm:mb-0 relative">
-                        <div class="tracker-step-icon tracker-step-inactive">
+                        <div id="tracker-step-3" class="tracker-step-icon tracker-step-inactive">
                             <i class="fa-solid fa-truck-fast"></i>
                         </div>
                         <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Shipped</h4>
@@ -143,7 +143,7 @@
 
                     <!-- Step 4 -->
                     <div class="flex flex-col items-center text-center z-10 w-full sm:w-1/4 relative">
-                        <div class="tracker-step-icon tracker-step-inactive">
+                        <div id="tracker-step-4" class="tracker-step-icon tracker-step-inactive">
                             <i class="fa-solid fa-house-chimney"></i>
                         </div>
                         <h4 class="font-bold text-[#1e293b] text-[12px] mb-1">Delivered</h4>

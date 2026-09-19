@@ -111,16 +111,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (order.items && order.items.length > 0) {
             let itemsHtml = '';
             order.items.forEach(item => {
-                const img = item.image_url || '../assets/logo.webp';
+                const img = item.image_url || '../assets/images/logo.png';
                 itemsHtml += `
                     <div class="flex items-start gap-4 pb-6 border-b border-gray-50 last:border-0 last:pb-0">
                         <div class="w-20 h-20 bg-gray-50 rounded-xl border border-gray-100 p-2 shrink-0 flex items-center justify-center">
-                            <img src="${img}" alt="${item.product_name_snapshot}" class="w-full h-full object-contain" onerror="this.src='../assets/logo.webp'">
+                            <img src="${img}" alt="${item.product_name_snapshot}" class="w-full h-full object-contain" onerror="this.src='../assets/images/logo.png'">
                         </div>
                         <div class="flex-1 min-w-0">
                             <h4 class="font-bold text-gray-800 text-[14px] mb-1 leading-snug">${item.product_name_snapshot}</h4>
                             <p class="text-[12px] text-gray-500 mb-2">Qty: <span class="font-bold text-gray-700">${item.quantity}</span></p>
                             <span class="font-bold text-[#052b14]">${formatMoney(item.price_snapshot)}</span>
+                            ${(item.is_digital == 1 || item.is_digital === true) && (order.payment_status || '').toLowerCase() === 'paid' ? `
+                                <div class="mt-3">
+                                    <button onclick="downloadDigitalProduct(${order.id}, ${item.product_id}, '${item.product_name_snapshot.replace(/'/g, "\\'")}')" class="px-4 py-2 text-[12px] font-bold text-white bg-[#106e39] rounded-lg shadow-sm hover:bg-green-800 transition-colors inline-flex items-center gap-2">
+                                        <i class="fa-solid fa-cloud-arrow-down"></i> Download Digital Product
+                                    </button>
+                                </div>
+                            ` : ''}
                         </div>
                     </div>
                 `;
@@ -176,3 +183,52 @@ document.addEventListener('DOMContentLoaded', async () => {
         errorState.classList.remove('hidden');
     }
 });
+
+// Global download function for digital products
+window.downloadDigitalProduct = async (orderId, productId, productName) => {
+    try {
+        const token = localStorage.getItem('hbm_token') || localStorage.getItem('token');
+        if (!token) throw new Error('Not authenticated');
+
+        const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api';
+        
+        if (typeof window.showNotification === 'function') {
+            window.showNotification('Starting download...', 'success');
+        }
+
+        const response = await fetch(`${baseUrl}/orders/${orderId}/download/${productId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.message || 'Download failed');
+        }
+
+        // Get filename from Content-Disposition if possible
+        let filename = `${productName.replace(/[^a-zA-Z0-9]/g, '_')}.zip`; // default fallback
+        const disposition = response.headers.get('Content-Disposition');
+        if (disposition && disposition.indexOf('filename=') !== -1) {
+            const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+            const matches = filenameRegex.exec(disposition);
+            if (matches != null && matches[1]) { 
+                filename = matches[1].replace(/['"]/g, '');
+            }
+        }
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+    } catch (error) {
+        console.error('Download error:', error);
+        alert(`Failed to download product: ${error.message}`);
+    }
+};

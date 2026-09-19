@@ -128,6 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (savContainer) savContainer.classList.add('hidden');
                     if (savContainer) savContainer.classList.remove('flex');
                 }
+                // Calculate Totals
+                let isDigitalOnly = true;
+                if (cart.items.length > 0) {
+                    isDigitalOnly = cart.items.every(item => item.is_digital == 1 || item.is_digital === true);
+                } else {
+                    isDigitalOnly = false;
+                }
+                window.isDigitalOnly = isDigitalOnly;
+
             }
         } catch (e) {
             console.error("Failed to load cart summary", e);
@@ -136,7 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function initAddressPage() {
         // Render Cart Summary First
-        fetchAndRenderCartSummary();
+        await fetchAndRenderCartSummary();
+        
+        if (window.isDigitalOnly) {
+            const shipCard = document.getElementById('shipping-address-card');
+            const digiCard = document.getElementById('digital-delivery-card');
+            if (shipCard) shipCard.classList.add('hidden');
+            if (digiCard) digiCard.classList.remove('hidden');
+        }
 
         let useSavedAddressId = null;
         let editAddressId = null;
@@ -371,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Form Validation and Submit
-        const continueBtn = Array.from(document.querySelectorAll('a, button')).find(el => el.textContent.includes('Pay Now'));
+        const continueBtn = Array.from(document.querySelectorAll('a, button')).find(el => el.textContent.includes('Proceed to Payment') || el.textContent.includes('Pay Now'));
         
         // Get inputs
         const nameEl = document.getElementById('checkout-name');
@@ -386,6 +402,26 @@ document.addEventListener('DOMContentLoaded', () => {
             continueBtn.addEventListener('click', async (e) => {
                 e.preventDefault();
                 
+                // If digital only, bypass address entirely
+                if (window.isDigitalOnly) {
+                    try {
+                        continueBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
+                        continueBtn.style.pointerEvents = 'none';
+                        
+                        checkoutState.address_id = null;
+                        checkoutState.address_snapshot = null;
+                        localStorage.setItem('hbm_checkout_state', JSON.stringify(checkoutState));
+                        
+                        await processOrderAndLaunchPayment(null, null, continueBtn);
+                    } catch (e) {
+                        console.error("Error processing digital order", e);
+                        alert("Error processing order");
+                        continueBtn.innerHTML = 'Proceed to Payment <i class="fa-solid fa-arrow-right"></i>';
+                        continueBtn.style.pointerEvents = 'auto';
+                    }
+                    return;
+                }
+
                 // If form is hidden, they are in "Select Address" mode
                 if (formContainer && formContainer.classList.contains('hidden')) {
                     if (!useSavedAddressId) {
@@ -431,7 +467,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         const orderPayload = {
                             address_id: addressId,
                             payment_method: 'card', // the backend expects upi, card, net_banking, or cod
-                            discount: parseFloat(sessionStorage.getItem('hbm_discount') || 0)
+                            discount: parseFloat(sessionStorage.getItem('hbm_discount') || 0),
+                            is_digital_only: window.isDigitalOnly
                         };
 
                         const response = await HBM_API.checkout.createOrder(orderPayload);
@@ -653,6 +690,9 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const cartResponse = await HBM_API.store.getCart();
             if (cartResponse.success && cartResponse.data.items.length > 0) {
+                // Check if digital only
+                window.isDigitalOnly = cartResponse.data.items.every(item => item.is_digital == 1 || item.is_digital === true);
+                
                 renderReviewItems(cartResponse.data.items);
                 renderTotals(cartResponse.data.subtotal);
             } else {
@@ -667,9 +707,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Delivery Info from state
         if (checkoutState.address_snapshot) {
             renderDeliveryInfo(checkoutState.address_snapshot);
-        } else {
-            // Missing address
+        } else if (!window.isDigitalOnly) {
+            // Missing address for physical products
             window.location.href = 'checkout';
+        } else {
+            // Digital only, hide delivery info section
+            const deliveryInfoCard = document.getElementById('review-delivery-info');
+            if (deliveryInfoCard) deliveryInfoCard.classList.add('hidden');
         }
 
         const placeOrderBtn = Array.from(document.querySelectorAll('a, button')).find(el => el.textContent.includes('Place Order'));
@@ -886,6 +930,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const totalEl = document.getElementById('confirm-total');
                     if (totalEl) totalEl.textContent = `₹${total.toFixed(2)}`;
+                }
+            }
+            
+            // --- 5. Tracker Timeline Status Mapping ---
+            if (res.success && res.data) {
+                const orderStatus = (res.data.order_status || order.order_status || 'pending').toLowerCase();
+                const step1 = document.getElementById('tracker-step-1');
+                const step2 = document.getElementById('tracker-step-2');
+                const step3 = document.getElementById('tracker-step-3');
+                const step4 = document.getElementById('tracker-step-4');
+
+                if (step1 && step2 && step3 && step4) {
+                    // Reset all to inactive first
+                    const allSteps = [step1, step2, step3, step4];
+                    allSteps.forEach(step => {
+                        step.classList.remove('tracker-step-active');
+                        step.classList.add('tracker-step-inactive');
+                    });
+
+                    // Map active steps
+                    step1.classList.remove('tracker-step-inactive');
+                    step1.classList.add('tracker-step-active');
+
+                    if (orderStatus === 'processing' || orderStatus === 'shipped' || orderStatus === 'delivered') {
+                        step2.classList.remove('tracker-step-inactive');
+                        step2.classList.add('tracker-step-active');
+                    }
+                    if (orderStatus === 'shipped' || orderStatus === 'delivered') {
+                        step3.classList.remove('tracker-step-inactive');
+                        step3.classList.add('tracker-step-active');
+                    }
+                    if (orderStatus === 'delivered') {
+                        step4.classList.remove('tracker-step-inactive');
+                        step4.classList.add('tracker-step-active');
+                    }
                 }
             }
         }).catch(err => console.error("Could not fetch order items", err));

@@ -89,7 +89,7 @@ function renderFoodCharts(data) {
             const hasBorder = index !== data.meals.length - 1;
             mealsHtml += `
                 <div class="flex items-center gap-4 py-4 ${hasBorder ? 'border-b border-gray-50' : ''}">
-                    <img src="${meal.image_url}" alt="${meal.meal_type}" class="w-16 h-12 object-cover rounded-lg bg-gray-100 shrink-0 p-1" onerror="this.onerror=null; this.src='../assets/logo.webp'">
+                    <img src="${meal.image_url}" alt="${meal.meal_type}" class="w-16 h-12 object-cover rounded-lg bg-gray-100 shrink-0 p-1" onerror="this.onerror=null; this.src='../assets/images/logo.png'">
                     <div class="w-32 shrink-0">
                         <h4 class="font-bold text-gray-800 text-sm truncate">${meal.meal_type}</h4>
                         <p class="text-xs text-gray-500">${meal.time_range}</p>

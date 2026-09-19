@@ -1,9 +1,15 @@
 <?php
 // Initialize backend connection for auth verification
 // We must not output anything before checking auth to allow headers to redirect.
-$backendDir = __DIR__ . '/../../../backend'; // from frontend/admin/components to project root/backend
+$backendDir = $_SERVER['DOCUMENT_ROOT'] . '/backend'; // Production Hostinger
 if (!file_exists($backendDir . '/vendor/autoload.php')) {
-    die("Backend not found or not initialized.");
+    $backendDir = __DIR__ . '/../../../backend'; // Local dev fallback
+}
+if (!file_exists($backendDir . '/vendor/autoload.php')) {
+    $backendDir = __DIR__ . '/../../backend'; // Alternative fallback
+}
+if (!file_exists($backendDir . '/vendor/autoload.php')) {
+    die("Backend not found or not initialized. Checked: " . $_SERVER['DOCUMENT_ROOT'] . '/backend');
 }
 require_once $backendDir . '/vendor/autoload.php';
 

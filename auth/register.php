@@ -48,7 +48,7 @@
 
                 <!-- Logo -->
                 <div class="mb-10 xl:mb-12 flex items-center gap-3">
-                    <img src="../assets/logo.webp" alt="Logo" class="h-20 w-20 object-contain shrink-0">
+                    <img src="../assets/images/logo.png" alt="Logo" class="h-20 w-20 object-contain shrink-0">
                     <div>
                         <h2 class="text-[#052b14] font-extrabold text-[18px] xl:text-[20px] leading-tight">
                             Healthy<br>Bharat Mission</h2>
@@ -119,7 +119,7 @@
             <div class="flex justify-between items-center mb-2 lg:mb-10 w-full">
                 <!-- Mobile Logo -->
                 <a href="../index" class="lg:hidden flex items-center">
-                    <img src="../assets/logo.webp" alt="Logo" class="h-8">
+                    <img src="../assets/images/logo.png" alt="Logo" class="h-8">
                 </a>
                 <!-- Desktop/Mobile Login Link -->
                 <div class="flex items-center text-sm text-gray-600 ml-auto">

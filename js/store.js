@@ -25,35 +25,35 @@ function createProductCard(product, isSlider = false) {
 
     if (product.stock <= 0) {
         cartUI = `
-            <button onclick="alert('You will be notified when this item is back in stock.')" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2.5 rounded-lg text-sm font-bold shadow-sm transition-all flex items-center gap-2">
+            <button onclick="alert('You will be notified when this item is back in stock.')" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2.5 rounded-lg text-sm font-bold shadow-sm transition-all flex items-center justify-center gap-2 shrink-0 whitespace-nowrap z-10">
                 <i class="fa-regular fa-bell"></i> Notify Me
             </button>
         `;
     } else if (cartItem && cartItem.quantity > 0) {
         cartUI = `
-            <div class="flex items-center gap-3">
-                <div class="flex items-center bg-[#f8fcf9] rounded-lg border border-gray-200 p-1 z-10 relative">
-                    <button onclick="window.updateStoreCart(${product.id}, ${cartItem.quantity - 1})" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">-</button>
+            <div class="flex items-center gap-3 shrink-0 z-10">
+                <div class="flex items-center bg-[#f8fcf9] rounded-lg border border-gray-200 p-1 relative">
+                    <button onclick="window.updateStoreCart(${product.id}, ${cartItem.quantity - 1})" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#064e3b] font-bold rounded-md hover:bg-white transition-colors">-</button>
                     <span class="w-8 text-center text-[13px] font-bold text-[#1e293b]">${cartItem.quantity}</span>
-                    <button onclick="window.updateStoreCart(${product.id}, ${cartItem.quantity + 1})" class="w-7 h-7 flex items-center justify-center text-[#106e39] font-bold rounded-md hover:bg-white transition-colors">+</button>
+                    <button onclick="window.updateStoreCart(${product.id}, ${cartItem.quantity + 1})" class="w-7 h-7 flex items-center justify-center text-[#064e3b] font-bold rounded-md hover:bg-white transition-colors">+</button>
                 </div>
             </div>
         `;
     } else {
         cartUI = `
-            <button onclick="window.addToCart(${product.id}, 1)" class="bg-primary-light hover:bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform active:scale-95 z-10">
+            <button onclick="window.addToCart(${product.id}, 1)" class="bg-[#14532d] hover:bg-[#0f3f22] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 transform active:scale-95 z-10 shrink-0 whitespace-nowrap">
                 <i class="fa-solid fa-cart-plus"></i> Add to Cart
             </button>
         `;
     }
 
-    const extraClasses = isSlider ? 'w-[260px] lg:w-[280px] shrink-0 slider-card snap-start' : '';
+    const extraClasses = isSlider ? 'w-[260px] lg:w-[280px] shrink-0 slider-card snap-start self-stretch h-auto' : 'h-full';
     const extraAttrs = isSlider ? `data-category="${product.category_slug}" data-product-id="${product.id}"` : `data-product-id="${product.id}"`;
 
     return `
         <!-- Product Card -->
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-[#064e3b]/20 transition-all duration-300 group flex flex-col relative ${extraClasses}" ${extraAttrs}>
-            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50">
+            <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-56 border-b border-gray-50 shrink-0">
                 <div class="absolute top-3 left-3 flex gap-2 z-10">
                     <div class="bg-[#064e3b] text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm">
                         ${product.category_name}
@@ -71,12 +71,12 @@ function createProductCard(product, isSlider = false) {
             </div>
             <div class="p-5 flex flex-col flex-1">
                 <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug hover:text-[#064e3b] transition-colors line-clamp-2 cursor-pointer" onclick="goToProduct(event, ${product.id})">${product.name}</h3>
-                <div class="flex items-end justify-between mt-auto pt-4">
-                    <div>
+                <div class="flex items-end justify-between mt-auto pt-4 gap-2">
+                    <div class="min-w-0">
                         <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
                         ${product.mrp && parseFloat(product.mrp) > parseFloat(product.price) 
-                            ? `<div class="flex items-center gap-1.5"><span class="text-lg font-black text-[#064e3b]">₹${product.price}</span><span class="text-xs text-gray-400 line-through">₹${product.mrp}</span></div>` 
-                            : `<div class="text-lg font-black text-[#064e3b]">₹${product.price}</div>`}
+                            ? `<div class="flex items-center gap-1.5 flex-wrap"><span class="text-lg font-black text-[#064e3b] leading-none">₹${product.price}</span><span class="text-xs text-gray-400 line-through leading-none whitespace-nowrap">₹${product.mrp}</span></div>` 
+                            : `<div class="text-lg font-black text-[#064e3b] leading-none">₹${product.price}</div>`}
                     </div>
                     ${cartUI}
                 </div>
@@ -379,8 +379,17 @@ async function initProductDetail() {
             }
         }
 
-        const descEl = document.getElementById('product-description');
+        const descEl = document.getElementById('dynamic-description');
         if (descEl) descEl.innerText = product.description || 'No description available.';
+        
+        const ingredientsEl = document.getElementById('dynamic-ingredients');
+        if (ingredientsEl) ingredientsEl.innerText = product.ingredients || 'No ingredients information available.';
+        
+        const nutritionEl = document.getElementById('dynamic-nutrition');
+        if (nutritionEl) nutritionEl.innerText = product.nutritional_info || 'No nutritional information available.';
+        
+        const usageEl = document.getElementById('dynamic-usage');
+        if (usageEl) usageEl.innerText = product.how_to_use || 'No instructions available.';
 
         // Update Category tag
         const tagEl = document.getElementById('product-category-tag');
@@ -531,10 +540,18 @@ async function initProductDetail() {
         await window.fetchCartData();
         window.renderProductDetailCartUI();
 
-        const wishlistBtn = document.getElementById('btn-add-to-wishlist');
-        if (wishlistBtn) {
-            wishlistBtn.onclick = function () {
-                window.addToWishlist(product.id, this);
+        const buyNowBtn = document.getElementById('btn-buy-now');
+        if (buyNowBtn) {
+            buyNowBtn.onclick = async function () {
+                // Change button state to show loading
+                const originalHtml = buyNowBtn.innerHTML;
+                buyNowBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Adding...';
+                buyNowBtn.disabled = true;
+                
+                await window.addToCart(product.id, 1);
+                
+                const basePath = document.querySelector('hbm-header')?.getAttribute('base-path') || '';
+                window.location.href = basePath + 'store/cart';
             };
         }
 
