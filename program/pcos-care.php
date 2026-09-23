@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap items-center gap-4">
-                            <a href="#" class="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#106e39] font-bold px-8 py-3.5 rounded-md transition-colors shadow-sm text-sm border border-transparent">
+                            <a href="javascript:void(0)" onclick="openContactModal()" class="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#106e39] font-bold px-8 py-3.5 rounded-md transition-colors shadow-sm text-sm border border-transparent">
                                 <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
                             </a>
                             <a href="#overview" class="inline-flex items-center justify-center bg-transparent text-white border border-white/60 font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 hover:border-white transition-colors">
@@ -793,7 +793,7 @@
                         <p class="text-[#052b14] font-medium text-sm md:text-[15px] mb-8 max-w-md">
                             Speak directly with our clinical dietitians. Let's discuss your symptoms, review your medical history, and map out a sustainable plan to regain control of your health.
                         </p>
-                        <a href="#" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#052b14] font-bold px-8 py-3.5 rounded-full transition-all shadow-[0_4px_14px_rgba(5,43,20,0.08)] hover:shadow-[0_6px_20px_rgba(5,43,20,0.12)] border border-gray-100 hover:-translate-y-0.5 text-lg">
+                        <a href="javascript:void(0)" onclick="openContactModal()" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#052b14] font-bold px-8 py-3.5 rounded-full transition-all shadow-[0_4px_14px_rgba(5,43,20,0.08)] hover:shadow-[0_6px_20px_rgba(5,43,20,0.12)] border border-gray-100 hover:-translate-y-0.5 text-lg">
                             <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
                         </a>
                         <span class="text-sm font-semibold text-gray-600 flex items-center gap-2 mt-4">

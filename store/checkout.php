@@ -254,8 +254,20 @@
                                 <span id="checkout-total" class="text-[22px] font-black" style="color: #0a4d27;">₹0.00</span>
                             </div>
                             <!-- Savings Tag -->
-                            <div id="checkout-savings" class="rounded-lg px-4 py-2.5 items-center justify-center gap-2 text-[13px] font-bold border border-[#d1f0df] hidden" style="background-color: #e2f6e9; color: #0a4d27;">
-                                <i class="fa-solid fa-tag"></i> <span id="checkout-savings-text"></span>
+                            <div id="checkout-savings" class="bg-[#e2f6e9] text-[#0a4d27] rounded-xl p-4 hidden border border-[#bbf7d0] shadow-sm mt-4">
+                                <div class="flex items-center gap-2 mb-3 text-[13px] font-bold text-[#106e39]">
+                                    <i class="fa-solid fa-tag"></i> Applied Coupon
+                                </div>
+                                <div id="checkout-applied-coupon-name" class="text-[13px] font-semibold text-[#1e293b] mb-1 hidden"></div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <div class="text-[14px] font-black tracking-wide uppercase" id="checkout-applied-coupon-code"></div>
+                                    <button onclick="window.removeCouponCheckout()" class="text-red-500 hover:text-red-700 text-[12px] font-bold transition-colors">
+                                        Remove
+                                    </button>
+                                </div>
+                                <div class="text-[13px] font-medium text-[#106e39]">
+                                    You saved ₹<span id="checkout-savings-amount">0.00</span> on this order
+                                </div>
                             </div>
                         </div>
 

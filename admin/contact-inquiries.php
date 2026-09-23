@@ -69,69 +69,6 @@
     </div>
 </div>
 
-<!-- View Inquiry Modal -->
-<div id="inquiry-modal" class="fixed inset-0 bg-gray-900/50 z-50 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-    <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="inquiry-modal-content">
-        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-            <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                <i class="fa-regular fa-envelope text-gray-400"></i> Inquiry Details
-            </h3>
-            <button id="close-modal-btn" class="text-gray-400 hover:text-gray-600 transition-colors">
-                <i class="fa-solid fa-times"></i>
-            </button>
-        </div>
-        
-        <div class="p-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
-            <div id="modal-error" class="hidden mb-4 p-3 rounded-lg bg-red-50 text-red-600 text-sm font-medium border border-red-100"></div>
-            
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                    <p class="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-1">Name</p>
-                    <p class="font-medium text-gray-800" id="detail-name">-</p>
-                </div>
-                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                    <p class="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-1">Email</p>
-                    <a href="#" id="detail-email" class="font-medium text-[#106e39] hover:underline">-</a>
-                </div>
-                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                    <p class="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-1">Phone</p>
-                    <p class="font-medium text-gray-800" id="detail-phone">-</p>
-                </div>
-                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                    <p class="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-1">Date Submitted</p>
-                    <p class="font-medium text-gray-800" id="detail-date">-</p>
-                </div>
-            </div>
-            
-            <div class="mb-6">
-                <p class="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-2">Subject</p>
-                <p class="font-bold text-gray-800 text-lg" id="detail-subject">-</p>
-            </div>
-            
-            <div class="mb-6">
-                <p class="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-2">Message</p>
-                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 whitespace-pre-wrap text-sm text-gray-700 font-serif leading-relaxed" id="detail-message">-</div>
-            </div>
-            
-            <hr class="border-gray-100 my-6">
-            
-            <form id="status-form" class="flex flex-col sm:flex-row items-center gap-4">
-                <input type="hidden" id="inquiry-id" value="">
-                <label class="font-bold text-sm text-gray-700 shrink-0">Update Status:</label>
-                <select id="detail-status" class="block w-full pl-3 pr-10 py-2 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm bg-gray-50 focus:bg-white transition-colors">
-                    <option value="pending">Pending</option>
-                    <option value="in_progress">In Progress</option>
-                    <option value="resolved">Resolved</option>
-                    <option value="spam">Spam</option>
-                </select>
-                <button type="submit" id="save-status-btn" class="w-full sm:w-auto px-6 py-2 bg-[#106e39] border border-transparent rounded-lg text-sm font-bold text-white hover:bg-[#0b5028] transition-colors shrink-0">
-                    Update
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     let allInquiries = [];
@@ -142,13 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const statusFilter = document.getElementById('status-filter');
     const totalCountBadge = document.getElementById('total-count-badge');
-    
-    // Modal Elements
-    const modal = document.getElementById('inquiry-modal');
-    const modalContent = document.getElementById('inquiry-modal-content');
-    const closeBtn = document.getElementById('close-modal-btn');
-    const form = document.getElementById('status-form');
-    const errorMsg = document.getElementById('modal-error');
     
     const statusStyles = {
         'pending': 'bg-orange-100 text-orange-700 border-orange-200',
@@ -211,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const date = new Date(i.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
             
             return `
-                <tr class="hover:bg-gray-50/50 transition-colors ${i.status === 'pending' ? 'bg-orange-50/20' : ''}">
+                <tr id="inquiry-row-${i.id}" class="hover:bg-gray-50/50 transition-colors ${i.status === 'pending' ? 'bg-orange-50/20' : ''}">
                     <td class="px-6 py-4">
                         <p class="font-bold text-gray-800 text-sm truncate max-w-[200px]" title="${i.name}">${i.name}</p>
                         <p class="text-[11px] text-gray-500 truncate max-w-[200px]">${i.email}</p>
@@ -232,66 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     window.viewInquiry = function(id) {
-        errorMsg.classList.add('hidden');
-        
-        const i = allInquiries.find(x => x.id === id);
-        if (!i) return;
-        
-        document.getElementById('inquiry-id').value = i.id;
-        document.getElementById('detail-name').textContent = i.name;
-        document.getElementById('detail-email').textContent = i.email;
-        document.getElementById('detail-email').href = 'mailto:' + i.email;
-        document.getElementById('detail-phone').textContent = i.phone || 'Not provided';
-        document.getElementById('detail-date').textContent = new Date(i.created_at).toLocaleString();
-        document.getElementById('detail-subject').textContent = i.subject;
-        document.getElementById('detail-message').textContent = i.message;
-        document.getElementById('detail-status').value = i.status;
-        
-        // Show Modal
-        modal.classList.remove('hidden');
-        void modal.offsetWidth;
-        modal.classList.remove('opacity-0');
-        modalContent.classList.remove('scale-95');
+        window.location.href = `/admin/contact-inquiry-details.php?id=${id}`;
     };
-    
-    function closeModal() {
-        modal.classList.add('opacity-0');
-        modalContent.classList.add('scale-95');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
-    }
-    
-    closeBtn.addEventListener('click', closeModal);
-    
+
     // Search & Filter Listeners
     searchInput.addEventListener('input', renderInquiries);
     statusFilter.addEventListener('change', renderInquiries);
-    
-    // Form Submit (Status Update)
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const id = document.getElementById('inquiry-id').value;
-        const newStatus = document.getElementById('detail-status').value;
-        const submitBtn = document.getElementById('save-status-btn');
-        
-        submitBtn.disabled = true;
-        submitBtn.textContent = '...';
-        errorMsg.classList.add('hidden');
-        
-        try {
-            await window.HBM_API.request(`/admin/contact-inquiries/${id}`, 'PUT', { status: newStatus });
-            closeModal();
-            fetchInquiries();
-        } catch (err) {
-            errorMsg.textContent = err.message || 'An error occurred while updating the status.';
-            errorMsg.classList.remove('hidden');
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Update';
-        }
-    });
 
     fetchInquiries();
 });

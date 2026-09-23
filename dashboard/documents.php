@@ -260,7 +260,7 @@
                 currentFilter = filter;
                 const tbody = document.getElementById('documents-tbody');
                 const showMoreContainer = document.getElementById('show-more-container');
-                const backendUrl = HBM_API.baseUrl.replace('/api', '/');
+                const backendUrl = HBM_API.baseUrl.replace('/api', '');
                 
                 const filtered = filter === 'all' ? allDocuments : allDocuments.filter(d => {
                     if (filter === 'other') return !['report', 'prescription', 'scan_result'].includes(d.document_type);

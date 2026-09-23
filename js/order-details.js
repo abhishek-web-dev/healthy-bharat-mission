@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 try {
                     const token = localStorage.getItem('hbm_token') || localStorage.getItem('token');
-                    const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api';
+                    const baseUrl = '/api';
                     const response = await fetch(`${baseUrl}/orders/${order.id}/invoice/download`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
@@ -190,7 +190,7 @@ window.downloadDigitalProduct = async (orderId, productId, productName) => {
         const token = localStorage.getItem('hbm_token') || localStorage.getItem('token');
         if (!token) throw new Error('Not authenticated');
 
-        const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api';
+        const baseUrl = '/api';
         
         if (typeof window.showNotification === 'function') {
             window.showNotification('Starting download...', 'success');

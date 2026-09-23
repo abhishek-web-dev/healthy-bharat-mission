@@ -94,7 +94,7 @@
                         </p>
 
                         <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                            <a href="#"
+                            <a href="javascript:void(0)" onclick="openContactModal()"
                                 class="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#052b14] font-bold px-8 py-4 rounded-full transition-colors shadow-[0_4px_14px_rgba(5,43,20,0.08)] hover:shadow-md border border-gray-100 text-lg">
                                 <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
                             </a>
@@ -725,7 +725,7 @@
                             Book your free 30-minute consultation. We'll review your readings and outline exactly how
                             your personalised diabetes diet plan will work.
                         </p>
-                        <a href="#"
+                        <a href="javascript:void(0)" onclick="openContactModal()"
                             class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#052b14] font-bold px-8 py-3.5 rounded-lg transition-all shadow-[0_4px_14px_rgba(5,43,20,0.08)] hover:shadow-[0_6px_20px_rgba(5,43,20,0.12)] border border-gray-100 hover:-translate-y-0.5">
                             <i class="fas fa-calendar-check mr-2"></i> Book Free Consultation
                         </a>

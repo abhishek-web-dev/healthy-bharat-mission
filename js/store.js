@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Determine which page we are on
     const path = window.location.pathname;
 
-    if (path.includes('store') && !path.includes('store/')) {
-        await initStore();
-    } else if (path.includes('store/product')) {
+    if (document.getElementById('product-title')) {
         await initProductDetail();
     } else if (path.includes('store/cart')) {
         await initCart();
     } else if (path.includes('wishlist')) {
         await initWishlist();
+    } else if (path.includes('store') && !path.includes('store/')) {
+        await initStore();
     }
 });
 
@@ -67,10 +67,10 @@ function createProductCard(product, isSlider = false) {
                     <i class="fa-regular fa-heart"></i>
                 </button>
                 
-                <img src="${product.primary_image || 'https://via.placeholder.com/300'}" alt="${product.name}" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0 cursor-pointer" onclick="goToProduct(event, ${product.id})">
+                <img src="${product.primary_image || 'https://via.placeholder.com/300'}" alt="${product.name}" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0 cursor-pointer" onclick="goToProduct(event, '${product.slug || product.id}')">
             </div>
             <div class="p-5 flex flex-col flex-1">
-                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug hover:text-[#064e3b] transition-colors line-clamp-2 cursor-pointer" onclick="goToProduct(event, ${product.id})">${product.name}</h3>
+                <h3 class="font-extrabold text-gray-900 text-[15px] mb-2 leading-snug hover:text-[#064e3b] transition-colors line-clamp-2 cursor-pointer" onclick="goToProduct(event, '${product.slug || product.id}')">${product.name}</h3>
                 <div class="flex items-end justify-between mt-auto pt-4 gap-2">
                     <div class="min-w-0">
                         <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Price</div>
@@ -85,10 +85,18 @@ function createProductCard(product, isSlider = false) {
     `;
 }
 
-function goToProduct(event, productId) {
+function goToProduct(event, productIdentifier) {
     if (event.target.closest('button')) return;
     const basePath = document.querySelector('hbm-header')?.getAttribute('base-path') || '';
-    window.location.href = basePath + `store/product?id=${productId}`;
+    window.location.href = basePath + `store/${productIdentifier}`;
+}
+
+function scrollToSection(event, slug) {
+    event.preventDefault();
+    const section = document.getElementById(`section-${slug}`);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 // --- Store Listing ---
@@ -167,7 +175,7 @@ async function initStore() {
         if (topNav) {
             topNav.innerHTML = categories.map(cat => {
                 const icon = iconMap[cat.slug] || 'fa-box text-[#064e3b]';
-                return `<a href="#section-${cat.slug}" class="category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors">
+                return `<a href="#section-${cat.slug}" onclick="scrollToSection(event, '${cat.slug}')" class="category-pill flex items-center gap-2 px-5 py-2.5 bg-white text-gray-700 hover:text-[#064e3b] border border-gray-200 hover:border-[#064e3b]/30 rounded-full text-sm font-bold shadow-sm whitespace-nowrap transition-colors">
                     <i class="fa-solid ${icon}"></i> ${cat.name}
                 </a>`;
             }).join('');
@@ -328,16 +336,30 @@ window.renderPopularProducts = function () {
 // --- Product Details ---
 async function initProductDetail() {
     const params = new URLSearchParams(window.location.search);
-    const productId = params.get('id');
+    let identifier = params.get('id');
+    
+    if (!identifier) {
+        const pathParts = window.location.pathname.split('/').filter(Boolean);
+        if (pathParts[pathParts.length - 2] === 'store') {
+            identifier = pathParts[pathParts.length - 1];
+        }
+    }
 
-    if (!productId) {
+    if (!identifier) {
         window.location.href = '../store';
         return;
     }
 
     try {
-        const res = await HBM_API.request(`/products/${productId}`);
+        const res = await HBM_API.request(`/products/${identifier}`);
         const product = res.data;
+
+        // Backward compatibility: If URL has ?id=, redirect to clean slug
+        if (params.get('id') && product.slug) {
+            const basePath = document.querySelector('hbm-header')?.getAttribute('base-path') || '';
+            window.history.replaceState(null, '', basePath + `store/${product.slug}`);
+        }
+
 
         // Update document title
         document.title = `${product.name} - Healthy Bharat Mission`;
@@ -379,17 +401,66 @@ async function initProductDetail() {
             }
         }
 
-        const descEl = document.getElementById('dynamic-description');
-        if (descEl) descEl.innerText = product.description || 'No description available.';
-        
-        const ingredientsEl = document.getElementById('dynamic-ingredients');
-        if (ingredientsEl) ingredientsEl.innerText = product.ingredients || 'No ingredients information available.';
-        
-        const nutritionEl = document.getElementById('dynamic-nutrition');
-        if (nutritionEl) nutritionEl.innerText = product.nutritional_info || 'No nutritional information available.';
-        
-        const usageEl = document.getElementById('dynamic-usage');
-        if (usageEl) usageEl.innerText = product.how_to_use || 'No instructions available.';
+        const isEmptyContent = (html) => {
+            if (html === null || html === undefined) return true;
+            if (typeof html !== 'string') {
+                if (Array.isArray(html)) return html.length === 0;
+                return false;
+            }
+            
+            // Remove all HTML tags
+            const textOnly = html.replace(/<[^>]*>?/gm, '').trim();
+            // Remove non-breaking spaces and trim again
+            const noNbsp = textOnly.replace(/&nbsp;/g, '').trim();
+            
+            return noNbsp === '';
+        };
+
+        const tabsData = [
+            { id: 'description', content: product.description },
+            { id: 'ingredients', content: product.ingredients },
+            { id: 'nutrition', content: product.nutritional_info },
+            { id: 'usage', content: product.how_to_use }
+        ];
+
+        let firstAvailableTab = null;
+
+        tabsData.forEach(tab => {
+            const btnEl = document.getElementById(`btn-${tab.id}`);
+            const paneEl = document.getElementById(`tab-${tab.id}`);
+            const contentEl = document.getElementById(`dynamic-${tab.id}`);
+            
+            const hasContent = !isEmptyContent(tab.content);
+
+            if (btnEl && paneEl) {
+                if (hasContent) {
+                    btnEl.style.display = '';
+                    paneEl.classList.add('hidden'); // Initially hide, let switchTab handle it
+                    if (contentEl) contentEl.innerHTML = tab.content;
+                    if (!firstAvailableTab) firstAvailableTab = tab.id;
+                } else {
+                    btnEl.style.display = 'none';
+                    // Completely remove empty panes from DOM so they aren't accidentally shown
+                    paneEl.remove();
+                }
+            }
+        });
+
+        // Hide whole container if no tabs
+        const tabsContainer = document.getElementById('product-tabs-container');
+        if (tabsContainer) {
+            if (firstAvailableTab) {
+                tabsContainer.style.display = '';
+                tabsContainer.classList.remove('hidden');
+            } else {
+                tabsContainer.style.display = 'none';
+            }
+        }
+
+        // Automatically switch to the first available tab to prevent showing an empty screen
+        if (firstAvailableTab && typeof switchTab === 'function') {
+            switchTab(firstAvailableTab);
+        }
 
         // Update Category tag
         const tagEl = document.getElementById('product-category-tag');
@@ -647,14 +718,14 @@ async function renderCart() {
             html += `
                 <div class="relative flex flex-col sm:flex-row gap-5 p-5 mb-4 border border-gray-100 rounded-3xl bg-white hover:shadow-sm transition-shadow">
                     
-                    <div class="w-32 h-32 shrink-0 bg-[#f4f6f8] rounded-2xl flex items-center justify-center relative overflow-hidden cursor-pointer" onclick="window.location.href='product?id=${item.product_id || item.id}'">
+                    <div class="w-32 h-32 shrink-0 bg-[#f4f6f8] rounded-2xl flex items-center justify-center relative overflow-hidden cursor-pointer" onclick="window.location.href='${item.slug || item.product_slug || item.product_id || item.id}'">
                         ${item.primary_image || item.thumbnail_url
                     ? `<img src="${item.primary_image || item.thumbnail_url}" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300" alt="${item.name}" onerror="this.parentElement.innerHTML='&lt;i class=&quot;fa-regular fa-image text-4xl text-gray-300&quot;&gt;&lt;/i&gt;'">`
                     : `<i class="fa-regular fa-image text-4xl text-gray-300"></i>`
                 }
                     </div>
                     
-                    <div class="flex flex-col flex-1 cursor-pointer" onclick="window.location.href='product?id=${item.product_id || item.id}'">
+                    <div class="flex flex-col flex-1 cursor-pointer" onclick="window.location.href='${item.slug || item.product_slug || item.product_id || item.id}'">
                         <div>
                             <h3 class="text-[#1e293b] font-bold text-lg leading-snug mb-1.5 hover:text-[#106e39] transition-colors">${item.name}</h3>
                             <div class="text-gray-400 text-sm mb-3">${item.category_name || 'Product'}</div>
@@ -735,6 +806,7 @@ window.applyCoupon = async function () {
         window.currentDiscount = 0;
         sessionStorage.removeItem('hbm_discount');
         sessionStorage.removeItem('hbm_coupon_code');
+        sessionStorage.removeItem('hbm_coupon_name');
         msgEl.innerText = 'Coupon removed.';
         msgEl.className = 'text-[12px] font-bold mt-2 text-gray-500 block';
         msgEl.style.display = 'block';
@@ -753,6 +825,7 @@ window.applyCoupon = async function () {
             window.currentDiscount = res.data.coupon.discount_amount;
             sessionStorage.setItem('hbm_discount', window.currentDiscount);
             sessionStorage.setItem('hbm_coupon_code', code);
+            sessionStorage.setItem('hbm_coupon_name', res.data.coupon.name || '');
             
             msgEl.innerText = `Coupon applied successfully! - ₹${window.currentDiscount} OFF`;
             msgEl.className = 'text-[12px] font-bold mt-2 text-[#106e39] block';
@@ -760,6 +833,7 @@ window.applyCoupon = async function () {
             window.currentDiscount = 0;
             sessionStorage.removeItem('hbm_discount');
             sessionStorage.removeItem('hbm_coupon_code');
+            sessionStorage.removeItem('hbm_coupon_name');
             msgEl.innerText = res.message || 'Invalid coupon code.';
             msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
         }
@@ -768,6 +842,7 @@ window.applyCoupon = async function () {
         window.currentDiscount = 0;
         sessionStorage.removeItem('hbm_discount');
         sessionStorage.removeItem('hbm_coupon_code');
+        sessionStorage.removeItem('hbm_coupon_name');
         msgEl.innerText = 'Error validating coupon. Please try again.';
         msgEl.className = 'text-[12px] font-bold mt-2 text-red-500 block';
     }
@@ -849,17 +924,32 @@ function updateCartTotals(subtotal) {
     // Savings Banner
     const savingsBanner = document.getElementById('cart-savings-banner');
     const savingsAmount = document.getElementById('cart-savings-amount');
+    const couponCodeDisplay = document.getElementById('cart-applied-coupon-code');
+    const couponNameDisplay = document.getElementById('cart-applied-coupon-name');
 
     if (discount > 0) {
         if (savingsBanner) {
             savingsBanner.classList.remove('hidden');
-            savingsBanner.classList.add('flex');
+            savingsBanner.classList.add('block');
         }
         if (savingsAmount) savingsAmount.innerText = discount.toFixed(2);
+        
+        const code = sessionStorage.getItem('hbm_coupon_code') || 'COUPON';
+        const name = sessionStorage.getItem('hbm_coupon_name');
+        
+        if (couponCodeDisplay) couponCodeDisplay.innerText = code;
+        if (couponNameDisplay) {
+            if (name) {
+                couponNameDisplay.innerText = name;
+                couponNameDisplay.classList.remove('hidden');
+            } else {
+                couponNameDisplay.classList.add('hidden');
+            }
+        }
     } else {
         if (savingsBanner) {
             savingsBanner.classList.add('hidden');
-            savingsBanner.classList.remove('flex');
+            savingsBanner.classList.remove('block');
         }
     }
 }

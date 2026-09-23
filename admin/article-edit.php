@@ -65,7 +65,7 @@
                     <div>
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">URL Slug *</label>
                         <input type="text" id="article-slug" required class="block w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm transition-colors bg-white" placeholder="e.g. healthy-eating-tips">
-                        <p class="text-[10px] text-gray-500 mt-1">This will be the URL: /article.php?slug=<strong>your-slug</strong></p>
+                        <p class="text-[10px] text-gray-500 mt-1">This will be the URL: /<strong>your-slug</strong></p>
                     </div>
                     
                     <div>

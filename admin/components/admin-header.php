@@ -32,6 +32,14 @@ require_once __DIR__ . '/admin-auth.php'; // Ensures protection is applied immed
             .md\:pl-64 { padding-left: 16rem; }
         }
     </style>
+
+    <script>
+        // Prevent browser from restoring previous scroll position on reload/navigation
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+    </script>
 </head>
 <body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen">
 

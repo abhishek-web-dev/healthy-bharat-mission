@@ -28,7 +28,7 @@ spl_autoload_register(function ($class) use ($backendDir) {
 
 use HBM\Repositories\AuthRepository;
 
-$token = $_COOKIE['auth_token'] ?? null;
+$token = $_COOKIE['auth_token'] ?? null; 
 if (!$token) {
     header("Location: /admin/login.php");
     exit;
@@ -64,7 +64,10 @@ try {
         'programs.php' => 'view_programs',
         'articles.php' => 'view_health_library',
         'health-conditions.php' => 'view_health_conditions',
+        'add-health-condition.php' => 'view_health_conditions',
+        'edit-health-condition.php' => 'view_health_conditions',
         'faqs.php' => 'view_faqs',
+        'media.php' => 'view_media',
         'appointments.php' => 'view_appointments',
         'experts.php' => 'view_experts',
         'contact-inquiries.php' => 'view_inquiries',
@@ -83,10 +86,10 @@ try {
         
         if (!in_array($requiredPerm, $userPerms)) {
             // Unauthorized for this specific page, redirect to dashboard or an error page
-            if ($currentPage !== 'dashboard.php') {
+            if ($currentPage !== 'dashboard.php' && $currentPage !== 'appointments.php') {
                 header("Location: dashboard.php");
                 exit;
-            } else {
+            } else if ($currentPage !== 'appointments.php') {
                 echo "Access Denied.";
                 exit;
             }

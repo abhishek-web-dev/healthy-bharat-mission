@@ -166,7 +166,7 @@ window.downloadInvoiceList = async function(orderId, orderNumber, btn) {
     
     try {
         const token = localStorage.getItem('hbm_token') || localStorage.getItem('token');
-        const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api';
+        const baseUrl = '/api';
         const response = await fetch(`${baseUrl}/orders/${orderId}/invoice/download`, {
             headers: {
                 'Authorization': `Bearer ${token}`

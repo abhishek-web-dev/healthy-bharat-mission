@@ -159,7 +159,7 @@
                     <div
                         class="w-full h-64 lg:h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-100 relative">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d112061.09262729953!2d77.15873752697843!3d28.646677259922756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.06889754725782!3d28.52728034389636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1714400000000!5m2!1sen!2sin"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
@@ -173,7 +173,7 @@
                     <hbm-contact-form></hbm-contact-form>
 
                     <!-- FAQ Section -->
-                    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100">
+                    <div id="faqs" class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100">
                         <h3 class="font-heading font-extrabold text-2xl lg:text-3xl text-[#1e293b] mb-2 tracking-tight">
                             Frequently Asked <span class="text-primary">Questions</span>
                         </h3>

@@ -129,12 +129,6 @@
         <!-- Right Form Area -->
         <div class="w-full lg:w-[55%] flex flex-col p-6 sm:p-8 lg:p-10 xl:p-12 relative">
 
-            <!-- Top Right Link -->
-            <div class="text-[13px] flex justify-end w-full mb-2">
-                <span class="text-gray-500 font-medium">New here?</span>
-                <a href="register" class="text-[#106e39] font-bold hover:underline ml-1">Create an Account</a>
-            </div>
-
             <div class="w-full max-w-[440px] mx-auto flex-grow flex flex-col justify-center">
                 <h1 class="text-3xl md:text-[38px] font-extrabold text-[#052b14] mb-2 tracking-tight">Welcome <span
                         class="text-[#106e39]">Back</span></h1>
@@ -187,8 +181,12 @@
                         class="w-full flex items-center justify-center bg-[#052b14] hover:bg-[#1a5c2e] text-white font-bold px-4 rounded-xl shadow-[0_4px_12px_rgba(5,43,20,0.15)] transition-all">
                         Login <i class="fa-solid fa-arrow-right ml-2 text-[13px]"></i>
                     </button>
-                    <!-- Info Box -->
 
+                    <!-- Create Account Link -->
+                    <div class="mt-6 flex items-center justify-center text-[14.5px]">
+                        <span class="text-gray-500 font-medium">New here?</span>
+                        <a href="register" class="text-[#106e39] font-bold hover:underline ml-1.5 transition-colors">Create an Account</a>
+                    </div>
 
                     <!-- Info Box -->
                     <div class="bg-[#f0f8f3] rounded-xl p-3.5 flex gap-4 mt-6 items-start border border-green-50">

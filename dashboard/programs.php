@@ -15,6 +15,19 @@
     <link rel="shortcut icon" href="../assets/images/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+    <style>
+        .program-img-wrapper {
+            width: 100%;
+            height: 160px;
+        }
+        @media (min-width: 768px) {
+            .program-img-wrapper {
+                width: 220px;
+                min-width: 220px;
+                height: 130px;
+            }
+        }
+    </style>
 </head>
 <body class="font-body text-gray-800 bg-gray-50/50 antialiased min-h-screen flex flex-col">
 
@@ -26,9 +39,9 @@
             <hbm-dashboard-sidebar active-page="programs"></hbm-dashboard-sidebar>
 
             <!-- Main Content -->
-            <div id="dashboard-main" class="flex-1 transition-opacity duration-300 opacity-0">
+            <div id="dashboard-main" class="flex-1 transition-opacity duration-300 opacity-0 min-w-0">
                 <!-- Header Banner -->
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl bg-green-50 text-[#106e39] flex items-center justify-center">
                             <i class="fa-solid fa-dumbbell text-2xl"></i>
@@ -51,7 +64,7 @@
                 <div class="mb-6 flex border-b border-gray-200" id="program-tabs">
                     <button data-tab="active" class="px-6 py-3 font-bold text-[#106e39] border-b-2 border-[#106e39] outline-none">Active Programs</button>
                     <button data-tab="completed" class="px-6 py-3 font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent outline-none">Completed Programs</button>
-                    <button data-tab="available" class="px-6 py-3 font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent outline-none" onclick="window.location.href='../program'">Available Programs</button>
+                    <button data-tab="available" class="px-6 py-3 font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent outline-none">Available Programs</button>
                 </div>
 
                 <!-- Programs Container -->
@@ -60,7 +73,7 @@
                 </div>
 
                 <!-- Explore More -->
-                <div class="mt-6 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="mt-6 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div class="flex items-center gap-4">
                         <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600">
                             <i class="fa-solid fa-plus text-xl font-light"></i>
@@ -83,6 +96,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             let userPrograms = { active: [], completed: [] };
+            let availablePrograms = [];
             
             try {
                 const res = await HBM_API.request('/user/programs');
@@ -90,14 +104,28 @@
                     userPrograms = res.data;
                 }
             } catch (err) {
-                console.error("Failed to fetch programs:", err);
+                console.error("Failed to fetch user programs:", err);
+            }
+
+            try {
+                const availRes = await HBM_API.request('/programs');
+                if (availRes.success && availRes.data) {
+                    availablePrograms = availRes.data.data || availRes.data;
+                }
+            } catch (err) {
+                console.error("Failed to fetch available programs:", err);
             }
 
             const container = document.getElementById('programs-container');
             const tabs = document.querySelectorAll('#program-tabs button[data-tab]');
 
             function renderPrograms(type) {
-                const programs = userPrograms[type] || [];
+                let programs = [];
+                if (type === 'available') {
+                    programs = availablePrograms;
+                } else {
+                    programs = userPrograms[type] || [];
+                }
                 
                 if (programs.length === 0) {
                     container.innerHTML = `
@@ -110,74 +138,102 @@
 
                 let html = '';
                 programs.forEach(prog => {
-                    const dateObj = new Date(prog.enrolled_at);
-                    const dateStr = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-                    
-                    const durationStr = prog.duration_days ? `${prog.duration_days} Days` : '--';
-                    const modulesStr = prog.total_modules ? `${prog.total_modules} Modules` : '--';
-                    
-                    let featuresHtml = '';
-                    if (prog.features && prog.features.length > 0) {
-                        prog.features.forEach(f => {
-                            let icon = 'fa-check';
-                            if (f.toLowerCase().includes('diet')) icon = 'fa-utensils';
-                            if (f.toLowerCase().includes('workout')) icon = 'fa-dumbbell';
-                            if (f.toLowerCase().includes('expert')) icon = 'fa-user-doctor';
-                            featuresHtml += `<span class="flex items-center gap-1.5"><i class="fa-solid ${icon} opacity-50"></i> ${f}</span>`;
-                        });
-                    }
-
-                    let badgeColor = 'bg-[#ebf8f0] text-[#106e39]';
-                    let badgeText = 'In Progress';
-                    if (type === 'completed') {
-                        badgeColor = 'bg-blue-50 text-blue-700';
-                        badgeText = 'Completed';
-                    } else if (prog.progress >= 80) {
-                        badgeColor = 'bg-blue-50 text-blue-700';
-                        badgeText = 'Almost There!';
-                    }
-
                     const imageUrl = prog.image_url ? `../${prog.image_url}` : 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=300&auto=format&fit=crop';
-
-                    html += `
-                        <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-5 flex flex-col md:flex-row items-center gap-6 relative">
-                            <div class="w-full md:w-[220px] h-[130px] rounded-xl overflow-hidden shrink-0 bg-gray-100">
-                                <img src="${imageUrl}" alt="${prog.name}" class="w-full h-full object-cover">
-                            </div>
-                            <div class="flex-1 w-full">
-                                <div class="flex justify-between items-start mb-2">
-                                    <div>
-                                        <h3 class="font-bold text-gray-800 text-[17px]">${prog.name}</h3>
-                                        <p class="text-[13px] text-gray-500 mt-1">Started on ${dateStr}</p>
-                                    </div>
-                                    <div class="${badgeColor} px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">
-                                        ${badgeText}
-                                    </div>
+                    
+                    if (type === 'available') {
+                        const priceText = prog.is_free ? 'Free' : (prog.price ? `₹${prog.price}` : 'Paid');
+                        html += `
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row items-center gap-6 relative">
+                                <div class="program-img-wrapper rounded-xl overflow-hidden shrink-0 bg-gray-100">
+                                    <img src="${imageUrl}" alt="${prog.title}" class="w-full h-full object-cover">
                                 </div>
-                                
-                                <div class="mt-4 mb-3">
-                                    <div class="flex justify-between items-center text-xs mb-1.5">
-                                        <span class="text-gray-500 font-medium">Progress</span>
-                                        <span class="text-gray-700 font-bold">${prog.progress}% Completed</span>
+                                <div class="flex-1 w-full min-w-0">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <h3 class="font-bold text-gray-800 text-[17px]">${prog.title}</h3>
+                                            <p class="text-[13px] text-gray-500 mt-1 line-clamp-2">${prog.description || 'Join this program to improve your health and wellness.'}</p>
+                                        </div>
+                                        <div class="bg-green-50 text-[#106e39] px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap border border-green-100">
+                                            ${priceText}
+                                        </div>
                                     </div>
-                                    <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                                        <div class="h-full bg-[#106e39] rounded-full" style="width: ${prog.progress}%"></div>
+                                    
+                                    <div class="flex flex-wrap items-center justify-end gap-4 mt-4">
+                                        <a href="../program/${prog.slug}" class="px-5 py-2.5 bg-[#106e39] text-white text-sm rounded-lg font-bold hover:bg-green-800 transition-colors whitespace-nowrap">
+                                            View Details <i class="fa-solid fa-arrow-right ml-1"></i>
+                                        </a>
                                     </div>
-                                </div>
-
-                                <div class="flex flex-wrap items-center justify-between gap-4 mt-4">
-                                    <div class="flex flex-wrap items-center gap-4 text-[13px] text-gray-600 font-medium">
-                                        <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar opacity-50"></i> ${durationStr}</span>
-                                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-layer-group opacity-50"></i> ${modulesStr}</span>
-                                        ${featuresHtml}
-                                    </div>
-                                    <a href="../program/${prog.slug}" class="px-5 py-2.5 bg-[#106e39] text-white text-sm rounded-lg font-bold hover:bg-green-800 transition-colors whitespace-nowrap">
-                                        Continue Program <i class="fa-solid fa-arrow-right ml-1"></i>
-                                    </a>
                                 </div>
                             </div>
-                        </div>
-                    `;
+                        `;
+                    } else {
+                        const dateObj = new Date(prog.enrolled_at);
+                        const dateStr = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                        
+                        const durationStr = prog.duration_days ? `${prog.duration_days} Days` : '--';
+                        const modulesStr = prog.total_modules ? `${prog.total_modules} Modules` : '--';
+                        
+                        let featuresHtml = '';
+                        if (prog.features && prog.features.length > 0) {
+                            prog.features.forEach(f => {
+                                let icon = 'fa-check';
+                                if (f.toLowerCase().includes('diet')) icon = 'fa-utensils';
+                                if (f.toLowerCase().includes('workout')) icon = 'fa-dumbbell';
+                                if (f.toLowerCase().includes('expert')) icon = 'fa-user-doctor';
+                                featuresHtml += `<span class="flex items-center gap-1.5"><i class="fa-solid ${icon} opacity-50"></i> ${f}</span>`;
+                            });
+                        }
+    
+                        let badgeColor = 'bg-[#ebf8f0] text-[#106e39]';
+                        let badgeText = 'In Progress';
+                        if (type === 'completed') {
+                            badgeColor = 'bg-blue-50 text-blue-700';
+                            badgeText = 'Completed';
+                        } else if (prog.progress >= 80) {
+                            badgeColor = 'bg-blue-50 text-blue-700';
+                            badgeText = 'Almost There!';
+                        }
+
+                        html += `
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row items-center gap-6 relative">
+                                <div class="program-img-wrapper rounded-xl overflow-hidden shrink-0 bg-gray-100">
+                                    <img src="${imageUrl}" alt="${prog.name}" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 w-full min-w-0">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <h3 class="font-bold text-gray-800 text-[17px]">${prog.name}</h3>
+                                            <p class="text-[13px] text-gray-500 mt-1">Started on ${dateStr}</p>
+                                        </div>
+                                        <div class="${badgeColor} px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">
+                                            ${badgeText}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 mb-3">
+                                        <div class="flex justify-between items-center text-xs mb-1.5">
+                                            <span class="text-gray-500 font-medium">Progress</span>
+                                            <span class="text-gray-700 font-bold">${prog.progress}% Completed</span>
+                                        </div>
+                                        <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                                            <div class="h-full bg-[#106e39] rounded-full" style="width: ${prog.progress}%"></div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex flex-wrap items-center justify-between gap-4 mt-4">
+                                        <div class="flex flex-wrap items-center gap-4 text-[13px] text-gray-600 font-medium">
+                                            <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar opacity-50"></i> ${durationStr}</span>
+                                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-layer-group opacity-50"></i> ${modulesStr}</span>
+                                            ${featuresHtml}
+                                        </div>
+                                        <a href="../program/${prog.slug}" class="px-5 py-2.5 bg-[#106e39] text-white text-sm rounded-lg font-bold hover:bg-green-800 transition-colors whitespace-nowrap">
+                                            Continue Program <i class="fa-solid fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
                 });
                 
                 container.innerHTML = html;
@@ -187,7 +243,6 @@
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const type = tab.dataset.tab;
-                    if (type === 'available') return; // Redirects via onclick
 
                     // Update active state
                     tabs.forEach(t => {

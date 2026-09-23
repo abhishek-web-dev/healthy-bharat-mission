@@ -203,7 +203,7 @@
         </div>
 
         <!-- Bottom Tabs & Content Section -->
-        <div class="mt-16 border-t border-gray-100 pt-8">
+        <div id="product-tabs-container" class="hidden mt-16 border-t border-gray-100 pt-8">
 
             <!-- Tabs -->
             <div
@@ -430,24 +430,7 @@
                     <!-- Filled dynamically via JS -->
                 </div>
 
-                <!-- Feature Ratings (Flipkart Style) -->
-                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-8">
-                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
-                        Taste <span class="font-bold flex items-center gap-0.5 ml-1">4.5 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
-                    </div>
-                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
-                        Texture <span class="font-bold flex items-center gap-0.5 ml-1">4.4 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
-                    </div>
-                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
-                        Health Benefits <span class="font-bold flex items-center gap-0.5 ml-1">4.8 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
-                    </div>
-                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
-                        Packaging <span class="font-bold flex items-center gap-0.5 ml-1">4.2 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
-                    </div>
-                    <div class="flex items-center gap-1.5 text-[14px] text-[#212121]">
-                        Value for Money <span class="font-bold flex items-center gap-0.5 ml-1">4.1 <i class="fa-solid fa-star text-[10px] text-[#106e39]"></i></span>
-                    </div>
-                </div>
+
 
                 <!-- Reviews Scroll List (Discrete Auto-Slide) -->
                 <style>
@@ -461,10 +444,14 @@
                         <div class="w-full text-center text-gray-500 py-8" id="noReviewsMsg" style="display: none;">No reviews yet. Be the first to write a review!</div>
                     </div>
                     
-                    <!-- Right Arrow Button Overlay -->
                     <button onclick="document.getElementById('reviewsScrollContainer').scrollBy({ left: 276, behavior: 'smooth' })" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.15)] border border-gray-100 w-12 h-12 rounded-full flex items-center justify-center text-gray-700 hover:text-black z-10 opacity-0 group-hover:opacity-100 transition-opacity">
                         <i class="fa-solid fa-chevron-right text-lg"></i>
                     </button>
+                </div>
+                
+                <!-- Show All Reviews Button -->
+                <div class="mt-2 mb-8 text-center" id="showAllReviewsContainer" style="display: none;">
+                    <a href="#" id="showAllReviewsBtn" class="inline-block border border-[#106e39] text-[#106e39] px-6 py-2 rounded font-bold text-[14px] hover:bg-[#106e39] hover:text-white transition-colors shadow-sm">Show All Reviews</a>
                 </div>
 
                 <script>
@@ -677,6 +664,21 @@
                         else badge.textContent = 'Average';
                     }
 
+                    // Prepare global photo data
+                    if (photos && photos.length > 0) {
+                        globalPhotoData = photos.map(p => {
+                            const parentReview = reviews.find(r => r.id === p.review_id) || {};
+                            return {
+                                src: p.image_path,
+                                rating: parentReview.rating || 5,
+                                title: parentReview.title || '',
+                                content: parentReview.content || '',
+                                reviewer_name: parentReview.reviewer_name || '',
+                                created_at: parentReview.created_at || ''
+                            };
+                        });
+                    }
+
                     // Update Review List
                     const scrollContainer = document.getElementById('reviewsScrollContainer');
                     const noReviewsMsg = document.getElementById('noReviewsMsg');
@@ -685,17 +687,11 @@
                         noReviewsMsg.style.display = 'block';
                     } else {
                         noReviewsMsg.style.display = 'none';
+                        document.getElementById('showAllReviewsContainer').style.display = 'block';
+                        document.getElementById('showAllReviewsBtn').href = `/store/${productId}/reviews`;
+                        
                         let reviewsHtml = '';
                         reviews.forEach(r => {
-                            let photosHtml = '';
-                            if(r.photos && r.photos.length > 0) {
-                                photosHtml = '<div class="flex gap-2 mt-3 overflow-x-auto">';
-                                r.photos.forEach(img => {
-                                    photosHtml += `<img src="${img}" class="h-16 w-16 object-cover rounded shadow-sm border border-gray-100">`;
-                                });
-                                photosHtml += '</div>';
-                            }
-                            
                             reviewsHtml += `
                             <div style="min-width: 260px; width: 260px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" class="shrink-0 snap-start flex flex-col justify-between">
                                 <div>
@@ -707,7 +703,6 @@
                                         <span class="text-[#878787] text-[12px]">${timeAgo(r.created_at)}</span>
                                     </div>
                                     <p class="text-[#212121] text-[13px] line-clamp-3 leading-snug">${r.content}</p>
-                                    ${photosHtml}
                                 </div>
                                 <div class="flex flex-col gap-1 mt-4">
                                     <span class="text-[#878787] text-[12px] font-medium">${r.reviewer_name}</span>
@@ -743,22 +738,22 @@
                         // Populate small display grid (up to 5 photos)
                         let gridHtml = '';
                         if (photos.length > 0) {
-                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 2; grid-row: span 2;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                            gridHtml += `<div onclick="openUnifiedLightbox(event, 0)" style="grid-column: span 2; grid-row: span 2;" class="relative overflow-hidden rounded-[4px] cursor-pointer block">
                                             <img src="${photos[0].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                                          </div>`;
                         }
                         if (photos.length > 1) {
-                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                            gridHtml += `<div onclick="openUnifiedLightbox(event, 1)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer block">
                                             <img src="${photos[1].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                                          </div>`;
                         }
                         if (photos.length > 2) {
-                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                            gridHtml += `<div onclick="openUnifiedLightbox(event, 2)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer block">
                                             <img src="${photos[2].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                                          </div>`;
                         }
                         if (photos.length > 3) {
-                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer">
+                            gridHtml += `<div onclick="openUnifiedLightbox(event, 3)" style="grid-column: span 1; grid-row: span 1;" class="relative overflow-hidden rounded-[4px] cursor-pointer block">
                                             <img src="${photos[3].image_path}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                                          </div>`;
                         }
@@ -769,7 +764,7 @@
                                               <span class="text-white font-bold text-xl">+${photos.length - 5}</span>
                                            </div>`;
                             }
-                            gridHtml += `<div onclick="openAllImagesModal()" style="grid-column: span 1; grid-row: span 1;" class="relative rounded-[4px] cursor-pointer overflow-hidden group">
+                            gridHtml += `<div onclick="openUnifiedLightbox(event, 4)" style="grid-column: span 1; grid-row: span 1;" class="relative rounded-[4px] cursor-pointer overflow-hidden group block">
                                             <img src="${photos[4].image_path}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                                             ${overlay}
                                          </div>`;
@@ -813,11 +808,11 @@
                 <div>
                     <label class="block text-[#212121] font-bold text-[14px] mb-2">Overall Rating <span class="text-red-500">*</span></label>
                     <div class="flex items-center gap-1 cursor-pointer" id="starRatingContainer">
-                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(1)"></i>
-                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(2)"></i>
-                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(3)"></i>
-                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(4)"></i>
-                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#ea580c] transition-colors" onclick="setRating(5)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#106e39] transition-colors" onclick="setRating(1)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#106e39] transition-colors" onclick="setRating(2)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#106e39] transition-colors" onclick="setRating(3)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#106e39] transition-colors" onclick="setRating(4)"></i>
+                        <i class="fa-regular fa-star text-[32px] text-gray-300 hover:text-[#106e39] transition-colors" onclick="setRating(5)"></i>
                     </div>
                 </div>
 
@@ -833,25 +828,23 @@
                     <textarea id="reviewContentInput" rows="5" placeholder="Share your experience with this product..." class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400 resize-none"></textarea>
                 </div>
 
-                <!-- Size / Variant Purchased -->
-                <div>
-                    <label class="block text-[#212121] font-bold text-[14px] mb-2">Size / Variant Purchased <span class="font-normal text-gray-400">(optional)</span></label>
-                    <input type="text" id="reviewVariantInput" placeholder="e.g. 10 Lb, 20 Lb" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all placeholder:text-gray-400">
-                </div>
+
 
                 <!-- Add Photos -->
                 <div>
                     <label class="block text-[#212121] font-bold text-[14px] mb-2">Add Photos <span class="font-normal text-gray-400">(up to 3)</span></label>
-                    <input type="file" id="reviewPhotoInput" accept="image/jpeg, image/png, image/webp" multiple style="display: none;" onchange="updatePhotoCount(this)">
-                    <button onclick="document.getElementById('reviewPhotoInput').click()" class="w-24 h-24 rounded-lg border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-2 text-gray-400 hover:text-[#106e39] hover:border-[#106e39] transition-all">
-                        <i class="fa-solid fa-camera text-[24px]"></i>
-                        <span id="photoCountText" class="text-[12px] font-medium text-center leading-tight">Add Photo</span>
-                    </button>
+                    <input type="file" id="reviewPhotoInput" accept="image/jpeg, image/png, image/webp" multiple style="display: none;" onchange="handleReviewPhotoSelection(this)">
+                    <div class="flex items-center gap-4 flex-wrap" id="reviewPhotoPreviewContainer">
+                        <button id="addReviewPhotoButton" onclick="document.getElementById('reviewPhotoInput').click()" class="w-24 h-24 shrink-0 rounded-lg border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-2 text-gray-400 hover:text-[#106e39] hover:border-[#106e39] transition-all">
+                            <i class="fa-solid fa-camera text-[24px]"></i>
+                            <span class="text-[12px] font-medium text-center leading-tight">Add Photo</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Submit Button -->
                 <div class="pt-4">
-                    <button id="btn-submit-review" onclick="submitReview()" style="background-color: #ea580c; color: white;" class="px-8 py-3 rounded-lg font-bold text-[15px] hover:opacity-90 transition-opacity shadow-md">
+                    <button id="btn-submit-review" onclick="submitReview()" class="px-8 py-3 rounded-lg font-bold text-[15px] bg-[#106e39] text-white hover:bg-[#0d592e] transition-colors shadow-md">
                         Submit Review
                     </button>
                 </div>
@@ -862,16 +855,82 @@
 
     <script>
         let currentReviewRating = 0;
+        let selectedReviewPhotos = [];
 
-        function updatePhotoCount(input) {
-            const countText = document.getElementById('photoCountText');
+        function handleReviewPhotoSelection(input) {
+            const errorContainer = document.getElementById('reviewErrorContainer');
+            const errorMsg = document.getElementById('reviewErrorMsg');
+            errorContainer.classList.add('hidden');
+
             if (input.files && input.files.length > 0) {
-                const count = Math.min(input.files.length, 3);
-                countText.textContent = `${count} Photo${count > 1 ? 's' : ''} Selected`;
-                countText.classList.add('text-[#106e39]', 'font-bold');
-            } else {
-                countText.textContent = 'Add Photo';
-                countText.classList.remove('text-[#106e39]', 'font-bold');
+                const remainingSlots = 3 - selectedReviewPhotos.length;
+                let addedCount = 0;
+
+                for (let i = 0; i < input.files.length; i++) {
+                    if (addedCount >= remainingSlots) {
+                        errorMsg.textContent = "You can only upload up to 3 photos in total.";
+                        errorContainer.classList.remove('hidden');
+                        break;
+                    }
+                    
+                    const file = input.files[i];
+                    
+                    const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+                    if (!validTypes.includes(file.type)) {
+                        errorMsg.textContent = "Invalid file type. Please upload JPEG, PNG, or WEBP images.";
+                        errorContainer.classList.remove('hidden');
+                        continue;
+                    }
+                    
+                    if (file.size > 2 * 1024 * 1024) {
+                        errorMsg.textContent = "File is too large. Maximum size is 2MB.";
+                        errorContainer.classList.remove('hidden');
+                        continue;
+                    }
+
+                    selectedReviewPhotos.push(file);
+                    addedCount++;
+                }
+            }
+            input.value = '';
+            renderReviewPhotoPreviews();
+        }
+
+        function removeReviewPhoto(index) {
+            selectedReviewPhotos.splice(index, 1);
+            renderReviewPhotoPreviews();
+        }
+
+        function renderReviewPhotoPreviews() {
+            const container = document.getElementById('reviewPhotoPreviewContainer');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            selectedReviewPhotos.forEach((file, index) => {
+                const url = URL.createObjectURL(file);
+                const wrapper = document.createElement('div');
+                wrapper.className = 'w-24 h-24 shrink-0 rounded-lg relative border border-gray-200 overflow-hidden';
+                
+                wrapper.innerHTML = `
+                    <img src="${url}" class="w-full h-full object-cover" onload="window.URL.revokeObjectURL(this.src)">
+                    <button onclick="removeReviewPhoto(${index})" class="absolute top-1 right-1 w-6 h-6 rounded-full bg-white text-red-500 shadow hover:bg-red-50 hover:text-red-600 flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                `;
+                container.appendChild(wrapper);
+            });
+
+            if (selectedReviewPhotos.length < 3) {
+                const addBtn = document.createElement('button');
+                addBtn.id = 'addReviewPhotoButton';
+                addBtn.onclick = () => document.getElementById('reviewPhotoInput').click();
+                addBtn.className = 'w-24 h-24 shrink-0 rounded-lg border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-2 text-gray-400 hover:text-[#106e39] hover:border-[#106e39] transition-all';
+                addBtn.innerHTML = `
+                    <i class="fa-solid fa-camera text-[24px]"></i>
+                    <span class="text-[12px] font-medium text-center leading-tight">Add Photo</span>
+                `;
+                container.appendChild(addBtn);
             }
         }
 
@@ -887,7 +946,8 @@
             setRating(0);
             document.getElementById('reviewTitleInput').value = '';
             document.getElementById('reviewContentInput').value = '';
-            document.getElementById('reviewVariantInput').value = '';
+            selectedReviewPhotos = [];
+            renderReviewPhotoPreviews();
             document.getElementById('reviewErrorContainer').classList.add('hidden');
         }
         
@@ -900,7 +960,7 @@
                 if (index < rating) {
                     star.classList.remove('fa-regular', 'text-gray-300');
                     star.classList.add('fa-solid');
-                    star.style.color = '#ea580c';
+                    star.style.color = '#106e39';
                 } else {
                     star.classList.remove('fa-solid');
                     star.classList.add('fa-regular', 'text-gray-300');
@@ -918,8 +978,7 @@
             
             const title = document.getElementById('reviewTitleInput').value.trim();
             const content = document.getElementById('reviewContentInput').value.trim();
-            const variant = document.getElementById('reviewVariantInput').value.trim();
-            const productId = new URLSearchParams(window.location.search).get('id');
+            const productId = window.currentProduct ? window.currentProduct.id : null;
 
             if (!productId) {
                 errorMsg.textContent = "Product not found.";
@@ -948,33 +1007,32 @@
             formData.append('rating', currentReviewRating);
             formData.append('title', title);
             formData.append('content', content);
-            formData.append('variant', variant);
             
-            const photoInput = document.getElementById('reviewPhotoInput');
-            if (photoInput && photoInput.files.length > 0) {
-                const maxFiles = Math.min(photoInput.files.length, 3);
-                for(let i=0; i<maxFiles; i++) {
-                    formData.append('photos[]', photoInput.files[i]);
-                }
-            }
+            selectedReviewPhotos.forEach(file => {
+                formData.append('photos[]', file);
+            });
 
             // Since HBM_API.request supports FormData, we can use it directly
             window.HBM_API.request('/store/reviews', 'POST', formData)
             .then(res => {
-                if (res.success) {
-                    closeWriteReviewModal();
-                    alert('Review submitted successfully! It will be published once approved.');
-                } else {
-                    errorMsg.textContent = res.message || "Failed to submit review. Please try again.";
-                    errorContainer.classList.remove('hidden');
-                    if (res.message && res.message.toLowerCase().includes('login')) {
-                        errorMsg.innerHTML = 'You must be logged in to submit a review. <a href="/login" class="underline font-bold">Login here</a>.';
-                    }
-                }
+                // If it resolves, it means response.ok was true
+                closeWriteReviewModal();
+                alert('Review submitted successfully! It will be published once approved.');
             })
             .catch(err => {
                 console.error('Review submit error:', err);
-                errorMsg.textContent = "A network error occurred. Please try again later.";
+                if (err.message && err.status) {
+                    if (err.status >= 500) {
+                        errorMsg.textContent = "A server error occurred. Please try again later.";
+                    } else {
+                        errorMsg.textContent = err.message;
+                        if (err.message.toLowerCase().includes('login') || err.status === 401) {
+                            errorMsg.innerHTML = 'You must be logged in to submit a review. <a href="/login" class="underline font-bold">Login here</a>.';
+                        }
+                    }
+                } else {
+                    errorMsg.textContent = "A network error occurred. Please check your connection and try again.";
+                }
                 errorContainer.classList.remove('hidden');
             })
             .finally(() => {
@@ -983,71 +1041,171 @@
                 submitBtn.style.opacity = '1';
             });
         }
-
-        const gridImages = [
-            'https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800&h=800&fit=crop',
-            'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1625940629601-8f2570086b06?w=400&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=400&fit=crop'
-        ];
-        let currentSingleImageIndex = 0;
-        let currentImageArray = gridImages;
-
-        function openSingleImageModal(index, imageArray = gridImages) {
-            currentSingleImageIndex = index;
-            currentImageArray = imageArray;
-            updateSingleImageView();
-            document.getElementById('singleImageModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function updateSingleImageView() {
-            document.getElementById('singleImageDisplay').src = currentImageArray[currentSingleImageIndex];
-        }
-
-        function closeSingleImageModal() {
-            document.getElementById('singleImageModal').style.display = 'none';
-            document.body.style.overflow = '';
-        }
-
-        function nextSingleImage(event) {
-            if(event) event.stopPropagation();
-            currentSingleImageIndex = (currentSingleImageIndex + 1) % currentImageArray.length;
-            updateSingleImageView();
-        }
-
-        function prevSingleImage(event) {
-            if(event) event.stopPropagation();
-            currentSingleImageIndex = (currentSingleImageIndex - 1 + currentImageArray.length) % currentImageArray.length;
-            updateSingleImageView();
-        }
     </script>
-
-    <!-- Single Image Modal -->
-    <div id="singleImageModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 11000; align-items: center; justify-content: center; padding: 2rem;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.85);" class="backdrop-blur-sm" onclick="closeSingleImageModal()"></div>
+    <!-- Unified Review Photo Lightbox -->
+    <div id="hbmReviewLightbox" class="fixed inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300" style="background-color: #000; z-index: 9999;">
         
-        <div style="position: relative; width: 90vw; height: 90vh; display: flex; align-items: center; justify-content: center;">
-            <button onclick="closeSingleImageModal()" style="position: absolute; top: -40px; right: -20px; cursor: pointer; color: white; background: none; border: none; font-size: 28px; padding: 4px; z-index: 20;">
-                <i class="fa-solid fa-xmark"></i>
+        <!-- Top Bar -->
+        <div class="absolute top-0 left-0 w-full p-6 flex items-start justify-between" style="z-index: 10000;">
+            <div class="w-10"></div> <!-- Spacer -->
+            <div class="text-white text-sm font-semibold px-4 py-2 rounded-full" id="lightboxCounter" style="background-color: rgba(255,255,255,0.15);">1 / 10</div>
+            <button onclick="closeUnifiedLightbox(event)" class="text-gray-300 hover:text-white p-2 cursor-pointer transition-colors">
+                <i class="fa-solid fa-xmark fa-2x"></i>
             </button>
+        </div>
+        
+        <!-- Left Navigation -->
+        <button id="lightboxPrevBtn" onclick="prevUnifiedLightbox(event)" class="absolute top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white flex items-center justify-center cursor-pointer transition-colors p-4" style="left: 20px; z-index: 10000;">
+            <i class="fa-solid fa-chevron-left fa-3x md:fa-4x"></i>
+        </button>
+        
+        <!-- Right Navigation -->
+        <button id="lightboxNextBtn" onclick="nextUnifiedLightbox(event)" class="absolute top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white flex items-center justify-center cursor-pointer transition-colors p-4" style="right: 20px; z-index: 10000;">
+            <i class="fa-solid fa-chevron-right fa-3x md:fa-4x"></i>
+        </button>
+
+        <!-- Main Content Area -->
+        <div class="w-full h-full flex items-center justify-center p-8">
+            <!-- Image -->
+            <img id="lightboxImage" src="" alt="Customer Photo" class="object-contain" style="max-width: 85vw; max-height: 85vh;">
+        </div>
+
+        <!-- Metadata Overlay (Bottom Left) -->
+        <div class="absolute bottom-0 left-0 w-full p-8 pt-16 text-white flex flex-col items-start text-left pointer-events-none" style="z-index: 10000; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);">
+            <div class="flex items-center justify-start mb-2" style="gap: 8px;">
+                <span id="lightboxRating" class="text-white font-bold px-2 py-1 rounded text-xs flex items-center shadow-sm" style="background-color: #106e39; gap: 4px;">
+                    5 <i class="fa-solid fa-star" style="font-size: 10px;"></i>
+                </span>
+                <h3 id="lightboxTitle" class="font-bold text-lg md:text-xl leading-tight m-0" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"></h3>
+            </div>
+            <p id="lightboxContent" class="text-gray-200 text-sm md:text-base leading-relaxed mb-4 max-w-3xl" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"></p>
             
-            <button onclick="prevSingleImage(event)" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: white; background: rgba(0,0,0,0.5); border: none; font-size: 24px; padding: 12px 18px; border-radius: 50%; z-index: 20; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            
-            <img id="singleImageDisplay" src="" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5));" alt="Enlarged customer photo" />
-            
-            <button onclick="nextSingleImage(event)" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: white; background: rgba(0,0,0,0.5); border: none; font-size: 24px; padding: 12px 18px; border-radius: 50%; z-index: 20; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
+            <div class="flex flex-wrap items-center justify-start text-gray-300 text-xs" style="gap: 12px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+                <span id="lightboxAuthor" class="font-bold text-white"></span>
+                <span class="flex items-center" style="gap: 4px;"><i class="fa-solid fa-circle-check text-blue-400"></i> <span>Certified Buyer</span></span>
+                <span id="lightboxDateText"></span>
+            </div>
         </div>
     </div>
     <script>
+        let globalPhotoData = [];
+        let currentLightboxIndex = 0;
+
+        function openUnifiedLightbox(e, index) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            if (!globalPhotoData || globalPhotoData.length === 0) return;
+            currentLightboxIndex = index;
+            updateUnifiedLightboxView();
+            const lb = document.getElementById('hbmReviewLightbox');
+            lb.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUnifiedLightbox(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const lb = document.getElementById('hbmReviewLightbox');
+            if (lb) {
+                lb.classList.add('opacity-0', 'pointer-events-none');
+            }
+            document.body.style.overflow = '';
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const lb = document.getElementById('hbmReviewLightbox');
+                if (lb && !lb.classList.contains('opacity-0')) {
+                    closeUnifiedLightbox();
+                }
+            }
+        });
+
+        function updateUnifiedLightboxView() {
+            const data = globalPhotoData[currentLightboxIndex];
+            if (!data) return;
+
+            document.getElementById('lightboxImage').src = data.src;
+            document.getElementById('lightboxCounter').textContent = (currentLightboxIndex + 1) + ' / ' + globalPhotoData.length;
+            
+            const ratingEl = document.getElementById('lightboxRating');
+            ratingEl.innerHTML = data.rating + ' <i class="fa-solid fa-star text-[10px]"></i>';
+            document.getElementById('lightboxTitle').textContent = data.title || '';
+            document.getElementById('lightboxContent').textContent = data.content || '';
+            document.getElementById('lightboxAuthor').textContent = data.reviewer_name || '';
+            
+            const date = new Date(data.created_at);
+            const dateStr = !isNaN(date.getTime()) ? date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+            document.getElementById('lightboxDateText').textContent = dateStr;
+
+            const prevBtn = document.getElementById('lightboxPrevBtn');
+            const nextBtn = document.getElementById('lightboxNextBtn');
+            
+            if (currentLightboxIndex === 0) {
+                prevBtn.style.visibility = 'hidden';
+            } else {
+                prevBtn.style.visibility = 'visible';
+            }
+            
+            if (currentLightboxIndex === globalPhotoData.length - 1) {
+                nextBtn.style.visibility = 'hidden';
+            } else {
+                nextBtn.style.visibility = 'visible';
+            }
+        }
+
+        function prevUnifiedLightbox(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            if (currentLightboxIndex > 0) {
+                currentLightboxIndex--;
+                updateUnifiedLightboxView();
+            }
+        }
+
+        function nextUnifiedLightbox(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            if (currentLightboxIndex < globalPhotoData.length - 1) {
+                currentLightboxIndex++;
+                updateUnifiedLightboxView();
+            }
+        }
+
+        // Close on background click
+        document.getElementById('hbmReviewLightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeUnifiedLightbox(e);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const lb = document.getElementById('hbmReviewLightbox');
+            if (lb && !lb.classList.contains('opacity-0')) {
+                if (e.key === 'Escape') closeUnifiedLightbox(e);
+                if (e.key === 'ArrowLeft') prevUnifiedLightbox(e);
+                if (e.key === 'ArrowRight') nextUnifiedLightbox(e);
+            }
+        });
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const urlProductId = new URLSearchParams(window.location.search).get('id');
-            if (urlProductId) {
-                loadProductReviews(urlProductId);
+            let identifier = new URLSearchParams(window.location.search).get('id');
+            if (!identifier) {
+                const pathParts = window.location.pathname.split('/').filter(p => p);
+                if (pathParts.length >= 2 && pathParts[0] === 'store') {
+                    identifier = pathParts[1];
+                }
+            }
+            if (identifier) {
+                loadProductReviews(identifier);
             }
         });
     </script>

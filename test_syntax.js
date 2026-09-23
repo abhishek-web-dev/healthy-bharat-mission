@@ -186,10 +186,9 @@ class HbmHeader extends HTMLElement {
                     <div class="relative group cursor-pointer flex items-center space-x-2 hover:text-gray-200 transition-colors">
                         <i class="fa-solid fa-circle-user text-[17px]"></i>
                         <span>My Account</span>
-                        <div class="absolute top-full right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 text-gray-700 overflow-hidden py-1.5">
+                        <div class="absolute top-full right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 text-gray-700 overflow-hidden">
                             <a href="${basePath}dashboard/index" class="block px-4 py-2 hover:bg-gray-50 text-[13px]">Dashboard</a>
-                            <div class="border-t border-gray-100 my-1.5"></div>
-                            <a href="#" onclick="localStorage.removeItem('hbm_token'); window.location.href='${basePath}auth/login'; return false;" class="block px-4 py-2 hover:bg-gray-50 text-[13px] text-red-600">Logout</a>
+                            <a href="#" onclick="localStorage.removeItem('hbm_token'); window.location.href='${basePath}auth/login'; return false;" class="block px-4 py-2 hover:bg-gray-50 text-[13px] text-red-600 border-t border-gray-100">Logout</a>
                         </div>
                     </div>
                     <div class="w-px h-4 bg-white/30"></div>
@@ -1075,33 +1074,8 @@ class HbmContactModal extends HTMLElement {
         const btn = this.querySelector('#modal-contact-submit');
 
         window.openContactModal = (subject = 'consultation') => {
-            // Preserve user inputs if any before reset
-            let currentName = '', currentEmail = '', currentPhone = '', currentMsg = '';
-            if (form) {
-                currentName = document.getElementById('modal-contact-name')?.value || '';
-                currentEmail = document.getElementById('modal-contact-email')?.value || '';
-                currentPhone = document.getElementById('modal-contact-phone')?.value || '';
-                currentMsg = document.getElementById('modal-contact-message')?.value || '';
-                form.reset();
-                
-                // Restore user input or auto-populate from profile
-                if (currentName) document.getElementById('modal-contact-name').value = currentName;
-                else if (window.HBM_USER) {
-                    document.getElementById('modal-contact-name').value = `${window.HBM_USER.first_name || ''} ${window.HBM_USER.last_name || ''}`.trim();
-                }
-                
-                if (currentEmail) document.getElementById('modal-contact-email').value = currentEmail;
-                else if (window.HBM_USER && window.HBM_USER.email) {
-                    document.getElementById('modal-contact-email').value = window.HBM_USER.email;
-                }
-                
-                if (currentPhone) document.getElementById('modal-contact-phone').value = currentPhone;
-                else if (window.HBM_USER && window.HBM_USER.phone) {
-                    document.getElementById('modal-contact-phone').value = window.HBM_USER.phone;
-                }
-                
-                if (currentMsg) document.getElementById('modal-contact-message').value = currentMsg;
-            }
+            // Reset form and state completely
+            if (form) form.reset();
             if (alert) {
                 alert.classList.add('hidden');
                 alert.innerText = '';
@@ -1185,6 +1159,7 @@ class HbmContactModal extends HTMLElement {
             }
         })();
         const hiddenSubjectInput = this.querySelector('#modal-contact-subject');
+        const customSubjectLabel = this.querySelector('#custom-subject-label');
         const optionEls = this.querySelectorAll('.custom-option');
 
         if (dropdownTrigger && dropdownOptions) {
@@ -1215,88 +1190,88 @@ class HbmContactModal extends HTMLElement {
                         o.classList.add('text-gray-600');
                     });
                     opt.classList.remove('text-gray-600');
-                    opt.classList.add('text-primary', 'bg-[#f0f9f4]', 'font-medium');
-
-                    closeDropdown();
-                });
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!dropdownTrigger.contains(e.target) && !dropdownOptions.contains(e.target)) {
-                    closeDropdown();
-                }
-            });
-        }
-
-        const closeModal = () => {
-            overlay.classList.add('opacity-0');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-            setTimeout(() => {
-                overlay.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        };
-
-        closeBtn.addEventListener('click', closeModal);
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) closeModal();
-        });
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const phoneVal = document.getElementById('modal-contact-phone').value;
-
-            // Strict Frontend Validation
-            if (phoneVal && !/^[6-9]\d{9}$/.test(phoneVal)) {
-                alert.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-100');
-                alert.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-100');
-                alert.innerText = "Please enter a valid 10-digit Indian mobile number starting with 6-9.";
-                return;
-            }
-
-            const data = {
-                name: document.getElementById('modal-contact-name').value,
-                email: document.getElementById('modal-contact-email').value,
-                phone: phoneVal,
-                subject: document.getElementById('modal-contact-subject').value,
-                message: document.getElementById('modal-contact-message').value
-            };
-
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
-            alert.classList.add('hidden');
-
-            try {
-                let res = null;
-                if (window.HBM_API) {
-                    res = await window.HBM_API.request('/contact', 'POST', data);
-                }
-                alert.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'border-red-100');
-                alert.classList.add('bg-green-50', 'text-green-700', 'border', 'border-green-100');
-                alert.innerText = (res && res.message) ? res.message : "Request submitted successfully! We will contact you shortly.";
-                form.reset();
-
-                // Do not re-enable button on success to prevent double submission before modal closes
-                setTimeout(() => {
-                    closeModal();
-                    // Reset button state AFTER modal is completely hidden
-                    setTimeout(() => {
-                        btn.disabled = false;
-                        btn.innerHTML = 'Submit Request <i class="fa-solid fa-paper-plane ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>';
-                        alert.classList.add('hidden');
-                    }, 300);
-                }, 2000);
-            } catch (err) {
-                alert.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-100');
-                alert.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-100');
-                alert.innerText = err.message || "Failed to submit request.";
-
-                // Only re-enable button on failure
-                btn.disabled = false;
-                btn.innerHTML = 'Submit Request <i class="fa-solid fa-paper-plane ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>';
-            }
-        });
+//                     opt.classList.add('text-primary', 'bg-[#f0f9f4]', 'font-medium');
+// 
+//                     closeDropdown();
+//                 });
+//             });
+// 
+//             document.addEventListener('click', (e) => {
+//                 if (!dropdownTrigger.contains(e.target) && !dropdownOptions.contains(e.target)) {
+//                     closeDropdown();
+//                 }
+//             });
+//         }
+// 
+//         const closeModal = () => {
+//             overlay.classList.add('opacity-0');
+//             content.classList.remove('scale-100');
+//             content.classList.add('scale-95');
+//             setTimeout(() => {
+//                 overlay.classList.add('hidden');
+//                 document.body.style.overflow = '';
+//             }, 300);
+//         };
+// 
+//         closeBtn.addEventListener('click', closeModal);
+//         overlay.addEventListener('click', (e) => {
+//             if (e.target === overlay) closeModal();
+//         });
+// 
+//         form.addEventListener('submit', async (e) => {
+//             e.preventDefault();
+//             const phoneVal = document.getElementById('modal-contact-phone').value;
+// 
+//             // Strict Frontend Validation
+//             if (phoneVal && !/^[6-9]\d{9}$/.test(phoneVal)) {
+//                 alert.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-100');
+//                 alert.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-100');
+//                 alert.innerText = "Please enter a valid 10-digit Indian mobile number starting with 6-9.";
+//                 return;
+//             }
+// 
+//             const data = {
+//                 name: document.getElementById('modal-contact-name').value,
+//                 email: document.getElementById('modal-contact-email').value,
+//                 phone: phoneVal,
+//                 subject: document.getElementById('modal-contact-subject').value,
+//                 message: document.getElementById('modal-contact-message').value
+//             };
+// 
+//             btn.disabled = true;
+//             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+//             alert.classList.add('hidden');
+// 
+//             try {
+//                 let res = null;
+//                 if (window.HBM_API) {
+//                     res = await window.HBM_API.request('/contact', 'POST', data);
+//                 }
+//                 alert.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'border-red-100');
+//                 alert.classList.add('bg-green-50', 'text-green-700', 'border', 'border-green-100');
+//                 alert.innerText = (res && res.message) ? res.message : "Request submitted successfully! We will contact you shortly.";
+//                 form.reset();
+// 
+//                 // Do not re-enable button on success to prevent double submission before modal closes
+//                 setTimeout(() => {
+//                     closeModal();
+//                     // Reset button state AFTER modal is completely hidden
+//                     setTimeout(() => {
+//                         btn.disabled = false;
+//                         btn.innerHTML = 'Submit Request <i class="fa-solid fa-paper-plane ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>';
+//                         alert.classList.add('hidden');
+//                     }, 300);
+//                 }, 2000);
+//             } catch (err) {
+//                 alert.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-100');
+//                 alert.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-100');
+//                 alert.innerText = err.message || "Failed to submit request.";
+// 
+//                 // Only re-enable button on failure
+//                 btn.disabled = false;
+//                 btn.innerHTML = 'Submit Request <i class="fa-solid fa-paper-plane ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>';
+//             }
+//         });
     }
 }
 customElements.define('hbm-contact-modal', HbmContactModal);
@@ -1304,3 +1279,5 @@ customElements.define('hbm-contact-modal', HbmContactModal);
 document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('beforeend', '<hbm-contact-modal></hbm-contact-modal>');
 });
+
+window.testMarker = true;

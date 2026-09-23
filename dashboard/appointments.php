@@ -68,102 +68,24 @@
 
                         <!-- Tab Content: Upcoming Appointments -->
                         <div class="tab-content flex flex-col gap-5" id="tab-upcoming">
-                            
-                            <!-- Appointment Card 1 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
-                                <!-- Date Block -->
-                                <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
-                                    <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">18</span>
-                                    <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">Sep 2025</span>
-                                    <span class="text-[12px] text-gray-500 font-medium mt-0.5">Thursday</span>
-                                </div>
-                                
-                                <!-- Details Block -->
-                                <div class="flex-1 min-w-0 w-full">
-                                    <div class="flex items-start gap-4 mb-4">
-                                        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
-                                            <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=random" alt="Dr. Priya Sharma" class="w-full h-full object-cover">
-                                        </div>
-                                        <div>
-                                            <h3 class="font-bold text-gray-900 text-[16px]">Dr. Priya Sharma</h3>
-                                            <p class="text-[13px] text-gray-500 font-medium">Diabetologist & Nutrition Expert</p>
-                                            <p class="text-[12px] text-blue-600 font-bold mt-1 flex items-center gap-1.5"><i class="fa-solid fa-video"></i> Video Consultation</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
-                                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> 11:00 AM - 11:30 AM</div>
-                                        <div class="flex items-center gap-2"><i class="fa-solid fa-file-medical text-gray-400"></i> Follow-up Consultation</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Actions Block -->
-                                <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
-                                    <span class="bg-[#f2faf5] text-[#106e39] font-bold text-[11px] px-3 py-1 rounded-md mb-3">Upcoming</span>
-                                    <div class="flex flex-col gap-2 w-full">
-                                        <button class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
-                                            <i class="fa-solid fa-video"></i> Join Consultation
-                                        </button>
-                                        <button class="w-full py-2 px-4 border border-green-200 text-[#106e39] text-[13px] font-bold rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap">
-                                            Reschedule
-                                        </button>
-                                    </div>
+                            <div id="upcoming-container" class="flex flex-col gap-5">
+                                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#106e39] mb-4"></div>
+                                    <p class="text-gray-500">Loading appointments...</p>
                                 </div>
                             </div>
-
-                            <!-- Appointment Card 2 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
-                                <!-- Date Block -->
-                                <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
-                                    <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">25</span>
-                                    <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">Sep 2025</span>
-                                    <span class="text-[12px] text-gray-500 font-medium mt-0.5">Thursday</span>
-                                </div>
-                                
-                                <!-- Details Block -->
-                                <div class="flex-1 min-w-0 w-full">
-                                    <div class="flex items-start gap-4 mb-4">
-                                        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
-                                            <img src="https://ui-avatars.com/api/?name=Rahul+Verma&background=random" alt="Dr. Rahul Verma" class="w-full h-full object-cover">
-                                        </div>
-                                        <div>
-                                            <h3 class="font-bold text-gray-900 text-[16px]">Dr. Rahul Verma</h3>
-                                            <p class="text-[13px] text-gray-500 font-medium">Dietitian & Wellness Coach</p>
-                                            <p class="text-[12px] text-gray-600 font-bold mt-1 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-gray-400"></i> In-clinic Visit</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
-                                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> 03:00 PM - 03:30 PM</div>
-                                        <div class="flex items-center gap-2"><i class="fa-solid fa-clipboard-list text-gray-400"></i> Diet Plan Discussion</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Actions Block -->
-                                <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
-                                    <span class="bg-[#f2faf5] text-[#106e39] font-bold text-[11px] px-3 py-1 rounded-md mb-3">Upcoming</span>
-                                    <div class="flex flex-col gap-2 w-full">
-                                        <button class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors shadow-sm whitespace-nowrap">
-                                            View Details
-                                        </button>
-                                        <button class="w-full py-2 px-4 border border-gray-200 text-gray-600 hover:text-red-600 hover:border-red-200 hover:bg-red-50 text-[13px] font-bold rounded-lg transition-colors whitespace-nowrap">
-                                            Cancel Appointment
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-
+                        
                         <!-- Tab Content: Past Appointments -->
                         <div class="tab-content flex-col gap-5 hidden" id="tab-past">
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
-                                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
-                                    <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                            <div id="past-container" class="flex flex-col gap-5 w-full">
+                                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#106e39] mb-4"></div>
+                                    <p class="text-gray-500">Loading appointments...</p>
                                 </div>
-                                <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Past Appointments</h3>
-                                <p class="text-gray-500 text-[14px]">You do not have any past appointments recorded in the system.</p>
                             </div>
                         </div>
-
+                        
                         <!-- Tab Content: Book New -->
                         <div class="tab-content flex-col gap-5 hidden" id="tab-book">
                             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
@@ -172,7 +94,7 @@
                                 </div>
                                 <h3 class="font-bold text-gray-800 text-[18px] mb-2">Book a New Consultation</h3>
                                 <p class="text-gray-500 text-[14px] mb-6 max-w-md">Select a doctor or specialist to book your next consultation.</p>
-                                <button class="px-8 py-2.5 bg-[#106e39] text-white font-bold rounded-lg shadow-sm hover:bg-[#0a4d27] transition-colors">
+                                <button onclick="window.openContactModal('consultation')" class="px-8 py-2.5 bg-[#106e39] text-white font-bold rounded-lg shadow-sm hover:bg-[#0a4d27] transition-colors">
                                     View Doctors
                                 </button>
                             </div>
@@ -185,7 +107,7 @@
                             </div>
                             <h3 class="font-bold text-gray-800 text-[18px] mb-2">Need a New Appointment?</h3>
                             <p class="text-gray-500 text-[14px] mb-6 max-w-md">Book a consultation with our qualified doctors, dietitians or wellness experts.</p>
-                            <button class="px-8 py-2.5 bg-[#106e39] text-white font-bold rounded-lg shadow-sm hover:bg-[#0a4d27] transition-colors">
+                            <button onclick="window.openContactModal('consultation')" class="px-8 py-2.5 bg-[#106e39] text-white font-bold rounded-lg shadow-sm hover:bg-[#0a4d27] transition-colors">
                                 Book Appointment
                             </button>
                         </div>
@@ -210,7 +132,7 @@
                                         <div class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center shrink-0 group-hover:bg-[#f2faf5] group-hover:text-[#106e39] transition-colors">
                                             <i class="fa-solid fa-plus text-[12px]"></i>
                                         </div>
-                                        <span class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors">Book New Appointment</span>
+                                        <span onclick="window.openContactModal('consultation')" class="text-[14px] font-medium text-gray-700 group-hover:text-gray-900 transition-colors cursor-pointer w-full">Book New Appointment</span>
                                     </div>
                                     <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-gray-600"></i>
                                 </a>
@@ -283,8 +205,449 @@
 
     <!-- Scripts -->
     <script src="../js/api.js"></script>
+<script>
+        // Fetch and Render Appointments
+        async function loadAppointments() {
+            try {
+                const res = await HBM_API.request('/user/appointments');
+                
+                renderAppointments(res.data.upcoming, 'upcoming-container', 'upcoming');
+                renderAppointments(res.data.past, 'past-container', 'past');
+                
+            } catch (err) {
+                console.error('Failed to load appointments:', err);
+                document.getElementById('upcoming-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+                document.getElementById('past-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+            }
+        }
+
+        function renderAppointments(appointments, containerId, type) {
+            const container = document.getElementById(containerId);
+            if (!appointments || appointments.length === 0) {
+                if (type === 'upcoming') {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-[#106e39] mb-4">
+                                <i class="fa-regular fa-calendar text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Upcoming Appointments</h3>
+                            <p class="text-gray-500 text-[14px] mb-6">You have no upcoming consultations scheduled.</p>
+                            <button onclick="window.openContactModal('consultation')" class="px-6 py-2 bg-[#106e39] text-white font-bold rounded-lg hover:bg-[#0a4d27] transition-colors">Book Now</button>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
+                                <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Past Appointments</h3>
+                            <p class="text-gray-500 text-[14px]">You do not have any past appointments recorded in the system.</p>
+                        </div>
+                    `;
+                }
+                return;
+            }
+
+            let html = '';
+            appointments.forEach(apt => {
+                const dateObj = new Date(apt.appointment_date);
+                const day = dateObj.getDate();
+                const month = dateObj.toLocaleString('en-US', { month: 'short' });
+                const year = dateObj.getFullYear();
+                const weekday = dateObj.toLocaleString('en-US', { weekday: 'long' });
+                
+                // Format time: 11:00:00 to 11:00 AM
+                const timeStr = new Date('1970-01-01T' + apt.appointment_time).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+                
+                const modeIcon = apt.mode === 'online' ? '<i class="fa-solid fa-video text-gray-400"></i>' : '<i class="fa-solid fa-location-dot text-gray-400"></i>';
+                const modeText = apt.mode === 'online' ? 'Video Consultation' : 'In-clinic Visit';
+                const statusBadge = getStatusBadge(apt.status);
+                
+                let actionsHtml = '';
+                if (apt.status === 'pending' || apt.status === 'confirmed') {
+                    if (apt.mode === 'online' && apt.zoom_link) {
+                        actionsHtml += `
+                        <button onclick="window.open('${apt.zoom_link}', '_blank')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap mb-2">
+                            <i class="fa-solid fa-video"></i> Join Consultation
+                        </button>`;
+                    }
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 border border-green-200 text-[#106e39] text-[13px] font-bold rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap mb-2">
+                            Reschedule
+                        </button>
+                        <button onclick="cancelAppointment(${apt.id})" class="w-full py-2 px-4 border border-gray-200 text-gray-600 hover:text-red-600 hover:border-red-200 hover:bg-red-50 text-[13px] font-bold rounded-lg transition-colors whitespace-nowrap">
+                            Cancel
+                        </button>
+                    `;
+                } else {
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
+                            Book Again
+                        </button>
+                    `;
+                }
+                
+                html += `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
+                    <!-- Date Block -->
+                    <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
+                        <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">${day}</span>
+                        <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">${month} ${year}</span>
+                        <span class="text-[12px] text-gray-500 font-medium mt-0.5">${weekday}</span>
+                    </div>
+                    
+                    <!-- Details Block -->
+                    <div class="flex-1 min-w-0 w-full">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
+                                <img src="${apt.expert_image || 'https://ui-avatars.com/api/?name='+encodeURIComponent(apt.expert_name)+'&background=random'}" alt="${apt.expert_name}" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-[16px]">${apt.expert_name}</h3>
+                                <p class="text-[13px] text-gray-500 font-medium capitalize">${apt.expert_role}</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
+                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> ${timeStr}</div>
+                            <div class="flex items-center gap-2">${modeIcon} ${modeText}</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions Block -->
+                    <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
+                        ${statusBadge}
+                        <div class="flex flex-col w-full mt-3">
+                            ${actionsHtml}
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+        
+        function getStatusBadge(status) {
+            let bg = 'bg-gray-100', text = 'text-gray-700';
+            if(status === 'pending') { bg = 'bg-yellow-50'; text = 'text-yellow-700'; }
+            if(status === 'confirmed') { bg = 'bg-blue-50'; text = 'text-blue-700'; }
+            if(status === 'completed') { bg = 'bg-green-50'; text = 'text-green-700'; }
+            if(status === 'cancelled') { bg = 'bg-red-50'; text = 'text-red-700'; }
+            return `<span class="${bg} ${text} font-bold text-[11px] px-3 py-1 rounded-md uppercase">${status}</span>`;
+        }
+        
+        async function cancelAppointment(id) {
+            if(!confirm("Are you sure you want to cancel this appointment?")) return;
+            try {
+                await HBM_API.request('/user/appointments/' + id + '/cancel', 'PUT');
+                window.showNotification("Appointment cancelled successfully", "success");
+                loadAppointments();
+            } catch (err) {
+                window.showNotification(err.message || "Failed to cancel appointment", "error");
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAppointments();
+        });
     <script src="../js/components_v15.js"></script>
+<script>
+        // Fetch and Render Appointments
+        async function loadAppointments() {
+            try {
+                const res = await HBM_API.request('/user/appointments');
+                
+                renderAppointments(res.data.upcoming, 'upcoming-container', 'upcoming');
+                renderAppointments(res.data.past, 'past-container', 'past');
+                
+            } catch (err) {
+                console.error('Failed to load appointments:', err);
+                document.getElementById('upcoming-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+                document.getElementById('past-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+            }
+        }
+
+        function renderAppointments(appointments, containerId, type) {
+            const container = document.getElementById(containerId);
+            if (!appointments || appointments.length === 0) {
+                if (type === 'upcoming') {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-[#106e39] mb-4">
+                                <i class="fa-regular fa-calendar text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Upcoming Appointments</h3>
+                            <p class="text-gray-500 text-[14px] mb-6">You have no upcoming consultations scheduled.</p>
+                            <button onclick="window.openContactModal('consultation')" class="px-6 py-2 bg-[#106e39] text-white font-bold rounded-lg hover:bg-[#0a4d27] transition-colors">Book Now</button>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
+                                <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Past Appointments</h3>
+                            <p class="text-gray-500 text-[14px]">You do not have any past appointments recorded in the system.</p>
+                        </div>
+                    `;
+                }
+                return;
+            }
+
+            let html = '';
+            appointments.forEach(apt => {
+                const dateObj = new Date(apt.appointment_date);
+                const day = dateObj.getDate();
+                const month = dateObj.toLocaleString('en-US', { month: 'short' });
+                const year = dateObj.getFullYear();
+                const weekday = dateObj.toLocaleString('en-US', { weekday: 'long' });
+                
+                // Format time: 11:00:00 to 11:00 AM
+                const timeStr = new Date('1970-01-01T' + apt.appointment_time).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+                
+                const modeIcon = apt.mode === 'online' ? '<i class="fa-solid fa-video text-gray-400"></i>' : '<i class="fa-solid fa-location-dot text-gray-400"></i>';
+                const modeText = apt.mode === 'online' ? 'Video Consultation' : 'In-clinic Visit';
+                const statusBadge = getStatusBadge(apt.status);
+                
+                let actionsHtml = '';
+                if (apt.status === 'pending' || apt.status === 'confirmed') {
+                    if (apt.mode === 'online' && apt.zoom_link) {
+                        actionsHtml += `
+                        <button onclick="window.open('${apt.zoom_link}', '_blank')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap mb-2">
+                            <i class="fa-solid fa-video"></i> Join Consultation
+                        </button>`;
+                    }
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 border border-green-200 text-[#106e39] text-[13px] font-bold rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap mb-2">
+                            Reschedule
+                        </button>
+                        <button onclick="cancelAppointment(${apt.id})" class="w-full py-2 px-4 border border-gray-200 text-gray-600 hover:text-red-600 hover:border-red-200 hover:bg-red-50 text-[13px] font-bold rounded-lg transition-colors whitespace-nowrap">
+                            Cancel
+                        </button>
+                    `;
+                } else {
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
+                            Book Again
+                        </button>
+                    `;
+                }
+                
+                html += `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
+                    <!-- Date Block -->
+                    <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
+                        <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">${day}</span>
+                        <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">${month} ${year}</span>
+                        <span class="text-[12px] text-gray-500 font-medium mt-0.5">${weekday}</span>
+                    </div>
+                    
+                    <!-- Details Block -->
+                    <div class="flex-1 min-w-0 w-full">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
+                                <img src="${apt.expert_image || 'https://ui-avatars.com/api/?name='+encodeURIComponent(apt.expert_name)+'&background=random'}" alt="${apt.expert_name}" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-[16px]">${apt.expert_name}</h3>
+                                <p class="text-[13px] text-gray-500 font-medium capitalize">${apt.expert_role}</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
+                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> ${timeStr}</div>
+                            <div class="flex items-center gap-2">${modeIcon} ${modeText}</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions Block -->
+                    <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
+                        ${statusBadge}
+                        <div class="flex flex-col w-full mt-3">
+                            ${actionsHtml}
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+        
+        function getStatusBadge(status) {
+            let bg = 'bg-gray-100', text = 'text-gray-700';
+            if(status === 'pending') { bg = 'bg-yellow-50'; text = 'text-yellow-700'; }
+            if(status === 'confirmed') { bg = 'bg-blue-50'; text = 'text-blue-700'; }
+            if(status === 'completed') { bg = 'bg-green-50'; text = 'text-green-700'; }
+            if(status === 'cancelled') { bg = 'bg-red-50'; text = 'text-red-700'; }
+            return `<span class="${bg} ${text} font-bold text-[11px] px-3 py-1 rounded-md uppercase">${status}</span>`;
+        }
+        
+        async function cancelAppointment(id) {
+            if(!confirm("Are you sure you want to cancel this appointment?")) return;
+            try {
+                await HBM_API.request('/user/appointments/' + id + '/cancel', 'PUT');
+                window.showNotification("Appointment cancelled successfully", "success");
+                loadAppointments();
+            } catch (err) {
+                window.showNotification(err.message || "Failed to cancel appointment", "error");
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAppointments();
+        });
     <script src="../js/dashboard.js"></script>
+<script>
+        // Fetch and Render Appointments
+        async function loadAppointments() {
+            try {
+                const res = await HBM_API.request('/user/appointments');
+                
+                renderAppointments(res.data.upcoming, 'upcoming-container', 'upcoming');
+                renderAppointments(res.data.past, 'past-container', 'past');
+                
+            } catch (err) {
+                console.error('Failed to load appointments:', err);
+                document.getElementById('upcoming-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+                document.getElementById('past-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+            }
+        }
+
+        function renderAppointments(appointments, containerId, type) {
+            const container = document.getElementById(containerId);
+            if (!appointments || appointments.length === 0) {
+                if (type === 'upcoming') {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-[#106e39] mb-4">
+                                <i class="fa-regular fa-calendar text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Upcoming Appointments</h3>
+                            <p class="text-gray-500 text-[14px] mb-6">You have no upcoming consultations scheduled.</p>
+                            <button onclick="window.openContactModal('consultation')" class="px-6 py-2 bg-[#106e39] text-white font-bold rounded-lg hover:bg-[#0a4d27] transition-colors">Book Now</button>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
+                                <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Past Appointments</h3>
+                            <p class="text-gray-500 text-[14px]">You do not have any past appointments recorded in the system.</p>
+                        </div>
+                    `;
+                }
+                return;
+            }
+
+            let html = '';
+            appointments.forEach(apt => {
+                const dateObj = new Date(apt.appointment_date);
+                const day = dateObj.getDate();
+                const month = dateObj.toLocaleString('en-US', { month: 'short' });
+                const year = dateObj.getFullYear();
+                const weekday = dateObj.toLocaleString('en-US', { weekday: 'long' });
+                
+                // Format time: 11:00:00 to 11:00 AM
+                const timeStr = new Date('1970-01-01T' + apt.appointment_time).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+                
+                const modeIcon = apt.mode === 'online' ? '<i class="fa-solid fa-video text-gray-400"></i>' : '<i class="fa-solid fa-location-dot text-gray-400"></i>';
+                const modeText = apt.mode === 'online' ? 'Video Consultation' : 'In-clinic Visit';
+                const statusBadge = getStatusBadge(apt.status);
+                
+                let actionsHtml = '';
+                if (apt.status === 'pending' || apt.status === 'confirmed') {
+                    if (apt.mode === 'online' && apt.zoom_link) {
+                        actionsHtml += `
+                        <button onclick="window.open('${apt.zoom_link}', '_blank')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap mb-2">
+                            <i class="fa-solid fa-video"></i> Join Consultation
+                        </button>`;
+                    }
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 border border-green-200 text-[#106e39] text-[13px] font-bold rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap mb-2">
+                            Reschedule
+                        </button>
+                        <button onclick="cancelAppointment(${apt.id})" class="w-full py-2 px-4 border border-gray-200 text-gray-600 hover:text-red-600 hover:border-red-200 hover:bg-red-50 text-[13px] font-bold rounded-lg transition-colors whitespace-nowrap">
+                            Cancel
+                        </button>
+                    `;
+                } else {
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
+                            Book Again
+                        </button>
+                    `;
+                }
+                
+                html += `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
+                    <!-- Date Block -->
+                    <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
+                        <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">${day}</span>
+                        <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">${month} ${year}</span>
+                        <span class="text-[12px] text-gray-500 font-medium mt-0.5">${weekday}</span>
+                    </div>
+                    
+                    <!-- Details Block -->
+                    <div class="flex-1 min-w-0 w-full">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
+                                <img src="${apt.expert_image || 'https://ui-avatars.com/api/?name='+encodeURIComponent(apt.expert_name)+'&background=random'}" alt="${apt.expert_name}" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-[16px]">${apt.expert_name}</h3>
+                                <p class="text-[13px] text-gray-500 font-medium capitalize">${apt.expert_role}</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
+                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> ${timeStr}</div>
+                            <div class="flex items-center gap-2">${modeIcon} ${modeText}</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions Block -->
+                    <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
+                        ${statusBadge}
+                        <div class="flex flex-col w-full mt-3">
+                            ${actionsHtml}
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+        
+        function getStatusBadge(status) {
+            let bg = 'bg-gray-100', text = 'text-gray-700';
+            if(status === 'pending') { bg = 'bg-yellow-50'; text = 'text-yellow-700'; }
+            if(status === 'confirmed') { bg = 'bg-blue-50'; text = 'text-blue-700'; }
+            if(status === 'completed') { bg = 'bg-green-50'; text = 'text-green-700'; }
+            if(status === 'cancelled') { bg = 'bg-red-50'; text = 'text-red-700'; }
+            return `<span class="${bg} ${text} font-bold text-[11px] px-3 py-1 rounded-md uppercase">${status}</span>`;
+        }
+        
+        async function cancelAppointment(id) {
+            if(!confirm("Are you sure you want to cancel this appointment?")) return;
+            try {
+                await HBM_API.request('/user/appointments/' + id + '/cancel', 'PUT');
+                window.showNotification("Appointment cancelled successfully", "success");
+                loadAppointments();
+            } catch (err) {
+                window.showNotification(err.message || "Failed to cancel appointment", "error");
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAppointments();
+        });
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -317,5 +680,152 @@
             });
         });
     </script>
+<script>
+        // Fetch and Render Appointments
+        async function loadAppointments() {
+            try {
+                const res = await HBM_API.request('/user/appointments');
+                
+                renderAppointments(res.data.upcoming, 'upcoming-container', 'upcoming');
+                renderAppointments(res.data.past, 'past-container', 'past');
+                
+            } catch (err) {
+                console.error('Failed to load appointments:', err);
+                document.getElementById('upcoming-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+                document.getElementById('past-container').innerHTML = '<p class="text-red-500 p-4">Failed to load appointments.</p>';
+            }
+        }
+
+        function renderAppointments(appointments, containerId, type) {
+            const container = document.getElementById(containerId);
+            if (!appointments || appointments.length === 0) {
+                if (type === 'upcoming') {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-[#106e39] mb-4">
+                                <i class="fa-regular fa-calendar text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Upcoming Appointments</h3>
+                            <p class="text-gray-500 text-[14px] mb-6">You have no upcoming consultations scheduled.</p>
+                            <button onclick="window.openContactModal('consultation')" class="px-6 py-2 bg-[#106e39] text-white font-bold rounded-lg hover:bg-[#0a4d27] transition-colors">Book Now</button>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+                            <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
+                                <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 text-[18px] mb-2">No Past Appointments</h3>
+                            <p class="text-gray-500 text-[14px]">You do not have any past appointments recorded in the system.</p>
+                        </div>
+                    `;
+                }
+                return;
+            }
+
+            let html = '';
+            appointments.forEach(apt => {
+                const dateObj = new Date(apt.appointment_date);
+                const day = dateObj.getDate();
+                const month = dateObj.toLocaleString('en-US', { month: 'short' });
+                const year = dateObj.getFullYear();
+                const weekday = dateObj.toLocaleString('en-US', { weekday: 'long' });
+                
+                // Format time: 11:00:00 to 11:00 AM
+                const timeStr = new Date('1970-01-01T' + apt.appointment_time).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+                
+                const modeIcon = apt.mode === 'online' ? '<i class="fa-solid fa-video text-gray-400"></i>' : '<i class="fa-solid fa-location-dot text-gray-400"></i>';
+                const modeText = apt.mode === 'online' ? 'Video Consultation' : 'In-clinic Visit';
+                const statusBadge = getStatusBadge(apt.status);
+                
+                let actionsHtml = '';
+                if (apt.status === 'pending' || apt.status === 'confirmed') {
+                    if (apt.mode === 'online' && apt.zoom_link) {
+                        actionsHtml += `
+                        <button onclick="window.open('${apt.zoom_link}', '_blank')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap mb-2">
+                            <i class="fa-solid fa-video"></i> Join Consultation
+                        </button>`;
+                    }
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 border border-green-200 text-[#106e39] text-[13px] font-bold rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap mb-2">
+                            Reschedule
+                        </button>
+                        <button onclick="cancelAppointment(${apt.id})" class="w-full py-2 px-4 border border-gray-200 text-gray-600 hover:text-red-600 hover:border-red-200 hover:bg-red-50 text-[13px] font-bold rounded-lg transition-colors whitespace-nowrap">
+                            Cancel
+                        </button>
+                    `;
+                } else {
+                    actionsHtml += `
+                        <button onclick="window.openContactModal('consultation')" class="w-full py-2 px-4 bg-[#106e39] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a4d27] transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
+                            Book Again
+                        </button>
+                    `;
+                }
+                
+                html += `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col md:flex-row gap-6 items-start md:items-center relative hover:shadow-md transition-shadow">
+                    <!-- Date Block -->
+                    <div class="bg-[#f2faf5] rounded-xl flex flex-col items-center justify-center p-4 shrink-0" style="width: 100px; height: 100px;">
+                        <span class="text-3xl font-extrabold text-[#052b14] leading-none mb-1">${day}</span>
+                        <span class="text-[12px] font-bold text-[#106e39] uppercase tracking-wide">${month} ${year}</span>
+                        <span class="text-[12px] text-gray-500 font-medium mt-0.5">${weekday}</span>
+                    </div>
+                    
+                    <!-- Details Block -->
+                    <div class="flex-1 min-w-0 w-full">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-gray-50">
+                                <img src="${apt.expert_image || 'https://ui-avatars.com/api/?name='+encodeURIComponent(apt.expert_name)+'&background=random'}" alt="${apt.expert_name}" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-[16px]">${apt.expert_name}</h3>
+                                <p class="text-[13px] text-gray-500 font-medium capitalize">${apt.expert_role}</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-gray-600 font-medium">
+                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-gray-400"></i> ${timeStr}</div>
+                            <div class="flex items-center gap-2">${modeIcon} ${modeText}</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions Block -->
+                    <div class="shrink-0 flex flex-col items-end mt-4 pt-4 border-t border-gray-50 lg:mt-0 lg:pt-0 lg:border-0" style="min-width: 190px;">
+                        ${statusBadge}
+                        <div class="flex flex-col w-full mt-3">
+                            ${actionsHtml}
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+        
+        function getStatusBadge(status) {
+            let bg = 'bg-gray-100', text = 'text-gray-700';
+            if(status === 'pending') { bg = 'bg-yellow-50'; text = 'text-yellow-700'; }
+            if(status === 'confirmed') { bg = 'bg-blue-50'; text = 'text-blue-700'; }
+            if(status === 'completed') { bg = 'bg-green-50'; text = 'text-green-700'; }
+            if(status === 'cancelled') { bg = 'bg-red-50'; text = 'text-red-700'; }
+            return `<span class="${bg} ${text} font-bold text-[11px] px-3 py-1 rounded-md uppercase">${status}</span>`;
+        }
+        
+        async function cancelAppointment(id) {
+            if(!confirm("Are you sure you want to cancel this appointment?")) return;
+            try {
+                await HBM_API.request('/user/appointments/' + id + '/cancel', 'PUT');
+                window.showNotification("Appointment cancelled successfully", "success");
+                loadAppointments();
+            } catch (err) {
+                window.showNotification(err.message || "Failed to cancel appointment", "error");
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAppointments();
+        });
 </body>
 </html>

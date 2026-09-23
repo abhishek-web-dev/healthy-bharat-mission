@@ -112,7 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 setLoading(btn, true);
                 try {
                     const res = await HBM_API.request('/auth/login', 'POST', { email, password });
-                    if (res.data && res.data.token) {
+                    if (res.data && res.data.requires_2fa) {
+                        showSuccess(form, '2FA Required. Redirecting...');
+                        setTimeout(() => {
+                            window.location.href = 'verify-otp?email=' + encodeURIComponent(res.data.identifier) + '&purpose=login';
+                        }, 1000);
+                    } else if (res.data && res.data.token) {
                         HBM_API.setToken(res.data.token);
                         showSuccess(form, 'Login successful! Redirecting...');
                         setTimeout(() => {
@@ -251,10 +256,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Get email from query param or session storage
                 const urlParams = new URLSearchParams(window.location.search);
                 const email = urlParams.get('email') || 'admin@healthybharatmission.com'; // fallback
+                const purpose = urlParams.get('purpose') || 'registration';
 
                 setLoading(btn, true);
                 try {
-                    await HBM_API.request('/auth/verify-otp', 'POST', { identifier: email, otp, purpose: 'registration' });
+                    const res = await HBM_API.request('/auth/verify-otp', 'POST', { identifier: email, otp, purpose });
+                    if (res.data && res.data.token) {
+                        HBM_API.setToken(res.data.token);
+                    }
                     showSuccess(form, 'OTP Verified! Redirecting...');
                     setTimeout(() => {
                         window.location.href = '../store';

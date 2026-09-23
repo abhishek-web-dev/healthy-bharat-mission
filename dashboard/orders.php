@@ -114,21 +114,21 @@
 
                         <!-- Links -->
                         <div class="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden">
-                            <a href="#" class="flex items-center justify-between p-4 px-6 border-b border-gray-50 hover:bg-slate-50 transition-colors text-slate-600 text-[13px] font-semibold group">
+                            <a href="../legal/shipping-policy" class="flex items-center justify-between p-4 px-6 border-b border-gray-50 hover:bg-slate-50 transition-colors text-slate-600 text-[13px] font-semibold group">
                                 <div class="flex items-center gap-3">
                                     <div class="w-6 flex justify-center"><i class="fa-solid fa-truck-fast text-slate-400 group-hover:text-slate-600 transition-colors"></i></div>
                                     Shipping Policy
                                 </div>
                                 <i class="fa-solid fa-chevron-right text-[10px] text-gray-300 group-hover:text-gray-500 transition-colors"></i>
                             </a>
-                            <a href="#" class="flex items-center justify-between p-4 px-6 border-b border-gray-50 hover:bg-slate-50 transition-colors text-slate-600 text-[13px] font-semibold group">
+                            <a href="../legal/refund-policy" class="flex items-center justify-between p-4 px-6 border-b border-gray-50 hover:bg-slate-50 transition-colors text-slate-600 text-[13px] font-semibold group">
                                 <div class="flex items-center gap-3">
                                     <div class="w-6 flex justify-center"><i class="fa-solid fa-rotate-left text-slate-400 group-hover:text-slate-600 transition-colors"></i></div>
                                     Return & Refund Policy
                                 </div>
                                 <i class="fa-solid fa-chevron-right text-[10px] text-gray-300 group-hover:text-gray-500 transition-colors"></i>
                             </a>
-                            <a href="#" class="flex items-center justify-between p-4 px-6 hover:bg-slate-50 transition-colors text-slate-600 text-[13px] font-semibold group">
+                            <a href="../contact#faqs" class="flex items-center justify-between p-4 px-6 hover:bg-slate-50 transition-colors text-slate-600 text-[13px] font-semibold group">
                                 <div class="flex items-center gap-3">
                                     <div class="w-6 flex justify-center"><i class="fa-regular fa-circle-question text-slate-400 group-hover:text-slate-600 transition-colors"></i></div>
                                     FAQ
@@ -375,7 +375,7 @@
             
             try {
                 const token = localStorage.getItem('hbm_token') || localStorage.getItem('token');
-                const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8000/api' : '/api';
+                const baseUrl = '/api';
                 const response = await fetch(`${baseUrl}/orders/${orderId}/invoice/download`, {
                     headers: {
                         'Authorization': `Bearer ${token}`

@@ -12,6 +12,9 @@
     # 3. Route uploads directly to the backend storage
     RewriteRule ^uploads/(.*)$ backend/public/uploads/$1 [L]
 
+    # 3.5 Route invoices directly to backend storage
+    RewriteRule ^storage/invoices/(.*)$ backend/storage/invoices/$1 [L]
+
     # 4. Redirect old .html requests to extensionless URLs
     RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 
@@ -23,10 +26,37 @@
     RewriteCond %{DOCUMENT_ROOT}/$1.php -f
     RewriteRule ^(.*)/$ /$1 [R=301,L]
 
+    # Prevent duplicate content on /index
+    RewriteRule ^index(\.php)?$ / [R=301,L]
+
+
     # Handle requests without a trailing slash (e.g., /store)
     # Internally route to the .php file without changing the URL
     RewriteCond %{DOCUMENT_ROOT}/$1.php -f
     RewriteRule ^(.*)$ $1.php [L]
+
+    # Store product dynamic routing (store/slug)
+    # Exclude physical files and directories
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !\.php$
+    RewriteRule ^store/([^/]+)$ store/product.php?slug=$1 [L,QSA]
+
+    # Program dynamic routing mappings (alias DB API slugs to physical files)
+    RewriteRule ^program/diabetes-reversal/?$ program/diabetes-care.php [L]
+    RewriteRule ^program/weight-loss-journey/?$ program/weight-management.php [L]
+    RewriteRule ^program/weight-loss/?$ program/weight-management.php [L]
+
+    # Article dynamic routing (root-level slug)
+    # If it's not a real file, not a real dir, and not api/uploads, pass to article.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteCond %{REQUEST_URI} !^/uploads/
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{REQUEST_URI} !\.php$
+    RewriteRule ^([^/]+)$ article.php?slug=$1 [L,QSA]
+
 
 </IfModule>
 

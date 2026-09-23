@@ -128,13 +128,20 @@
                         </div>
                         
                         <!-- Savings Banner -->
-                        <div id="cart-savings-banner" class="bg-[#e2f6e9] text-[#106e39] text-[12px] font-bold rounded-lg p-3 hidden items-center justify-between gap-2 shadow-sm border border-[#bbf7d0]">
-                            <div class="flex items-center gap-2">
-                                <i class="fa-solid fa-tag"></i> You saved ₹<span id="cart-savings-amount">0.00</span> on this order!
+                        <div id="cart-savings-banner" class="bg-[#e2f6e9] text-[#0a4d27] rounded-xl p-4 hidden border border-[#bbf7d0] shadow-sm mb-5">
+                            <div class="flex items-center gap-2 mb-3 text-[13px] font-bold text-[#106e39]">
+                                <i class="fa-solid fa-tag"></i> Applied Coupon
                             </div>
-                            <button onclick="document.getElementById('coupon-input').value=''; window.applyCoupon();" class="bg-red-50 text-red-600 px-3 py-1.5 rounded text-[11px] font-bold hover:bg-red-100 transition-colors">
-                                Remove
-                            </button>
+                            <div id="cart-applied-coupon-name" class="text-[13px] font-semibold text-[#1e293b] mb-1 hidden"></div>
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="text-[14px] font-black tracking-wide uppercase" id="cart-applied-coupon-code"></div>
+                                <button onclick="document.getElementById('coupon-input').value=''; window.applyCoupon();" class="text-red-500 hover:text-red-700 text-[12px] font-bold transition-colors">
+                                    Remove
+                                </button>
+                            </div>
+                            <div class="text-[13px] font-medium text-[#106e39]">
+                                You saved ₹<span id="cart-savings-amount">0.00</span> on this order
+                            </div>
                         </div>
                     </div>
 

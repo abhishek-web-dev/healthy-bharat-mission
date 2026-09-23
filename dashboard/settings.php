@@ -123,29 +123,34 @@
     </div>
 
     <!-- Change Password Modal -->
-    <div id="password-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-xl" style="position: relative;">
-            <button id="close-password-modal" class="text-gray-400 hover:text-gray-600 transition-colors" style="position: absolute; top: 16px; right: 16px; cursor: pointer; padding: 4px;">
-                <i class="fa-solid fa-xmark text-xl"></i>
+        <!-- Change Password Modal -->
+    <div id="password-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 transition-opacity duration-300 opacity-0" style="padding: 1rem;">
+        <div class="bg-white rounded-[1.5rem] p-8 max-w-[420px] w-full shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <button id="close-password-modal" class="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <h3 class="text-2xl font-bold text-gray-900 mb-6">Change Password</h3>
-            <form id="password-form" class="flex flex-col gap-4">
-                <div id="password-error" class="hidden text-red-600 bg-red-50 p-3 rounded-lg text-[13px] font-medium"></div>
-                
-                <div>
-                    <label class="block text-[13px] font-bold text-gray-700 mb-1.5">Current Password</label>
-                    <input type="password" id="current_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all">
-                </div>
-                <div>
-                    <label class="block text-[13px] font-bold text-gray-700 mb-1.5">New Password</label>
-                    <input type="password" id="new_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all">
-                </div>
-                <div>
-                    <label class="block text-[13px] font-bold text-gray-700 mb-1.5">Confirm New Password</label>
-                    <input type="password" id="confirm_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all">
+            <h3 class="text-2xl font-heading font-extrabold text-gray-900 mb-2">Change Password</h3>
+            <p class="text-[14px] text-gray-500 mb-6">Create a strong, new password to keep your account secure.</p>
+            <form id="password-form" class="flex flex-col gap-5">
+                <div id="password-error" class="hidden text-red-600 bg-red-50 px-4 py-3 border border-red-100 rounded-xl text-[13px] font-medium flex items-start gap-2">
+                    <i class="fa-solid fa-circle-exclamation mt-0.5"></i>
+                    <span class="flex-1 error-text"></span>
                 </div>
                 
-                <button type="submit" id="submit-password" style="background-color: #106e39; color: white;" class="mt-2 w-full py-3 font-bold rounded-xl hover:opacity-90 transition-opacity shadow-sm flex items-center justify-center gap-2">
+                <div>
+                    <label class="block text-[13px] font-bold text-gray-700 mb-2">Current Password</label>
+                    <input type="password" id="current_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all" placeholder="Enter current password">
+                </div>
+                <div>
+                    <label class="block text-[13px] font-bold text-gray-700 mb-2">New Password</label>
+                    <input type="password" id="new_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all" placeholder="Enter new password">
+                </div>
+                <div>
+                    <label class="block text-[13px] font-bold text-gray-700 mb-2">Confirm New Password</label>
+                    <input type="password" id="confirm_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-[14px] focus:outline-none focus:border-[#106e39] focus:ring-1 focus:ring-[#106e39] transition-all" placeholder="Confirm new password">
+                </div>
+                
+                <button type="submit" id="submit-password" class="mt-2 w-full py-3.5 bg-[#106e39] text-white text-[14px] font-bold rounded-xl hover:bg-[#0a4d27] transition-all shadow-md flex items-center justify-center gap-2">
                     Update Password
                 </button>
             </form>
@@ -169,7 +174,12 @@
                 
                 <div>
                     <label class="block text-[13px] font-bold text-gray-700 mb-1.5">Account Password</label>
-                    <input type="password" id="delete_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all">
+                    <div class="relative">
+                        <input type="password" id="delete_password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 pr-10 text-[14px] focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all">
+                        <button type="button" id="toggle-delete-pwd" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
+                            <i class="fa-regular fa-eye" id="toggle-delete-icon"></i>
+                        </button>
+                    </div>
                 </div>
                 
                 <button type="submit" id="submit-delete" style="background-color: #e11d48; color: white;" class="mt-2 w-full py-3 font-bold rounded-xl hover:opacity-90 transition-opacity shadow-sm flex items-center justify-center gap-2">
@@ -203,35 +213,70 @@
             const deleteForm = document.getElementById('delete-form');
             const deleteError = document.getElementById('delete-error');
             const submitDeleteBtn = document.getElementById('submit-delete');
+            const toggleDeletePwdBtn = document.getElementById('toggle-delete-pwd');
+            const toggleDeleteIcon = document.getElementById('toggle-delete-icon');
+            const deletePasswordInput = document.getElementById('delete_password');
 
-            twoFactorToggle.addEventListener('change', (e) => {
+            // Load 2FA setting
+            async function loadSettings() {
+                try {
+                    const res = await HBM_API.request('/user/settings');
+                    if (res.data && res.data.two_factor_enabled !== undefined) {
+                        twoFactorToggle.checked = !!res.data.two_factor_enabled;
+                    }
+                } catch (error) {
+                    console.error('Failed to load settings', error);
+                }
+            }
+            loadSettings();
+
+            twoFactorToggle.addEventListener('change', async (e) => {
                 const isEnabled = e.target.checked;
-                console.log('Two-Factor Authentication toggled:', isEnabled ? 'ON' : 'OFF');
+                try {
+                    await HBM_API.request('/user/settings/2fa', 'PUT', { enabled: isEnabled });
+                    if (window.showNotification) {
+                        window.showNotification(isEnabled ? '2FA enabled successfully' : '2FA disabled successfully');
+                    }
+                } catch (error) {
+                    // Revert toggle if failed
+                    e.target.checked = !isEnabled;
+                    alert(error.message || 'Failed to update 2FA setting');
+                }
             });
 
             // Password Modal Logic
             changePasswordBtn.addEventListener('click', () => {
                 passwordModal.classList.remove('hidden');
                 passwordModal.classList.add('flex');
+                // Trigger reflow for animation
+                void passwordModal.offsetWidth;
+                passwordModal.classList.remove('opacity-0');
+                passwordModal.querySelector('div').classList.remove('scale-95');
+                
                 passwordForm.reset();
                 passwordError.classList.add('hidden');
             });
 
             closePasswordModal.addEventListener('click', () => {
-                passwordModal.classList.add('hidden');
-                passwordModal.classList.remove('flex');
+                passwordModal.classList.add('opacity-0');
+                passwordModal.querySelector('div').classList.add('scale-95');
+                setTimeout(() => {
+                    passwordModal.classList.add('hidden');
+                    passwordModal.classList.remove('flex');
+                }, 300);
             });
 
             passwordForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 passwordError.classList.add('hidden');
+                const errorText = passwordError.querySelector('.error-text');
                 
                 const current_password = document.getElementById('current_password').value;
                 const new_password = document.getElementById('new_password').value;
                 const confirm_password = document.getElementById('confirm_password').value;
 
                 if (new_password !== confirm_password) {
-                    passwordError.textContent = "New passwords do not match.";
+                    errorText.textContent = "New passwords do not match.";
                     passwordError.classList.remove('hidden');
                     return;
                 }
@@ -241,10 +286,10 @@
 
                 try {
                     await HBM_API.auth.changePassword({ current_password, new_password, confirm_password });
-                    alert('Password changed successfully!');
+                    window.showNotification ? window.showNotification('Password changed successfully!') : alert('Password changed successfully!');
                     closePasswordModal.click();
                 } catch (error) {
-                    passwordError.textContent = error.message || 'Failed to change password.';
+                    errorText.textContent = error.message || 'Failed to change password.';
                     passwordError.classList.remove('hidden');
                 } finally {
                     submitPasswordBtn.innerHTML = 'Update Password';
@@ -288,6 +333,19 @@
                     submitDeleteBtn.disabled = false;
                 }
             });
+
+            // Password Toggle Logic
+            if (toggleDeletePwdBtn) {
+                toggleDeletePwdBtn.addEventListener('click', () => {
+                    if (deletePasswordInput.type === 'password') {
+                        deletePasswordInput.type = 'text';
+                        toggleDeleteIcon.classList.replace('fa-eye', 'fa-eye-slash');
+                    } else {
+                        deletePasswordInput.type = 'password';
+                        toggleDeleteIcon.classList.replace('fa-eye-slash', 'fa-eye');
+                    }
+                });
+            }
         });
     </script>
 </body>

@@ -120,14 +120,21 @@ function setupEditModal() {
     if (!btnEdit || !modal) return;
 
     const openModal = () => {
-        // Populate form
+        // Populate form only if empty to not overwrite user edits
         if (currentProfileData) {
-            document.getElementById('edit-fname').value = currentProfileData.first_name || '';
-            document.getElementById('edit-lname').value = currentProfileData.last_name || '';
-            document.getElementById('edit-phone').value = currentProfileData.phone || '';
-            document.getElementById('edit-dob').value = currentProfileData.dob || '';
-            document.getElementById('edit-gender').value = currentProfileData.gender || '';
-            document.getElementById('edit-blood-group').value = currentProfileData.blood_group || '';
+            const fName = document.getElementById('edit-fname');
+            const lName = document.getElementById('edit-lname');
+            const phone = document.getElementById('edit-phone');
+            const dob = document.getElementById('edit-dob');
+            const gender = document.getElementById('edit-gender');
+            const blood = document.getElementById('edit-blood-group');
+            
+            if (fName && !fName.value) fName.value = currentProfileData.first_name || '';
+            if (lName && !lName.value) lName.value = currentProfileData.last_name || '';
+            if (phone && !phone.value) phone.value = currentProfileData.phone || '';
+            if (dob && !dob.value) dob.value = currentProfileData.dob || '';
+            if (gender && !gender.value) gender.value = currentProfileData.gender || '';
+            if (blood && !blood.value) blood.value = currentProfileData.blood_group || '';
         }
 
         modal.classList.remove('hidden');

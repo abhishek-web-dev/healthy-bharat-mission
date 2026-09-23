@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/components_v15.js"></script>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.body.innerHTML += '<h2>Is hbm-header in customElements? ' + (!!customElements.get('hbm-header')) + '</h2>';
+            }, 500);
+        };
+    </script>
+</head>
+<body>
+    <hbm-header></hbm-header>
+</body>
+</html>

@@ -64,7 +64,7 @@
                 </p>
 
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="javascript:void(0)" onclick="openContactModal()"
+                    <a href="javascript:void(0)" onclick="openContactModal('programs')"
                         class="bg-primary hover:bg-primary-light text-white px-6 xl:px-8 py-3 rounded-md font-medium transition-colors shadow-lg flex items-center text-sm xl:text-base">
                         Start Your Health Journey <i class="fa-solid fa-arrow-right ml-2"></i>
                     </a>
@@ -258,84 +258,84 @@
 
                 <!-- Card 1 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='program/diabetes-care'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/program/diabetes-care'">
                     <div class="text-red-500 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-droplet"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Diabetes</span>
                 </div>
 
                 <!-- Card 2 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='program/heart-health'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/program/heart-health'">
                     <div class="text-red-600 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-heart-pulse"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Blood Pressure</span>
                 </div>
 
                 <!-- Card 3 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='program/weight-management'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/program/weight-management'">
                     <div class="text-teal-600 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-weight-scale"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Weight Loss</span>
                 </div>
 
                 <!-- Card 4 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='program/weight-management'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/program/weight-management'">
                     <div class="text-emerald-700 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-person"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Obesity</span>
                 </div>
 
                 <!-- Card 5 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='program/heart-health'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/program/heart-health'">
                     <div class="text-yellow-600 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-bacterium"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Cholesterol</span>
                 </div>
 
                 <!-- Card 6 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='program/liver-detox'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/program/liver-detox'">
                     <div class="text-red-800 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-disease"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Fatty Liver</span>
                 </div>
 
                 <!-- Card 7 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='health-condition'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/health-condition'">
                     <div class="text-indigo-400 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-brain"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Stress</span>
                 </div>
 
                 <!-- Card 8 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='health-condition'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/health-condition'">
                     <div class="text-blue-900 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-moon"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Poor Sleep</span>
                 </div>
 
                 <!-- Card 9 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='program/pcos-care'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/program/pcos-care'">
                     <div class="text-pink-500 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-venus"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">PCOS</span>
                 </div>
 
                 <!-- Card 10 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='health-condition'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/health-condition'">
                     <div class="text-rose-400 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-ribbon"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Thyroid</span>
                 </div>
 
                 <!-- Card 11 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='health-condition'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/health-condition'">
                     <div class="text-orange-400 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-capsules"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Digestive Issues</span>
                 </div>
 
                 <!-- Card 12 -->
                 <div
-                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='health-condition'">
+                    class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col items-center justify-center hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='/health-condition'">
                     <div class="text-blue-500 text-3xl xl:text-4xl mb-3"><i class="fa-solid fa-shield-halved"></i></div>
                     <span class="font-bold text-xs xl:text-sm text-slate-800">Immunity</span>
                 </div>
@@ -344,7 +344,7 @@
 
             <!-- CTA Button -->
             <div class="mt-10">
-                <a href="#"
+                <a href="/health-condition"
                     class="inline-flex items-center justify-center bg-primary hover:bg-primary-light text-white px-7 py-2.5 rounded font-medium transition-colors shadow-sm text-sm">
                     Explore All Conditions <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </a>
@@ -365,7 +365,7 @@
 
                 <!-- Program 1 -->
                 <div
-                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left">
+                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left cursor-pointer" onclick="window.location.href='/program/diabetes-care'">
                     <div class="h-32 xl:h-36 w-full bg-gray-100 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="Diabetes Reversal" class="w-full h-full object-cover">
@@ -376,7 +376,7 @@
                         <div class="flex items-center text-[11px] xl:text-xs text-gray-500 mb-4 mt-auto font-medium">
                             <i class="fa-regular fa-clock mr-1.5 text-primary"></i> 12 Weeks Program
                         </div>
-                        <a href="program/diabetes-care"
+                        <a href="/program/diabetes-care"
                             class="text-primary text-xs xl:text-[13px] font-semibold hover:text-primary-dark transition-colors inline-flex items-center mt-auto">
                             Know More <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
                         </a>
@@ -385,7 +385,7 @@
 
                 <!-- Program 2 -->
                 <div
-                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left">
+                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left cursor-pointer" onclick="window.location.href='/program/weight-management'">
                     <div class="h-32 xl:h-36 w-full bg-gray-100 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="Weight Management" class="w-full h-full object-cover">
@@ -396,7 +396,7 @@
                         <div class="flex items-center text-[11px] xl:text-xs text-gray-500 mb-4 mt-auto font-medium">
                             <i class="fa-regular fa-clock mr-1.5 text-primary"></i> 12 Weeks Program
                         </div>
-                        <a href="program/weight-management"
+                        <a href="/program/weight-management"
                             class="text-primary text-xs xl:text-[13px] font-semibold hover:text-primary-dark transition-colors inline-flex items-center mt-auto">
                             Know More <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
                         </a>
@@ -405,7 +405,7 @@
 
                 <!-- Program 3 -->
                 <div
-                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left">
+                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left cursor-pointer" onclick="window.location.href='/program/pcos-care'">
                     <div class="h-32 xl:h-36 w-full bg-gray-100 overflow-hidden relative">
                         <!-- Using an abstract wellness image for PCOS -->
                         <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
@@ -417,7 +417,7 @@
                         <div class="flex items-center text-[11px] xl:text-xs text-gray-500 mb-4 mt-auto font-medium">
                             <i class="fa-regular fa-clock mr-1.5 text-primary"></i> 12 Weeks Program
                         </div>
-                        <a href="program/pcos-care"
+                        <a href="/program/pcos-care"
                             class="text-primary text-xs xl:text-[13px] font-semibold hover:text-primary-dark transition-colors inline-flex items-center mt-auto">
                             Know More <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
                         </a>
@@ -426,7 +426,7 @@
 
                 <!-- Program 4 -->
                 <div
-                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left">
+                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left cursor-pointer" onclick="window.location.href='/program/heart-health'">
                     <div class="h-32 xl:h-36 w-full bg-gray-100 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="Heart Health" class="w-full h-full object-cover">
@@ -437,7 +437,7 @@
                         <div class="flex items-center text-[11px] xl:text-xs text-gray-500 mb-4 mt-auto font-medium">
                             <i class="fa-regular fa-clock mr-1.5 text-primary"></i> 12 Weeks Program
                         </div>
-                        <a href="program/heart-health"
+                        <a href="/program/heart-health"
                             class="text-primary text-xs xl:text-[13px] font-semibold hover:text-primary-dark transition-colors inline-flex items-center mt-auto">
                             Know More <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
                         </a>
@@ -446,7 +446,7 @@
 
                 <!-- Program 5 -->
                 <div
-                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left">
+                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left cursor-pointer" onclick="window.location.href='/program/liver-detox'">
                     <div class="h-32 xl:h-36 w-full bg-gray-100 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="Liver Detox" class="w-full h-full object-cover">
@@ -457,7 +457,7 @@
                         <div class="flex items-center text-[11px] xl:text-xs text-gray-500 mb-4 mt-auto font-medium">
                             <i class="fa-regular fa-clock mr-1.5 text-primary"></i> 12 Weeks Program
                         </div>
-                        <a href="program/liver-detox"
+                        <a href="/program/liver-detox"
                             class="text-primary text-xs xl:text-[13px] font-semibold hover:text-primary-dark transition-colors inline-flex items-center mt-auto">
                             Know More <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
                         </a>
@@ -466,7 +466,7 @@
 
                 <!-- Program 6 -->
                 <div
-                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left">
+                    class="bg-white rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-gray-50 overflow-hidden flex flex-col hover:shadow-lg transition-shadow text-left cursor-pointer" onclick="window.location.href='/program/senior-wellness'">
                     <div class="h-32 xl:h-36 w-full bg-gray-100 overflow-hidden relative">
                         <img src="./assets/hero_family.png"
                             alt="Senior Wellness" class="w-full h-full object-cover">
@@ -477,7 +477,7 @@
                         <div class="flex items-center text-[11px] xl:text-xs text-gray-500 mb-4 mt-auto font-medium">
                             <i class="fa-regular fa-clock mr-1.5 text-primary"></i> 12 Weeks Program
                         </div>
-                        <a href="program/senior-wellness"
+                        <a href="/program/senior-wellness"
                             class="text-primary text-xs xl:text-[13px] font-semibold hover:text-primary-dark transition-colors inline-flex items-center mt-auto">
                             Know More <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
                         </a>
@@ -524,7 +524,7 @@
                     <p class="text-white/90 text-sm md:text-base mb-8 max-w-[400px] font-medium leading-relaxed">
                         Get a personalized report and take the first step towards a healthier you.
                     </p>
-                    <a href="#"
+                    <a href="javascript:void(0)" onclick="openContactModal('assessment')"
                         class="inline-flex items-center justify-center bg-accent hover:bg-yellow-500 text-slate-900 px-7 py-3 rounded-md font-bold transition-colors shadow-md text-sm md:text-base">
                         Start Assessment Now <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                     </a>
@@ -552,7 +552,7 @@
                     class="w-max shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-green-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/rajesh.png"
                             alt="Rajesh Kumar" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -574,7 +574,7 @@
                     class="w-max shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-blue-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/pooja.png"
                             alt="Pooja Sharma" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -594,7 +594,7 @@
                     class="w-max shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-green-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/suresh.png"
                             alt="Suresh Verma" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -616,7 +616,7 @@
                     class="success-card shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-pink-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/anjali.png"
                             alt="Anjali Mehta" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -640,7 +640,7 @@
                     class="w-max shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-green-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/rajesh.png"
                             alt="Rajesh Kumar" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -663,7 +663,7 @@
                     class="w-max shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-blue-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/pooja.png"
                             alt="Pooja Sharma" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -684,7 +684,7 @@
                     class="w-max shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-green-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/suresh.png"
                             alt="Suresh Verma" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -707,7 +707,7 @@
                     class="w-max shrink-0 bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] border border-gray-100 p-6 flex flex-row items-center space-x-5 xl:space-x-6 snap-center text-left relative">
                     <!-- Image Left -->
                     <div class="w-[84px] h-[84px] xl:w-[100px] xl:h-[100px] rounded-full overflow-hidden border-[4px] border-pink-50 shrink-0 self-center">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        <img src="./assets/images/testimonials/anjali.png"
                             alt="Anjali Mehta" class="w-full h-full object-cover">
                     </div>
                     <!-- Content Right -->
@@ -731,7 +731,7 @@
 
             <!-- CTA Button -->
             <div class="mt-8">
-                <a href="#"
+                <a href="/successtories"
                     class="inline-flex items-center justify-center bg-primary hover:bg-primary-light text-white px-7 py-2.5 rounded font-medium transition-colors shadow-sm text-sm">
                     View More Stories <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </a>
@@ -881,8 +881,13 @@
     <hbm-footer></hbm-footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        const initCounters = () => {
             const counters = document.querySelectorAll('.counter');
+            if (counters.length === 0) return;
+
+            if (window.hbmCounterObserver) {
+                window.hbmCounterObserver.disconnect();
+            }
 
             const animateCounters = (entries, observer) => {
                 entries.forEach(entry => {
@@ -892,7 +897,7 @@
                         const duration = 2000; // 2 seconds animation duration
                         const frameDuration = 1000 / 60; // ~60fps
                         const totalFrames = Math.round(duration / frameDuration);
-                        const easeOutQuad = t => t * (2 - t); // Easing function for smoother stop
+                        const easeOutQuad = t => t * (2 - t);
 
                         let frame = 0;
 
@@ -910,19 +915,23 @@
                         };
 
                         updateCount();
-                        observer.unobserve(counter); // Only animate once
+                        observer.unobserve(counter);
                     }
                 });
             };
 
-            const observer = new IntersectionObserver(animateCounters, {
-                threshold: 0.5 // Start when 50% of the element is visible
+            window.hbmCounterObserver = new IntersectionObserver(animateCounters, {
+                threshold: 0.5
             });
 
             counters.forEach(counter => {
-                observer.observe(counter);
+                counter.innerText = '0'; // Reset for re-animation
+                window.hbmCounterObserver.observe(counter);
             });
-        });
+        };
+
+        // pageshow fires on initial load AND when restored from BFCache (back/forward navigation)
+        window.addEventListener('pageshow', initCounters);
     </script>
 
     
@@ -971,7 +980,7 @@
         });
     </script>
     <script src="js/components_v15.js"></script>
-    <script src="js/api.js"></script>
+    <script>window.onerror = function(msg, url, line, col, error) { fetch("/log_error.php", {method: "POST", body: JSON.stringify({msg: msg, url: url, line: line, col: col})}); };</script><script src="js/api.js"></script>
     <script src="js/home.js"></script>
 </body>
 

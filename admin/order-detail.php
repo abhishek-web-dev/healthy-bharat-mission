@@ -131,7 +131,7 @@
             </div>
         </form>
         
-        <form id="payment-status-form" class="border border-gray-100 rounded-xl overflow-hidden shadow-sm bg-white">
+        <div id="payment-status-container" class="border border-gray-100 rounded-xl overflow-hidden shadow-sm bg-white">
             <div class="bg-gray-50 px-4 py-3 border-b border-gray-100">
                 <h4 class="font-bold text-gray-700 uppercase tracking-wider text-xs flex items-center gap-2">
                     <i class="fa-solid fa-credit-card"></i> Payment Status
@@ -140,16 +140,10 @@
             <div class="p-4 space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Current Status</label>
-                    <select id="edit-payment-status" class="block w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm font-bold bg-gray-50">
-                        <option value="pending">Pending</option>
-                        <option value="success">Success</option>
-                        <option value="failed">Failed</option>
-                    </select>
+                    <div id="display-payment-status" class="inline-flex px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider border bg-gray-50 text-gray-600 border-gray-200">
+                        Loading...
+                    </div>
                 </div>
-                <button type="submit" id="save-payment-btn" class="w-full py-2.5 bg-[#106e39] text-white rounded-lg text-sm font-bold shadow hover:opacity-90 transition-opacity flex justify-center items-center gap-2">
-                    <span id="save-payment-text">Update Payment</span>
-                    <i id="save-payment-spinner" class="fa-solid fa-spinner fa-spin hidden"></i>
-                </button>
                 
                 <!-- Payment Gateway Reference (Safe Display) -->
                 <div id="payment-gateway-ref" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs">
@@ -158,7 +152,7 @@
                     <p class="text-gray-400 font-mono truncate" title="Razorpay Payment ID">Rzp Pay: <span id="ref-rzp-pay" class="text-gray-600"></span></p>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
@@ -181,7 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageContent = document.getElementById('page-content');
     
     const statusForm = document.getElementById('order-status-form');
-    const paymentForm = document.getElementById('payment-status-form');
     
     function formatCurrency(amount) {
         return '₹' + parseFloat(amount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -246,7 +239,58 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Set Selects
             document.getElementById('edit-order-status').value = o.order_status || 'pending';
-            document.getElementById('edit-payment-status').value = o.payment_status || 'pending';
+            
+            // Set payment status badge
+            const pStatus = (o.payment_status || 'pending').toLowerCase();
+            const badge = document.getElementById('display-payment-status');
+            badge.textContent = pStatus;
+            
+            badge.className = 'inline-flex px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider border';
+            if (pStatus === 'success') {
+                badge.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+            } else if (pStatus === 'failed') {
+                badge.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
+            } else {
+                badge.classList.add('bg-gray-50', 'text-gray-600', 'border-gray-200');
+            }
+            
+            // Enforce status transition UI
+            const statusSelect = document.getElementById('edit-order-status');
+            const currentStatus = o.order_status || 'pending';
+            
+            const allowedTransitions = {
+                'pending': ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
+                'processing': ['processing', 'shipped', 'delivered', 'cancelled'],
+                'shipped': ['shipped', 'delivered', 'cancelled'],
+                'delivered': ['delivered'],
+                'cancelled': ['cancelled']
+            };
+            
+            const allowed = allowedTransitions[currentStatus] || [currentStatus];
+            
+            Array.from(statusSelect.options).forEach(opt => {
+                if (!allowed.includes(opt.value)) {
+                    opt.disabled = true;
+                    opt.classList.add('hidden'); // Hide impossible options
+                } else {
+                    opt.disabled = false;
+                    opt.classList.remove('hidden');
+                }
+            });
+            
+            const saveStatusBtn = document.getElementById('save-status-btn');
+            // If the state is terminal, disable the save button entirely
+            if (currentStatus === 'delivered' || currentStatus === 'cancelled') {
+                statusSelect.disabled = true;
+                saveStatusBtn.disabled = true;
+                saveStatusBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                document.getElementById('save-status-text').textContent = 'Terminal State';
+            } else {
+                statusSelect.disabled = false;
+                saveStatusBtn.disabled = false;
+                saveStatusBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                document.getElementById('save-status-text').textContent = 'Update Status';
+            }
             
             // Populate Items
             const itemsTbody = document.getElementById('page-order-items');
@@ -307,46 +351,22 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show brief success UI
             btnText.textContent = 'Updated!';
             btnText.classList.replace('text-white', 'text-green-400');
-            setTimeout(() => {
-                btnText.textContent = 'Update Status';
-                btnText.classList.replace('text-green-400', 'text-white');
-            }, 2000);
         } catch (err) {
             alert(err.message || "Failed to update order status");
         } finally {
-            submitBtn.disabled = false;
+            if (newStatus !== 'delivered' && newStatus !== 'cancelled') {
+                submitBtn.disabled = false;
+            }
             btnSpinner.classList.add('hidden');
+            
+            // Reload page to reflect new state restrictions if successful
+            if (btnText.textContent === 'Updated!') {
+                setTimeout(() => window.location.reload(), 500);
+            }
         }
     });
-    
-    paymentForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const newStatus = document.getElementById('edit-payment-status').value;
-        const btnText = document.getElementById('save-payment-text');
-        const btnSpinner = document.getElementById('save-payment-spinner');
-        const submitBtn = document.getElementById('save-payment-btn');
-        
-        submitBtn.disabled = true;
-        btnText.textContent = 'Updating...';
-        btnSpinner.classList.remove('hidden');
-        
-        try {
-            await window.HBM_API.request(`/admin/orders/${currentOrderId}/payment-status`, 'PUT', { status: newStatus });
-            // Show brief success UI
-            btnText.textContent = 'Updated!';
-            btnText.classList.replace('text-gray-700', 'text-green-600');
-            setTimeout(() => {
-                btnText.textContent = 'Update Payment';
-                btnText.classList.replace('text-green-600', 'text-gray-700');
-            }, 2000);
-        } catch (err) {
-            alert(err.message || "Failed to update payment status");
-        } finally {
-            submitBtn.disabled = false;
-            btnSpinner.classList.add('hidden');
-        }
-    });
+
+
 
     // Initial Load
     loadOrderDetails();

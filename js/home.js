@@ -24,11 +24,11 @@ async function fetchHomeProducts() {
                 const img = p.thumbnail_url || p.primary_image || 'https://via.placeholder.com/200';
                 return `
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300 group flex flex-col relative w-48 md:w-52 xl:w-56 shrink-0 cursor-pointer" onclick="window.location.href='./store.php?id=${p.id}'">
-                    <div class="bg-[#f8fafc] p-4 relative flex items-center justify-center h-48 border-b border-gray-50">
+                    <div class="bg-[#f8fafc] relative flex items-center justify-center h-48 border-b border-gray-50 overflow-hidden">
                         <div class="absolute top-3 left-3 bg-primary text-white text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded shadow-sm z-10">
                             ${p.category_name || 'Product'}
                         </div>
-                        <img src="${img}" alt="${p.name}" class="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out z-0">
+                        <img src="${img}" alt="${p.name}" class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out z-0">
                     </div>
                     <div class="p-4 flex flex-col flex-1">
                         <h3 class="font-extrabold text-gray-900 text-[13px] xl:text-sm mb-2 leading-snug group-hover:text-primary transition-colors line-clamp-2">
@@ -129,7 +129,7 @@ async function fetchHomeArticles() {
                 const img = a.image_url || 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&q=80';
 
                 return `
-                <a href="./article.php?slug=${a.slug}" class="flex items-start space-x-4 group p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                <a href="./${a.slug}" class="flex items-start space-x-4 group p-2 hover:bg-gray-50 rounded-lg transition-colors">
                     <div class="w-24 xl:w-28 h-16 xl:h-20 rounded-md overflow-hidden shrink-0 border border-gray-100">
                         <img src="${img}"
                             alt="${a.title}"

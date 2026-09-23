@@ -80,228 +80,15 @@
                             
                             <!-- Table Body -->
                             <div class="divide-y divide-gray-50" id="downloads-list">
-                                
-                                <!-- Row 1 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Educational Guide">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-pdf text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Diabetes Care Guide.pdf</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">A complete guide to manage diabetes</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-blue-50 text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Educational Guide</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">2.4 MB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
+                                <!-- JS injected downloads -->
+                                <div class="px-6 py-8 text-center text-gray-500 text-sm" id="downloads-loading">
+                                    <i class="fa-solid fa-spinner fa-spin text-xl mb-2 text-[#106e39]"></i><br>
+                                    Loading your downloads...
                                 </div>
-
-                                <!-- Row 2 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Meal Plan">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-green-50 text-[#106e39] flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-pdf text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Healthy Eating Meal Plan.pdf</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">7-day meal plan for better health</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-green-50 text-[#106e39] text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Meal Plan</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">1.8 MB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- Row 3 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Educational Guide">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-pdf text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Exercise for a Healthier You.pdf</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">Simple exercises for daily routine</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-blue-50 text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Educational Guide</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">3.1 MB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- Row 4 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Reports">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-500 flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-excel text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Health Tracking Sheet.xlsx</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">Track your health progress</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-purple-50 text-purple-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Reports</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">950 KB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- Row 5 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Forms">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-pdf text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Consultation Report Template.pdf</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">Use this template for your reports</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-red-50 text-red-500 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Forms</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">1.2 MB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                                <!-- Row 6 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Others">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-500 flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-image text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Food Chart (Visual).jpg</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">Quick reference food chart</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-yellow-50 text-yellow-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Others</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">800 KB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                                <!-- Row 7 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Forms">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-pdf text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Medication Reminder Sheet.pdf</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">Stay on track with your medicines</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-red-50 text-red-500 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Forms</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">1.1 MB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- Row 8 -->
-                                <div class="download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors" data-category="Educational Guide">
-                                    <div class="flex-1 flex items-start gap-4">
-                                        <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-500 flex items-center justify-center shrink-0">
-                                            <i class="fa-solid fa-file-pdf text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-gray-800 text-[14px]">Lifestyle Tips Booklet.pdf</h4>
-                                            <p class="text-[12px] text-gray-500 mt-0.5">Small changes, big results</p>
-                                        </div>
-                                    </div>
-                                    <div style="width: 140px;">
-                                        <span class="bg-blue-50 text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Educational Guide</span>
-                                    </div>
-                                    <div style="width: 100px;">
-                                        <span class="text-[13px] font-medium text-gray-600">2.0 MB</span>
-                                    </div>
-                                    <div style="width: 140px;" class="flex items-center justify-end gap-3">
-                                        <button class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
-                                            <i class="fa-solid fa-download"></i> Download
-                                        </button>
-                                        <button class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center text-gray-400 shrink-0">
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Right Column: Sidebar -->
+                        <!-- Right Column: Sidebar -->
                     <div class="w-full flex flex-col gap-6" style="width: 100%; max-width: 30%; min-width: 300px;">
                         
                         <!-- Quick Access -->
@@ -371,16 +158,16 @@
                                 </div>
                                 <div>
                                     <h3 class="font-bold text-gray-800 text-[16px]">Your Downloads</h3>
-                                    <p class="text-[12px] text-gray-500">8 files downloaded</p>
+                                    <p class="text-[12px] text-gray-500" id="stats-file-count">0 files downloaded</p>
                                 </div>
                             </div>
                             
                             <div class="mt-5 mb-2">
                                 <div class="w-full bg-gray-100 rounded-full h-2">
-                                    <div class="bg-[#106e39] h-2 rounded-full" style="width: 15%"></div>
+                                    <div id="stats-progress-bar" class="bg-[#106e39] h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
                                 </div>
                             </div>
-                            <p class="text-[12px] font-medium text-gray-600 mb-5">15 MB of 100 MB used</p>
+                            <p class="text-[12px] font-medium text-gray-600 mb-5" id="stats-usage-text">0 MB of 100 MB used</p>
                             
                             <button class="w-full py-2.5 border border-[#106e39] text-[#106e39] font-bold text-[13px] rounded-lg hover:bg-[#106e39] hover:text-white transition-colors">
                                 Manage Storage
@@ -414,11 +201,156 @@
     <script src="../js/components_v15.js"></script>
     <script src="../js/dashboard.js"></script>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        <script>
+        // Global function to trigger safe download
+        window.triggerSafeDownload = async function(url, filename) {
+            try {
+                // Ensure URL points to api baseUrl for absolute resolution if it's relative
+                const absoluteUrl = url.startsWith('/') ? HBM_API.baseUrl.replace('/api', '') + url : url;
+                
+                const response = await fetch(absoluteUrl, { method: 'HEAD' });
+                if (!response.ok) {
+                    window.showNotification('File unavailable. It may have been deleted or moved.', 'error');
+                    return;
+                }
+                
+                const a = document.createElement('a');
+                a.href = absoluteUrl;
+                a.download = filename || 'download';
+                // Some browsers require target blank for cross-origin downloads
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            } catch (err) {
+                window.showNotification('File unavailable. It may have been deleted or moved.', 'error');
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
             const tabs = document.querySelectorAll('.tab-btn');
-            const rows = document.querySelectorAll('.download-row');
+            const listContainer = document.getElementById('downloads-list');
+            let allDocuments = [];
+
+            // Helper to format bytes
+            function formatBytes(bytes, decimals = 2) {
+                if (!+bytes) return '0 Bytes';
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return \`${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}\`;
+            }
             
+            // Map db types to UI categories
+            function getCategory(doc) {
+                const type = (doc.document_type || 'other').toLowerCase();
+                if (type.includes('guide')) return 'Educational Guide';
+                if (type.includes('meal')) return 'Meal Plan';
+                if (type.includes('report') || type.includes('invoice')) return 'Reports';
+                if (type.includes('form')) return 'Forms';
+                return 'Others';
+            }
+
+            function getIcon(category) {
+                switch(category) {
+                    case 'Educational Guide': return '<div class="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-pdf text-xl"></i></div>';
+                    case 'Meal Plan': return '<div class="w-10 h-10 rounded-lg bg-green-50 text-[#106e39] flex items-center justify-center shrink-0"><i class="fa-solid fa-file-pdf text-xl"></i></div>';
+                    case 'Reports': return '<div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-invoice text-xl"></i></div>';
+                    case 'Forms': return '<div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-lines text-xl"></i></div>';
+                    default: return '<div class="w-10 h-10 rounded-lg bg-gray-100 text-gray-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-file text-xl"></i></div>';
+                }
+            }
+
+            function getBadgeStyle(category) {
+                switch(category) {
+                    case 'Educational Guide': return 'bg-red-50 text-red-600';
+                    case 'Meal Plan': return 'bg-green-50 text-[#106e39]';
+                    case 'Reports': return 'bg-blue-50 text-blue-600';
+                    case 'Forms': return 'bg-purple-50 text-purple-600';
+                    default: return 'bg-gray-100 text-gray-600';
+                }
+            }
+
+            function renderRows(documents, filterCategory = 'All') {
+                listContainer.innerHTML = '';
+                let renderedCount = 0;
+                
+                documents.forEach(doc => {
+                    const category = getCategory(doc);
+                    if (filterCategory !== 'All' && category !== filterCategory) return;
+                    
+                    renderedCount++;
+                    const sizeStr = formatBytes(doc.file_size || 0);
+                    const safeUrl = doc.file_path ? doc.file_path.replace(/"/g, '&quot;') : '#';
+                    const safeTitle = doc.title ? doc.title.replace(/"/g, '&quot;') : 'Document';
+                    
+                    const row = document.createElement('div');
+                    row.className = 'download-row px-6 py-5 flex items-center hover:bg-slate-50/50 transition-colors';
+                    row.innerHTML = \`
+                        <div class="flex-1 flex items-start gap-4">
+                            ${getIcon(category)}
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-[14px]">${safeTitle}</h4>
+                                <p class="text-[12px] text-gray-500 mt-0.5">Added on ${new Date(doc.created_at).toLocaleDateString()}</p>
+                            </div>
+                        </div>
+                        <div style="width: 140px;">
+                            <span class="${getBadgeStyle(category)} text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">${category}</span>
+                        </div>
+                        <div style="width: 100px;">
+                            <span class="text-[13px] font-medium text-gray-600">${sizeStr}</span>
+                        </div>
+                        <div style="width: 140px;" class="flex items-center justify-end gap-3">
+                            <button onclick="triggerSafeDownload('${safeUrl}', '${safeTitle}')" class="flex items-center gap-2 px-4 py-2 border border-green-200 text-[#106e39] bg-white rounded-lg hover:bg-[#106e39] hover:text-white transition-colors text-[13px] font-bold shadow-sm">
+                                <i class="fa-solid fa-download"></i> Download
+                            </button>
+                        </div>
+                    \`;
+                    listContainer.appendChild(row);
+                });
+                
+                if (renderedCount === 0) {
+                    listContainer.innerHTML = \`
+                        <div class="px-6 py-12 text-center text-gray-500">
+                            <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-300">
+                                <i class="fa-solid fa-folder-open text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-700 text-base mb-1">No downloads found</h3>
+                            <p class="text-sm">You haven't downloaded any ${filterCategory !== 'All' ? filterCategory.toLowerCase() + ' ' : ''}files yet.</p>
+                        </div>
+                    \`;
+                }
+            }
+
+            function updateSidebarStats(documents) {
+                const count = documents.length;
+                const totalBytes = documents.reduce((sum, doc) => sum + (parseInt(doc.file_size) || 0), 0);
+                const maxBytes = 100 * 1024 * 1024; // 100 MB quota
+                const percent = Math.min(100, Math.round((totalBytes / maxBytes) * 100));
+                
+                document.getElementById('stats-file-count').textContent = count + ' files downloaded';
+                document.getElementById('stats-progress-bar').style.width = percent + '%';
+                
+                const mbUsed = (totalBytes / (1024 * 1024)).toFixed(1);
+                document.getElementById('stats-usage-text').textContent = mbUsed + ' MB of 100 MB used';
+            }
+
+            // Fetch real data
+            try {
+                const res = await HBM_API.request('/user/documents');
+                if (res && res.success && res.data) {
+                    allDocuments = res.data;
+                    updateSidebarStats(allDocuments);
+                    renderRows(allDocuments, 'All');
+                } else {
+                    throw new Error('Failed to load documents');
+                }
+            } catch (err) {
+                console.error(err);
+                listContainer.innerHTML = '<div class="px-6 py-8 text-center text-red-500">Failed to load downloads. Please try again.</div>';
+            }
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     // Update active tab styles
@@ -431,13 +363,7 @@
                     
                     // Filter rows
                     const category = tab.getAttribute('data-tab');
-                    rows.forEach(row => {
-                        if (category === 'All' || row.getAttribute('data-category') === category) {
-                            row.style.display = 'flex';
-                        } else {
-                            row.style.display = 'none';
-                        }
-                    });
+                    renderRows(allDocuments, category);
                 });
             });
         });

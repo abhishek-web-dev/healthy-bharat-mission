@@ -1,3 +1,6 @@
+<?php
+$basePath = '/';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="./dist/output.css" rel="stylesheet">
+    <link href="<?= $basePath ?>dist/output.css" rel="stylesheet">
     
     <style>
         /* Fallback Styles: Guarantee the 404 page renders perfectly even if Tailwind watcher isn't running to compile arbitrary values */
@@ -106,17 +109,17 @@
         @media (min-width: 768px) { .mag-handle { width: 50px; height: 22px; bottom: -10px; right: -20px; } }
     </style>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/images/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/images/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="./assets/images/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" href="<?= $basePath ?>assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="<?= $basePath ?>assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="<?= $basePath ?>assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= $basePath ?>assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="<?= $basePath ?>assets/images/favicon/site.webmanifest" />
 </head>
 <body class="font-body text-gray-800 bg-white antialiased min-h-screen flex flex-col">
-    <hbm-header base-path="./"></hbm-header>
+    <hbm-header base-path="<?= $basePath ?>"></hbm-header>
     
     <!-- Use standard HTML/CSS fallback classes to ensure flawless rendering -->
-    <main class="flex-grow flex flex-col relative overflow-hidden bg-cover bg-right bg-no-repeat" style="background-image: url('./assets/404-banner.png');">
+    <main class="flex-grow flex flex-col relative overflow-hidden bg-cover bg-right bg-no-repeat" style="background-image: url('<?= $basePath ?>assets/404-banner.png');">
         
         <!-- Main Center Content -->
         <div class="flex-grow flex flex-col items-center justify-center relative z-20 px-4 mt-8 md:mt-0 py-16">
@@ -151,7 +154,7 @@
 
             <!-- Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-                <a href="./index" class="text-white px-6 py-3.5 rounded-lg font-bold text-[15px] flex items-center justify-center gap-2 transition-colors shadow-md w-full sm:w-auto" style="background-color: #106e39;">
+                <a href="<?= $basePath ?>index" class="text-white px-6 py-3.5 rounded-lg font-bold text-[15px] flex items-center justify-center gap-2 transition-colors shadow-md w-full sm:w-auto" style="background-color: #106e39;">
                     <i class="fa-solid fa-house"></i> Go to Homepage
                 </a>
                 <a href="javascript:history.back()" class="bg-white px-6 py-3.5 rounded-lg font-bold text-[15px] flex items-center justify-center gap-2 transition-colors shadow-sm w-full sm:w-auto" style="color: #106e39; border: 2px solid #106e39;">
@@ -199,7 +202,7 @@
         </div>
     </section>
 
-    <hbm-footer base-path="./"></hbm-footer>
-    <script src="./js/components_v15.js"></script>
+    <hbm-footer base-path="<?= $basePath ?>"></hbm-footer>
+    <script src="<?= $basePath ?>js/components_v15.js"></script>
 </body>
 </html>

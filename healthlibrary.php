@@ -87,11 +87,11 @@
                     <!-- Popular Searches -->
                     <div class="flex flex-wrap items-center gap-2.5 text-[13px]">
                         <span class="font-bold text-[#334155] text-[11px] uppercase tracking-wider mr-1">Popular Searches:</span>
-                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Diabetes</a>
-                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Weight Loss</a>
-                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Healthy Diet</a>
-                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">PCOS</a>
-                        <a href="#" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Heart Health</a>
+                        <a href="?search=Diabetes" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Diabetes</a>
+                        <a href="?search=Weight+Loss" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Weight Loss</a>
+                        <a href="?search=Healthy+Diet" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Healthy Diet</a>
+                        <a href="?search=PCOS" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">PCOS</a>
+                        <a href="?search=Heart+Health" class="popular-search-tag px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 font-semibold hover:border-[#106e39] hover:text-[#106e39] transition-colors shadow-sm">Heart Health</a>
                     </div>
                 </div>
             </div>
@@ -121,55 +121,55 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-4 lg:gap-5">
 
                     <!-- Card 1 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=nutrition-diet" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/health_foods.png" alt="Nutrition & Diet" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Nutrition &<br>Diet</h4>
                     </a>
 
                     <!-- Card 2 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=diabetes-care" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/diabetes_care.png" alt="Diabetes Care" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Diabetes<br>Care</h4>
                     </a>
 
                     <!-- Card 3 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=weight-management" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/weight_management.png" alt="Weight Management" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Weight<br>Management</h4>
                     </a>
 
                     <!-- Card 4 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=heart-health" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/heart_health.png" alt="Heart Health" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Heart<br>Health</h4>
                     </a>
 
                     <!-- Card 5 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=womens-health" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/womens_health.png" alt="Women's Health" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Women's<br>Health</h4>
                     </a>
 
                     <!-- Card 6 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=digestive-health" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/digestive_health.png" alt="Digestive Health" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Digestive<br>Health</h4>
                     </a>
 
                     <!-- Card 7 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=immunity" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/immunity.png" alt="Immunity" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Immunity</h4>
                     </a>
 
                     <!-- Card 8 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=mental-wellness" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/mental_wellness.png" alt="Mental Wellness" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Mental<br>Wellness</h4>
                     </a>
 
                     <!-- Card 9 -->
-                    <a href="#" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
+                    <a href="?category=healthy-living" class="bg-[#f4f8f2] rounded-[20px] p-4 flex flex-col items-center justify-center text-center hover:-translate-y-1.5 transition-transform duration-300 group h-[170px] border border-transparent hover:border-[#14532d]/20">
                         <img src="assets/personal_care.png" alt="Healthy Living" class="w-[72px] h-[72px] object-contain mb-4 group-hover:scale-110 transition-transform mix-blend-multiply">
                         <h4 class="font-extrabold text-[#1e293b] text-[12px] xl:text-[13px] leading-tight">Healthy<br>Living</h4>
                     </a>
@@ -179,7 +179,7 @@
         </section>
 
         <!-- Featured Articles Section -->
-        <section class="py-16 md:py-24 bg-[#f8faf8]">
+        <section id="featured-articles-section" class="py-16 md:py-24 bg-[#f8faf8]">
             <div class="container mx-auto max-w-[1400px] px-4 lg:px-8">
                 
                 <!-- Section Header -->
@@ -192,7 +192,7 @@
                             Handpicked by our experts, just for you.
                         </p>
                     </div>
-                    <a href="#" class="inline-flex items-center text-[#106e39] font-bold text-[15px] hover:text-[#0b4d27] transition-colors group">
+                    <a href="#latest-articles-section" class="inline-flex items-center text-[#106e39] font-bold text-[15px] hover:text-[#0b4d27] transition-colors group">
                         View All Articles 
                         <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -206,25 +206,29 @@
         </section>
 
         <!-- Latest Articles Section -->
-        <section class="py-16 md:py-24 bg-white relative">
+        <section id="latest-articles-section" class="py-16 md:py-24 bg-white relative">
             <div class="container mx-auto max-w-[1400px] px-4 lg:px-8">
                 
                 <!-- Section Header -->
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                     <div>
-                        <h2 class="font-heading font-extrabold text-[32px] md:text-[38px] text-[#0f3057] leading-tight mb-2 tracking-tight">
+                        <h2 id="latest-articles-heading" class="font-heading font-extrabold text-[32px] md:text-[38px] text-[#0f3057] leading-tight mb-2 tracking-tight">
                             Latest <span class="text-[#14532d]">Articles</span>
                         </h2>
-                        <p class="text-gray-500 font-medium text-[16px] md:text-[17px]">
+                        <p id="latest-articles-subheading" class="text-gray-500 font-medium text-[16px] md:text-[17px]">
                             Stay updated with the latest health tips, research and expert advice.
                         </p>
                     </div>
                     <!-- Dropdown -->
                     <div class="relative group">
-                        <button class="flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-600 font-medium text-[14px] hover:border-[#14532d] hover:text-[#14532d] transition-colors focus:outline-none shadow-sm">
-                            All Categories
-                            <i class="fa-solid fa-chevron-down text-[12px]"></i>
+                        <button id="categoryDropdownBtn" class="flex items-center justify-between min-w-[180px] px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-600 font-medium text-[14px] hover:border-[#14532d] hover:text-[#14532d] transition-colors focus:outline-none shadow-sm">
+                            <span>All Categories</span>
+                            <i class="fa-solid fa-chevron-down text-[12px] ml-2"></i>
                         </button>
+                        <!-- Dropdown Menu -->
+                        <div id="categoryDropdownMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 hidden z-50 py-2">
+                            <!-- Populated dynamically via JS -->
+                        </div>
                     </div>
                 </div>
 
@@ -234,8 +238,8 @@
                 </div>
 
                 <!-- Load More Button -->
-                <div class="mt-14 flex flex-col items-center justify-center">
-                    <p id="loadCountText" class="text-gray-500 text-sm font-medium mb-4">Showing 8 of 16 articles</p>
+                <div id="loadMoreSection" class="mt-14 flex flex-col items-center justify-center hidden">
+                    <p id="loadCountText" class="text-gray-500 text-sm font-medium mb-4">Showing 0 of 0 articles</p>
                     <button id="loadMoreBtn" class="bg-[#14532d] text-white font-bold text-[15px] px-8 py-3.5 rounded-xl hover:bg-[#0b4d27] transition-colors flex items-center shadow-sm">
                         Load More Articles
                         <i class="fa-solid fa-rotate-right ml-2.5"></i>
@@ -475,116 +479,233 @@
         document.addEventListener('DOMContentLoaded', async function() {
             const featuredGrid = document.getElementById('featured-articles-grid');
             const latestGrid = document.getElementById('latest-articles-grid');
+            const featuredSection = document.getElementById('featured-articles-section');
+            const latestHeading = document.getElementById('latest-articles-heading');
+            const latestSubheading = document.getElementById('latest-articles-subheading');
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const loadMoreSection = document.getElementById('loadMoreSection');
+            const loadCountText = document.getElementById('loadCountText');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const categoryDropdownBtn = document.getElementById('categoryDropdownBtn');
+            const categoryDropdownMenu = document.getElementById('categoryDropdownMenu');
+
+            let currentPage = 1;
+            const perPage = 12; // Standard per page
+            let totalArticles = 0;
+            let loadedArticles = 0;
+
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+            const categoryFilter = urlParams.get('category');
             
+            const isFiltered = searchQuery || categoryFilter;
+
+            // Handle Search Event
+            const performSearch = () => {
+                const val = searchInput.value.trim();
+                if(val) {
+                    window.location.href = '?search=' + encodeURIComponent(val);
+                } else {
+                    window.location.href = 'healthlibrary.php';
+                }
+            };
+
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') performSearch();
+            });
+
+            // Handle Dropdown UI
+            if (categoryDropdownBtn && categoryDropdownMenu) {
+                categoryDropdownBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    categoryDropdownMenu.classList.toggle('hidden');
+                });
+                
+                document.addEventListener('click', () => {
+                    if (!categoryDropdownMenu.classList.contains('hidden')) {
+                        categoryDropdownMenu.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Fetch and Populate Categories Dropdown
             try {
-                // By default the public API endpoint lists published articles
-                const res = await window.HBM_API.request('/articles');
-                let articles = [];
-                if (Array.isArray(res.data)) {
-                    articles = res.data;
-                } else if (res.data && Array.isArray(res.data.data)) {
-                    articles = res.data.data;
-                } else if (Array.isArray(res)) {
-                    articles = res;
+                const catRes = await window.HBM_API.request('/article-categories');
+                const categories = Array.isArray(catRes.data) ? catRes.data : [];
+                
+                if (categoryDropdownMenu) {
+                    let menuHtml = `<a href="healthlibrary.php${searchQuery ? '?search='+encodeURIComponent(searchQuery) : ''}" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-[#f4f8f2] hover:text-[#14532d] font-medium transition-colors border-b border-gray-50">All Categories</a>`;
+                    
+                    categories.forEach(cat => {
+                        const searchParam = searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : '';
+                        menuHtml += `<a href="?category=${cat.slug}${searchParam}" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-[#f4f8f2] hover:text-[#14532d] font-medium transition-colors">${cat.name}</a>`;
+                    });
+                    
+                    categoryDropdownMenu.innerHTML = menuHtml;
                 }
-                
-                if (articles.length === 0) {
-                    featuredGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No articles available.</p>';
-                    latestGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No articles available.</p>';
-                    return;
-                }
-                
-                // The original static implementation hardcoded these 3 specific articles as featured
-                const featuredSlugs = ['beginners-guide-balanced-diet', '10-daily-habits-manage-diabetes', 'power-of-daily-movement'];
-                
-                const featured = [];
-                const latest = [];
-                
-                // First extract the featured ones if they exist
-                featuredSlugs.forEach(slug => {
-                    const found = articles.find(a => a.slug === slug);
-                    if (found) featured.push(found);
-                });
-                
-                // If we didn't find all 3, pad with others
-                let i = 0;
-                while (featured.length < 3 && i < articles.length) {
-                    if (!featured.includes(articles[i])) {
-                        featured.push(articles[i]);
+
+                // Update UI based on active category
+                if (categoryFilter) {
+                    const activeCat = categories.find(c => c.slug === categoryFilter);
+                    if (activeCat && categoryDropdownBtn) {
+                        categoryDropdownBtn.querySelector('span').textContent = activeCat.name;
                     }
-                    i++;
                 }
+            } catch (err) {
+                console.error("Failed to load categories for dropdown", err);
+            }
+
+            // Set search input value if search param is present
+            if(searchQuery) {
+                searchInput.value = searchQuery;
+                if(latestHeading) latestHeading.innerHTML = `Search Results for <span class="text-[#14532d]">'${searchQuery}'</span>`;
+                if(latestSubheading) latestSubheading.style.display = 'none';
+            } else if (categoryFilter) {
+                if(latestSubheading) latestSubheading.style.display = 'none';
+                // Wait for categories to load, if activeCat name wasn't set we fallback
+                const btnText = categoryDropdownBtn ? categoryDropdownBtn.querySelector('span').textContent : 'Category';
+                if(latestHeading) latestHeading.innerHTML = `Category: <span class="text-[#14532d]">${btnText !== 'All Categories' ? btnText : categoryFilter}</span>`;
+            }
+
+            // Hide featured section if filtering
+            if(isFiltered && featuredSection) {
+                featuredSection.style.display = 'none';
+            }
+
+            const renderCard = (a, isFeatured = false) => {
+                const imgClass = isFeatured ? 'h-[260px]' : 'h-[200px]';
+                const wrapperClass = isFeatured ? 'bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1 h-full' : 'bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 h-full';
+                const titleClass = isFeatured ? 'font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors line-clamp-2' : 'font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow line-clamp-2';
                 
-                // The rest go into latest (excluding those in featured)
-                articles.forEach(a => {
-                    if (!featured.includes(a)) {
-                        latest.push(a);
-                    }
-                });
-                
-                // Limit latest to 8 as per original design
-                const limitedLatest = latest.slice(0, 8);
-                
-                // Render Featured
-                featuredGrid.innerHTML = featured.map(a => `
-                    <a href="article.php?slug=${a.slug}" class="block cursor-pointer">
-                        <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] flex flex-col group hover:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-300 transform hover:-translate-y-1 h-full">
-                        <div class="relative h-[260px] overflow-hidden shrink-0">
-                            <img src="${a.image_url || 'assets/article_diet.png'}" alt="${a.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                return `
+                    <a href="/${a.slug}" class="block cursor-pointer">
+                        <article class="${wrapperClass}">
+                        <div class="relative ${imgClass} overflow-hidden shrink-0">
+                            <img src="${a.image_url}" alt="${a.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                             ${a.category_name ? `<div class="absolute bottom-4 left-4 bg-[#14532d] text-white text-[12.5px] font-bold px-3.5 py-1.5 rounded-lg shadow-sm">${a.category_name}</div>` : ''}
                         </div>
-                        <div class="p-7 flex flex-col flex-grow">
-                            <h3 class="font-extrabold text-[22px] md:text-[24px] text-[#0f3057] leading-[1.3] mb-3 group-hover:text-[#106e39] transition-colors line-clamp-2">
+                        <div class="p-${isFeatured ? '7' : '5'} flex flex-col flex-grow">
+                            <h3 class="${titleClass}">
                                 ${a.title}
                             </h3>
-                            <p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow line-clamp-3">
-                                ${a.excerpt || ''}
-                            </p>
-                            <div class="flex items-center gap-6 text-gray-500 text-[13.5px] font-semibold mt-auto shrink-0">
+                            ${isFeatured && a.excerpt ? `<p class="text-gray-500 text-[15px] leading-relaxed mb-6 flex-grow line-clamp-3">${a.excerpt}</p>` : ''}
+                            <div class="flex items-center gap-${isFeatured ? '6' : '4'} text-gray-500 text-[13px] font-${isFeatured ? 'semibold' : 'medium'} mt-auto shrink-0">
                                 <div class="flex items-center gap-2">
                                     <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
                                     ${new Date(a.published_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <i class="fa-regular fa-clock text-[#a0aab8]"></i>
-                                    ${a.read_time_minutes || 5} min read
+                                    ${a.read_time_minutes} min read
                                 </div>
                             </div>
                         </div>
                     </article>
-                    </a>
-                `).join('');
-                
-                // Render Latest
-                latestGrid.innerHTML = limitedLatest.map(a => `
-                    <a href="article.php?slug=${a.slug}" class="block cursor-pointer">
-                        <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 h-full">
-                        <div class="relative h-[200px] overflow-hidden shrink-0">
-                            <img src="${a.image_url || 'assets/latest_immunity.png'}" alt="${a.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            ${a.category_name ? `<div class="absolute bottom-3 left-3 bg-[#14532d] text-white text-[11.5px] font-bold px-3 py-1.5 rounded-lg">${a.category_name}</div>` : ''}
-                        </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="font-bold text-[17px] text-[#0f3057] leading-snug mb-5 group-hover:text-[#106e39] transition-colors flex-grow line-clamp-2">
-                                ${a.title}
-                            </h3>
-                            <div class="flex items-center gap-4 text-gray-500 text-[13px] font-medium mt-auto shrink-0">
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-calendar text-[#a0aab8]"></i>
-                                    ${new Date(a.published_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <i class="fa-regular fa-clock text-[#a0aab8]"></i>
-                                    ${a.read_time_minutes || 5} min read
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    </a>
-                `).join('');
-                
-            } catch(e) {
-                console.error("Failed to load articles", e);
-                featuredGrid.innerHTML = '<p class="col-span-full text-center text-red-500 py-10">Failed to load articles.</p>';
+                    </a>`;
+            };
+
+            const fetchArticles = async (page = 1, append = false) => {
+                try {
+                    let apiUrl = `/articles?page=${page}&perPage=${perPage}`;
+                    if(searchQuery) apiUrl += '&search=' + encodeURIComponent(searchQuery);
+                    if(categoryFilter) apiUrl += '&category=' + encodeURIComponent(categoryFilter);
+
+                    const res = await window.HBM_API.request(apiUrl);
+                    
+                    let articles = [];
+                    if (Array.isArray(res.data)) {
+                        articles = res.data;
+                    } else if (res.data && Array.isArray(res.data.data)) {
+                        articles = res.data.data;
+                    } else if (Array.isArray(res)) {
+                        articles = res;
+                    }
+                    
+                    if(res.meta && res.meta.total !== undefined) {
+                        totalArticles = res.meta.total;
+                    } else {
+                        // Fallback if meta is missing
+                        totalArticles = append ? totalArticles + articles.length : articles.length;
+                    }
+
+                    if (articles.length === 0 && !append) {
+                        if(!isFiltered && featuredGrid) featuredGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No articles available.</p>';
+                        if(latestGrid) latestGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No articles found matching your criteria.</p>';
+                        if(loadMoreSection) loadMoreSection.classList.add('hidden');
+                        return;
+                    }
+
+                    // Render Logic
+                    if (!isFiltered && page === 1 && !append) {
+                        // Display default state (Featured + Latest)
+                        const featuredSlugs = ['beginners-guide-balanced-diet', '10-daily-habits-manage-diabetes', 'power-of-daily-movement'];
+                        const featured = [];
+                        const latest = [];
+
+                        featuredSlugs.forEach(slug => {
+                            const found = articles.find(a => a.slug === slug);
+                            if (found) featured.push(found);
+                        });
+
+                        let i = 0;
+                        while (featured.length < 3 && i < articles.length) {
+                            if (!featured.includes(articles[i])) {
+                                featured.push(articles[i]);
+                            }
+                            i++;
+                        }
+
+                        articles.forEach(a => {
+                            if (!featured.includes(a)) {
+                                latest.push(a);
+                            }
+                        });
+
+                        if (featuredGrid) featuredGrid.innerHTML = featured.map(a => renderCard(a, true)).join('');
+                        if (latestGrid) latestGrid.innerHTML = latest.map(a => renderCard(a, false)).join('');
+                        loadedArticles = latest.length + featured.length;
+                    } else {
+                        // Rendering filtered or paginated results to latestGrid
+                        const htmlString = articles.map(a => renderCard(a, false)).join('');
+                        if (append) {
+                            if(latestGrid) latestGrid.innerHTML += htmlString;
+                        } else {
+                            if(latestGrid) latestGrid.innerHTML = htmlString;
+                        }
+                        loadedArticles = append ? loadedArticles + articles.length : articles.length;
+                    }
+
+                    // Update Load More UI
+                    if(loadMoreSection) {
+                        if(loadedArticles < totalArticles) {
+                            loadMoreSection.classList.remove('hidden');
+                            loadCountText.textContent = `Showing ${loadedArticles} of ${totalArticles} articles`;
+                        } else {
+                            loadMoreSection.classList.add('hidden');
+                        }
+                    }
+
+                } catch(e) {
+                    console.error("Failed to load articles", e);
+                    if(!append) {
+                        if(featuredGrid) featuredGrid.innerHTML = '<p class="col-span-full text-center text-red-500 py-10">Failed to load articles.</p>';
+                        if(latestGrid) latestGrid.innerHTML = '<p class="col-span-full text-center text-red-500 py-10">Failed to load articles.</p>';
+                    }
+                }
+            };
+
+            // Initial fetch
+            fetchArticles(currentPage, false);
+
+            // Handle Load More
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    currentPage++;
+                    fetchArticles(currentPage, true);
+                });
             }
         });
     </script>

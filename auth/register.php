@@ -47,7 +47,7 @@
             <div class="relative z-10 w-full h-full p-8 xl:p-12 flex flex-col">
 
                 <!-- Logo -->
-                <div class="mb-10 xl:mb-12 flex items-center gap-3">
+                <div class="mb-8 flex items-center gap-3">
                     <img src="../assets/images/logo.png" alt="Logo" class="h-20 w-20 object-contain shrink-0">
                     <div>
                         <h2 class="text-[#052b14] font-extrabold text-[18px] xl:text-[20px] leading-tight">
@@ -58,18 +58,18 @@
                 </div>
 
                 <!-- Main Heading -->
-                <h1 class="text-[32px] xl:text-[36px] font-extrabold text-[#052b14] leading-[1.2] mb-5 tracking-tight">
+                <h1 class="text-[32px] xl:text-[36px] font-extrabold text-[#052b14] leading-[1.2] mb-4 tracking-tight">
                     Begin Your<br>Journey to a<br><span class="text-[#106e39]">Healthier You</span>
                 </h1>
 
                 <!-- Subtitle -->
-                <p class="text-gray-700 text-[14px] xl:text-[15px] max-w-[380px] mb-10 leading-relaxed font-medium">
+                <p class="text-gray-700 text-[14px] xl:text-[15px] max-w-[380px] mb-6 leading-relaxed font-medium">
                     Create your account and get access to personalized programs, expert guidance, health resources and
                     more.
                 </p>
 
                 <!-- Features List -->
-                <div class="space-y-6 max-w-[300px]">
+                <div class="grid grid-cols-2 gap-x-6 gap-y-6 max-w-[450px]">
                     <div class="flex items-center gap-4">
                         <div class="w-8 flex justify-center text-[#106e39] shrink-0">
                             <i class="fa-solid fa-leaf text-[22px]"></i>
@@ -103,7 +103,7 @@
                 <div class="flex-grow"></div>
 
                 <!-- Quote Box -->
-                <div class="bg-white rounded-3xl p-6 xl:p-8 w-[95%] relative mt-8 flex items-center gap-5">
+                <div class="bg-white rounded-3xl p-5 xl:p-6 w-[95%] relative mt-6 flex items-center gap-5">
                     <i class="fa-solid fa-quote-left text-[36px] text-[#106e39]"></i>
                     <p class="text-[14px] xl:text-[15px] text-gray-900 font-bold leading-relaxed">
                         "A healthier tomorrow begins with a single step today."
@@ -113,10 +113,10 @@
         </div>
 
         <!-- Right Form Area -->
-        <div class="w-full lg:w-[55%] flex flex-col p-3 sm:p-5 lg:p-6 xl:p-6 relative">
+        <div class="w-full lg:w-[55%] flex flex-col p-3 sm:p-4 lg:p-5 xl:p-5 relative">
 
             <!-- Top Nav -->
-            <div class="flex justify-between items-center mb-2 lg:mb-10 w-full">
+            <div class="flex justify-between items-center mb-2 lg:mb-3 w-full">
                 <!-- Mobile Logo -->
                 <a href="../index" class="lg:hidden flex items-center">
                     <img src="../assets/images/logo.png" alt="Logo" class="h-8">
@@ -129,13 +129,13 @@
                 </div>
             </div>
 
-            <div class="w-full max-w-[500px] mx-auto flex-grow flex flex-col justify-center">
-                <h1 class="text-3xl md:text-[34px] font-extrabold text-slate-900 mb-2 tracking-tight">Create Your <span
+            <div class="w-full max-w-[500px] mx-auto flex-grow flex flex-col justify-start pt-2 lg:pt-6">
+                <h1 class="text-3xl md:text-[34px] font-extrabold text-slate-900 mb-1.5 tracking-tight">Create Your <span
                         class="text-[#106e39]">Account</span></h1>
-                <p class="text-gray-500 text-sm mb-7 leading-relaxed font-medium">Join Healthy Bharat Mission and take
+                <p class="text-gray-500 text-[13.5px] mb-5 leading-relaxed font-medium">Join Healthy Bharat Mission and take
                     the first step towards a healthier, happier you.</p>
 
-                <form class="space-y-4">
+                <form class="space-y-3.5">
                     <!-- Name Row -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -237,11 +237,11 @@
                     <!-- Terms Checkbox -->
                     <div class="flex items-start pt-1">
                         <div class="flex items-center h-5">
-                            <input type="checkbox" checked
+                            <input type="checkbox" required id="terms-checkbox"
                                 class="w-[18px] h-[18px] text-[#106e39] bg-white border border-gray-300 rounded focus:ring-[#106e39] focus:ring-2 focus:ring-offset-1 cursor-pointer accent-[#106e39]">
                         </div>
                         <div class="ml-2.5 text-sm">
-                            <label class="font-medium text-gray-600 cursor-pointer text-[13px]">I agree to the <a
+                            <label for="terms-checkbox" class="font-medium text-gray-600 cursor-pointer text-[13px]">I agree to the <a
                                     href="../legal/terms-conditions" class="text-[#106e39] hover:underline font-bold">Terms & Conditions</a> and
                                 <a href="../legal/privacy-policy" class="text-[#106e39] hover:underline font-bold">Privacy Policy</a></label>
                         </div>
@@ -258,8 +258,8 @@
                     </div>
 
                     <!-- Submit Button -->
-                    <div class="pt-2">
-                        <button type="submit" style="padding-top: 16px; padding-bottom: 16px; font-size: 16px;"
+                    <div class="pt-1.5">
+                        <button type="submit" style="padding-top: 14px; padding-bottom: 14px; font-size: 15.5px;"
                             class="w-full flex items-center justify-center bg-[#052b14] hover:bg-[#1a5c2e] text-white font-bold px-4 rounded-xl shadow-[0_4px_12px_rgba(5,43,20,0.15)] transition-all">
                             Create Account <i class="fa-solid fa-arrow-right ml-2 text-[13px]"></i>
                         </button>

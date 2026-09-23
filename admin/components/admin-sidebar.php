@@ -12,7 +12,7 @@ $menuItems = [
     ['name' => 'Health Library', 'icon' => 'fa-solid fa-book-medical', 'url' => 'articles.php', 'permission' => 'view_health_library'],
     ['name' => 'Health Conditions', 'icon' => 'fa-solid fa-notes-medical', 'url' => 'health-conditions.php', 'permission' => 'view_health_conditions'],
     ['name' => 'Website Content (FAQs)', 'icon' => 'fa-solid fa-file-alt', 'url' => 'faqs.php', 'permission' => 'view_faqs'],
-    ['name' => 'Media', 'icon' => 'fa-solid fa-images', 'url' => '#', 'permission' => 'view_media'],
+    ['name' => 'Media', 'icon' => 'fa-solid fa-images', 'url' => 'media.php', 'permission' => 'view_media'],
     ['name' => 'Appointments', 'icon' => 'fa-solid fa-calendar-check', 'url' => 'appointments.php', 'permission' => 'view_appointments'],
     ['name' => 'Experts', 'icon' => 'fa-solid fa-user-md', 'url' => 'experts.php', 'permission' => 'view_experts'],
     ['name' => 'Contact Inquiries', 'icon' => 'fa-solid fa-headset', 'url' => 'contact-inquiries.php', 'permission' => 'view_inquiries'],
@@ -30,6 +30,24 @@ $menuItems = [
 ];
 
 $currentPage = basename($_SERVER['PHP_SELF']);
+
+$pageMapping = [
+    'article-edit.php' => 'articles.php',
+    'article-create.php' => 'articles.php',
+    'add-health-condition.php' => 'health-conditions.php',
+    'edit-health-condition.php' => 'health-conditions.php',
+    'add-offer.php' => 'offers.php',
+    'edit-offer.php' => 'offers.php',
+    'add-coupon.php' => 'coupons.php',
+    'edit-coupon.php' => 'coupons.php',
+    'add-product.php' => 'products.php',
+    'add-employee.php' => 'team.php',
+    'edit-user.php' => 'users.php',
+    'order-detail.php' => 'orders.php',
+    'review-detail.php' => 'reviews.php',
+    'contact-inquiry-details.php' => 'contact-inquiries.php',
+];
+$activePage = $pageMapping[$currentPage] ?? $currentPage;
 ?>
 <aside class="w-64 bg-white border-r border-gray-200 fixed top-0 left-0 hidden md:flex flex-col shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-20" style="height: 100vh; max-height: 100vh; overflow: hidden;">
     <div class="h-16 flex items-center px-6 border-b border-gray-100 shrink-0">
@@ -45,8 +63,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                     <?php if ($userRole === 'superadmin' || in_array($item['permission'], $userPermissions)): ?>
                         <li>
                             <a href="<?php echo htmlspecialchars($item['url']); ?>" 
-                               class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors <?php echo ($currentPage === basename($item['url']) && basename($item['url']) !== '#') ? 'bg-[#f2fbf5] text-[#106e39] font-bold' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'; ?>">
-                                <i class="<?php echo htmlspecialchars($item['icon']); ?> w-5 text-center <?php echo ($currentPage === basename($item['url']) && basename($item['url']) !== '#') ? 'text-[#106e39]' : 'text-gray-400'; ?>"></i>
+                               class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors <?php echo ($activePage === basename($item['url']) && basename($item['url']) !== '#') ? 'bg-[#f2fbf5] text-[#106e39] font-bold' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'; ?>">
+                                <i class="<?php echo htmlspecialchars($item['icon']); ?> w-5 text-center <?php echo ($activePage === basename($item['url']) && basename($item['url']) !== '#') ? 'text-[#106e39]' : 'text-gray-400'; ?>"></i>
                                 <?php echo htmlspecialchars($item['name']); ?>
                             </a>
                         </li>

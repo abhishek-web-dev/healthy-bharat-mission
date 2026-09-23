@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    window.removeCouponCheckout = function() {
+        sessionStorage.removeItem('hbm_discount');
+        sessionStorage.removeItem('hbm_coupon_code');
+        sessionStorage.removeItem('hbm_coupon_name');
+        window.location.reload();
+    };
+
     // Check authentication on all checkout pages
     if (!HBM_API.getToken()) {
         localStorage.setItem('redirectUrl', window.location.pathname);
@@ -120,13 +128,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (discount > 0) {
                     if (discRow) discRow.classList.remove('hidden');
                     if (discEl) discEl.innerText = `-₹${discount.toFixed(2)}`;
-                    if (savContainer) savContainer.classList.remove('hidden');
-                    if (savContainer) savContainer.classList.add('flex');
-                    if (savText) savText.innerText = `You save ₹${discount.toFixed(2)} on this order!`;
+                    
+                    if (savContainer) {
+                        savContainer.classList.remove('hidden');
+                        savContainer.classList.add('block');
+                        
+                        const savingsAmount = document.getElementById('checkout-savings-amount');
+                        const couponCodeDisplay = document.getElementById('checkout-applied-coupon-code');
+                        const couponNameDisplay = document.getElementById('checkout-applied-coupon-name');
+                        
+                        if (savingsAmount) savingsAmount.innerText = discount.toFixed(2);
+                        
+                        const code = sessionStorage.getItem('hbm_coupon_code') || 'COUPON';
+                        const name = sessionStorage.getItem('hbm_coupon_name');
+                        
+                        if (couponCodeDisplay) couponCodeDisplay.innerText = code;
+                        if (couponNameDisplay) {
+                            if (name) {
+                                couponNameDisplay.innerText = name;
+                                couponNameDisplay.classList.remove('hidden');
+                            } else {
+                                couponNameDisplay.classList.add('hidden');
+                            }
+                        }
+                    }
                 } else {
                     if (discRow) discRow.classList.add('hidden');
-                    if (savContainer) savContainer.classList.add('hidden');
-                    if (savContainer) savContainer.classList.remove('flex');
+                    if (savContainer) {
+                        savContainer.classList.add('hidden');
+                        savContainer.classList.remove('block');
+                    }
                 }
                 // Calculate Totals
                 let isDigitalOnly = true;
@@ -223,6 +254,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
 
+                // Auto-select the default address if available and no address is currently selected
+                if (useSavedAddressId === null) {
+                    const defaultAddr = addrsRes.data.find(a => a.is_default == 1);
+                    if (defaultAddr) {
+                        const defaultRadio = savedContainer.querySelector(`input[type="radio"][value="${defaultAddr.id}"]`);
+                        if (defaultRadio) {
+                            defaultRadio.checked = true;
+                            // Trigger the change event to highlight the card and set useSavedAddressId
+                            defaultRadio.dispatchEvent(new Event('change'));
+                        }
+                    }
+                }
+
                 // Add listener for delete buttons
                 const deleteModal = document.getElementById('delete-address-modal');
                 const deleteModalContent = document.getElementById('delete-modal-content');
@@ -297,6 +341,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 savedContainer.classList.add('hidden');
                 if (addAddressHeader) addAddressHeader.classList.add('hidden');
                 formContainer.classList.remove('hidden');
+                
+                if (window.HBM_USER) {
+                    const nameInput = document.getElementById('checkout-name');
+                    const phoneInput = document.getElementById('checkout-phone');
+                    if (nameInput && !nameInput.value) {
+                        nameInput.value = `${window.HBM_USER.first_name || ''} ${window.HBM_USER.last_name || ''}`.trim();
+                    }
+                    if (phoneInput && !phoneInput.value && window.HBM_USER.phone) {
+                        phoneInput.value = window.HBM_USER.phone;
+                    }
+                }
             }
         } catch(e) {
             console.error("Error fetching addresses:", e);
@@ -311,8 +366,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 editAddressId = null; // Unset edit mode
                 
                 // Clear form inputs
-                document.getElementById('checkout-name').value = '';
-                document.getElementById('checkout-phone').value = '';
+                const nameInput = document.getElementById('checkout-name');
+                const phoneInput = document.getElementById('checkout-phone');
+                if (nameInput) {
+                    nameInput.value = window.HBM_USER ? `${window.HBM_USER.first_name || ''} ${window.HBM_USER.last_name || ''}`.trim() : '';
+                }
+                if (phoneInput) {
+                    phoneInput.value = window.HBM_USER && window.HBM_USER.phone ? window.HBM_USER.phone : '';
+                }
                 document.getElementById('checkout-pincode').value = '';
                 document.getElementById('checkout-address1').value = '';
                 document.getElementById('checkout-address2').value = '';

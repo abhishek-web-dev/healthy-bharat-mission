@@ -140,7 +140,7 @@ require_once __DIR__ . '/components/admin-header.php';
             .product-data-container input:not([type="checkbox"]), 
             .product-data-container select, 
             .product-data-container textarea {
-                border: 1px solid #fed7aa; /* tailwind orange-200 */
+                border: 1px solid #e5e7eb; /* tailwind gray-200 */
                 border-radius: 0.375rem;
             }
             .product-data-container input:not([type="checkbox"]):focus, 
@@ -150,7 +150,7 @@ require_once __DIR__ . '/components/admin-header.php';
                 border-color: #106e39;
                 box-shadow: 0 0 0 1px #106e39;
             }
-            .product-data-container .border-orange-50 {
+            .product-data-container .border-gray-100 {
                 border-bottom-color: #e6f2eb !important; /* light logo green */
             }
             .product-data-container .border-green-200 {
@@ -207,21 +207,21 @@ require_once __DIR__ . '/components/admin-header.php';
                 <!-- General Tab -->
                 <div id="tab-general" class="tab-pane">
                     <div class="space-y-6">
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-orange-50">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-gray-100">
                             <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700">Regular Price (₹) *</label>
                             <div class="w-full sm:w-2/3">
                                 <input type="number" step="0.01" min="0" id="product-price" required class="block w-full px-3 py-2 border border-green-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm">
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-orange-50">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-gray-100">
                             <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700">Display Price (MRP ₹)</label>
                             <div class="w-full sm:w-2/3">
                                 <input type="number" step="0.01" min="0" id="product-mrp" class="block w-full px-3 py-2 border border-green-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm">
                             </div>
                         </div>
                         
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-orange-50">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-gray-100">
                             <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700">Public Sale %</label>
                             <div class="w-full sm:w-2/3 flex items-center gap-2">
                                 <input type="number" value="0" class="block w-full px-3 py-2 border border-green-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm">
@@ -229,7 +229,7 @@ require_once __DIR__ . '/components/admin-header.php';
                             </div>
                         </div>
                         
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-orange-50">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-gray-100">
                             <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700">
                                 Product Type<br>
                                 <span class="text-[10px] text-gray-400 font-normal">For tax calculation</span>
@@ -243,7 +243,7 @@ require_once __DIR__ . '/components/admin-header.php';
                             </div>
                         </div>
                         
-                        <div id="digital-asset-section" class="hidden flex-col sm:flex-row sm:items-start gap-2 pb-4 border-b border-orange-50">
+                        <div id="digital-asset-section" class="hidden flex-col sm:flex-row sm:items-start gap-2 pb-4 border-b border-gray-100">
                             <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700 mt-2">
                                 Digital File
                                 <span class="block text-[10px] text-gray-400 font-normal">PDF, ZIP, DOC, XLS (Max: 100MB)</span>
@@ -260,7 +260,7 @@ require_once __DIR__ . '/components/admin-header.php';
                             </div>
                         </div>
                         
-                        <div class="pb-4 border-b border-orange-50">
+                        <div class="pb-4 border-b border-gray-100">
                             <label class="block text-sm font-medium text-gray-700 mb-2">Purchase Note</label>
                             <textarea id="purchase-note" rows="3" class="block w-full px-3 py-2 border border-green-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm" placeholder="Enter an optional note to send the customer after purchase."></textarea>
                         </div>
@@ -272,13 +272,13 @@ require_once __DIR__ . '/components/admin-header.php';
                             </div>
                         </div>
                         
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-orange-50">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 pb-4 border-b border-gray-100">
                             <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700">SKU</label>
                             <div class="w-full sm:w-2/3">
                                 <input type="text" id="product-sku" placeholder="Stock Keeping Unit" class="block w-full px-3 py-2 border border-green-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm">
                             </div>
                         </div>
-                        <div class="flex flex-col sm:flex-row sm:items-start gap-2 pb-4 border-b border-orange-50">
+                        <div class="flex flex-col sm:flex-row sm:items-start gap-2 pb-4 border-b border-gray-100">
                             <label class="w-full sm:w-1/3 text-sm font-medium text-gray-700 mt-2">Quantity</label>
                             <div class="w-full sm:w-2/3">
                                 <input type="number" min="0" id="product-stock" value="0" class="block w-full px-3 py-2 border border-green-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm">
@@ -298,7 +298,7 @@ require_once __DIR__ . '/components/admin-header.php';
                 </div>
                 <div id="tab-nutrition" class="tab-pane hidden">
                     <label class="block text-sm font-bold text-gray-700 mb-2">Nutritional Information</label>
-                    <textarea id="product-nutrition" rows="10" class="block w-full px-3 py-2 border border-gray-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm custom-scrollbar" placeholder="Enter nutritional info..."></textarea>
+                    <textarea id="product-nutritional-info" rows="10" class="block w-full px-3 py-2 border border-gray-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm custom-scrollbar" placeholder="Enter nutritional info..."></textarea>
                 </div>
                 <div id="tab-how-to-use" class="tab-pane hidden">
                     <label class="block text-sm font-bold text-gray-700 mb-2">How to Use</label>
@@ -314,12 +314,12 @@ require_once __DIR__ . '/components/admin-header.php';
         <div class="bg-white rounded-xl border border-[#106e39] shadow-sm overflow-hidden">
             <div class="p-6 pb-2 flex justify-between items-center">
                 <h3 class="font-bold text-gray-800">Attributes (Variants)</h3>
-                <button type="button" class="text-[#106e39] text-xs font-bold hover:underline">
+                <button type="button" id="add-attribute-btn" class="text-[#106e39] text-xs font-bold hover:underline">
                     + Add Attribute
                 </button>
             </div>
-            <div class="p-6 pt-2">
-                <p class="text-sm text-gray-500 italic">No attributes added. Add attributes for size, flavor, color variations.</p>
+            <div class="p-6 pt-2" id="attributes-container">
+                <p class="text-sm text-gray-500 italic" id="no-attributes-msg">No attributes added. Add attributes for size, flavor, color variations.</p>
             </div>
         </div>
         
@@ -474,6 +474,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Attributes Logic
+    const addAttributeBtn = document.getElementById('add-attribute-btn');
+    const attributesContainer = document.getElementById('attributes-container');
+    const noAttributesMsg = document.getElementById('no-attributes-msg');
+
+    if (addAttributeBtn) {
+        addAttributeBtn.addEventListener('click', () => {
+            if (noAttributesMsg) {
+                noAttributesMsg.style.display = 'none';
+            }
+            
+            const row = document.createElement('div');
+            row.className = 'flex items-center gap-3 mb-3 attribute-row';
+            row.innerHTML = `
+                <input type="text" placeholder="Name (e.g. Size)" class="block w-1/3 px-3 py-2 border border-gray-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm">
+                <input type="text" placeholder="Values (comma separated)" class="block w-full px-3 py-2 border border-gray-200 rounded focus:ring-[#106e39] focus:border-[#106e39] sm:text-sm">
+                <button type="button" class="text-red-500 hover:bg-red-50 p-2 rounded-lg transition-colors" onclick="this.closest('.attribute-row').remove(); if(document.querySelectorAll('.attribute-row').length === 0 && document.getElementById('no-attributes-msg')) document.getElementById('no-attributes-msg').style.display = 'block';">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            `;
+            attributesContainer.appendChild(row);
+        });
+    }
+
     // Auto-generate slug from name
     document.getElementById('product-name').addEventListener('input', function(e) {
         if (!document.getElementById('product-id').value) { // Only auto-slug for new products
@@ -555,7 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Check if editing
             const urlParams = new URLSearchParams(window.location.search);
-            const editId = urlParams.get('id');
+            const editId = urlParams.get('id') || urlParams.get('pid');
             
             if (editId) {
                 document.getElementById('page-title').textContent = 'Edit Product';
@@ -565,8 +589,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Since the backend only has getAllProducts (list), we can fetch all and find it,
                 // or if there's a specific GET endpoint we can use it. We'll use the list for now.
                 const res = await window.HBM_API.request('/admin/products');
+                
+                // The API might return the array directly, in a `products` key, or in a paginated `data` key
+                let productList = [];
                 if (res.data && res.data.products) {
-                    const product = res.data.products.find(p => p.id == editId);
+                    productList = res.data.products;
+                } else if (res.data && res.data.data) {
+                    productList = res.data.data;
+                } else if (res.data && Array.isArray(res.data)) {
+                    productList = res.data;
+                } else if (Array.isArray(res.data)) {
+                    productList = res.data;
+                }
+
+                if (productList && productList.length > 0) {
+                    const product = productList.find(p => p.id == editId);
                     if (product) {
                         document.getElementById('product-id').value = product.id;
                         document.getElementById('product-name').value = product.name;
